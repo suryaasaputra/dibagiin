@@ -4,9 +4,9 @@ import Daftar from '../views/pages/register';
 
 const routes = {
   '/': Home,
-  '/home': Home,
-  '/login': Login,
-  '/daftar': Daftar,
+  '/beranda': Home,
+  '/masuk': Login,
+  '/registrasi': Daftar,
 };
 
 export default routes;
