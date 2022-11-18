@@ -1,37 +1,66 @@
+@media screen and (max-widht: 599px) {
+  .our-team .row-team {
+    gap: 45px;
+  }
+
+  .team-card {
+    margin: 10px 0;
+  }
+}
+@media screen and (min-widht: 600px) {
+  .our-team .row-team {
+    gap: 45px;
+  }
+
+  .team-card {
+    margin: 10px 10px;
+  }
+}
+
 @media screen and (min-width: 650px) {
-    .app-bar {
-      grid-template-columns: 1fr auto;
-      padding: 8px 32px;
-    }
-   
-    .app-bar .app-bar__brand h1 {
-      font-size: 1.5em;
-    }
-   
-    .app-bar .app-bar__menu {
-      display: none;
-    }
-   
-    .app-bar .app-bar__navigation {
-      position: static;
-      width: 100%;
-    }
-    
-    .app-bar .app-bar__navigation ul li {
-      display: inline-block;
-    }
-   
-    .app-bar .app-bar__navigation ul li a {
-      display: inline-block;
-      width: 120px;
-      text-align: center;
-      margin: 0;
-    }
+  .app-bar {
+    grid-template-columns: 1fr auto;
+    padding: 8px 32px;
   }
-   
-  @media screen and (min-width: 800px) {
-    .app-bar .app-bar__brand h1 {
-      font-size: 2em;
-    }
+
+  .app-bar .app-bar__brand h1 {
+    font-size: 1.5em;
   }
-   
+
+  .app-bar .app-bar__menu {
+    display: none;
+  }
+
+  .app-bar .app-bar__navigation {
+    position: static;
+    width: 100%;
+  }
+
+  .app-bar .app-bar__navigation ul li {
+    display: inline-block;
+  }
+
+  .app-bar .app-bar__navigation ul li a {
+    display: inline-block;
+    width: 120px;
+    text-align: center;
+    margin: 0;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .app-bar .app-bar__brand h1 {
+    font-size: 2em;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .our-team .row-team {
+    gap: 45px;
+    height: 350px;
+  }
+
+  .team-card {
+    margin: 10px 0;
+  }
+}
