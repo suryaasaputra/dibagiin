@@ -1,7 +1,8 @@
 # SIB Dicoding Cycle 3 2022 Capstone Project 
 ##  Capstone Team : C22-053
 
-Hi. this is our repository for our project. (dibagi.in)
+Hi. this is our repository for our project. [Dibagiin](https://dibagiin.vercel.app/)
+
 
 ## Our Team Member 
 
