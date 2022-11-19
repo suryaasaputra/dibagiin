@@ -91,3 +91,4 @@ export default function Masuk() {
     </>
   );
 }
+Masuk.layout = "L1";

@@ -293,3 +293,4 @@ export default function Home() {
     </>
   )
 }
+Home.layout = "L1";

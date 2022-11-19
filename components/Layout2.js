@@ -1,5 +1,5 @@
 import Link from "next/link";
-
+import { userService } from "../services";
 const Header = () => {
 	function handleHamburgerButtonClick() {
 		const drawer = document.querySelector("#navigationDrawer");
@@ -21,29 +21,25 @@ const Header = () => {
 				<div id="navigationDrawer" className="app-bar__navigation">
 					<ul>
 						<li>
-							<Link href="/">
+							<Link href="/beranda">
 								<i className="fa fa-home"></i> Beranda
 							</Link>
 						</li>
 						<li>
-							<Link href="/#about">
-								<i className="fa fa-info-circle"></i> Tentang
+							<Link href="#">
+								<i className="fa fa-info-circle"></i> Donasi
 							</Link>
 						</li>
 						<li>
-							<Link href="/masuk">
-								<i className="fa fa-sign-in"></i> Masuk
-							</Link>
+							<button onClick={() => userService.logout()} className="btn btn-danger">
+								<i class="fa-solid fa-right-from-bracket"></i>Logout
+							</button>
 						</li>
-						<li>
-							<Link href="/registrasi">
-								<i className="fa fa-user-plus"></i> Daftar
-							</Link>
-						</li>
+
 					</ul>
 				</div>
 			</nav>
-		</header>
+		</header >
 	);
 };
 
@@ -58,7 +54,7 @@ const Footer = () => {
 	);
 };
 
-const Layout = ({ children }) => {
+const Layout2 = ({ children }) => {
 	return (
 		<>
 			<Header />
@@ -68,4 +64,4 @@ const Layout = ({ children }) => {
 	);
 };
 
-export default Layout;
+export default Layout2;
