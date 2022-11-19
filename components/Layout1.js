@@ -58,14 +58,30 @@ const Footer = () => {
 	);
 };
 
-const Layout1 = ({ children }) => {
+// const Layout1 = ({ children }) => {
+// 	return (
+// 		<>
+// 			<Header />
+// 			{children}
+// 			<Footer />
+// 		</>
+// 	);
+// };
+
+// export default Layout1;
+
+export default function Layout1({ children }) {
+	const handleMainContentClick = () => {
+		const drawer = document.querySelector("#navigationDrawer");
+		drawer.classList.remove("open");
+	};
 	return (
 		<>
 			<Header />
-			{children}
+			<main onClick={handleMainContentClick} id="mainContent">
+				{children}
+			</main>
 			<Footer />
 		</>
-	);
-};
-
-export default Layout1;
+	)
+}

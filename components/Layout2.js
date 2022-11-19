@@ -54,14 +54,18 @@ const Footer = () => {
 	);
 };
 
-const Layout2 = ({ children }) => {
+export default function Layout2({ children }) {
+	const handleMainContentClick = () => {
+		const drawer = document.querySelector("#navigationDrawer");
+		drawer.classList.remove("open");
+	};
 	return (
 		<>
 			<Header />
-			{children}
+			<main onClick={handleMainContentClick} id="mainContent">
+				{children}
+			</main>
 			<Footer />
 		</>
-	);
-};
-
-export default Layout2;
+	)
+}

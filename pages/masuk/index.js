@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { userService } from "../../services";
+import Layout1 from "../../components/Layout1"
 export default function Masuk() {
 
   const router = useRouter();
@@ -91,4 +92,10 @@ export default function Masuk() {
     </>
   );
 }
-Masuk.layout = "L1";
+Masuk.getLayout = function getLayout(page) {
+  return (
+    <Layout1>
+      {page}
+    </Layout1>
+  )
+}

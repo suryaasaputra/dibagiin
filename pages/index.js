@@ -8,6 +8,7 @@ import suryaImage from '../public/images/teams/surya.jpg'
 import defaultImage from '../public/images/teams/default.png'
 import yudaImage from '../public/images/teams/yuda.jpeg'
 import Link from 'next/link'
+import Layout1 from "../components/Layout1"
 export default function Home() {
   return (
     <>
@@ -293,4 +294,10 @@ export default function Home() {
     </>
   )
 }
-Home.layout = "L1";
+Home.getLayout = function getLayout(page) {
+  return (
+    <Layout1>
+      {page}
+    </Layout1>
+  )
+}

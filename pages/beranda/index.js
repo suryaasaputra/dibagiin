@@ -1,4 +1,5 @@
 // import { userService } from "../../services";
+import Layout2 from "../../components/Layout2";
 export default function Beranda() {
 	// const logout = () => {
 	// 	userService.logout()
@@ -13,4 +14,10 @@ export default function Beranda() {
 		</>
 	);
 }
-Beranda.layout = "L2";
+Beranda.getLayout = function getLayout(page) {
+	return (
+		<Layout2>
+			{page}
+		</Layout2>
+	)
+}
