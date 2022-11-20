@@ -5,7 +5,7 @@ import aboutImage from '../public/images/about-img.png'
 import faqImage from '../public/images/faq.png'
 import arifImage from '../public/images/teams/arif.jpg'
 import suryaImage from '../public/images/teams/surya.jpg'
-import defaultImage from '../public/images/teams/default.png'
+import annasImage from '../public/images/teams/annas.jpg'
 import yudaImage from '../public/images/teams/yuda.jpeg'
 import Link from 'next/link'
 import Layout1 from "../components/Layout1"
@@ -260,7 +260,7 @@ export default function Home() {
               <div className="image">
                 {/* <img title="annas setiawan" className='img-fluid' src="./images/teams/default.png" alt="annas" /> */}
                 <Image
-                  src={defaultImage}
+                  src={annasImage}
                   title="Annas Setiawan"
                   className='img-fluid'
                   alt="Annas"
@@ -271,16 +271,16 @@ export default function Home() {
                 <h4>Annas Setiawan</h4>
                 <p>Back-end Developer</p>
                 <div className="sosmed">
-                  <a href="#" target="_blank" rel="noreferrer">
+                  <a href="https://www.linkedin.com/in/annas-setiawan-9271a7234/" target="_blank" rel="noreferrer">
                     <i className="fab fa-linkedin"></i>
                   </a>
-                  <a href="#" target="_blank" rel="noreferrer">
+                  <a href="https://github.com/annassetywn" target="_blank" rel="noreferrer">
                     <i className="fab fa-github"></i>
                   </a>
-                  <a href="#" target="_blank" rel="noreferrer">
+                  <a href="https://wa.me/6285156555122" target="_blank" rel="noreferrer">
                     <i className="fab fa-whatsapp"></i>
                   </a>
-                  <a href="#" target="_blank" rel="noreferrer">
+                  <a href="https://www.instagram.com/annassetywn/" target="_blank" rel="noreferrer">
                     <i className="fab fa-instagram"></i>
                   </a>
                 </div>
