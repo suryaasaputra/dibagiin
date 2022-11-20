@@ -168,7 +168,6 @@ export default function Home() {
           <div className="row row-team mt-4">
             <div className="team-card">
               <div className="image">
-                {/* <img title="yuda anugrah" src="/images/teams/yuda.jpeg" className='img-fluid' alt="yuda" /> */}
                 <Image
                   src={yudaImage}
                   title="Yuda Anugrah"
@@ -187,9 +186,6 @@ export default function Home() {
                   <a href="https://github.com/Yyuud1" target="_blank" rel="noreferrer">
                     <i className="fab fa-github"></i>
                   </a>
-                  <a href="https://wa.me/6282289675042" target="_blank" rel="noreferrer">
-                    <i className="fab fa-whatsapp"></i>
-                  </a>
                   <a href="https://www.instagram.com/yudagrh_/?hl=id" target="_blank" rel="noreferrer">
                     <i className="fab fa-instagram"></i>
                   </a>
@@ -198,7 +194,6 @@ export default function Home() {
             </div>
             <div className="team-card">
               <div className="image">
-                {/* <img title="surya saputra" className='img-fluid' src="/images/teams/surya.jpg" alt="surya" /> */}
                 <Image
                   src={suryaImage}
                   title="Surya Maulana Saputra"
@@ -211,16 +206,13 @@ export default function Home() {
                 <h4>Surya Saputra</h4>
                 <p>Back-end Developer</p>
                 <div className="sosmed">
-                  <a href="#" target="_blank" rel="noreferrer">
+                  <a href="https://www.linkedin.com/in/surya-maulana-saputra/" target="_blank" rel="noreferrer">
                     <i className="fab fa-linkedin"></i>
                   </a>
-                  <a href="#" target="_blank" rel="noreferrer">
+                  <a href="https://github.com/suryaasaputra/" target="_blank" rel="noreferrer">
                     <i className="fab fa-github"></i>
                   </a>
-                  <a href="#" target="_blank" rel="noreferrer">
-                    <i className="fab fa-whatsapp"></i>
-                  </a>
-                  <a href="#" target="_blank" rel="noreferrer">
+                  <a href="https://www.instagram.com/suryaa_saputra/" target="_blank" rel="noreferrer">
                     <i className="fab fa-instagram"></i>
                   </a>
                 </div>
@@ -228,7 +220,6 @@ export default function Home() {
             </div>
             <div className="team-card">
               <div className="image">
-                {/* <img title="arif rizqi" className='img-fluid' src="/images/teams/arif.jpg" alt="arif" /> */}
                 <Image
                   src={arifImage}
                   title="Arif Rizqi"
@@ -247,9 +238,6 @@ export default function Home() {
                   <a href="https://github.com/arifrizqi" target="_blank" rel="noreferrer">
                     <i className="fab fa-github"></i>
                   </a>
-                  <a href="https://wa.me/6205946362394" target="_blank" rel="noreferrer">
-                    <i className="fab fa-whatsapp"></i>
-                  </a>
                   <a href="https://www.instagram.com/arif_rizqi27/" target="_blank" rel="noreferrer">
                     <i className="fab fa-instagram"></i>
                   </a>
@@ -258,7 +246,6 @@ export default function Home() {
             </div>
             <div className="team-card">
               <div className="image">
-                {/* <img title="annas setiawan" className='img-fluid' src="./images/teams/default.png" alt="annas" /> */}
                 <Image
                   src={annasImage}
                   title="Annas Setiawan"
@@ -269,16 +256,13 @@ export default function Home() {
               </div>
               <div className="caption">
                 <h4>Annas Setiawan</h4>
-                <p>Back-end Developer</p>
+                <p>Front-end Developer</p>
                 <div className="sosmed">
                   <a href="https://www.linkedin.com/in/annas-setiawan-9271a7234/" target="_blank" rel="noreferrer">
                     <i className="fab fa-linkedin"></i>
                   </a>
                   <a href="https://github.com/annassetywn" target="_blank" rel="noreferrer">
                     <i className="fab fa-github"></i>
-                  </a>
-                  <a href="https://wa.me/6285156555122" target="_blank" rel="noreferrer">
-                    <i className="fab fa-whatsapp"></i>
                   </a>
                   <a href="https://www.instagram.com/annassetywn/" target="_blank" rel="noreferrer">
                     <i className="fab fa-instagram"></i>
