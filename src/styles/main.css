@@ -272,27 +272,106 @@ a {
 /* 
   SECTION TEAM
 */
-.team {
-    margin-top: 6rem;
+.our-team {
+    padding: 20px;
+    width: 100%;
 }
 
-.team .row .card-box {
-    text-align: center;
-    padding: 20px 25px;
+.our-team .team-title {
+    color: var(--black-333);
+}
+
+.our-team .team-title span {
+    color: var(--green);
+}
+
+.our-team .row-team {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.team-card {
+    position: relative;
+    width: 225px;
+    height: 225px;
     box-shadow: var(--outer-shadow);
-    border-radius: 25px;
-}
-
-.team .row .card-box img {
-    width: 120px;
+    padding-inline-end: 25px;
     border-radius: 50%;
-    border: 5px solid var(--green);
+    transition: .4s ease-in-out;
 }
 
-.team .row .card-box .social-media a{
-    padding: 10px;
-    font-size: 20px;
+.team-card:hover {
+    border-radius: 10px;
+    height: 270px;
+}
+
+.team-card .image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    left: 4%;
+    top: 7%;
+    transition: .4s ease-in-out;
+}
+
+.team-card:hover .image {
+    transform: translate(0, -65px);
+}
+
+.team-card .image img {
+    width: 100%;
+    transition: .4s ease-in-out;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 6px solid var(--green);
+}
+
+.team-card:hover .image img {
+    border-radius: 10px;
+}
+
+.caption {
+    transform: translateY(-115px);
+    text-align: center;
+    margin-left: 12px;
+    opacity: 0;
+    visibility: hidden;
+    transition: .4s ease-in-out;
+}
+
+.team-card:hover .caption {
+    opacity: 1;
+    visibility: visible;
+}
+
+.caption h4 {
+    color: var(--black-333);
+}
+
+.caption p {
     color: var(--black-555);
+}
+
+.caption .sosmed {
+    padding: 2px;
+}
+
+.caption .sosmed a {
+    list-style: none;
+    margin: 0 6px;
+    font-size: 18.5px;
+}
+
+.caption .sosmed a i {
+    color: var(--black-555);
+}
+
+.caption .sosmed a i:hover {
+    color: var(--green);
 }
 
 /* 
