@@ -10,6 +10,12 @@ import yudaImage from '../public/images/teams/yuda.jpeg'
 import Link from 'next/link'
 import Layout1 from "../components/Layout1"
 export default function Home() {
+  // Header Sticky
+  window.addEventListener('scroll', () => {
+    const header = document.querySelector('.app-bar');
+    header.classList.toggle('sticky', window.scrollY > 0);
+  });
+  
   return (
     <>
 

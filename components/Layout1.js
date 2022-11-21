@@ -31,6 +31,11 @@ const Header = () => {
 							</Link>
 						</li>
 						<li>
+							<Link href="/#our-team">
+								<i className="fa fa-user"></i> Team
+							</Link>
+						</li>
+						<li>
 							<Link href="/masuk">
 								<i className="fa fa-sign-in"></i> Masuk
 							</Link>

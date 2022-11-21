@@ -61,7 +61,6 @@ $inner-shadow: inset 3px 3px 3px #d0d0d0, inset -3px -3px 3px #f8f8f8;
 body {
 	background: $white;
 	scroll-behavior: smooth;
-	/* height: 4000px; */
 }
 
 a {
@@ -88,15 +87,24 @@ a {
 */
 
 .app-bar {
-	padding: 8px 16px;
-	background-color: $ligth-white;
+	height: 90px;
 	display: grid;
 	grid-template-columns: auto 1fr auto;
 	gap: 10px;
 	position: sticky;
 	top: 0;
 	z-index: 99;
-	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+	transition: .3s ease;
+}
+
+.app-bar.sticky {
+	background-color: $ligth-white;
+	box-shadow: $outer-shadow;
+}
+
+.app-bar nav {
+	height: 75px;
+	margin: 0 auto;
 }
 
 .app-bar .app-bar__menu {
@@ -115,12 +123,13 @@ a {
 .app-bar .app-bar__brand {
 	display: flex;
 	align-items: center;
+	margin-right: 260px;
 }
 
 .app-bar .app-bar__brand h1 {
 	color: $black-555;
 	text-transform: uppercase;
-	font-size: 22px;
+	font-size: 17px;
 	user-select: none;
 }
 
@@ -128,15 +137,20 @@ a {
 	position: absolute;
 	top: 50px;
 	left: -180px;
-	width: 150px;
+	width: 170px;
 	transition: all 0.3s;
 	padding: 8px;
-	background-color: $ligth-white;
 	overflow: hidden;
+	
 }
 
 .app-bar .app-bar__navigation.open {
-	left: 0;
+	background-color: $ligth-white;
+	left: -10px;
+}
+
+.app-bar .app-bar__navigation ul {
+	margin: 10px;
 }
 
 .app-bar .app-bar__navigation ul li {
@@ -146,10 +160,18 @@ a {
 .app-bar .app-bar__navigation ul li a {
 	display: inline-block;
 	text-decoration: none;
-	color: $black;
+	color: $black-555;
 	padding: 8px;
 	margin-bottom: 5px;
 	width: 100%;
+	font-size: 17px;
+    font-family: 'Viga', sans-serif;
+    font-weight: bold;
+    transition: .3s ease;
+}
+
+.app-bar .app-bar__navigation ul li a:hover {
+	color: $green;
 }
 
 ::-webkit-scrollbar {
@@ -458,10 +480,10 @@ OUR TEAMS
 footer {
 	margin-top: auto;
 	width: 100%;
-	box-shadow: $outer-shadow;
+	border-top: 1.5px solid #999;
 	padding: 25px;
-	background-color: #655e66;
-	color: #fff;
+	background-color: $ligth-white;
+	color: $black-444;
 }
 
 footer p {
