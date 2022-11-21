@@ -34,7 +34,7 @@ export default function MyApp({ Component, pageProps }) {
 
 	function authCheck(url) {
 		// redirect to login page if accessing a private page and not logged in
-		const publicPaths = ["/masuk", "/registrasi", "/", "/#about"];
+		const publicPaths = ["/masuk", "/registrasi", "/", "/#about", "/#our-team"];
 		const path = url.split("?")[0];
 		if (!userService.userValue && !publicPaths.includes(path)) {
 			setAuthorized(false);

@@ -9,10 +9,6 @@
 	font-family: "Viga", sans-serif;
 }
 
-main {
-	min-height: 100vh;
-}
-
 $white: #eff0f4;
 $ligth-white: #f8f8f8;
 $green: #73a700;
@@ -94,7 +90,7 @@ a {
 	position: sticky;
 	top: 0;
 	z-index: 99;
-	transition: .3s ease;
+	transition: 0.3s ease;
 }
 
 .app-bar.sticky {
@@ -141,7 +137,6 @@ a {
 	transition: all 0.3s;
 	padding: 8px;
 	overflow: hidden;
-	
 }
 
 .app-bar .app-bar__navigation.open {
@@ -165,9 +160,9 @@ a {
 	margin-bottom: 5px;
 	width: 100%;
 	font-size: 17px;
-    font-family: 'Viga', sans-serif;
-    font-weight: bold;
-    transition: .3s ease;
+	font-family: "Viga", sans-serif;
+	font-weight: bold;
+	transition: 0.3s ease;
 }
 
 .app-bar .app-bar__navigation ul li a:hover {
