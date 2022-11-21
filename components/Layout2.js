@@ -32,7 +32,7 @@ const Header = () => {
 						</li>
 						<li>
 							<button onClick={() => userService.logout()} className="btn btn-danger">
-								<i class="fa-solid fa-right-from-bracket"></i>Logout
+								<i className="fa-solid fa-right-from-bracket"></i>Logout
 							</button>
 						</li>
 
@@ -45,7 +45,7 @@ const Header = () => {
 
 const Footer = () => {
 	return (
-		<footer>
+		<footer >
 			<p>
 				© 2022 Copyright: Create & Design with <span>&#9829;</span> by Capstone
 				Team C22-053

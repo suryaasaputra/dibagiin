@@ -9,6 +9,10 @@
 	font-family: "Viga", sans-serif;
 }
 
+main {
+	min-height: 100vh;
+}
+
 $white: #eff0f4;
 $ligth-white: #f8f8f8;
 $green: #73a700;
@@ -478,7 +482,7 @@ OUR TEAMS
 
 /* FOOTER */
 footer {
-	margin-top: 5rem;
+	margin-top: auto;
 	width: 100%;
 	box-shadow: $outer-shadow;
 	padding: 25px;
