@@ -22,7 +22,7 @@ export default function Home() {
     const header = document.querySelector('.app-bar');
     header.classList.toggle('sticky', window.scrollY > 0);
   });
-  
+
   return (
     <>
       {/* SECTION HOME START */}
@@ -380,7 +380,7 @@ export default function Home() {
                         <p className="mt-1">Sebuah sepatu</p>
                     </div>
                     
-                    <div className="item sepatu sepatu2">
+                    <div className="item sepatu">
                         <Image
                           src={shoes2Image}
                           title="sepatu"
