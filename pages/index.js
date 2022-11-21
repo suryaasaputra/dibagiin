@@ -172,7 +172,7 @@ export default function Home() {
                   src={yudaImage}
                   title="Yuda Anugrah"
                   className='img-fluid'
-                  alt="Yuda"
+                  alt="Yuda Anugrah"
                 >
                 </Image>
               </div>
