@@ -1,13 +1,26 @@
-@media screen and (max-widht: 599px) {
+@media screen and (max-width: 599px) {
 	.our-team .row-team {
 		gap: 45px;
 	}
 
 	.team-card {
 		margin: 10px 0;
+	} 
+
+	.gallery-item {
+		grid-template-columns: repeat(1,1fr);
+	}
+  
+	.button-gallery ul{
+		grid-template-columns: repeat(1, 1fr);
+	}
+
+	.button-gallery ul li {
+		margin-right: 35px;
 	}
 }
-@media screen and (min-widht: 600px) {
+
+@media screen and (min-width: 600px) {
 	.our-team .row-team {
 		gap: 45px;
 	}
@@ -15,6 +28,15 @@
 	.team-card {
 		margin: 10px 10px;
 	}
+
+	.gallery-item {
+		grid-template-columns: repeat(2,1fr);
+	}
+  
+	.button-gallery ul{
+		grid-template-columns: repeat(4, 1fr);
+	}
+
 }
 
 @media screen and (min-width: 650px) {
@@ -52,6 +74,14 @@
 	.app-bar .app-bar__brand h1 {
 		font-size: 2em;
 	}
+
+	.gallery-item {
+		grid-template-columns: repeat(3,1fr);
+	}
+  
+	.button-gallery ul{
+		grid-template-columns: repeat(5, 1fr);
+	}
 }
 
 @media screen and (min-width: 1200px) {
@@ -63,4 +93,14 @@
 	.team-card {
 		margin: 10px 0;
 	}
+
+	.gallery-item {
+		grid-template-columns: repeat(4,1fr);
+	}
+  
+	.button-gallery ul{
+		grid-template-columns: repeat(5, 1fr);
+	}
+  
+  
 }

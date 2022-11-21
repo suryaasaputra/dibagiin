@@ -7,6 +7,13 @@ import arifImage from '../public/images/teams/arif.jpg'
 import suryaImage from '../public/images/teams/surya.jpg'
 import annasImage from '../public/images/teams/annas.jpg'
 import yudaImage from '../public/images/teams/yuda.jpeg'
+import buku1Image from '../public/images/gallery/buku1.jpg'
+import buku2Image from '../public/images/gallery/buku2.jpg'
+import kotak1Image from '../public/images/gallery/kotak1.jpg'
+import shoes1Image from '../public/images/gallery/shoes1.jpg'
+import shoes2Image from '../public/images/gallery/shoes2.jpg'
+import watch1Image from '../public/images/gallery/watch1.jpg'
+import watch2Image from '../public/images/gallery/watch2.jpg'
 import Link from 'next/link'
 import Layout1 from "../components/Layout1"
 export default function Home() {
@@ -18,7 +25,7 @@ export default function Home() {
   
   return (
     <>
-
+      {/* SECTION HOME START */}
       <div className="container">
         <section className="home" id="home">
           <div className="row">
@@ -47,6 +54,9 @@ export default function Home() {
           </div>
         </section>
       </div>
+      {/* SECTION HOME END */}
+
+      {/* SECTION ABOUT START */}
       <div className="container">
         <section className="about" id="about">
           <h2 style={{ fontWeight: 'bold' }} className="text-center">Tentang <span style={{ color: '#73a700' }} >DiBagi.in</span>
@@ -72,7 +82,7 @@ export default function Home() {
             <div className="col-md-6 mt-5">
               <div className="share-box p-3 outer-shadow">
                 <h3 className="text-center"><i className="fas fa-box"></i> Cara Memposting Barang Donasi</h3>
-                <div className="share-food">
+                <div className="share-stuff">
                   <ul>
                     <li>Masuk ke halaman dashboard terlebih dahulu.</li>
                     <li>Pilih menu upload barang.</li>
@@ -93,11 +103,12 @@ export default function Home() {
                 </div>
               </div>
             </div>
-
           </div>
         </section>
       </div>
+      {/* SECTION ABOUT END */}
 
+      {/* SECTION FAQ START */}
       <div className="container">
         <section className="about" id="faq">
           <h2 style={{ fontWeight: 'bold' }} className="text-center">Yang Sering <span style={{ color: '#73a700' }} >Ditanyakan</span>
@@ -166,7 +177,9 @@ export default function Home() {
           </div>
         </section>
       </div>
+      {/* SECTION FAQ END */}
 
+      {/* SECTION TEAM START */}
       <div className="container mt-2">
         <section className="our-team" id="our-team">
           <h2 className="team-title text-center">Tim <span>Kami</span>
@@ -279,8 +292,110 @@ export default function Home() {
           </div>
         </section>
       </div >
+      {/* SECTION TEAM END */}
 
+      {/* SECTION GALLERY START */}
+      <div className='container mb-5'>
+        <section className='gallery mt-5' id='gallery'>
+          <h2 className="gallery-title text-center">Gallery</h2>
 
+          <div className="row row-button-gallery mt-3">
+                <div className="button-gallery">
+                    <ul className="filter-button">
+                        <li className="list active" data-filter="all">All</li>
+                        <li className="list" data-filter="buku">Buku</li>
+                        <li className="list" data-filter="kotak">Kotak</li>
+                        <li className="list" data-filter="jam">Jam</li> 
+                        <li className="list" data-filter="sepatu">Sepatu</li> 
+                    </ul>
+                </div>
+          </div>
+
+          <div className="row row-gallery-item mt-3">
+                <div className="gallery-item">
+
+                    <div className="item buku">
+                        <Image
+                          src={buku1Image}
+                          title="buku"
+                          className='img-fluid'
+                          alt="buku"
+                         >
+                        </Image>
+                        <p className="mt-1">Sebuah buku</p>
+                    </div>
+
+                    <div className="item buku">
+                        <Image
+                          src={buku2Image}
+                          title="buku"
+                          className='img-fluid'
+                          alt="buku"
+                         >
+                        </Image>
+                        <p className="mt-1">Sebuah buku</p>
+                    </div>
+
+                    <div className="item kotak">
+                        <Image
+                          src={kotak1Image}
+                          title="kotak"
+                          className='img-fluid'
+                          alt="kotak"
+                         >
+                        </Image>
+                        <p className="mt-1">Sebuah kotak</p>
+                    </div>
+
+                    <div className="item jam">
+                        <Image
+                          src={watch1Image}
+                          title="jam"
+                          className='img-fluid'
+                          alt="jam"
+                         >
+                        </Image>
+                        <p className="mt-1">Sebuah jam</p>
+                    </div>
+
+                    <div className="item jam">
+                        <Image
+                          src={watch2Image}
+                          title="jam"
+                          className='img-fluid'
+                          alt="jam"
+                         >
+                        </Image>
+                        <p className="mt-1">Sebuah jam</p>
+                    </div>
+
+                    <div className="item sepatu">
+                        <Image
+                          src={shoes1Image}
+                          title="sepatu"
+                          className='img-fluid'
+                          alt="sepatu"
+                         >
+                        </Image>
+                        <p className="mt-1">Sebuah sepatu</p>
+                    </div>
+                    
+                    <div className="item sepatu sepatu2">
+                        <Image
+                          src={shoes2Image}
+                          title="sepatu"
+                          className='img-fluid'
+                          alt="sepatu"
+                         >
+                        </Image>
+                        <p className="mt-1">Sebuah sepatu</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+      </div>
+      {/* SECTION GALLERY END */}
     </>
   )
 }

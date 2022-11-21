@@ -102,6 +102,11 @@ a {
 	box-shadow: $outer-shadow;
 }
 
+.app-bar .app-bar__navigation.sticky {
+	background-color: $ligth-white;
+
+}
+
 .app-bar nav {
 	height: 75px;
 	margin: 0 auto;
@@ -276,26 +281,6 @@ a {
 }
 
 /* 
-  SECTION FOOD AND STUFF
-*/
-.food-stuff {
-	margin-top: 6rem;
-}
-
-.food-stuff .row .card-box {
-	padding: 20px;
-	box-shadow: $outer-shadow;
-}
-
-.food-stuff .row .card-box .img-fluid {
-	width: 100%;
-}
-
-.food-stuff .row .card-box p {
-	margin: 5px 0;
-}
-
-/* 
   LOGIN
 */
 .container {
@@ -380,6 +365,7 @@ OUR TEAMS
 
 .our-team .team-title {
 	color: $black-333;
+	font-weight: bold;
 }
 
 .our-team .team-title span {
@@ -474,6 +460,77 @@ OUR TEAMS
 
 .caption .sosmed a i:hover {
 	color: $green;
+}
+
+/*
+  GALLERY
+*/
+.gallery-title  {
+    color: $black-333;
+	font-weight: bold;
+}
+
+.gallery-title span {
+	color: $green;
+}
+
+.button-gallery {
+    padding: 10px;
+    width: 100%;
+}
+
+.button-gallery ul{
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap: 15px;
+}
+
+.button-gallery ul li {
+    list-style: none;
+    padding: 12px 25px;
+    box-shadow: $outer-shadow;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    color: $black-555;
+}
+
+.button-gallery ul li.active {
+   color: $green;
+}
+
+.gallery-item {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+}
+
+.gallery-item .item {
+    padding: 10px 15px;
+    box-shadow: $outer-shadow;
+    border-radius: 5px;
+    color: $black-333;
+}
+
+.gallery-item .item.show {
+    animation: Fade .5s ease-in-out;
+}
+
+.gallery-item .item.hide {
+    display: none;
+}
+
+.gallery-item .item .img-gallery {
+    width: 100%;
+    transition: .3s ease;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.gallery-item .item img:hover {
+    transform: translateY(-8px);
 }
 
 /* FOOTER */
