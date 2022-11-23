@@ -78,102 +78,59 @@ a {
 	box-shadow: $outer-shadow;
 }
 
-/*
-  AppBar
-*/
-
-.app-bar {
-	height: 90px;
-	display: grid;
-	grid-template-columns: auto 1fr auto;
-	gap: 10px;
-	position: sticky;
-	top: 0;
-	z-index: 99;
-	transition: 0.3s ease;
-}
-
-.app-bar.sticky {
-	background-color: $ligth-white;
-	box-shadow: $outer-shadow;
-}
-
-.app-bar .app-bar__navigation.sticky {
-	background-color: $ligth-white;
-
-}
-
-.app-bar nav {
-	height: 75px;
-	margin: 0 auto;
-}
-
-.app-bar .app-bar__menu {
-	display: flex;
-	align-items: center;
-}
-
-.app-bar .app-bar__menu button {
-	background-color: transparent;
-	border: none;
-	font-size: 18px;
-	padding: 8px;
-	cursor: pointer;
-}
-
-.app-bar .app-bar__brand {
-	display: flex;
-	align-items: center;
-	margin-right: 260px;
-}
-
-.app-bar .app-bar__brand h1 {
-	color: $black-555;
-	text-transform: uppercase;
-	font-size: 17px;
-	user-select: none;
-}
-
-.app-bar .app-bar__navigation {
-	position: absolute;
-	top: 50px;
-	left: -180px;
-	width: 185px;
-	transition: all 0.3s;
-	padding: 8px;
-	overflow: hidden;
-}
-
-.app-bar .app-bar__navigation.open {
-	background-color: $ligth-white;
-	left: -10px;
-}
-
-.app-bar .app-bar__navigation ul {
-	margin: 10px;
-}
-
-.app-bar .app-bar__navigation ul li {
-	list-style: none;
-}
-
-.app-bar .app-bar__navigation ul li a {
-	display: inline-block;
-	text-decoration: none;
-	color: $black-555;
-	padding: 8px;
-	margin-bottom: 5px;
-	width: 100%;
-	font-size: 17px;
-	font-family: "Viga", sans-serif;
-	font-weight: bold;
-	transition: 0.3s ease;
-}
-
-.app-bar .app-bar__navigation ul li a:hover {
+.btn-style:hover {
 	color: $green;
 }
 
+/*
+  HEADER
+*/ 
+header {
+    width: 100%;
+    padding: 2px 8px;
+    transition: .3s ease;
+}
+
+header.sticky {
+    background-color: $ligth-white;
+    padding: 5px 10px;
+}
+
+.container .navbar-item ul {
+    margin: 0 auto;
+}
+
+.container .navbar-item ul li{
+    margin: 0 5px;
+    transition: .3s ease;
+}
+
+.container .navbar-item ul li a {
+    font-weight: bold;
+	color: $black-444;
+	transition: 0.3s ease;
+}
+
+.container .navbar-item ul li a:hover {
+	color: $green;
+}
+
+.container .logo {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: $black-444;
+}
+
+.container .logo i {
+    color: $green;
+    font-size: 1.2em;
+}
+
+.container .logo span {
+    color: $green;
+}
+
+// SCROLLBAR CUSTOM
 ::-webkit-scrollbar {
 	width: 10px;
 }
@@ -186,7 +143,7 @@ a {
     SECTION HOME
 */
 .home {
-	margin-top: 3rem;
+	margin-top: 5rem;
 }
 
 .home .row .info-home {
@@ -287,6 +244,7 @@ a {
 
 .login-form,
 .register-form {
+	margin-top: 5rem;
 	width: 430px;
 	padding: 0 35px;
 	background: $ligth-white;
@@ -512,18 +470,28 @@ OUR TEAMS
     animation: Fade .5s ease-in-out;
 }
 
+// animation
+@keyframes Fade {
+	0% {
+		opacity: 0;
+		visibility: hidden;
+	} 100% {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
 .gallery-item .item.hide {
     display: none;
 }
 
-.gallery-item .item .img-gallery {
+.gallery-item .item .img {
     width: 100%;
-    transition: .3s ease;
     cursor: pointer;
     border-radius: 5px;
 }
 
-.gallery-item .item img:hover {
+.gallery-item .item .img:hover {
     transform: translateY(-8px);
 }
 

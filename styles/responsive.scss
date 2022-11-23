@@ -1,4 +1,8 @@
 @media screen and (max-width: 599px) {
+	header {
+		background: #f8f8f8;
+	}
+
 	.our-team .row-team {
 		gap: 45px;
 	}
@@ -21,6 +25,10 @@
 }
 
 @media screen and (min-width: 600px) {
+	header {
+		background: #f8f8f8;
+	}
+
 	.our-team .row-team {
 		gap: 45px;
 	}
@@ -39,40 +47,9 @@
 
 }
 
-@media screen and (min-width: 650px) {
-	.app-bar {
-		grid-template-columns: 1fr auto;
-		padding: 8px 32px;
-	}
-
-	.app-bar .app-bar__brand h1 {
-		font-size: 1.5em;
-	}
-
-	.app-bar .app-bar__menu {
-		display: none;
-	}
-
-	.app-bar .app-bar__navigation {
-		position: static;
-		width: 100%;
-	}
-
-	.app-bar .app-bar__navigation ul li {
-		display: inline-block;
-	}
-
-	.app-bar .app-bar__navigation ul li a {
-		display: inline-block;
-		width: 120px;
-		text-align: center;
-		margin: 0;
-	}
-}
-
 @media screen and (min-width: 800px) {
-	.app-bar .app-bar__brand h1 {
-		font-size: 2em;
+	header {
+		background: #f8f8f8;
 	}
 
 	.gallery-item {
@@ -85,6 +62,10 @@
 }
 
 @media screen and (min-width: 1200px) {
+	header {
+		background: none;
+	}
+
 	.our-team .row-team {
 		gap: 45px;
 		height: 350px;

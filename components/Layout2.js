@@ -1,45 +1,52 @@
 import Link from "next/link";
 import { userService } from "../services";
 const Header = () => {
-	function handleHamburgerButtonClick() {
-		const drawer = document.querySelector("#navigationDrawer");
-		drawer.classList.toggle("open");
-	}
 	return (
-		<header className="app-bar">
-			<nav className="navbar navbar-expand-lg navbar-light">
-				<div className="app-bar__menu">
-					<button onClick={handleHamburgerButtonClick} id="hamburgerButton">
-						☰
-					</button>
-				</div>
-				<div className="app-bar__brand">
-					<Link href="/" className="navbar-brand logo">
-						<i className="fas fa-heart"></i> Dibagi<span>.in</span>
-					</Link>
-				</div>
-				<div id="navigationDrawer" className="app-bar__navigation">
-					<ul>
-						<li>
-							<Link href="/beranda">
-								<i className="fa fa-home"></i> Beranda
-							</Link>
-						</li>
-						<li>
-							<Link href="#">
-								<i className="fa fa-info-circle"></i> Donasi
-							</Link>
-						</li>
-						<li>
-							<button onClick={() => userService.logout()} className="btn btn-danger">
-								<i className="fa-solid fa-right-from-bracket"></i>Logout
-							</button>
-						</li>
+		<header className="fixed-top header">
+        <nav className="navbar navbar-expand-lg navbar-light">
+            <div className="container">
 
-					</ul>
+              <Link className="navbar-brand logo" href="/beranda">
+				<i className="fas fa-heart"></i> Dibagi<span>.in</span>
+			  </Link>
+
+              <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
+              </button>
+              <div className="collapse navbar-collapse navbar-item" id="navbarSupportedContent">
+                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+
+                  <li className="nav-item">
+                    <Link className="nav-link" aria-current="page" href="/beranda">
+						<i className="fa fa-home"></i> Beranda
+					</Link>
+                  </li>
+
+                  <li className="nav-item">
+                    <Link className="nav-link" aria-current="page" href="/beranda">
+						<i className="fa fa-info-circle"></i> Donasi
+					</Link>
+                  </li>
+
+				  <li className="nav-item">
+                    <Link className="nav-link" aria-current="page" href="/beranda">
+						<i className="fa fa-message"></i> Info
+					</Link>
+                  </li>
+
+                </ul>
+
+				<div className="d-flex">
+				  <li style={{listStyle: 'none'}} className="nav-item">
+                    <button style={{border: 'none', padding:'6px'}} className="bg-danger text-white" onClick={() => userService.logout()}>
+						<i className="fa-solid fa-right-from-bracket"></i> Logout
+					</button>
+                  </li>
 				</div>
-			</nav>
-		</header >
+              </div>
+            </div>
+          </nav>
+    </header>
 	);
 };
 
@@ -55,14 +62,10 @@ const Footer = () => {
 };
 
 export default function Layout2({ children }) {
-	const handleMainContentClick = () => {
-		const drawer = document.querySelector("#navigationDrawer");
-		drawer.classList.remove("open");
-	};
 	return (
 		<>
 			<Header />
-			<main onClick={handleMainContentClick} id="mainContent">
+			<main id="mainContent">
 				{children}
 			</main>
 			<Footer />

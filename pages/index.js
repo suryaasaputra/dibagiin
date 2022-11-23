@@ -19,9 +19,31 @@ import Layout1 from "../components/Layout1"
 export default function Home() {
   // Header Sticky
   window.addEventListener('scroll', () => {
-    const header = document.querySelector('.app-bar');
+    const header = document.querySelector('.header');
     header.classList.toggle('sticky', window.scrollY > 0);
   });
+
+  // Filter feature for gallery
+  const galleryFilter = e => {
+    const filterButtonContainer = document.querySelector(".filter-button");
+    const galleryItems = document.querySelectorAll(".item");
+
+    if (e.target.classList.contains('list')) {
+      filterButtonContainer.querySelector('.active').classList.remove('active');
+      
+      e.target.classList.add('active');
+      const filterValue = e.target.getAttribute('data-filter');
+      galleryItems.forEach( item => {
+        if (item.classList.contains(filterValue) || filterValue === 'all') {
+          item.classList.remove('hide');
+          item.classList.add('show');
+        } else {
+          item.classList.remove('show');
+          item.classList.add('hide');
+        }
+      });
+    }
+  };
 
   return (
     <>
@@ -302,11 +324,11 @@ export default function Home() {
           <div className="row row-button-gallery mt-3">
                 <div className="button-gallery">
                     <ul className="filter-button">
-                        <li className="list active" data-filter="all">All</li>
-                        <li className="list" data-filter="buku">Buku</li>
-                        <li className="list" data-filter="kotak">Kotak</li>
-                        <li className="list" data-filter="jam">Jam</li> 
-                        <li className="list" data-filter="sepatu">Sepatu</li> 
+                        <li className="list active" onClick={galleryFilter} data-filter="all">All</li>
+                        <li className="list"  onClick={galleryFilter} data-filter="buku">Buku</li>
+                        <li className="list"  onClick={galleryFilter} data-filter="kotak">Kotak</li>
+                        <li className="list"  onClick={galleryFilter} data-filter="jam">Jam</li> 
+                        <li className="list"  onClick={galleryFilter} data-filter="sepatu">Sepatu</li> 
                     </ul>
                 </div>
           </div>
@@ -318,7 +340,8 @@ export default function Home() {
                         <Image
                           src={buku1Image}
                           title="buku"
-                          className='img-fluid'
+                          className='img-fluid img'
+                          style={{transition: '0.3s'}}
                           alt="buku"
                          >
                         </Image>
@@ -329,7 +352,8 @@ export default function Home() {
                         <Image
                           src={buku2Image}
                           title="buku"
-                          className='img-fluid'
+                          className='img-fluid img'
+                          style={{transition: '0.3s'}}
                           alt="buku"
                          >
                         </Image>
@@ -340,7 +364,8 @@ export default function Home() {
                         <Image
                           src={kotak1Image}
                           title="kotak"
-                          className='img-fluid'
+                          className='img-fluid img'
+                          style={{transition: '0.3s'}}
                           alt="kotak"
                          >
                         </Image>
@@ -351,7 +376,8 @@ export default function Home() {
                         <Image
                           src={watch1Image}
                           title="jam"
-                          className='img-fluid'
+                          className='img-fluid img'
+                          style={{transition: '0.3s'}}
                           alt="jam"
                          >
                         </Image>
@@ -362,7 +388,8 @@ export default function Home() {
                         <Image
                           src={watch2Image}
                           title="jam"
-                          className='img-fluid'
+                          className='img-fluid img'
+                          style={{transition: '0.3s'}}
                           alt="jam"
                          >
                         </Image>
@@ -373,7 +400,8 @@ export default function Home() {
                         <Image
                           src={shoes1Image}
                           title="sepatu"
-                          className='img-fluid'
+                          className='img-fluid img'
+                          style={{transition: '0.3s'}}
                           alt="sepatu"
                          >
                         </Image>
@@ -384,7 +412,8 @@ export default function Home() {
                         <Image
                           src={shoes2Image}
                           title="sepatu"
-                          className='img-fluid'
+                          className='img-fluid img'
+                          style={{transition: '0.3s'}}
                           alt="sepatu"
                          >
                         </Image>
