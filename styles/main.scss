@@ -143,7 +143,7 @@ header.sticky {
     SECTION HOME
 */
 .home {
-	margin-top: 5rem;
+	margin-top: 10rem;
 }
 
 .home .row .info-home {
@@ -485,13 +485,13 @@ OUR TEAMS
     display: none;
 }
 
-.gallery-item .item .img {
+.gallery-item .item img {
     width: 100%;
     cursor: pointer;
     border-radius: 5px;
 }
 
-.gallery-item .item .img:hover {
+.gallery-item .item img:hover {
     transform: translateY(-8px);
 }
 
