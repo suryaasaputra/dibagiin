@@ -16,6 +16,9 @@ export const userService = {
 	register,
 	login,
 	getUser,
+	setProfilPhoto,
+	editProfile,
+	deleteAccount,
 	logout,
 };
 
@@ -37,9 +40,31 @@ function register(user) {
 	});
 }
 
+
 function getUser(username) {
 	const endpoint = `${API_ENDPOINT.user}/${username}`
 	return fetchWrapper.get(endpoint).then((response) => {
+		return response;
+	});
+}
+
+
+function setProfilPhoto(username, file) {
+	const endpoint = `${API_ENDPOINT.user}/${username}/ProfilPhoto`;
+	return fetchWrapper.putFileFoto(endpoint, file).then((response) => {
+		return response;
+	});
+}
+function editProfile(username, user) {
+	const endpoint = `${API_ENDPOINT.user}/${username}`;
+	return fetchWrapper.put(endpoint, user).then((response) => {
+		return response;
+	});
+}
+
+function deleteAccount() {
+	const endpoint = `${API_ENDPOINT.user}/${username}`;
+	return fetchWrapper.delete(endpoint).then((response) => {
 		return response;
 	});
 }
@@ -51,6 +76,3 @@ function logout() {
 	Router.push("/masuk");
 }
 
-function getAll() {
-	return fetchWrapper.get(baseUrl);
-}

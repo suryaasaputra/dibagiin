@@ -16,6 +16,7 @@ const Header = () => {
 							width='120'
 							className="logo-text"
 							alt="logo-text"
+							priority
 						>
 						</Image>
 					</Link>
@@ -70,6 +71,7 @@ const Footer = () => {
 						width='100'
 						className="logo"
 						alt="logo"
+						priority
 					>
 					</Image>
 				</div>
