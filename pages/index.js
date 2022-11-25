@@ -207,7 +207,7 @@ export default function Home() {
       {/* SECTION GALLERY START */}
       <div className='container mb-5'>
         <section className='gallery mt-5' id='gallery'>
-          <h2 className="gallery-title text-center">Galeri</h2>
+          <h2 className="gallery-title text-center">Contoh Barang Yang <span style={{ color: '#73a700' }} >Didonasikan</span></h2>
 
           <div className="row row-button-gallery mt-3">
             <div className="button-gallery">
