@@ -21,8 +21,8 @@ export default function Masuk() {
 
   // form validation rules 
   const validationSchema = Yup.object().shape({
-    email: Yup.string().email("Invalid email address").required('Email is required'),
-    password: Yup.string().required('Password is required')
+    email: Yup.string().email("Alamat email tidak valid").required('Email tidak boleh kosong'),
+    password: Yup.string().required('Kata sandi tidak boleh kosong')
   });
   const formOptions = { resolver: yupResolver(validationSchema) };
 
@@ -56,13 +56,13 @@ export default function Masuk() {
 
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="mb-4">
-                <label htmlFor="email" className="form-label">Surel*</label>
+                <label htmlFor="email" className="form-label">Email*</label>
                 <input type="text" {...register('email')} className={`form-control ${errors.email ? 'is-invalid' : ''}`} id="email" aria-describedby="emailHelp" placeholder="raisa@gmail.com" />
                 <div className="invalid-feedback">{errors.email?.message}</div>
               </div>
               <div className="mb-3">
                 <label htmlFor="password" className="form-label">Kata Sandi*</label>
-                <input type="password" {...register('password')} className={`form-control ${errors.password ? 'is-invalid' : ''}`} id="password" placeholder="*****" />
+                <input type="password" {...register('password')} className={`form-control ${errors.password ? 'is-invalid' : ''}`} id="password" placeholder="*****" autoComplete="on" />
                 <div className="invalid-feedback">{errors.password?.message}</div>
               </div>
 

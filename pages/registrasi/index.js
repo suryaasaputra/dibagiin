@@ -21,19 +21,39 @@ export default function Registrasi() {
 
 	// form validation rules
 	const validationSchema = Yup.object().shape({
-		full_name: Yup.string().required("Full Name is required"),
-		user_name: Yup.string().required("Username is required"),
+		full_name: Yup.string().required("Nama lengkap tidak boleh kosong"),
+		user_name: Yup.string().required("Username tidak boleh kosong")
+			.test({
+				skipAbsent: true,
+				test(value, ctx) {
+					if (value.includes(" ")) {
+						return ctx.createError({ message: 'Username tidak boleh ada spasi' })
+					}
+					return true
+				}
+			}),
 		email: Yup.string()
-			.email("Invalid email address")
-			.required("Email is required"),
+			.email("Alamat email tidak valid")
+			.required("Email tidak boleh kosong"),
 		password: Yup.string()
-			.required("Password is required")
-			.min(8, "Minimal 8 character"),
+			.required("Kata sandi tidak boleh kosong")
+			.min(8, "Panjang minimal 8 karakter"),
 		phone_number: Yup.string()
-			.required("Phone Number is required")
-			.min(10, "Invalid phone number"),
-		gender: Yup.string().required("Gender is required"),
-		address: Yup.string().required("Address is required"),
+			.required("Nomor Whatsapp tidak boleh kosong")
+			.test({
+				skipAbsent: true,
+				test(value, ctx) {
+					if (!value.startsWith('8')) {
+						return ctx.createError({ message: 'Nomor whatsapp tidak valid, contoh:+62 8xxxx' })
+					}
+					if (value.length < 12) {
+						return ctx.createError({ message: 'Nomor whatsapp tidak valid' })
+					}
+					return true
+				}
+			}),
+		gender: Yup.string().required("Jenis kelamin tidak boleh kosong"),
+		address: Yup.string().required("Alamat tidak boleh kosong"),
 	});
 	const formOptions = { resolver: yupResolver(validationSchema) };
 
@@ -42,27 +62,28 @@ export default function Registrasi() {
 	const { errors } = formState;
 	// submit data from form value
 	function onSubmit(data) {
-		return userService
-			.register(data)
-			.then(() => {
-				Swal.fire({
-					icon: "success",
-					title: "Registrasi berhasil silahkan Login",
-					confirmButtonColor: "#73a700",
-					timer: 1000,
-				}).then((result) => {
-					if (result.isConfirmed) {
-						router.push("/masuk");
-					} else if (result.isDenied) {
-						router.push("/masuk");
-					} else if (result.isDismissed) {
-						router.push("/masuk");
-					}
-				});
-			})
-			.catch((error) => {
-				setError("apiError", { message: error });
-			});
+		console.log(data);
+		// return userService
+		// 	.register(data)
+		// 	.then(() => {
+		// 		Swal.fire({
+		// 			icon: "success",
+		// 			title: "Registrasi berhasil silahkan Login",
+		// 			confirmButtonColor: "#73a700",
+		// 			timer: 2000,
+		// 		}).then((result) => {
+		// 			if (result.isConfirmed) {
+		// 				router.push("/masuk");
+		// 			} else if (result.isDenied) {
+		// 				router.push("/masuk");
+		// 			} else if (result.isDismissed) {
+		// 				router.push("/masuk");
+		// 			}
+		// 		});
+		// 	})
+		// 	.catch((error) => {
+		// 		setError("apiError", { message: error });
+		// 	});
 	}
 	return (
 		<>
@@ -92,7 +113,7 @@ export default function Registrasi() {
 							</div>
 							<div className="mb-4">
 								<label htmlFor="email" className="form-label">
-									Surel*
+									Email*
 								</label>
 								<input
 									type="text"
@@ -106,7 +127,7 @@ export default function Registrasi() {
 							</div>
 							<div className="mb-4">
 								<label htmlFor="user_name" className="form-label">
-									Nama Pengguna*
+									Username*
 								</label>
 								<input
 									type="username"
@@ -131,6 +152,7 @@ export default function Registrasi() {
 										}`}
 									id="password"
 									placeholder="*****"
+									autoComplete="on"
 									{...register("password")}
 								/>
 								<div className="invalid-feedback">
