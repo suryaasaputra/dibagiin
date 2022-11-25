@@ -34,19 +34,19 @@ const Header = () => {
 							</li>
 
 							<li className="nav-item">
-								<a className="nav-link" href="#about">
+								<a className="nav-link" href="/#about">
 									<i className="fa fa-info-circle"></i> Tentang
 								</a>
 							</li>
 
 							<li className="nav-item">
-								<a className="nav-link" href="#gallery">
+								<a className="nav-link" href="/#gallery">
 									<i className="fa fa-image"></i> Galeri
 								</a>
 							</li>
 
 							<li className="nav-item">
-								<a className="nav-link" href="#our-team">
+								<a className="nav-link" href="/#our-team">
 									<i className="fa fa-user"></i> Tim Kami
 								</a>
 							</li>
