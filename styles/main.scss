@@ -322,7 +322,7 @@ input[type="text"] {
 OUR TEAMS
 */
 .our-team {
-	margin-top: 8rem;
+	// margin-top: 8rem;
 	padding: 20px;
 	width: 100%;
 }
@@ -521,6 +521,19 @@ footer .content-footer {
 	display: grid;
 	gap: 10px;
 	grid-template-columns: repeat(3, 1fr);
+}
+
+li > .serviceLink {
+	color: #444;
+	display: inline-block;
+	min-height: 44px;
+	min-width: 44px;
+}
+li > .helpCenter {
+	color: #444;
+	display: inline-block;
+	min-height: 44px;
+	min-width: 44px;
 }
 
 footer .content-footer .box-footer {
