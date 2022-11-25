@@ -43,8 +43,8 @@ export default function Registrasi() {
 			.test({
 				skipAbsent: true,
 				test(value, ctx) {
-					if (!value.startsWith('8')) {
-						return ctx.createError({ message: 'Nomor whatsapp tidak valid, contoh:+62 8xxxx' })
+					if (!value.startsWith('+62')) {
+						return ctx.createError({ message: 'Nomor whatsapp tidak valid, contoh:+628xxx' })
 					}
 					if (value.length < 12) {
 						return ctx.createError({ message: 'Nomor whatsapp tidak valid' })
@@ -62,28 +62,28 @@ export default function Registrasi() {
 	const { errors } = formState;
 	// submit data from form value
 	function onSubmit(data) {
-		console.log(data);
-		// return userService
-		// 	.register(data)
-		// 	.then(() => {
-		// 		Swal.fire({
-		// 			icon: "success",
-		// 			title: "Registrasi berhasil silahkan Login",
-		// 			confirmButtonColor: "#73a700",
-		// 			timer: 2000,
-		// 		}).then((result) => {
-		// 			if (result.isConfirmed) {
-		// 				router.push("/masuk");
-		// 			} else if (result.isDenied) {
-		// 				router.push("/masuk");
-		// 			} else if (result.isDismissed) {
-		// 				router.push("/masuk");
-		// 			}
-		// 		});
-		// 	})
-		// 	.catch((error) => {
-		// 		setError("apiError", { message: error });
-		// 	});
+		// console.log(data);
+		return userService
+			.register(data)
+			.then(() => {
+				Swal.fire({
+					icon: "success",
+					title: "Registrasi berhasil silahkan Login",
+					confirmButtonColor: "#73a700",
+					timer: 2000,
+				}).then((result) => {
+					if (result.isConfirmed) {
+						router.push("/masuk");
+					} else if (result.isDenied) {
+						router.push("/masuk");
+					} else if (result.isDismissed) {
+						router.push("/masuk");
+					}
+				});
+			})
+			.catch((error) => {
+				setError("apiError", { message: error });
+			});
 	}
 	return (
 		<>
@@ -168,7 +168,7 @@ export default function Registrasi() {
 									className={`form-control ${errors.phone_number ? "is-invalid" : ""
 										}`}
 									id="phone_number"
-									placeholder="628123468798"
+									placeholder="+628123468798"
 									{...register("phone_number")}
 								/>
 								<div className="invalid-feedback">

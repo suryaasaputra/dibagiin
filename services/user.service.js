@@ -15,6 +15,7 @@ export const userService = {
 	},
 	register,
 	login,
+	getUser,
 	logout,
 };
 
@@ -32,6 +33,13 @@ function login(email, password) {
 function register(user) {
 	const endpoint = API_ENDPOINT.register;
 	return fetchWrapper.post(endpoint, user).then((response) => {
+		return response;
+	});
+}
+
+function getUser(username) {
+	const endpoint = `${API_ENDPOINT.user}/${username}`
+	return fetchWrapper.get(endpoint).then((response) => {
 		return response;
 	});
 }
