@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Head from 'next/head';
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
@@ -46,6 +47,9 @@ export default function Masuk() {
   return (
     <>
       <div className="container mt-3 mb-5">
+        <Head>
+          <title>Masuk-Dibagiin</title>
+        </Head>
         <div className="card login-form">
           <div className="card-body">
             <h2 className="card-title text-center">Masuk</h2>

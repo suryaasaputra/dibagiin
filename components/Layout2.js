@@ -7,56 +7,56 @@ import { userService } from "../services";
 const Header = () => {
 	return (
 		<header className="fixed-top header">
-        <nav className="navbar navbar-expand-lg navbar-light">
-            <div className="container">
+			<nav className="navbar navbar-expand-lg navbar-light">
+				<div className="container">
 
-              <Link className="navbar-brand logo" href="/beranda">
-			  	 <Image
-					src={LogoText}
-					width='120'
-					className="logo-text"
-					alt="logo-text"
-					>
-				 </Image>
-			  </Link>
-
-              <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-              </button>
-              <div className="collapse navbar-collapse navbar-item" id="navbarSupportedContent">
-                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-
-                  <li className="nav-item">
-                    <Link className="nav-link" aria-current="page" href="/beranda">
-						<i className="fa fa-home"></i> Beranda
+					<Link className="navbar-brand logo" href="/beranda">
+						<Image
+							src={LogoText}
+							width='120'
+							className="logo-text"
+							alt="logo-text"
+						>
+						</Image>
 					</Link>
-                  </li>
 
-                  <li className="nav-item">
-                    <Link className="nav-link" aria-current="page" href="/beranda">
-						<i className="fa fa-info-circle"></i> Donasi
-					</Link>
-                  </li>
-
-				  <li className="nav-item">
-                    <Link className="nav-link" aria-current="page" href="/beranda">
-						<i className="fa fa-message"></i> Info
-					</Link>
-                  </li>
-
-                </ul>
-
-				<div className="d-flex">
-				  <li style={{listStyle: 'none'}} className="nav-item">
-                    <button style={{border: 'none', padding:'6px'}} className="bg-danger text-white" onClick={() => userService.logout()}>
-						<i className="fa-solid fa-right-from-bracket"></i> Logout
+					<button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span className="navbar-toggler-icon"></span>
 					</button>
-                  </li>
+					<div className="collapse navbar-collapse navbar-item" id="navbarSupportedContent">
+						<ul className="navbar-nav me-auto mb-2 mb-lg-0">
+
+							<li className="nav-item">
+								<Link className="nav-link" aria-current="page" href="/beranda">
+									<i className="fa fa-home"></i> Beranda
+								</Link>
+							</li>
+
+							<li className="nav-item">
+								<Link className="nav-link" aria-current="page" href="/beranda">
+									<i className="fa fa-info-circle"></i> Donasi
+								</Link>
+							</li>
+
+							<li className="nav-item">
+								<Link className="nav-link" aria-current="page" href="/beranda">
+									<i className="fa fa-message"></i> Info
+								</Link>
+							</li>
+
+						</ul>
+
+						<div className="d-flex">
+							<li style={{ listStyle: 'none' }} className="nav-item">
+								<button style={{ border: 'none', padding: '6px' }} className="bg-danger text-white" onClick={() => userService.logout()}>
+									<i className="fa-solid fa-right-from-bracket"></i> Logout
+								</button>
+							</li>
+						</div>
+					</div>
 				</div>
-              </div>
-            </div>
-          </nav>
-    </header>
+			</nav>
+		</header>
 	);
 };
 
@@ -66,10 +66,10 @@ const Footer = () => {
 			<div className="content-footer">
 				<div className="logo-footer box-footer">
 					<Image
-					src={Logo}
-					width='100'
-					className="logo"
-					alt="logo"
+						src={Logo}
+						width='100'
+						className="logo"
+						alt="logo"
 					>
 					</Image>
 				</div>
@@ -107,9 +107,7 @@ export default function Layout2({ children }) {
 	return (
 		<>
 			<Header />
-			<main id="mainContent">
-				{children}
-			</main>
+			{children}
 			<Footer />
 		</>
 	)

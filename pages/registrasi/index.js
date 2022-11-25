@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Swal from "sweetalert2";
+import Head from 'next/head';
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
@@ -66,6 +67,9 @@ export default function Registrasi() {
 	return (
 		<>
 			<div className="container mt-3 mb-5">
+				<Head>
+					<title>Registrasi-Dibagiin</title>
+				</Head>
 				<div className="card register-form">
 					<div className="card-body">
 						<h2 className="card-title text-center">Daftar</h2>

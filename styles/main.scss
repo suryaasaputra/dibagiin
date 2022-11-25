@@ -17,9 +17,12 @@ $black-444: #444;
 $black-555: #555;
 $salmon: salmon;
 
-$outer-shadow: 3px 3px 2px #d0d0d0, -3px -3px 2px #f8f8f8;
-$outer-shadow-0: 0 0 0 #d0d0d0, 0 0 0 #f8f8f8;
-$inner-shadow: inset 3px 3px 3px #d0d0d0, inset -3px -3px 3px #f8f8f8;
+$outer-shadow: 3px 3px 2px #d0d0d0,
+-3px -3px 2px #f8f8f8;
+$outer-shadow-0: 0 0 0 #d0d0d0,
+0 0 0 #f8f8f8;
+$inner-shadow: inset 3px 3px 3px #d0d0d0,
+inset -3px -3px 3px #f8f8f8;
 
 .outer-shadow {
 	box-shadow: $outer-shadow;
@@ -92,29 +95,29 @@ a {
 
 /*
   HEADER
-*/ 
+*/
 header {
-    width: 100%;
-    padding: 2px 8px;
-    transition: .3s ease;
+	width: 100%;
+	padding: 2px 8px;
+	transition: .3s ease;
 }
 
 header.sticky {
-    background-color: $ligth-white;
-    padding: 5px 10px;
+	background-color: $ligth-white;
+	padding: 5px 10px;
 }
 
 .container .navbar-item ul {
-    margin: 0 auto;
+	margin: 0 auto;
 }
 
-.container .navbar-item ul li{
-    margin: 0 5px;
-    transition: .3s ease;
+.container .navbar-item ul li {
+	margin: 0 5px;
+	transition: .3s ease;
 }
 
 .container .navbar-item ul li a {
-    font-weight: bold;
+	font-weight: bold;
 	color: $black-444;
 	transition: 0.3s ease;
 }
@@ -124,18 +127,18 @@ header.sticky {
 }
 
 .container .logo {
-    font-weight: bold;
-    font-size: 1.5em;
-    color: $black-444;
+	font-weight: bold;
+	font-size: 1.5em;
+	color: $black-444;
 }
 
 .container .logo i {
-    color: $green;
-    font-size: 1.2em;
+	color: $green;
+	font-size: 1.2em;
 }
 
 .container .logo span {
-    color: $green;
+	color: $green;
 }
 
 // SCROLLBAR CUSTOM
@@ -181,7 +184,7 @@ header.sticky {
 	width: 100%;
 }
 
-.text-home > .detail {
+.text-home>.detail {
 	margin-left: 20px;
 	color: $green;
 }
@@ -425,8 +428,8 @@ OUR TEAMS
 /*
   GALLERY
 */
-.gallery-title  {
-    color: $black-333;
+.gallery-title {
+	color: $black-333;
 	font-weight: bold;
 }
 
@@ -435,47 +438,47 @@ OUR TEAMS
 }
 
 .button-gallery {
-    padding: 10px;
-    width: 100%;
+	padding: 10px;
+	width: 100%;
 }
 
-.button-gallery ul{
-    text-align: center;
-    display: grid;
-    grid-template-columns: repeat(5,1fr);
-    gap: 15px;
+.button-gallery ul {
+	text-align: center;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 15px;
 }
 
 .button-gallery ul li {
-    list-style: none;
-    padding: 12px 25px;
-    box-shadow: $outer-shadow;
-    border-radius: 20px;
-    cursor: pointer;
-    font-weight: bold;
-    color: $black-555;
+	list-style: none;
+	padding: 12px 25px;
+	box-shadow: $outer-shadow;
+	border-radius: 20px;
+	cursor: pointer;
+	font-weight: bold;
+	color: $black-555;
 }
 
 .button-gallery ul li.active {
-   color: $green;
+	color: $green;
 }
 
 .gallery-item {
-    padding: 10px;
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    gap: 20px;
+	padding: 10px;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 20px;
 }
 
 .gallery-item .item {
-    padding: 10px 15px;
-    box-shadow: $outer-shadow;
-    border-radius: 5px;
-    color: $black-333;
+	padding: 10px 15px;
+	box-shadow: $outer-shadow;
+	border-radius: 5px;
+	color: $black-333;
 }
 
 .gallery-item .item.show {
-    animation: Fade .5s ease-in-out;
+	animation: Fade .5s ease-in-out;
 }
 
 // animation
@@ -483,24 +486,26 @@ OUR TEAMS
 	0% {
 		opacity: 0;
 		visibility: hidden;
-	} 100% {
+	}
+
+	100% {
 		opacity: 1;
 		visibility: visible;
 	}
 }
 
 .gallery-item .item.hide {
-    display: none;
+	display: none;
 }
 
 .gallery-item .item img {
-    width: 100%;
-    cursor: pointer;
-    border-radius: 5px;
+	width: 100%;
+	cursor: pointer;
+	border-radius: 5px;
 }
 
 .gallery-item .item img:hover {
-    transform: translateY(-8px);
+	transform: translateY(-8px);
 }
 
 /* FOOTER */

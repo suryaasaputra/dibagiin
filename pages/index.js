@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from 'next/image'
+import Head from 'next/head'
 import heroImage from '../public/images/heros/hero-image.png'
 import aboutImage from '../public/images/about-img.png'
 import faqImage from '../public/images/faq.png'
@@ -30,10 +31,10 @@ export default function Home() {
 
     if (e.target.classList.contains('list')) {
       filterButtonContainer.querySelector('.active').classList.remove('active');
-      
+
       e.target.classList.add('active');
       const filterValue = e.target.getAttribute('data-filter');
-      galleryItems.forEach( item => {
+      galleryItems.forEach(item => {
         if (item.classList.contains(filterValue) || filterValue === 'all') {
           item.classList.remove('hide');
           item.classList.add('show');
@@ -49,6 +50,9 @@ export default function Home() {
     <>
       {/* SECTION HOME START */}
       <div className="container">
+        <Head>
+          <title>Dibagiin</title>
+        </Head>
         <section className="home" id="home">
           <div className="row">
             <div className="col info-home">
@@ -68,7 +72,6 @@ export default function Home() {
                   className='img-fluid'
                   loading='eager'
                   priority
-
                 >
                 </Image>
               </div>
@@ -81,7 +84,7 @@ export default function Home() {
       {/* SECTION ABOUT START */}
       <div className="container">
         <section className="about" id="about">
-          <h2 style={{ fontWeight: 'bold' }} className="text-center">Tentang <span style={{ color: '#73a700'}} >DiBagi.in</span>
+          <h2 style={{ fontWeight: 'bold' }} className="text-center">Tentang <span style={{ color: '#73a700' }} >DiBagi.in</span>
           </h2>
           <div className="row">
             <div className="col-md-6">
@@ -322,106 +325,106 @@ export default function Home() {
           <h2 className="gallery-title text-center">Gallery</h2>
 
           <div className="row row-button-gallery mt-3">
-                <div className="button-gallery">
-                    <ul className="filter-button">
-                        <li className="list active" onClick={galleryFilter} data-filter="all">All</li>
-                        <li className="list"  onClick={galleryFilter} data-filter="buku">Buku</li>
-                        <li className="list"  onClick={galleryFilter} data-filter="kotak">Kotak</li>
-                        <li className="list"  onClick={galleryFilter} data-filter="jam">Jam</li> 
-                        <li className="list"  onClick={galleryFilter} data-filter="sepatu">Sepatu</li> 
-                    </ul>
-                </div>
+            <div className="button-gallery">
+              <ul className="filter-button">
+                <li className="list active" onClick={galleryFilter} data-filter="all">All</li>
+                <li className="list" onClick={galleryFilter} data-filter="buku">Buku</li>
+                <li className="list" onClick={galleryFilter} data-filter="kotak">Kotak</li>
+                <li className="list" onClick={galleryFilter} data-filter="jam">Jam</li>
+                <li className="list" onClick={galleryFilter} data-filter="sepatu">Sepatu</li>
+              </ul>
+            </div>
           </div>
 
           <div className="row row-gallery-item mt-3">
-                <div className="gallery-item">
+            <div className="gallery-item">
 
-                    <div className="item buku">
-                        <Image
-                          src={buku1Image}
-                          title="buku"
-                          className='img-fluid img'
-                          style={{transition: '0.3s'}}
-                          alt="buku"
-                         >
-                        </Image>
-                        <p className="mt-1">Sebuah buku</p>
-                    </div>
+              <div className="item buku">
+                <Image
+                  src={buku1Image}
+                  title="buku"
+                  className='img-fluid img'
+                  style={{ transition: '0.3s' }}
+                  alt="buku"
+                >
+                </Image>
+                <p className="mt-1">Sebuah buku</p>
+              </div>
 
-                    <div className="item buku">
-                        <Image
-                          src={buku2Image}
-                          title="buku"
-                          className='img-fluid img'
-                          style={{transition: '0.3s'}}
-                          alt="buku"
-                         >
-                        </Image>
-                        <p className="mt-1">Sebuah buku</p>
-                    </div>
+              <div className="item buku">
+                <Image
+                  src={buku2Image}
+                  title="buku"
+                  className='img-fluid img'
+                  style={{ transition: '0.3s' }}
+                  alt="buku"
+                >
+                </Image>
+                <p className="mt-1">Sebuah buku</p>
+              </div>
 
-                    <div className="item kotak">
-                        <Image
-                          src={kotak1Image}
-                          title="kotak"
-                          className='img-fluid img'
-                          style={{transition: '0.3s'}}
-                          alt="kotak"
-                         >
-                        </Image>
-                        <p className="mt-1">Sebuah kotak</p>
-                    </div>
+              <div className="item kotak">
+                <Image
+                  src={kotak1Image}
+                  title="kotak"
+                  className='img-fluid img'
+                  style={{ transition: '0.3s' }}
+                  alt="kotak"
+                >
+                </Image>
+                <p className="mt-1">Sebuah kotak</p>
+              </div>
 
-                    <div className="item jam">
-                        <Image
-                          src={watch1Image}
-                          title="jam"
-                          className='img-fluid img'
-                          style={{transition: '0.3s'}}
-                          alt="jam"
-                         >
-                        </Image>
-                        <p className="mt-1">Sebuah jam</p>
-                    </div>
+              <div className="item jam">
+                <Image
+                  src={watch1Image}
+                  title="jam"
+                  className='img-fluid img'
+                  style={{ transition: '0.3s' }}
+                  alt="jam"
+                >
+                </Image>
+                <p className="mt-1">Sebuah jam</p>
+              </div>
 
-                    <div className="item jam">
-                        <Image
-                          src={watch2Image}
-                          title="jam"
-                          className='img-fluid img'
-                          style={{transition: '0.3s'}}
-                          alt="jam"
-                         >
-                        </Image>
-                        <p className="mt-1">Sebuah jam</p>
-                    </div>
+              <div className="item jam">
+                <Image
+                  src={watch2Image}
+                  title="jam"
+                  className='img-fluid img'
+                  style={{ transition: '0.3s' }}
+                  alt="jam"
+                >
+                </Image>
+                <p className="mt-1">Sebuah jam</p>
+              </div>
 
-                    <div className="item sepatu">
-                        <Image
-                          src={shoes1Image}
-                          title="sepatu"
-                          className='img-fluid img'
-                          style={{transition: '0.3s'}}
-                          alt="sepatu"
-                         >
-                        </Image>
-                        <p className="mt-1">Sebuah sepatu</p>
-                    </div>
-                    
-                    <div className="item sepatu">
-                        <Image
-                          src={shoes2Image}
-                          title="sepatu"
-                          className='img-fluid img'
-                          style={{transition: '0.3s'}}
-                          alt="sepatu"
-                         >
-                        </Image>
-                        <p className="mt-1">Sebuah sepatu</p>
-                    </div>
+              <div className="item sepatu">
+                <Image
+                  src={shoes1Image}
+                  title="sepatu"
+                  className='img-fluid img'
+                  style={{ transition: '0.3s' }}
+                  alt="sepatu"
+                >
+                </Image>
+                <p className="mt-1">Sebuah sepatu</p>
+              </div>
 
-                </div>
+              <div className="item sepatu">
+                <Image
+                  src={shoes2Image}
+                  title="sepatu"
+                  className='img-fluid img'
+                  style={{ transition: '0.3s' }}
+                  alt="sepatu"
+                >
+                </Image>
+                <p className="mt-1">Sebuah sepatu</p>
+              </div>
+
             </div>
+          </div>
         </section>
       </div>
       {/* SECTION GALLERY END */}
