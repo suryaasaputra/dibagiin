@@ -81,7 +81,7 @@ export default function Home() {
       {/* SECTION ABOUT START */}
       <div className="container">
         <section className="about" id="about">
-          <h2 style={{ fontWeight: 'bold' }} className="text-center">Tentang <span style={{ color: '#73a700' }} >DiBagi.in</span>
+          <h2 style={{ fontWeight: 'bold' }} className="text-center">Tentang <span style={{ color: '#73a700'}} >DiBagi.in</span>
           </h2>
           <div className="row">
             <div className="col-md-6">

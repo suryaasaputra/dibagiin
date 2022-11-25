@@ -27,6 +27,15 @@
 		margin-right: 35px;
 		width: 20rem;
 	}
+
+	footer .content-footer {
+		grid-template-columns: repeat(1, 1fr);
+	}
+
+	footer .content-footer .box-footer h4 {
+		width: 100%;
+	}
+	
 }
 
 @media screen and (min-width: 600px) {
@@ -50,6 +59,14 @@
 		grid-template-columns: repeat(4, 1fr);
 	}
 
+	footer .content-footer {
+		grid-template-columns: repeat(1, 1fr);
+	}
+
+	footer .content-footer .box-footer h4 {
+		width: 100%;
+	}
+
 }
 
 @media screen and (min-width: 800px) {
@@ -63,6 +80,14 @@
   
 	.button-gallery ul{
 		grid-template-columns: repeat(5, 1fr);
+	}
+
+	footer .content-footer {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	footer .content-footer .box-footer h4 {
+		width: 170px;
 	}
 }
 
@@ -88,5 +113,8 @@
 		grid-template-columns: repeat(5, 1fr);
 	}
   
+	footer .content-footer {
+		grid-template-columns: repeat(3, 1fr);
+	}
   
 }

@@ -57,6 +57,14 @@ $inner-shadow: inset 3px 3px 3px #d0d0d0, inset -3px -3px 3px #f8f8f8;
 body {
 	background: $white;
 	scroll-behavior: smooth;
+	margin: 0;
+}
+
+#__next {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 a {
@@ -497,14 +505,43 @@ OUR TEAMS
 
 /* FOOTER */
 footer {
-	margin-top: auto;
 	width: 100%;
-	border-top: 1.5px solid #999;
-	padding: 25px;
-	background-color: $ligth-white;
+	background: #ddd;
 	color: $black-444;
 }
 
-footer p {
-	text-align: center;
+footer .content-footer {
+	width: 100%;
+	padding: 20px;
+	display: grid;
+	gap: 10px;
+	grid-template-columns: repeat(3, 1fr);
+}
+
+footer .content-footer .box-footer {
+	padding: 5px;
+}
+
+footer .content-footer .box-footer h4 {
+	border-bottom: 1px solid $black-444;
+	width: 170px;
+}
+
+footer .content-footer .logo-footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+footer .content-footer .logo-footer h1 i {
+	color: $green;
+}
+
+footer .content-footer .copyright {
+	grid-column: 1/4;
+	padding: 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #555;
 }

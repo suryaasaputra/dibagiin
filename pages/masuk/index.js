@@ -45,7 +45,7 @@ export default function Masuk() {
   }
   return (
     <>
-      <div className="container mt-3">
+      <div className="container mt-3 mb-5">
         <div className="card login-form">
           <div className="card-body">
             <h2 className="card-title text-center">Masuk</h2>

@@ -1,10 +1,13 @@
 // import { userService } from "../../services";
 import Layout2 from "../../components/Layout2";
+import Image from 'next/image';
 export default function Beranda() {
 	return (
 		<>
 			<div className="container mt-5">
-				<h3 className=" m-auto p-5">Ini beranda</h3>
+				<section className="p-1">
+				  <h2 className="mt-5">Beranda</h2>
+				</section>
 			</div>
 		</>
 	);

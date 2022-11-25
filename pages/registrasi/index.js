@@ -65,7 +65,7 @@ export default function Registrasi() {
 	}
 	return (
 		<>
-			<div className="container mt-3">
+			<div className="container mt-3 mb-5">
 				<div className="card register-form">
 					<div className="card-body">
 						<h2 className="card-title text-center">Daftar</h2>
