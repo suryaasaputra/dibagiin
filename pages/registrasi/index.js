@@ -83,7 +83,7 @@ export default function Registrasi() {
 									className={`form-control ${errors.full_name ? "is-invalid" : ""
 										}`}
 									id="full_name"
-									placeholder="Jhon Doe"
+									placeholder="Raisa Andriana"
 									{...register("full_name")}
 								/>
 								<div className="invalid-feedback">
@@ -92,21 +92,21 @@ export default function Registrasi() {
 							</div>
 							<div className="mb-4">
 								<label htmlFor="email" className="form-label">
-									Email*
+									Surel*
 								</label>
 								<input
 									type="text"
 									className={`form-control ${errors.email ? "is-invalid" : ""}`}
 									id="email"
 									aria-describedby="emailHelp"
-									placeholder="you@email.com"
+									placeholder="raisa@gmail.com"
 									{...register("email")}
 								/>
 								<div className="invalid-feedback">{errors.email?.message}</div>
 							</div>
 							<div className="mb-4">
 								<label htmlFor="user_name" className="form-label">
-									Username*
+									Nama Pengguna*
 								</label>
 								<input
 									type="username"
@@ -114,7 +114,7 @@ export default function Registrasi() {
 										}`}
 									id="user_name"
 									aria-describedby="usernameHelp"
-									placeholder="Username"
+									placeholder="raisa6690"
 									{...register("user_name")}
 								/>
 								<div className="invalid-feedback">
@@ -123,7 +123,7 @@ export default function Registrasi() {
 							</div>
 							<div className="mb-3">
 								<label htmlFor="password" className="form-label">
-									Password*
+									Kata Sandi*
 								</label>
 								<input
 									type="password"
@@ -146,7 +146,7 @@ export default function Registrasi() {
 									className={`form-control ${errors.phone_number ? "is-invalid" : ""
 										}`}
 									id="phone_number"
-									placeholder="08123468798"
+									placeholder="628123468798"
 									{...register("phone_number")}
 								/>
 								<div className="invalid-feedback">

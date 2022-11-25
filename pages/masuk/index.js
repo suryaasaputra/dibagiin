@@ -56,12 +56,12 @@ export default function Masuk() {
 
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="mb-4">
-                <label htmlFor="email" className="form-label">Email*</label>
-                <input type="text" {...register('email')} className={`form-control ${errors.email ? 'is-invalid' : ''}`} id="email" aria-describedby="emailHelp" placeholder="you@email.com" />
+                <label htmlFor="email" className="form-label">Surel*</label>
+                <input type="text" {...register('email')} className={`form-control ${errors.email ? 'is-invalid' : ''}`} id="email" aria-describedby="emailHelp" placeholder="raisa@gmail.com" />
                 <div className="invalid-feedback">{errors.email?.message}</div>
               </div>
               <div className="mb-3">
-                <label htmlFor="password" className="form-label">Password*</label>
+                <label htmlFor="password" className="form-label">Kata Sandi*</label>
                 <input type="password" {...register('password')} className={`form-control ${errors.password ? 'is-invalid' : ''}`} id="password" placeholder="*****" />
                 <div className="invalid-feedback">{errors.password?.message}</div>
               </div>
