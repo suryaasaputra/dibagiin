@@ -60,7 +60,7 @@ export default function Home() {
                 <h4>Selamat Datang</h4>
                 <h2>Ayo bagikan barang layak pakai kamu sekarang!</h2>
                 <p>Kamu bingung ingin mendonasikan barang layak pakai kamu kemana? Tenaaang!, sekarang kamu bisa bagiin barang barang kamu di sini.</p>
-                <Link className="btn-style outer-shadow inner-shadow hover-in-shadow" href="/registrasi">Mulai</Link>
+                <Link className="btn-style outer-shadow inner-shadow hover-in-shadow" href="/masuk">Mulai</Link>
                 <a className="detail" href="#about">Detail</a>
               </div>
             </div>
@@ -84,7 +84,7 @@ export default function Home() {
       {/* SECTION ABOUT START */}
       <div className="container">
         <section className="about" id="about">
-          <h2 style={{ fontWeight: 'bold' }} className="text-center">Tentang <span style={{ color: '#73a700' }} >DiBagi.in</span>
+          <h2 style={{ fontWeight: 'bold' }} className="text-center">Tentang <span style={{ color: '#73a700' }} >Dibagiin</span>
           </h2>
           <div className="row">
             <div className="col-md-6">
@@ -100,8 +100,8 @@ export default function Home() {
             <div className="col-md-6 info-about">
               <div className="text-about">
                 <h3>Platform Berbagi Barang Layak Pakai</h3>
-                <p>DiBagi.in merupakan suatu platform berbagi barang layak pakai yang ditujukan bagi korban bencana yang sangat membutuhkan bantuan barang layak pakai dari donatur yang selalu sedia mendonasikan barang mereka melalui platform dibagi.in, Platform ini sebagai perantara atau penghubung antara donatur dengan para korban bencana. <br /> Cara kerja aplikasi ini sangat sederhana, Donatur cukup memotret barang layak pakai mereka di platform dibagi.in kemudian pada korban bencana yang membutuhkan barang cukup klik ambil pada dashboard dibagi.in </p>
-                <a className="btn-style outer-shadow inner-shadow hover-in-shadow" href="#">Mulai Sekarang!</a>
+                <p><span style={{ color: '#73a700' }} >Dibagiin</span> merupakan suatu platform berbagi barang layak pakai yang ditujukan bagi korban bencana yang sangat membutuhkan bantuan barang layak pakai dari donatur yang selalu sedia mendonasikan barang mereka melalui platform <span style={{ color: '#73a700' }} >Dibagiin</span>, Platform ini sebagai perantara atau penghubung antara donatur dengan para korban bencana. <br /> Cara kerja aplikasi ini sangat sederhana, Donatur cukup memotret barang layak pakai mereka di platform <span style={{ color: '#73a700' }} >Dibagiin</span> kemudian pada korban bencana yang membutuhkan barang cukup klik ambil pada dashboard <span style={{ color: '#73a700' }} >Dibagiin</span> </p>
+                <a className="btn-style outer-shadow inner-shadow hover-in-shadow" href="masuk">Mulai Sekarang!</a>
               </div>
             </div>
             <div className="col-md-6 mt-5">
@@ -156,11 +156,11 @@ export default function Home() {
                   <div className="accordion-item">
                     <h2 className="accordion-header" id="headingOne">
                       <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        <span style={{ color: '#73a700' }} >Apa itu DiBagi.in?</span>
+                        <span style={{ color: '#73a700' }} >Apa itu <span style={{ color: '#73a700' }} >Dibagiin</span>?</span>
                       </button>
                     </h2>
                     <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                      <div className="accordion-body"> DiBagi.in merupakan suatu platform berbagi barang layak pakai yang ditujukan bagi korban bencana yang sangat membutuhkan bantuan barang layak pakai dari donatur yang selalu sedia mendonasikan barang mereka melalui platform dibagi.in, Platform ini sebagai perantara atau penghubung antara donatur dengan para korban bencana. </div>
+                      <div className="accordion-body"> <span style={{ color: '#73a700' }} >Dibagiin</span> merupakan suatu platform berbagi barang layak pakai yang ditujukan bagi korban bencana yang sangat membutuhkan bantuan barang layak pakai dari donatur yang selalu sedia mendonasikan barang mereka melalui platform <span style={{ color: '#73a700' }} >Dibagiin</span>, Platform ini sebagai perantara atau penghubung antara donatur dengan para korban bencana. </div>
                     </div>
                   </div>
                   <div className="accordion-item">
@@ -203,6 +203,116 @@ export default function Home() {
         </section>
       </div>
       {/* SECTION FAQ END */}
+
+      {/* SECTION GALLERY START */}
+      <div className='container mb-5'>
+        <section className='gallery mt-5' id='gallery'>
+          <h2 className="gallery-title text-center">Galeri</h2>
+
+          <div className="row row-button-gallery mt-3">
+            <div className="button-gallery">
+              <ul className="filter-button">
+                <li className="list active" onClick={galleryFilter} data-filter="all">Semua</li>
+                <li className="list" onClick={galleryFilter} data-filter="buku">Buku</li>
+                <li className="list" onClick={galleryFilter} data-filter="kotak">Kotak</li>
+                <li className="list" onClick={galleryFilter} data-filter="jam">Jam</li>
+                <li className="list" onClick={galleryFilter} data-filter="sepatu">Sepatu</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="row row-gallery-item mt-3">
+            <div className="gallery-item">
+
+              <div className="item buku">
+                <Image
+                  src={buku1Image}
+                  title="buku"
+                  className='img-fluid img'
+                  style={{ transition: '0.3s' }}
+                  alt="buku"
+                >
+                </Image>
+                <p className="mt-1">Sebuah buku</p>
+              </div>
+
+              <div className="item buku">
+                <Image
+                  src={buku2Image}
+                  title="buku"
+                  className='img-fluid img'
+                  style={{ transition: '0.3s' }}
+                  alt="buku"
+                >
+                </Image>
+                <p className="mt-1">Sebuah buku</p>
+              </div>
+
+              <div className="item kotak">
+                <Image
+                  src={kotak1Image}
+                  title="kotak"
+                  className='img-fluid img'
+                  style={{ transition: '0.3s' }}
+                  alt="kotak"
+                >
+                </Image>
+                <p className="mt-1">Sebuah kotak</p>
+              </div>
+
+              <div className="item jam">
+                <Image
+                  src={watch1Image}
+                  title="jam"
+                  className='img-fluid img'
+                  style={{ transition: '0.3s' }}
+                  alt="jam"
+                >
+                </Image>
+                <p className="mt-1">Sebuah jam</p>
+              </div>
+
+              <div className="item jam">
+                <Image
+                  src={watch2Image}
+                  title="jam"
+                  className='img-fluid img'
+                  style={{ transition: '0.3s' }}
+                  alt="jam"
+                >
+                </Image>
+                <p className="mt-1">Sebuah jam</p>
+              </div>
+
+              <div className="item sepatu">
+                <Image
+                  src={shoes1Image}
+                  title="sepatu"
+                  className='img-fluid img'
+                  style={{ transition: '0.3s' }}
+                  alt="sepatu"
+                >
+                </Image>
+                <p className="mt-1">Sebuah sepatu</p>
+              </div>
+
+              <div className="item sepatu">
+                <Image
+                  src={shoes2Image}
+                  title="sepatu"
+                  className='img-fluid img'
+                  style={{ transition: '0.3s' }}
+                  alt="sepatu"
+                >
+                </Image>
+                <p className="mt-1">Sebuah sepatu</p>
+              </div>
+
+            </div>
+          </div>
+        </section>
+      </div>
+      {/* SECTION GALLERY END */}
 
       {/* SECTION TEAM START */}
       <div className="container mt-2">
@@ -318,116 +428,6 @@ export default function Home() {
         </section>
       </div >
       {/* SECTION TEAM END */}
-
-      {/* SECTION GALLERY START */}
-      <div className='container mb-5'>
-        <section className='gallery mt-5' id='gallery'>
-          <h2 className="gallery-title text-center">Gallery</h2>
-
-          <div className="row row-button-gallery mt-3">
-            <div className="button-gallery">
-              <ul className="filter-button">
-                <li className="list active" onClick={galleryFilter} data-filter="all">All</li>
-                <li className="list" onClick={galleryFilter} data-filter="buku">Buku</li>
-                <li className="list" onClick={galleryFilter} data-filter="kotak">Kotak</li>
-                <li className="list" onClick={galleryFilter} data-filter="jam">Jam</li>
-                <li className="list" onClick={galleryFilter} data-filter="sepatu">Sepatu</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="row row-gallery-item mt-3">
-            <div className="gallery-item">
-
-              <div className="item buku">
-                <Image
-                  src={buku1Image}
-                  title="buku"
-                  className='img-fluid img'
-                  style={{ transition: '0.3s' }}
-                  alt="buku"
-                >
-                </Image>
-                <p className="mt-1">Sebuah buku</p>
-              </div>
-
-              <div className="item buku">
-                <Image
-                  src={buku2Image}
-                  title="buku"
-                  className='img-fluid img'
-                  style={{ transition: '0.3s' }}
-                  alt="buku"
-                >
-                </Image>
-                <p className="mt-1">Sebuah buku</p>
-              </div>
-
-              <div className="item kotak">
-                <Image
-                  src={kotak1Image}
-                  title="kotak"
-                  className='img-fluid img'
-                  style={{ transition: '0.3s' }}
-                  alt="kotak"
-                >
-                </Image>
-                <p className="mt-1">Sebuah kotak</p>
-              </div>
-
-              <div className="item jam">
-                <Image
-                  src={watch1Image}
-                  title="jam"
-                  className='img-fluid img'
-                  style={{ transition: '0.3s' }}
-                  alt="jam"
-                >
-                </Image>
-                <p className="mt-1">Sebuah jam</p>
-              </div>
-
-              <div className="item jam">
-                <Image
-                  src={watch2Image}
-                  title="jam"
-                  className='img-fluid img'
-                  style={{ transition: '0.3s' }}
-                  alt="jam"
-                >
-                </Image>
-                <p className="mt-1">Sebuah jam</p>
-              </div>
-
-              <div className="item sepatu">
-                <Image
-                  src={shoes1Image}
-                  title="sepatu"
-                  className='img-fluid img'
-                  style={{ transition: '0.3s' }}
-                  alt="sepatu"
-                >
-                </Image>
-                <p className="mt-1">Sebuah sepatu</p>
-              </div>
-
-              <div className="item sepatu">
-                <Image
-                  src={shoes2Image}
-                  title="sepatu"
-                  className='img-fluid img'
-                  style={{ transition: '0.3s' }}
-                  alt="sepatu"
-                >
-                </Image>
-                <p className="mt-1">Sebuah sepatu</p>
-              </div>
-
-            </div>
-          </div>
-        </section>
-      </div>
-      {/* SECTION GALLERY END */}
     </>
   )
 }
