@@ -40,14 +40,14 @@ const Header = () => {
 							</li>
 
 							<li className="nav-item">
-								<a className="nav-link" href="#our-team">
-									<i className="fa fa-user"></i> Team
+								<a className="nav-link" href="#gallery">
+									<i className="fa fa-image"></i> Galeri
 								</a>
 							</li>
 
 							<li className="nav-item">
-								<a className="nav-link" href="#gallery">
-									<i className="fa fa-image"></i> Gallery
+								<a className="nav-link" href="#our-team">
+									<i className="fa fa-user"></i> Tim Kami
 								</a>
 							</li>
 
@@ -87,22 +87,22 @@ const Footer = () => {
 				</div>
 
 				<div className="our-service box-footer">
-					<h4>Our Service</h4>
+					<h4>Layanan Kami</h4>
 					<ul>
-						<li>Stuff donation</li>
-						<li>Take stuff</li>
-						<li>Accept stuff</li>
-						<li>About us</li>
+						<li><Link className="serviceLink" href="#">Stuff donation</Link></li>
+						<li><Link className="serviceLink" href="#">Take stuff</Link></li>
+						<li><Link className="serviceLink" href="#">Accept stuff</Link></li>
+						<li><Link className="serviceLink" href="#">About us</Link></li>
 					</ul>
 				</div>
 
 				<div className="help-center box-footer">
-					<h4>Help Center</h4>
+					<h4>Pusat Bantuan</h4>
 					<ul>
-						<li>+62 82289675042 (yuda)</li>
-						<li>+62 82289675042 (surya)</li>
-						<li>+62 82289675042 (arif)</li>
-						<li>+62 82289675042 (annas)</li>
+						<li><Link className="helpCenter" href="https://wa.me/6282289675042">+62 82289675042 (yuda)</Link></li>
+						<li><Link className="helpCenter" href="https://wa.me/6281930924356">+62 81930924356 (surya)</Link></li>
+						<li><Link className="helpCenter" href="https://wa.me/6285946362394">+62 85946362394 (arif)</Link></li>
+						<li><Link className="helpCenter" href="https://wa.me/6285156555122">+62 85156555122 (anas)</Link></li>
 					</ul>
 				</div>
 
