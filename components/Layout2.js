@@ -107,7 +107,9 @@ export default function Layout2({ children }) {
 	return (
 		<>
 			<Header />
-			{children}
+			<main id="mainContent">
+				{children}
+			</main>
 			<Footer />
 		</>
 	)

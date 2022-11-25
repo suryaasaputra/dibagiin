@@ -124,7 +124,9 @@ export default function Layout1({ children }) {
 	return (
 		<>
 			<Header />
-			{children}
+			<main id="mainContent">
+				{children}
+			</main>
 			<Footer />
 		</>
 	)

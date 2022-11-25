@@ -58,9 +58,7 @@ export default function MyApp({ Component, pageProps }) {
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 			</Head>
-			<main>
-				{getLayout(authorized && <Component {...pageProps} />)}
-			</main>
+			{getLayout(authorized && <Component {...pageProps} />)}
 		</>
 	);
 }
