@@ -6,6 +6,7 @@ import { userService } from "../services";
 export const fetchWrapper = {
 	get,
 	post,
+	postFormData,
 	put,
 	putFileFoto,
 	delete: _delete,
@@ -23,6 +24,15 @@ function post(url, body) {
 	const requestOptions = {
 		method: "POST",
 		headers: { "Content-Type": "application/json", ...authHeader(url) },
+		// credentials: "include",
+		body: JSON.stringify(body),
+	};
+	return fetch(url, requestOptions).then(handleResponse);
+}
+function postFormData(url, body) {
+	const requestOptions = {
+		method: "POST",
+		headers: { "Content-Type": "multipart/form-data", ...authHeader(url) },
 		// credentials: "include",
 		body: JSON.stringify(body),
 	};

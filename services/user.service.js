@@ -62,7 +62,7 @@ function editProfile(username, user) {
 	});
 }
 
-function deleteAccount() {
+function deleteAccount(username) {
 	const endpoint = `${API_ENDPOINT.user}/${username}`;
 	return fetchWrapper.delete(endpoint).then((response) => {
 		return response;
