@@ -60,8 +60,8 @@ const Header = () => {
 						<i className="fas fa-user"> yuda</i>
 						</a>
 						<ul className="dropdown-menu dropdown-menu-end">
-						<li><a className="dropdown-item" href="#">Lihat Profil</a></li>
-						<li><a className="dropdown-item" style={{cursor: 'pointer'}} onClick={() => userService.logout()}>Keluar</a></li>
+						<li><a className="dropdown-item" href="#"><i className="fa fa-user"></i> Lihat Profil</a></li>
+						<li><a className="dropdown-item" style={{cursor: 'pointer'}} onClick={() => userService.logout()}><i className="fa-solid fa-right-from-bracket"></i> Keluar</a></li>
 						</ul>
 					</li>
 					</ul>
