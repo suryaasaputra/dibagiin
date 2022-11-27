@@ -4,6 +4,7 @@ import { userService } from "../services";
 
 
 export const fetchWrapper = {
+	fetcher,
 	get,
 	post,
 	postFormData,
@@ -11,6 +12,15 @@ export const fetchWrapper = {
 	putFileFoto,
 	delete: _delete,
 };
+
+function fetcher(url) {
+	const requestOptions = {
+		method: "GET",
+		headers: authHeader(url),
+	};
+	return fetch(url, requestOptions).then(r => r.json())
+}
+
 
 function get(url) {
 	const requestOptions = {

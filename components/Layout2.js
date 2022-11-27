@@ -78,7 +78,7 @@ const Header = () => {
 									</Image>
 								</a>
 								<ul className="dropdown-menu dropdown-menu-end">
-									<li><a className="dropdown-item" href="#"><i className="fas fa-user">{userData.full_name}</i></a></li>
+									<li><Link className="dropdown-item" href={"/user/" + userData.user_name}><i className="fas fa-user">{userData.full_name}</i></Link></li>
 									<li><a className="dropdown-item" style={{ cursor: 'pointer' }} onClick={() => userService.logout()}><i className="fa-solid fa-right-from-bracket"></i> Keluar</a></li>
 								</ul>
 							</li>

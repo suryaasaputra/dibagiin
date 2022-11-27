@@ -1,4 +1,5 @@
 import { BehaviorSubject } from "rxjs";
+import useSWR from 'swr'
 import API_ENDPOINT from "../globals/api-endpoint";
 import Router from "next/router";
 
@@ -42,10 +43,16 @@ function register(user) {
 
 
 function getUser(username) {
-	const endpoint = `${API_ENDPOINT.user}/${username}`
-	return fetchWrapper.get(endpoint).then((response) => {
-		return response;
-	});
+	const { data, error } = useSWR(`${API_ENDPOINT.user}/${username}`, fetchWrapper.fetcher)
+
+	return {
+		user: data,
+		isLoading: !data,
+	}
+	// const endpoint = `${API_ENDPOINT.user}/${username}`
+	// return fetchWrapper.get(endpoint).then((response) => {
+	// 	return response;
+	// });
 }
 
 
