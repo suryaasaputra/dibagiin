@@ -61,6 +61,7 @@ body {
 	background: $white;
 	scroll-behavior: smooth;
 	margin: 0;
+	overflow: auto !important;
 }
 
 #__next {
@@ -506,6 +507,59 @@ OUR TEAMS
 
 .gallery-item .item img:hover {
 	transform: translateY(-8px);
+}
+
+/*
+  APP STYLE
+*/ 
+header .navbar-app {
+	background: none;
+	box-shadow: $outer-shadow;
+	background-color: $white;
+}
+  
+header .navbar-app .search-form {
+	background: none;
+	border: none;
+	box-shadow: $inner-shadow;
+}
+  
+header .navbar-app .btn-search {
+	background: $green;
+}
+  
+header .navbar-app .btn-search i {
+	color: $ligth-white;
+}
+  
+header .navbar-nav .dropdown-menu {
+	background: $ligth-white;
+}
+
+#sidebar {
+	width: 250px;
+	border: none;
+  	background: $white;
+  	box-shadow: $outer-shadow;
+  	color: $black-555;
+}
+
+.beranda {
+	color: $black-555;
+}
+  
+.beranda .card-beranda {
+	box-shadow: $outer-shadow;
+	color: $black-555;
+}
+
+  
+.card-table {
+	box-shadow: $outer-shadow;
+}
+  
+.card-table .card-header {
+	color: #333;
 }
 
 /* FOOTER */

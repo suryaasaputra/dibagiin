@@ -28,9 +28,9 @@ const Header = () => {
 						<ul className="navbar-nav me-auto mb-2 mb-lg-0">
 
 							<li className="nav-item">
-								<Link className="nav-link" aria-current="page" href="/">
+								<a className="nav-link" aria-current="page" href="#home">
 									<i className="fa fa-home"></i> Beranda
-								</Link>
+								</a>
 							</li>
 
 							<li className="nav-item">

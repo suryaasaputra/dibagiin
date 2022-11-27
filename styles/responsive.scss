@@ -32,6 +32,10 @@
 		grid-template-columns: repeat(1, 1fr);
 	}
 
+	footer .content-footer .logo-footer {
+		justify-content: center;
+	}
+
 	footer .content-footer .box-footer h4 {
 		width: 100%;
 	}
@@ -89,6 +93,20 @@
 	footer .content-footer .box-footer h4 {
 		width: 170px;
 	}
+
+	#sidebar {
+		transform: none;
+		visibility: visible !important;
+	}
+
+	#sidebar {
+		top: 67px;
+		height: calc(100% - 67px);
+	}
+
+	.beranda {
+		margin-left: 270px;
+	}
 }
 
 @media screen and (min-width: 1200px) {
@@ -116,5 +134,4 @@
 	footer .content-footer {
 		grid-template-columns: repeat(3, 1fr);
 	}
-  
 }

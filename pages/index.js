@@ -61,7 +61,7 @@ export default function Home() {
                 <h2>Ayo bagikan barang layak pakai kamu sekarang!</h2>
                 <p>Kamu bingung ingin mendonasikan barang layak pakai kamu kemana? Tenaaang!, sekarang kamu bisa bagiin barang barang kamu di sini.</p>
                 <Link className="btn-style outer-shadow inner-shadow hover-in-shadow" href="/masuk">Mulai</Link>
-                <a className="detail" href="#about">Detail</a>
+                <a className="btn-style outer-shadow inner-shadow hover-in-shadow ms-3" href="#about">Detail</a>
               </div>
             </div>
             <div className="col-md-6">
@@ -205,7 +205,7 @@ export default function Home() {
       {/* SECTION FAQ END */}
 
       {/* SECTION GALLERY START */}
-      <div className='container mb-5'>
+      <div className='container mb-5 mt-5'>
         <section className='gallery mt-5' id='gallery'>
           <h2 className="gallery-title text-center">Contoh Barang Yang <span style={{ color: '#73a700' }} >Didonasikan</span></h2>
 

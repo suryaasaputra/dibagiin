@@ -1,18 +1,18 @@
-// import { userService } from "../../services";
 import Head from 'next/head';
 import Layout2 from "../../components/Layout2";
-export default function Beranda() {
+
+export default function Donasi() {
 	return (
 		<>
 			<div className="mt-3 pt-3 beranda">
 				<div className="container-fluid">
 					<Head>
-						<title>Beranda-Dibagiin</title>
+						<title>Donasi-Dibagiin</title>
 					</Head>
 
 					<div className="row mt-5">
 						<div className="col-md-12">
-							<h4 className="text-black-50">Dashboard</h4>
+							<h4 className="text-black-50">Donasi</h4>
 						</div>
 					</div>
 
@@ -51,75 +51,6 @@ export default function Beranda() {
 								<p className="fs-5 ">Lainnya</p>
 							</div>
 							<i style={{color: '#73a700'}} className="fas fa-search fs-1 primary-text border rounded-full secondary-bg p-3"></i>
-							</div>
-						</div>
-					</div>
-
-					<div className="row">
-						<div className="col-md-12">
-							<div className="card-table">
-							<div className="card-header">
-								<span><i className="bi bi-table me-2"></i></span> Tabel Data
-							</div>
-							<div className="card-body">
-								<div className="table-responsive">
-								<table className="table table-striped data-table">
-									<thead>
-									<tr>
-										<th>Nama Barang</th>
-										<th>Kondisi Barang</th>
-										<th>Berat Barang</th>
-										<th>Aksi</th>
-										<th>Keterangan</th>
-									</tr>
-									</thead>
-									<tbody>
-									<tr>
-										<td>Baju</td>
-										<td>Masih Baik</td>
-										<td>1 kg</td>
-										<td></td>
-										<td>Baju kaos lengan panjang</td>
-									</tr>
-									<tr>
-										<td>Baju</td>
-										<td>Masih Baik</td>
-										<td>1 kg</td>
-										<td></td>
-										<td>Baju kaos lengan panjang</td>
-									</tr>
-									<tr>
-										<td>Baju</td>
-										<td>Masih Baik</td>
-										<td>1 kg</td>
-										<td></td>
-										<td>Baju kaos lengan panjang</td>
-									</tr>
-									<tr>
-										<td>Baju</td>
-										<td>Masih Baik</td>
-										<td>1 kg</td>
-										<td></td>
-										<td>Baju kaos lengan panjang</td>
-									</tr>
-									<tr>
-										<td>Baju</td>
-										<td>Masih Baik</td>
-										<td>1 kg</td>
-										<td></td>
-										<td>Baju kaos lengan panjang</td>
-									</tr>
-									<tr>
-										<td>Baju</td>
-										<td>Masih Baik</td>
-										<td>1 kg</td>
-										<td></td>
-										<td>Baju kaos lengan panjang</td>
-									</tr>
-									</tbody>
-								</table>
-								</div>
-							</div>
 							</div>
 						</div>
 					</div>
@@ -199,7 +130,7 @@ export default function Beranda() {
 		</>
 	);
 }
-Beranda.getLayout = function getLayout(page) {
+Donasi.getLayout = function getLayout(page) {
 	return (
 		<Layout2>
 			{page}
