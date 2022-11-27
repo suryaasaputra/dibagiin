@@ -30,6 +30,16 @@ const User = () => {
             <div className="mt-3 pt-3 beranda">
                 <div className="container-fluid">
                     <h1>User: {user.data.full_name}</h1>
+                    <Image
+                        src={user.data.profil_photo_url}
+                        width={30}
+                        height={30}
+                        className="logo-text img-fluid"
+                        alt="profil-photo"
+                        loading='eager'
+                        priority
+                    >
+                    </Image>
                     <ul>
                         <li>
                             Email:{user.data.email}
