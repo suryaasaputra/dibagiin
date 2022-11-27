@@ -1,7 +1,8 @@
 import { useRouter } from 'next/router';
 import Head from 'next/head';
-import Layout2 from '../../components/Layout2';
-import { userService } from '../../services';
+import Image from 'next/image';
+import Layout2 from '../../../components/Layout2';
+import { userService } from '../../../services';
 
 const User = () => {
     const router = useRouter()
@@ -32,8 +33,8 @@ const User = () => {
                     <h1>User: {user.data.full_name}</h1>
                     <Image
                         src={user.data.profil_photo_url}
-                        width={30}
-                        height={30}
+                        width={150}
+                        height={150}
                         className="logo-text img-fluid"
                         alt="profil-photo"
                         loading='eager'
@@ -47,9 +48,6 @@ const User = () => {
                         <li>
                             Nomor Wa:{user.data.phone_number}
                         </li>
-                        {/* {!donations.length &&
-                    <h2>Belum ada donasi yang dibagikan</h2>
-                } */}
                     </ul>
                 </div>
             </div>

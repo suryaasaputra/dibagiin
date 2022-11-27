@@ -48,6 +48,7 @@ function getUser(username) {
 	return {
 		user: data,
 		isLoading: !data,
+		error: error
 	}
 	// const endpoint = `${API_ENDPOINT.user}/${username}`
 	// return fetchWrapper.get(endpoint).then((response) => {
