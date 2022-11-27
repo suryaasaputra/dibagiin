@@ -5,7 +5,7 @@ import Router from "next/router";
 import { fetchWrapper } from "../helpers/fetch-wrapper";
 
 const userSubject = new BehaviorSubject(
-	process.browser && JSON.parse(localStorage.getItem("user"))
+	typeof window !== 'undefined' && JSON.parse(localStorage.getItem("user"))
 );
 
 export const userService = {
