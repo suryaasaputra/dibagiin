@@ -1,7 +1,8 @@
 import Head from 'next/head';
+import Swal from "sweetalert2";
 import Link from 'next/link';
 import { useEffect, useState } from 'react'
-import Router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
@@ -14,25 +15,15 @@ import API_ENDPOINT from '../../globals/api-endpoint';
 const Profil = () => {
     const [userData, setUserData] = useState({})
     useEffect(() => {
-        const user = userService.userValue
+        const user = JSON.parse(localStorage.getItem("user"))
         setUserData(user)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-
+    const router = useRouter();
 
     // form validation rules
     const validationSchema = Yup.object().shape({
         full_name: Yup.string().required("Nama lengkap tidak boleh kosong"),
-        user_name: Yup.string().required("Username tidak boleh kosong")
-            .test({
-                skipAbsent: true,
-                test(value, ctx) {
-                    if (value.includes(" ")) {
-                        return ctx.createError({ message: 'Username tidak boleh ada spasi' })
-                    }
-                    return true
-                }
-            }),
         email: Yup.string()
             .email("Alamat email tidak valid")
             .required("Email tidak boleh kosong"),
@@ -52,37 +43,101 @@ const Profil = () => {
             }),
         gender: Yup.string().required("Jenis kelamin tidak boleh kosong"),
         address: Yup.string().required("Alamat tidak boleh kosong"),
-    });
-    const formOptions = { resolver: yupResolver(validationSchema) };
+    })
+    const formOptions = { resolver: yupResolver(validationSchema) }
 
     // get functions to build form with useForm() hook
     const { register, handleSubmit, setError, formState } = useForm(formOptions);
     const { errors } = formState;
     // submit data from form value
     function onSubmit(data) {
+        let oldData = JSON.parse(localStorage.getItem("user"));
+        const newData = {
+            id: oldData.id,
+            email: data.email,
+            user_name: oldData.user_name,
+            full_name: data.full_name,
+            profil_photo_url: oldData.profil_photo_url,
+            token: oldData.token
+        }
+        localStorage.removeItem("user");
+        localStorage.setItem("user", JSON.stringify(newData));
         // console.log(data);
         return userService
             .editProfile(userData.user_name, data)
-            .then((r) => {
-                let oldData = JSON.parse(localStorage.getItem("user"));
-                newData = {
-                    id: oldData.id,
-                    email: r.data.email,
-                    user_name: r.data.user_name,
-                    full_name: r.data.full_name,
-                    profil_photo_url: r.data.profil_photo_url,
-                    token: oldData.token
-                }
-                localStorage.setItem("user", JSON.stringify(newData));
-                location.reload()
+            .then(() => {
+                Swal.fire({
+                    icon: "success",
+                    title: "Berhasil Memperbarui Data",
+                    confirmButtonColor: "#73a700",
+                    timer: 2000,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        router.push("/profil");
+                    } else if (result.isDenied) {
+                        router.push("/profil");
+                    } else if (result.isDismissed) {
+                        router.push("/profil");
+                    }
+                });
             })
             .catch((error) => {
                 setError("apiError", { message: error });
             });
     }
+    const [image, setImage] = useState(null);
+    const [createObjectURL, setCreateObjectURL] = useState(null);
 
 
-    const { user, isLoading } = userService.getUser(userData.user_name)
+    const uploadToClient = (event) => {
+        if (event.target.files && event.target.files[0]) {
+            const i = event.target.files[0];
+
+            setImage(i);
+            setCreateObjectURL(URL.createObjectURL(i));
+        }
+    };
+
+    function uploadToServer(event) {
+        ;
+        const body = new FormData();
+        body.append("profil_photo", image);
+        return userService
+            .setProfilPhoto(userData.user_name, body).then((r) => {
+                console.log(r);
+                const oldData = JSON.parse(localStorage.getItem("user"));
+                const newData = {
+                    id: oldData.id,
+                    email: oldData.email,
+                    user_name: oldData.user_name,
+                    full_name: oldData.full_name,
+                    profil_photo_url: r.data.profil_photo_url,
+                    token: oldData.token
+                };
+                localStorage.removeItem("user");
+                localStorage.setItem("user", JSON.stringify(newData));
+            })
+            .then(() => {
+                Swal.fire({
+                    icon: "success",
+                    title: "Berhasil Memperbarui Data",
+                    confirmButtonColor: "#73a700",
+                    timer: 2000,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        router.push("/profil");
+                    } else if (result.isDenied) {
+                        router.push("/profil");
+                    } else if (result.isDismissed) {
+                        router.push("/profil");
+                    }
+                });
+            })
+            .catch((error) => {
+                setError("apiError", { message: error });
+            });
+    };
+    const { user, isLoading } = userService.getUser(userData.user_name);
     if (isLoading) return <div>loading...</div>
     if (user.error) {
         return (
@@ -92,47 +147,40 @@ const Profil = () => {
                 </div>
             </div>
         )
-    }
-
+    };
 
     return (
         <>
             <Head>
                 <title>Profil</title>
             </Head>
-            <div className="mt-3 pt-3 beranda">
+            <div className="mt-5 pt-3 beranda">
                 <div className="container-fluid">
 
-                    <h1>Profil: {user.data.full_name}
-                        <button className='btn' data-bs-toggle="modal" data-bs-target="#editProfil"> <i className="fa-solid fa-pen-to-square"></i></button
-                        ></h1>
-                    <div>
-                        <Image
-                            src={user.data.profil_photo_url}
-                            width={150}
-                            height={150}
-                            className="logo-text img-fluid"
-                            alt="profil-photo"
-                            loading='eager'
-                            priority
-                        >
-                        </Image>
-                        <button className='btn' data-bs-toggle="modal" data-bs-target="#uploadPhoto"><i className="fa-solid fa-pen-to-square">Ganti Photo Profil</i></button>
+                    <div className="row mt-3 mb-3">
+                        <div className='col-md-12 card-user'>
+                            <div className='img-user'>
+                                <Image
+                                    src={user.data.profil_photo_url}
+                                    width={150}
+                                    height={150}
+                                    className="logo-text img-fluid"
+                                    alt="profil-photo"
+                                >
+                                </Image>
+                                <button className='btn' data-bs-toggle="modal" data-bs-target="#uploadPhoto"><i className="fa-solid fa-pen-to-square">Ganti Photo Profil</i></button>
+                            </div>
+
+                            <div className="info-user">
+                                <h2>{user.data.full_name}</h2>
+                                <p><i className='fa fa-envelope'></i> {user.data.email}</p>
+                                <p><i className='fab fa-whatsapp'></i> {user.data.phone_number}</p>
+                                <a href='/beranda' className='btn-style outer-shadow inner-shadow hover-in-shadow '>Kembali</a>
+                                <button className='btn-style outer-shadow inner-shadow hover-in-shadow  ms-2' data-bs-toggle="modal" data-bs-target="#editProfil"> <i className="fa-solid fa-pen-to-square"></i>Edit Profile</button>
+                            </div>
+                        </div>
                     </div>
-                    <ul>
-                        <li>
-                            Email:{user.data.email}
-                        </li>
-                        <li>
-                            Jenis Kelamin:{user.data.gender}
-                        </li>
-                        <li>
-                            Nomor Wa:{user.data.phone_number}
-                        </li>
-                        <li>
-                            Alamat:{user.data.address}
-                        </li>
-                    </ul>
+
                 </div>
             </div>
             <div className="modal fade" id="editProfil" tabIndex="-1" aria-labelledby="editProfilForm" aria-hidden="true">
@@ -155,7 +203,8 @@ const Profil = () => {
                                         id="full_name"
                                         placeholder="Raisa Andriana"
                                         {...register("full_name")}
-                                        value={user.data.full_name}
+
+                                        defaultValue={user.data.full_name}
                                     />
                                     <div className="invalid-feedback">
                                         {errors.full_name?.message}
@@ -172,7 +221,7 @@ const Profil = () => {
                                         aria-describedby="emailHelp"
                                         placeholder="raisa@gmail.com"
                                         {...register("email")}
-                                        value={user.data.email}
+                                        defaultValue={user.data.email}
                                     />
                                     <div className="invalid-feedback">{errors.email?.message}</div>
                                 </div>
@@ -188,7 +237,8 @@ const Profil = () => {
                                         aria-describedby="usernameHelp"
                                         placeholder="raisa6690"
                                         {...register("user_name")}
-                                        value={user.data.user_name}
+                                        defaultValue={user.data.user_name}
+                                        disabled
                                     />
                                     <div className="invalid-feedback">
                                         {errors.user_name?.message}
@@ -205,7 +255,7 @@ const Profil = () => {
                                         id="phone_number"
                                         placeholder="+628123468798"
                                         {...register("phone_number")}
-                                        value={user.data.phone_number}
+                                        defaultValue={user.data.phone_number}
                                     />
                                     <div className="invalid-feedback">
                                         {errors.phone_number?.message}
@@ -238,7 +288,7 @@ const Profil = () => {
                                         id="address"
                                         placeholder="Jl. Garuda No. 76 Jakarta Selatan"
                                         {...register("address")}
-                                        value={user.data.address}
+                                        defaultValue={user.data.address}
                                     />
                                     <div className="invalid-feedback">
                                         {errors.address?.message}
@@ -250,6 +300,7 @@ const Profil = () => {
                                         disabled={formState.isSubmitting}
                                         type="submit"
                                         className="btn btn-login"
+                                        data-bs-dismiss="modal"
                                     >
                                         {formState.isSubmitting && (
                                             <span className="spinner-border spinner-border-sm mr-1"></span>
@@ -264,10 +315,6 @@ const Profil = () => {
                                 )}
                             </form>
                         </div>
-                        {/* <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" className="btn btn-primary">Save changes</button>
-                        </div> */}
                     </div>
                 </div>
             </div>
@@ -279,42 +326,41 @@ const Profil = () => {
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
-                            <form method='PUT' action={`${API_ENDPOINT.user}/${user.data.user_name}/ProfilPhoto`} encType='multipart/form-data' >
-                                <div className="mb-3">
-                                    <label htmlFor="photo_profil" className="form-label">
-                                        Photo Profil
-                                    </label>
-                                    <input
-                                        type="file"
-                                        className={`form-control ${errors.photo_profil ? "is-invalid" : ""
-                                            }`}
-                                        id="photo_profil"
-                                        accept="image/png, image/jpeg, image/jpg"
-                                        required
-                                    // {...register("photo_profil")}
-                                    />
-                                    {/* <div className="invalid-feedback">
+                            <div className="mb-3">
+                                <img src={createObjectURL} className="img-fluid" />
+                                <label htmlFor="photo_profil" className="form-label">
+                                    Photo Profil
+                                </label>
+                                <input
+                                    type="file"
+                                    className={`form-control ${errors.photo_profil ? "is-invalid" : ""
+                                        }`}
+                                    id="photo_profil"
+                                    accept="image/png, image/jpeg, image/jpg"
+                                    required
+                                    onChange={uploadToClient}
+                                // {...register("photo_profil")}
+                                />
+                                {/* <div className="invalid-feedback">
                                         {errors.photo_profil?.message}
                                     </div> */}
-                                    <div className="d-grid mt-5">
-                                        <button
-                                            // disabled={formState.isSubmitting}
-                                            type="submit"
-                                            className="btn btn-login"
-                                        >
-                                            {/* {formState.isSubmitting && (
-                                                <span className="spinner-border spinner-border-sm mr-1"></span>
-                                            )} */}
-                                            Simpan
-                                        </button>
-                                    </div>
-                                    {/* {errors.apiError && (
-                                        <div className="alert alert-danger mt-3 mb-0">
-                                            {errors.apiError?.message}
-                                        </div>
-                                    )} */}
+                                <div className="d-grid mt-5">
+                                    <button
+                                        // disabled={formState.isSubmitting}
+                                        type="submit"
+                                        className="btn btn-login"
+                                        onClick={uploadToServer}
+                                        data-bs-dismiss="modal"
+                                    >
+                                        Simpan
+                                    </button>
                                 </div>
-                            </form>
+                                {errors.apiError && (
+                                    <div className="alert alert-danger mt-3 mb-0">
+                                        {errors.apiError?.message}
+                                    </div>
+                                )}
+                            </div>
                         </div>
                     </div>
                 </div>

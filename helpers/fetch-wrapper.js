@@ -60,8 +60,8 @@ function put(url, body) {
 function putFileFoto(url, body) {
 	const requestOptions = {
 		method: "PUT",
-		headers: { "Content-Type": "multipart/form-data", ...authHeader(url) },
-		body: JSON.stringify(body),
+		headers: { ...authHeader(url) },
+		body: body,
 	};
 	return fetch(url, requestOptions).then(handleResponse);
 }

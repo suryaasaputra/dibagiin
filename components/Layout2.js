@@ -9,7 +9,7 @@ const Header = () => {
 
 	const [userData, setUserData] = useState({})
 	useEffect(() => {
-		const user = userService.userValue
+		const user = JSON.parse(localStorage.getItem("user"))
 		setUserData(user)
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
@@ -78,7 +78,7 @@ const Header = () => {
 									</Image>
 								</a>
 								<ul className="dropdown-menu dropdown-menu-end">
-									<li><Link className="dropdown-item" href={"/user/" + userData.user_name}><i className="fas fa-user">{userData.full_name}</i></Link></li>
+									<li><Link className="dropdown-item" href="/profil"><i className="fas fa-user">{userData.full_name}</i></Link></li>
 									<li><a className="dropdown-item" style={{ cursor: 'pointer' }} onClick={() => userService.logout()}><i className="fa-solid fa-right-from-bracket"></i> Keluar</a></li>
 								</ul>
 							</li>
