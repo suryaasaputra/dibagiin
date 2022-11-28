@@ -567,9 +567,16 @@ header .navbar-nav .dropdown-menu {
 */ 
 .beranda .card-user {
 	position: relative;
-	text-align: center;
-	// background-color: #888;
-	padding: 10px;
+	padding: 25px;
+	box-shadow: $outer-shadow;
+	border-radius: 10px;
+}
+
+.beranda .info-user {
+	position: relative;
+	padding: 25px;
+	box-shadow: $outer-shadow;
+	border-radius: 10px;
 }
 
 .beranda .card-user::before {
@@ -583,11 +590,11 @@ header .navbar-nav .dropdown-menu {
 	animation: bounce 2.5s alternate infinite;
 }
 
-.beranda .card-user::after {
+.beranda .info-user::before {
 	content: '';
 	position: absolute;
-	bottom: 35px;
-	left: 35px;
+	top: 35px;
+	right: 35px;
 	width: 35px;
 	height: 35px;
 	border-radius: 50%;

@@ -92,6 +92,13 @@ const Header = () => {
 };
 
 const OffCanvas = () => {
+	const [userData, setUserData] = useState({})
+	useEffect(() => {
+		const user = JSON.parse(localStorage.getItem("user"))
+		setUserData(user)
+		
+	}, []);
+
 	return (
 		<div
 			className="offcanvas offcanvas-start sidebar-nav"
@@ -111,6 +118,11 @@ const OffCanvas = () => {
 							<Link href="/beranda" className="nav-link px-2 active text-black-50 fw-bold">
 								<span className="me-2"></span>
 								<span className="p-2 hover"><i className="fas fa-home"></i> Beranda</span>
+							</Link>
+
+							<Link href="/profil" className="nav-link px-2 active text-black-50 fw-bold">
+								<span className="me-2"></span>
+								<span className="p-2 hover"><i className="fas fa-user"></i> Profil</span>
 							</Link>
 						</li>
 
