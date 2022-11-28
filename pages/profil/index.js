@@ -175,6 +175,7 @@ const Profil = () => {
                                 <h2>{user.data.full_name}</h2>
                                 <p><i className='fa fa-envelope'></i> {user.data.email}</p>
                                 <p><i className='fab fa-whatsapp'></i> {user.data.phone_number}</p>
+                                <p><i className="fa-solid fa-map-location-dot"></i>{user.data.address}</p>
                                 <a href='/beranda' className='btn-style outer-shadow inner-shadow hover-in-shadow '>Kembali</a>
                                 <button className='btn-style outer-shadow inner-shadow hover-in-shadow  ms-2' data-bs-toggle="modal" data-bs-target="#editProfil"> <i className="fa-solid fa-pen-to-square"></i>Edit Profile</button>
                             </div>

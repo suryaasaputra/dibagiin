@@ -41,8 +41,8 @@ const User = () => {
                                     className="logo-text img-fluid"
                                     alt="profil-photo"
                                     loading='eager'
-                                    priority       
-                                        >
+                                    priority
+                                >
                                 </Image>
                             </div>
 
@@ -50,8 +50,8 @@ const User = () => {
                                 <h2>{user.data.full_name}</h2>
                                 <p><i className='fa fa-envelope'></i> {user.data.email}</p>
                                 <p><i className='fab fa-whatsapp'></i> {user.data.phone_number}</p>
-                                <a href='/beranda' className='btn-style outer-shadow inner-shadow hover-in-shadow '>Kembali</a>      
-                                <a href='/profil' className='btn-style outer-shadow inner-shadow hover-in-shadow  ms-2'>Edit Profile</a>           
+                                <p><i className="fa-solid fa-map-location-dot"></i>{user.data.address}</p>
+                                <a href='/beranda' className='btn-style outer-shadow inner-shadow hover-in-shadow '>Kembali</a>
                             </div>
                         </div>
                     </div>
