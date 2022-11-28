@@ -9,11 +9,10 @@ import { userService } from "../services";
 export default function MyApp({ Component, pageProps }) {
 	const getLayout = Component.getLayout || ((page) => page)
 
-
 	const router = useRouter();
 	const [authorized, setAuthorized] = useState(false);
 	useEffect(() => {
-		import("bootstrap/dist/js/bootstrap.bundle");
+		import("bootstrap/dist/js/bootstrap");
 		// run auth check on initial load
 		authCheck(router.asPath);
 
