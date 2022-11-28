@@ -562,6 +562,52 @@ header .navbar-nav .dropdown-menu {
 	color: #333;
 }
 
+/* 
+  PROFIL
+*/ 
+.beranda .card-user {
+	position: relative;
+	text-align: center;
+	// background-color: #888;
+	padding: 10px;
+}
+
+.beranda .card-user::before {
+	content: '';
+	position: absolute;
+	top: 35px;
+	right: 35px;
+	border-top: 30px solid transparent;
+    border-left: 30px solid $salmon;
+	box-shadow: -2px 2px 2px #888;
+	animation: bounce 2.5s alternate infinite;
+}
+
+.beranda .card-user::after {
+	content: '';
+	position: absolute;
+	bottom: 35px;
+	left: 35px;
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+	border: 5px solid royalblue;
+	animation: bounce 1s alternate infinite;
+}
+
+@keyframes bounce {
+	0% {
+		transform: translateY(0);
+	}
+	100% {
+		transform: translateY(-12px);
+	}
+}
+
+.beranda .card-user .info-user ul li {
+	list-style: none;
+}
+
 /* FOOTER */
 footer {
 	width: 100%;

@@ -28,27 +28,34 @@ const User = () => {
             <Head>
                 <title>User</title>
             </Head>
-            <div className="mt-3 pt-3 beranda">
+            <div className="mt-5 pt-3 beranda">
                 <div className="container-fluid">
-                    <h1>User: {user.data.full_name}</h1>
-                    <Image
-                        src={user.data.profil_photo_url}
-                        width={150}
-                        height={150}
-                        className="logo-text img-fluid"
-                        alt="profil-photo"
-                        loading='eager'
-                        priority
-                    >
-                    </Image>
-                    <ul>
-                        <li>
-                            Email:{user.data.email}
-                        </li>
-                        <li>
-                            Nomor Wa:{user.data.phone_number}
-                        </li>
-                    </ul>
+
+                    <div className="row mt-3 mb-3">
+                        <div className='col-md-12 card-user'>
+                            <div className='img-user'>
+                                <Image
+                                    src={user.data.profil_photo_url}
+                                    width={150}
+                                    height={150}
+                                    className="logo-text img-fluid"
+                                    alt="profil-photo"
+                                    loading='eager'
+                                    priority       
+                                        >
+                                </Image>
+                            </div>
+
+                            <div className="info-user">
+                                <h2>{user.data.full_name}</h2>
+                                <p><i className='fa fa-envelope'></i> {user.data.email}</p>
+                                <p><i className='fab fa-whatsapp'></i> {user.data.phone_number}</p>
+                                <a href='/beranda' className='btn-style outer-shadow inner-shadow hover-in-shadow '>Kembali</a>      
+                                <a href='/profil' className='btn-style outer-shadow inner-shadow hover-in-shadow  ms-2'>Edit Profile</a>           
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
