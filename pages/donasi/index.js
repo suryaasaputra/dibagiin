@@ -12,6 +12,173 @@ import { donationService } from '../../services';
 import Layout2 from "../../components/Layout2";
 import API_ENDPOINT from '../../globals/api-endpoint';
 
+const DonasiCard = ({ item }) => {
+	const router = useRouter();
+	const [errors2, setError2] = useState({});
+	function handleOnSubmit(event) {
+		// Stop the form from submitting and refreshing the page.
+		event.preventDefault()
+
+		// Get data from the form.
+		const data = {
+			donation_id: event.target.donation_id.value,
+			message: event.target.message.value,
+		}
+
+		// alert(JSON.stringify(data))
+		return donationService.requestDonation(data.donation_id, data)
+			.then(() => {
+				Swal.fire({
+					icon: "success",
+					title: "Berhasil Membuat Permintaan",
+					confirmButtonColor: "#73a700",
+					timer: 2000,
+				}).then((result) => {
+					if (result.isConfirmed) {
+						router.replace(router.asPath)
+					} else if (result.isDenied) {
+						router.replace(router.asPath)
+					} else if (result.isDismissed) {
+						router.replace(router.asPath)
+					}
+				})
+			})
+			.catch((error) => {
+				Swal.fire({
+					icon: "error",
+					title: error,
+					confirmButtonColor: "#E51937",
+					timer: 2000,
+				}).then((result) => {
+					if (result.isConfirmed) {
+						router.replace(router.asPath)
+					} else if (result.isDenied) {
+						router.replace(router.asPath)
+					} else if (result.isDismissed) {
+						router.replace(router.asPath)
+					}
+				})
+				setError2({ apiError: { message: error } });
+			});
+	}
+	return (
+		<div className="row mt-5 p-2">
+			<div className="col-md-12 p-4 mb-3 outer-shadow rounded-2">
+				<div className='row'>
+					<div className='col-md-12 header-card-donasi d-flex align-items-center p-2'>
+						<Image
+							width={80}
+							height={80}
+							src={item.donator.profil_photo_url}
+							className="img-fluid rounded-circle"
+							alt='avatar'
+						/>
+						<div className='nama-donator ms-2'>
+							<div>
+								<Link href={`/user/${item.donator.user_name}`}><h3>{item.donator.full_name}</h3></Link>
+								<p>@{item.donator.user_name}</p>
+							</div>
+
+							<p className=''>Pada {item.created_at}</p>
+						</div>
+
+					</div>
+				</div>
+
+				<div className='row'>
+					<div className='col-md-6 content-card-donasi p-2 text-center'>
+						<Image
+							width={350}
+							height={350}
+							// style={{width: '100%'}}
+							src={item.photo_url}
+							className="img-fluid rounded-2"
+							alt="Image Barang"
+						/>
+					</div>
+
+					<div className='col-md-6 content-card-donasi p-2'>
+						<div className='info-content-card-donasi'>
+							<h2>Info :</h2>
+							<h4>{item.title}</h4>
+							<p>Deskripsi : {item.description}</p>
+							<p>Lokasi : {item.location}</p>
+							<p>Status {item.status}</p>
+							{/* <p>Requester {item.requester_id.map((request) => { <li>{request}</li> })}</p> */}
+
+							<a href='#' className='btn-style outer-shadow inner-shadow hover-in-shadow'>Lihat Detail</a>
+							<button
+								className='btn-style outer-shadow inner-shadow hover-in-shadow ms-2'
+								data-bs-toggle="modal"
+								data-bs-target={`#formModal${item.id}`}
+							>
+								Ajukan Permintaan
+							</button>
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+			<div className="modal fade" id={`formModal${item.id}`} tabIndex="-1" aria-labelledby="donasiForm" aria-hidden="true">
+				<div className="modal-dialog  modal-lg">
+					<div className="modal-content">
+						<div className="modal-header">
+							<h1 className="modal-title fs-5" id="exampleModalLabel">Ambil Donasi</h1>
+							<button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div className="modal-body">
+							<form onSubmit={handleOnSubmit}>
+								<div className="mb-4">
+									<label htmlFor="title" className="form-label">
+										Pesan*
+									</label>
+									<input
+										type="hidden"
+										id="donation_id"
+										value={item.id}
+										required
+									/>
+									<input
+										type="text"
+										className={`form-control ${errors2.title ? "is-invalid" : ""
+											}`}
+										id="message"
+										name='message'
+										placeholder="Izinkan saya mengambil donasi nya."
+										autoComplete='on'
+										required
+									/>
+									<div className="invalid-feedback">
+										{errors2.message?.message}
+									</div>
+								</div>
+								<div className="d-grid mt-5">
+									<button
+										type="submit"
+										className="btn btn-login"
+										data-bs-dismiss="modal"
+
+									>
+										Kirim Permintaan
+									</button>
+								</div>
+								{errors2.apiError && (
+									<div className="alert alert-danger mt-3 mb-0">
+										{errors2.apiError?.message}
+									</div>
+								)}
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div >
+
+	)
+}
+
 const Donasi = ({ listDonations }) => {
 	const [image, setImage] = useState(null);
 	const [createObjectURL, setCreateObjectURL] = useState(null);
@@ -83,59 +250,7 @@ const Donasi = ({ listDonations }) => {
 						</div>
 					</div>
 					{listDonations.map((item) => (
-						<div key={item.id} className="row mt-5 p-2" id={item.id}>
-							<div className="col-md-12 p-4 mb-3 outer-shadow rounded-2">
-								<div className='row'>
-									<div className='col-md-12 header-card-donasi d-flex align-items-center p-2'>
-										<Image
-											width={70}
-											height={70}
-											src={item.donator.profil_photo_url}
-											className="img-fluid rounded-circle"
-											alt='avatar'
-										/>
-										<div className='nama-donator ms-2'>
-											<div>
-												<Link href={`/user/${item.donator.user_name}`}><h3>{item.donator.full_name}</h3></Link>
-												<p>{item.donator.user_name}</p>
-											</div>
-											
-											<p>Pada {item.created_at}</p>
-										</div>
-										
-									</div>
-								</div>
-
-								<div className='row'>
-								  <div className='col-md-6 content-card-donasi p-2 text-center'>
-									<Image
-											width={350}
-											height={350}
-											// style={{width: '100%'}}
-											src={item.photo_url}
-											className="img-fluid rounded-2"
-											alt="Image Barang"
-										/>
-								  </div>
-
-								  <div className='col-md-6 content-card-donasi p-2'>
-									<div className='info-content-card-donasi'>
-										<h2>Info :</h2>
-										<h4>{item.title}</h4>
-										<p>Deskripsi : {item.description}</p>
-										<p>Lokasi : {item.location}</p>
-										<p>Status {item.status}</p>
-
-										<a href='#' className='btn-style outer-shadow inner-shadow hover-in-shadow'>Lihat Detail</a>
-										<a href='#' className='btn-style outer-shadow inner-shadow hover-in-shadow ms-2'>Ajukan Permintaan</a>
-									</div>
-									
-								  </div>
-
-								</div>
-						
-							</div>
-						</div>
+						<DonasiCard key={item.id} item={item} />
 					))}
 
 				</div>

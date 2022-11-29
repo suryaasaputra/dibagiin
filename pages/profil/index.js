@@ -94,7 +94,6 @@ const Profil = ({ user }) => {
     };
 
     function uploadToServer(event) {
-        ;
         const body = new FormData();
         body.append("profil_photo", image);
         return userService

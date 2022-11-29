@@ -51,7 +51,7 @@ function login(email, password) {
 
 function register(user) {
 	const endpoint = API_ENDPOINT.register;
-	return fetchWrapper.post(endpoint, user).then((response) => {
+	return fetchWrapper.login(endpoint, user).then((response) => {
 		return response;
 	});
 }

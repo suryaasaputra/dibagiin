@@ -57,7 +57,7 @@ function deleteDonation(donationId) {
 }
 
 function requestDonation(donationId, data) {
-    const endpoint = `${API_ENDPOINT.donation}/request/${donationId}`
+    const endpoint = `${API_ENDPOINT.donation}/${donationId}/request`
     return fetchWrapper.post(endpoint, data).then((response) => {
         return response;
     });

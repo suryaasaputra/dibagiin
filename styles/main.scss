@@ -15,6 +15,7 @@ $green: #73a700;
 $black-333: #333;
 $black-444: #444;
 $black-555: #555;
+$error:#E51937;
 $salmon: salmon;
 
 $outer-shadow: 3px 3px 2px #d0d0d0,
@@ -512,27 +513,27 @@ OUR TEAMS
 
 /*
   APP STYLE
-*/ 
+*/
 header .navbar-app {
 	background: none;
 	box-shadow: $outer-shadow;
 	background-color: $white;
 }
-  
+
 header .navbar-app .search-form {
 	background: none;
 	border: none;
 	box-shadow: $inner-shadow;
 }
-  
+
 header .navbar-app .btn-search {
 	background: $green;
 }
-  
+
 header .navbar-app .btn-search i {
 	color: $ligth-white;
 }
-  
+
 header .navbar-nav .dropdown-menu {
 	background: $ligth-white;
 }
@@ -540,32 +541,32 @@ header .navbar-nav .dropdown-menu {
 #sidebar {
 	width: 250px;
 	border: none;
-  	background: $white;
-  	box-shadow: $outer-shadow;
-  	color: $black-555;
+	background: $white;
+	box-shadow: $outer-shadow;
+	color: $black-555;
 }
 
 .beranda {
 	color: $black-555;
 }
-  
+
 .beranda .card-beranda {
 	box-shadow: $outer-shadow;
 	color: $black-555;
 }
 
-  
+
 .card-table {
 	box-shadow: $outer-shadow;
 }
-  
+
 .card-table .card-header {
 	color: #333;
 }
 
 /* 
   PROFIL
-*/ 
+*/
 .beranda .card-user {
 	position: relative;
 	padding: 25px;
@@ -586,7 +587,7 @@ header .navbar-nav .dropdown-menu {
 	top: 35px;
 	right: 35px;
 	border-top: 30px solid transparent;
-    border-left: 30px solid $salmon;
+	border-left: 30px solid $salmon;
 	box-shadow: -2px 2px 2px #888;
 	animation: bounce 2.5s alternate infinite;
 }
@@ -607,6 +608,7 @@ header .navbar-nav .dropdown-menu {
 	0% {
 		transform: translateY(0);
 	}
+
 	100% {
 		transform: translateY(-12px);
 	}
@@ -631,13 +633,14 @@ footer .content-footer {
 	grid-template-columns: repeat(3, 1fr);
 }
 
-li > .serviceLink {
+li>.serviceLink {
 	color: #444;
 	display: inline-block;
 	min-height: 44px;
 	min-width: 44px;
 }
-li > .helpCenter {
+
+li>.helpCenter {
 	color: #444;
 	display: inline-block;
 	min-height: 44px;
