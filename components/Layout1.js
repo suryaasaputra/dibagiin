@@ -102,7 +102,7 @@ const Footer = () => {
 						<li><Link className="helpCenter" href="https://wa.me/6282289675042">+62 82289675042 (yuda)</Link></li>
 						<li><Link className="helpCenter" href="https://wa.me/6281930924356">+62 81930924356 (surya)</Link></li>
 						<li><Link className="helpCenter" href="https://wa.me/6285946362394">+62 85946362394 (arif)</Link></li>
-						<li><Link className="helpCenter" href="https://wa.me/6285156555122">+62 85156555122 (anas)</Link></li>
+						<li><Link className="helpCenter" href="https://wa.me/6285156555122">+62 85156555122 (annas)</Link></li>
 					</ul>
 				</div>
 

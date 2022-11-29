@@ -157,7 +157,7 @@ const Footer = () => {
 				</div>
 
 				<div className="our-service box-footer">
-					<h4>Our Service</h4>
+					<h4>Layanan Kami</h4>
 					<ul>
 						<li>Stuff donation</li>
 						<li>Take stuff</li>
@@ -167,7 +167,7 @@ const Footer = () => {
 				</div>
 
 				<div className="help-center box-footer">
-					<h4>Help Center</h4>
+					<h4>Pusat Bantuan</h4>
 					<ul>
 						<li>+62 82289675042 (yuda)</li>
 						<li>+62 82289675042 (surya)</li>
