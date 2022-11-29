@@ -77,42 +77,63 @@ const Donasi = ({ listDonations }) => {
 					<div className="row mt-5">
 						<div className="col-md-12">
 							<h4 className="text-black-50">Donasi</h4>
-							<button className="btn btn-success" style={{ padding: '10px 12px' }} data-bs-toggle="modal" data-bs-target="#formDonasi">
+							<button className="btn-style outer-shadow inner-shadow hover-in-shadow" style={{ padding: '10px 12px', border: 'none' }} data-bs-toggle="modal" data-bs-target="#formDonasi">
 								<i className='fas fa-plus'></i>	Buat Donasi
 							</button>
 						</div>
 					</div>
 					{listDonations.map((item) => (
-						<div key={item.id} className="row mt-5" id={item.id}>
-							<div className="col-md-12">
-								<div>
+						<div key={item.id} className="row mt-5 p-2" id={item.id}>
+							<div className="col-md-12 p-4 mb-3 outer-shadow rounded-2">
+								<div className='row'>
+									<div className='col-md-12 header-card-donasi d-flex align-items-center p-2'>
+										<Image
+											width={70}
+											height={70}
+											src={item.donator.profil_photo_url}
+											className="img-fluid rounded-circle"
+											alt='avatar'
+										/>
+										<div className='nama-donator ms-2'>
+											<div>
+												<Link href={`/user/${item.donator.user_name}`}><h3>{item.donator.full_name}</h3></Link>
+												<p>{item.donator.user_name}</p>
+											</div>
+											
+											<p>Pada {item.created_at}</p>
+										</div>
+										
+									</div>
+								</div>
+
+								<div className='row'>
+								  <div className='col-md-6 content-card-donasi p-2 text-center'>
 									<Image
-										width={30}
-										height={30}
-										src={item.donator.profil_photo_url}
-										className="img-fluid"
-										alt='avatar'
-									/>
-									<Link href={`/user/${item.donator.user_name}`}><h1>{item.donator.full_name}</h1></Link>
-									<p>Pada{item.created_at}</p>
+											width={350}
+											height={350}
+											// style={{width: '100%'}}
+											src={item.photo_url}
+											className="img-fluid rounded-2"
+											alt="Image Barang"
+										/>
+								  </div>
+
+								  <div className='col-md-6 content-card-donasi p-2'>
+									<div className='info-content-card-donasi'>
+										<h2>Info :</h2>
+										<h4>{item.title}</h4>
+										<p>Deskripsi : {item.description}</p>
+										<p>Lokasi : {item.location}</p>
+										<p>Status {item.status}</p>
+
+										<a href='#' className='btn-style outer-shadow inner-shadow hover-in-shadow'>Lihat Detail</a>
+										<a href='#' className='btn-style outer-shadow inner-shadow hover-in-shadow ms-2'>Ajukan Permintaan</a>
+									</div>
+									
+								  </div>
+
 								</div>
-								<div>
-									<h2>{item.title}</h2>
-									<p>Status : {item.status}</p>
-								</div>
-								<div>
-									<Image
-										width={200}
-										height={200}
-										src={item.photo_url}
-										className="img-fluid"
-										alt="Image Barang"
-									/>
-								</div>
-								<div>
-									<p>Deskripsi : {item.description}</p>
-									<p>Lokasi : {item.location}</p>
-								</div>
+						
 							</div>
 						</div>
 					))}
