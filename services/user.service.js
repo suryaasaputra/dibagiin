@@ -2,7 +2,7 @@ import { BehaviorSubject } from "rxjs";
 import useSWR from 'swr'
 import API_ENDPOINT from "../globals/api-endpoint";
 import Router from "next/router";
-
+import { parseCookies, setCookie } from "nookies";
 import { fetchWrapper } from "../helpers/fetch-wrapper";
 
 const userSubject = new BehaviorSubject(
@@ -29,7 +29,14 @@ function login(email, password) {
 		// publish user to subscribers and store in local storage to stay logged in between page refreshes
 		userSubject.next(user);
 		localStorage.setItem("user", JSON.stringify(user.data));
+		const cookies = parseCookies();
+		console.log({ cookies });
 
+		// Set
+		setCookie(null, "userCookies", JSON.stringify(user.data), {
+			maxAge: 30 * 24 * 60 * 60,
+			path: "/"
+		});
 		return user;
 	});
 }

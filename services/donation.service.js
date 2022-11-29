@@ -1,3 +1,4 @@
+import useSWR from 'swr'
 import API_ENDPOINT from "../globals/api-endpoint";
 import { fetchWrapper } from "../helpers/fetch-wrapper";
 
@@ -24,6 +25,12 @@ function createDonation(donationData) {
 
 function getAllDonation() {
     const endpoint = `${API_ENDPOINT.donation}`
+    // const { data, error } = useSWR(endpoint, fetchWrapper.fetcher)
+    // return {
+    //     donation: data,
+    //     isLoading: !data,
+    //     error: error
+    // }
     return fetchWrapper.get(endpoint).then((response) => {
         return response;
     });
@@ -62,6 +69,8 @@ function getAllRequest() {
         return response;
     });
 }
+
+
 
 function getRequestDetail(requestId) {
     const endpoint = `${API_ENDPOINT.donation}/request/${requestId}`

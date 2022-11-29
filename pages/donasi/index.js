@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Swal from "sweetalert2";
+import nookies from 'nookies'
 import { useEffect, useState } from 'react'
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
@@ -8,7 +9,9 @@ import * as Yup from "yup";
 import Image from 'next/image';
 import { donationService } from '../../services';
 import Layout2 from "../../components/Layout2";
-const Donasi = () => {
+import API_ENDPOINT from '../../globals/api-endpoint';
+
+const Donasi = ({ listDonations }) => {
 	const [image, setImage] = useState(null);
 	const [createObjectURL, setCreateObjectURL] = useState(null);
 
@@ -36,7 +39,6 @@ const Donasi = () => {
 	const { errors } = formState;
 
 	function onSubmit(data) {
-
 		const body = new FormData();
 		body.append("donation_photo", image)
 		body.append("title", data.title)
@@ -78,10 +80,45 @@ const Donasi = () => {
 								<i className='fas fa-plus'></i>	Buat Donasi
 							</button>
 						</div>
-
 					</div>
+					{listDonations.map((item) => (
+						<div className="row mt-5" id={item.id}>
+							<div className="col-md-12">
+								<div>
+									<Image
+										width={30}
+										height={30}
+										src={item.donator.profil_photo_url}
+										className="img-fluid"
+									/>
+									<h1>{item.donator.full_name}</h1>
+									<p>Pada{item.created_at}</p>
+								</div>
+								<div>
+									<h2>{item.title}</h2>
+									<p>Status : {item.status}</p>
+								</div>
+								<div>
+									<Image
+										width={200}
+										height={200}
+										src={item.photo_url}
+										className="img-fluid"
+									/>
+								</div>
+								<div>
+									<p>Deskripsi : {item.description}</p>
+									<p>Lokasi : {item.location}</p>
+								</div>
+							</div>
+						</div>
+					))}
+
 				</div>
 			</div>
+
+
+			{/* modal form */}
 			<div className="modal fade" id="formDonasi" tabIndex="-1" aria-labelledby="donasiForm" aria-hidden="true">
 				<div className="modal-dialog  modal-lg">
 					<div className="modal-content">
@@ -197,5 +234,38 @@ Donasi.getLayout = function getLayout(page) {
 		</Layout2>
 	)
 }
+export async function getServerSideProps(ctx) {
+	// Parse
+	const cookies = nookies.get(ctx)
+	const userData = JSON.parse(cookies.userCookies)
+	const requestOptions = {
+		method: "GET",
+		headers: { "Authorization": `Bearer ${userData.token}` }
+	}
+	const res = await fetch(API_ENDPOINT.donation, requestOptions)
+	const data = await res.json()
+	const listDonations = data.data
+	return {
+		props: {
+			listDonations,
+		},
+	};
+}
 
+
+// export async function getStaticProps(userData) {
+
+// 	const requestOptions = {
+// 		method: "GET",
+// 		headers: { "Authorization": `Bearer ${userData.token}` }
+// 	}
+// 	const res = await fetch(API_ENDPOINT.donation, requestOptions)
+// 	const data = await res.json()
+// 	const listDonations = data.data
+// 	return {
+// 		props: {
+// 			listDonations,
+// 		},
+// 	};
+// }
 export default Donasi
