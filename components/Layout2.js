@@ -92,13 +92,6 @@ const Header = () => {
 };
 
 const OffCanvas = () => {
-	const [userData, setUserData] = useState({})
-	useEffect(() => {
-		const user = JSON.parse(localStorage.getItem("user"))
-		setUserData(user)
-		
-	}, []);
-
 	return (
 		<div
 			className="offcanvas offcanvas-start sidebar-nav"

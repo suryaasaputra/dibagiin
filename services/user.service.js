@@ -2,7 +2,7 @@ import { BehaviorSubject } from "rxjs";
 import useSWR from 'swr'
 import API_ENDPOINT from "../globals/api-endpoint";
 import Router from "next/router";
-import { parseCookies, setCookie } from "nookies";
+import { parseCookies, setCookie, destroyCookie } from "nookies";
 import { fetchWrapper } from "../helpers/fetch-wrapper";
 
 const userSubject = new BehaviorSubject(
@@ -12,7 +12,15 @@ const userSubject = new BehaviorSubject(
 export const userService = {
 	user: userSubject.asObservable(),
 	get userValue() {
+		// const cookies = parseCookies()
+		// const userData = JSON.parse(cookies.userCookies)
+		// return { userData }
 		return userSubject.value;
+	},
+	get userData() {
+		const cookies = parseCookies()
+		const userData = JSON.parse(cookies.userCookies)
+		return userData
 	},
 	register,
 	login,
@@ -25,7 +33,7 @@ export const userService = {
 
 function login(email, password) {
 	const endpoint = API_ENDPOINT.login;
-	return fetchWrapper.post(endpoint, { email, password }).then((user) => {
+	return fetchWrapper.login(endpoint, { email, password }).then((user) => {
 		// publish user to subscribers and store in local storage to stay logged in between page refreshes
 		userSubject.next(user);
 		localStorage.setItem("user", JSON.stringify(user.data));
@@ -87,6 +95,7 @@ function deleteAccount(username) {
 function logout() {
 	// remove user from local storage, publish null to user subscribers and redirect to login page
 	localStorage.removeItem("user");
+	destroyCookie(null, "userCookies");
 	userSubject.next(null);
 	Router.push("/masuk");
 }

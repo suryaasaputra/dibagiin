@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Swal from "sweetalert2";
 import Link from 'next/link';
+import nookies from 'nookies'
 import { useEffect, useState } from 'react'
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
@@ -12,13 +13,7 @@ import { userService } from '../../services';
 import API_ENDPOINT from '../../globals/api-endpoint';
 
 
-const Profil = () => {
-    const [userData, setUserData] = useState({})
-    useEffect(() => {
-        const user = JSON.parse(localStorage.getItem("user"))
-        setUserData(user)
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+const Profil = ({ user }) => {
     const router = useRouter();
 
     // form validation rules
@@ -64,7 +59,7 @@ const Profil = () => {
         localStorage.setItem("user", JSON.stringify(newData));
         // console.log(data);
         return userService
-            .editProfile(userData.user_name, data)
+            .editProfile(user.user_name, data)
             .then(() => {
                 Swal.fire({
                     icon: "success",
@@ -103,7 +98,7 @@ const Profil = () => {
         const body = new FormData();
         body.append("profil_photo", image);
         return userService
-            .setProfilPhoto(userData.user_name, body).then((r) => {
+            .setProfilPhoto(user.user_name, body).then((r) => {
                 console.log(r);
                 const oldData = JSON.parse(localStorage.getItem("user"));
                 const newData = {
@@ -137,17 +132,17 @@ const Profil = () => {
                 setError("apiError", { message: error });
             });
     };
-    const { user, isLoading } = userService.getUser(userData.user_name);
-    if (isLoading) return <div>loading...</div>
-    if (user.error) {
-        return (
-            <div className="mt-3 pt-3 beranda">
-                <div className="container-fluid">
-                    {user.message}
-                </div>
-            </div>
-        )
-    };
+    // const { user, isLoading } = userService.getUser(userData.user_name);
+    // if (isLoading) return <div>loading...</div>
+    // if (user.error) {
+    //     return (
+    //         <div className="mt-3 pt-3 beranda">
+    //             <div className="container-fluid">
+    //                 {user.message}
+    //             </div>
+    //         </div>
+    //     )
+    // };
 
     return (
         <>
@@ -160,9 +155,9 @@ const Profil = () => {
                     <div className="row mt-3 mb-3 p-1">
                         <div className='col-md-6 card-user'>
                             <div className='img-user'>
-                                <h2>{user.data.full_name}</h2>
+                                <h2>{user.full_name}</h2>
                                 <Image
-                                    src={user.data.profil_photo_url}
+                                    src={user.profil_photo_url}
                                     width={150}
                                     height={150}
                                     className="logo-text img-fluid rounded-2"
@@ -176,10 +171,10 @@ const Profil = () => {
                         <div className='col-md-6'>
                             <div className="info-user">
                                 <h2>Info : </h2>
-                                <p><i className='fa fa-envelope'></i> {user.data.email}</p>
-                                <p><i className='fab fa-whatsapp'></i> {user.data.phone_number}</p>
-                                <p><i className='fa fa-user'></i> {user.data.gender}</p>
-                                <p><i className="fa-solid fa-map-location-dot"></i> {user.data.address}</p>
+                                <p><i className='fa fa-envelope'></i> {user.email}</p>
+                                <p><i className='fab fa-whatsapp'></i> {user.phone_number}</p>
+                                <p><i className='fa fa-user'></i> {user.gender}</p>
+                                <p><i className="fa-solid fa-map-location-dot"></i> {user.address}</p>
                                 <a href='/beranda' className='btn-style outer-shadow inner-shadow hover-in-shadow '>  <i className='fa fa-arrow-left'></i> Kembali</a>
                                 <button style={{ border: 'none' }} className='btn-style outer-shadow inner-shadow hover-in-shadow  ms-2' data-bs-toggle="modal" data-bs-target="#editProfil"> <i className="fa-solid fa-pen-to-square"></i> Edit Profile</button>
                             </div>
@@ -209,7 +204,7 @@ const Profil = () => {
                                         placeholder="Raisa Andriana"
                                         {...register("full_name")}
 
-                                        defaultValue={user.data.full_name}
+                                        defaultValue={user.full_name}
                                     />
                                     <div className="invalid-feedback">
                                         {errors.full_name?.message}
@@ -226,7 +221,7 @@ const Profil = () => {
                                         aria-describedby="emailHelp"
                                         placeholder="raisa@gmail.com"
                                         {...register("email")}
-                                        defaultValue={user.data.email}
+                                        defaultValue={user.email}
                                     />
                                     <div className="invalid-feedback">{errors.email?.message}</div>
                                 </div>
@@ -242,7 +237,7 @@ const Profil = () => {
                                         aria-describedby="usernameHelp"
                                         placeholder="raisa6690"
                                         {...register("user_name")}
-                                        defaultValue={user.data.user_name}
+                                        defaultValue={user.user_name}
                                         disabled
                                     />
                                     <div className="invalid-feedback">
@@ -260,7 +255,7 @@ const Profil = () => {
                                         id="phone_number"
                                         placeholder="+628123468798"
                                         {...register("phone_number")}
-                                        defaultValue={user.data.phone_number}
+                                        defaultValue={user.phone_number}
                                     />
                                     <div className="invalid-feedback">
                                         {errors.phone_number?.message}
@@ -293,7 +288,7 @@ const Profil = () => {
                                         id="address"
                                         placeholder="Jl. Garuda No. 76 Jakarta Selatan"
                                         {...register("address")}
-                                        defaultValue={user.data.address}
+                                        defaultValue={user.address}
                                     />
                                     <div className="invalid-feedback">
                                         {errors.address?.message}
@@ -373,6 +368,26 @@ const Profil = () => {
         </>
     )
 }
+
+export async function getServerSideProps(ctx) {
+    // Parse
+    const cookies = nookies.get(ctx)
+    const userData = JSON.parse(cookies.userCookies)
+    const requestOptions = {
+        method: "GET",
+        headers: { "Authorization": `Bearer ${userData.token}` }
+    }
+    const endpoint = `${API_ENDPOINT.user}/${userData.user_name}`
+    const res = await fetch(endpoint, requestOptions)
+    const data = await res.json()
+    const user = data.data
+    return {
+        props: {
+            user,
+        },
+    };
+}
+
 Profil.getLayout = function getLayout(page) {
     return (
         <Layout2>

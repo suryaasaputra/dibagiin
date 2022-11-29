@@ -8,8 +8,12 @@ const User = () => {
     const router = useRouter()
     const { username } = router.query
     const { user, isLoading } = userService.getUser(username)
-    if (isLoading) return <div>loading...</div>
-    console.log(user)
+    if (isLoading) return (<div className="mt-3 pt-3 beranda">
+        <div className="container-fluid">
+            <p>loading...</p>
+            <span className="spinner-border spinner-border-sm mr-1"></span>
+        </div>
+    </div>)
     if (user.error) {
         return (
             <div className="mt-3 pt-3 beranda">
@@ -19,10 +23,6 @@ const User = () => {
             </div>
         )
     }
-    // const donations = user.data.donation
-
-
-
     return (
         <>
             <Head>

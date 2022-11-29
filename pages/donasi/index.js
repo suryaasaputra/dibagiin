@@ -82,7 +82,7 @@ const Donasi = ({ listDonations }) => {
 						</div>
 					</div>
 					{listDonations.map((item) => (
-						<div className="row mt-5" id={item.id}>
+						<div key={item.id} className="row mt-5" id={item.id}>
 							<div className="col-md-12">
 								<div>
 									<Image
@@ -90,6 +90,7 @@ const Donasi = ({ listDonations }) => {
 										height={30}
 										src={item.donator.profil_photo_url}
 										className="img-fluid"
+										alt='avatar'
 									/>
 									<h1>{item.donator.full_name}</h1>
 									<p>Pada{item.created_at}</p>
@@ -104,6 +105,7 @@ const Donasi = ({ listDonations }) => {
 										height={200}
 										src={item.photo_url}
 										className="img-fluid"
+										alt="Image Barang"
 									/>
 								</div>
 								<div>
@@ -242,7 +244,8 @@ export async function getServerSideProps(ctx) {
 		method: "GET",
 		headers: { "Authorization": `Bearer ${userData.token}` }
 	}
-	const res = await fetch(API_ENDPOINT.donation, requestOptions)
+	const endpoint = API_ENDPOINT.donation
+	const res = await fetch(endpoint, requestOptions)
 	const data = await res.json()
 	const listDonations = data.data
 	return {
@@ -252,20 +255,4 @@ export async function getServerSideProps(ctx) {
 	};
 }
 
-
-// export async function getStaticProps(userData) {
-
-// 	const requestOptions = {
-// 		method: "GET",
-// 		headers: { "Authorization": `Bearer ${userData.token}` }
-// 	}
-// 	const res = await fetch(API_ENDPOINT.donation, requestOptions)
-// 	const data = await res.json()
-// 	const listDonations = data.data
-// 	return {
-// 		props: {
-// 			listDonations,
-// 		},
-// 	};
-// }
 export default Donasi

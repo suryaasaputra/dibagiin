@@ -1,4 +1,5 @@
 import { parseCookies } from "nookies";
+import { userService } from "../services";
 export default function Tes({ userData }) {
     console.log(userData)
     return (
@@ -17,26 +18,27 @@ export default function Tes({ userData }) {
         </>
     )
 }
-Tes.getInitialProps = async (ctx) => {
-    const cookies = parseCookies(ctx);
-    const userData = JSON.parse(cookies.userCookies)
-    return { userData };
-}
-// export async function getStaticProps({ req }) {
-//     const data = parseCookies(req)
-
-//     // if (res) {
-//     //     if (Object.keys(data).length === 0 && data.constructor === Object) {
-//     //         res.writeHead(301, { Location: "/" })
-//     //         res.end()
-//     //     }
-//     // }
-//     return {
-//         props: {
-//             data,
-//         },
-//     };
-//     // return {
-//     //     data: data && data,
-//     // }
+// Tes.getInitialProps = async (ctx) => {
+//     const cookies = parseCookies(ctx);
+//     const userData = JSON.parse(cookies.userCookies)
+//     return { userData };
 // }
+export async function getServerSideProps(ctx) {
+    const userData = userService.userData(ctx)
+    return {
+        props: {
+            userData,
+        },
+    };
+
+    // if (res) {
+    //     if (Object.keys(data).length === 0 && data.constructor === Object) {
+    //         res.writeHead(301, { Location: "/" })
+    //         res.end()
+    //     }
+    // }
+
+    // return {
+    //     data: data && data,
+    // }
+}

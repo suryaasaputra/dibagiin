@@ -7,6 +7,7 @@ export const fetchWrapper = {
 	fetcher,
 	get,
 	post,
+	login,
 	postFormData,
 	put,
 	putFileFoto,
@@ -34,6 +35,15 @@ function post(url, body) {
 	const requestOptions = {
 		method: "POST",
 		headers: { "Content-Type": "application/json", ...authHeader(url) },
+		// credentials: "include",
+		body: JSON.stringify(body),
+	};
+	return fetch(url, requestOptions).then(handleResponse);
+}
+function login(url, body) {
+	const requestOptions = {
+		method: "POST",
+		headers: { "Content-Type": "application/json" },
 		// credentials: "include",
 		body: JSON.stringify(body),
 	};
@@ -78,7 +88,7 @@ function _delete(url) {
 
 function authHeader(url) {
 	// return auth header with jwt if user is logged in and request is to the api url
-	const user = userService.userValue;
+	const user = userService.userData;
 	const isLoggedIn = user && user.token;
 	const publicPaths = [`${API_ENDPOINT.login}`, `${API_ENDPOINT.register}`];
 	const path = url.split("?")[0];
