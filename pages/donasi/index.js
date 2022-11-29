@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import Swal from "sweetalert2";
 import nookies from 'nookies'
 import { useEffect, useState } from 'react'
@@ -92,7 +93,7 @@ const Donasi = ({ listDonations }) => {
 										className="img-fluid"
 										alt='avatar'
 									/>
-									<h1>{item.donator.full_name}</h1>
+									<Link href={`/user/${item.donator.user_name}`}><h1>{item.donator.full_name}</h1></Link>
 									<p>Pada{item.created_at}</p>
 								</div>
 								<div>
