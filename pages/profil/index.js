@@ -68,11 +68,11 @@ const Profil = ({ user }) => {
                     timer: 2000,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        router.push("/profil");
+                        router.replace(router.asPath)
                     } else if (result.isDenied) {
-                        router.push("/profil");
+                        router.replace(router.asPath)
                     } else if (result.isDismissed) {
-                        router.push("/profil");
+                        router.replace(router.asPath)
                     }
                 });
             })
@@ -120,11 +120,11 @@ const Profil = ({ user }) => {
                     timer: 2000,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        router.push("/profil");
+                        router.replace(router.asPath)
                     } else if (result.isDenied) {
-                        router.push("/profil");
+                        router.replace(router.asPath)
                     } else if (result.isDismissed) {
-                        router.push("/profil");
+                        router.replace(router.asPath)
                     }
                 });
             })

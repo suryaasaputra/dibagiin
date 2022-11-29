@@ -54,11 +54,11 @@ const Donasi = ({ listDonations }) => {
 					timer: 2000,
 				}).then((result) => {
 					if (result.isConfirmed) {
-						location.reload();
+						router.replace(router.asPath)
 					} else if (result.isDenied) {
-						location.reload();
+						router.replace(router.asPath)
 					} else if (result.isDismissed) {
-						location.reload();
+						router.replace(router.asPath)
 					}
 				})
 			})
@@ -77,7 +77,7 @@ const Donasi = ({ listDonations }) => {
 					<div className="row mt-5">
 						<div className="col-md-12">
 							<h4 className="text-black-50">Donasi</h4>
-							<button className="btn btn-success" style={{padding: '10px 12px'}} data-bs-toggle="modal" data-bs-target="#formDonasi">
+							<button className="btn btn-success" style={{ padding: '10px 12px' }} data-bs-toggle="modal" data-bs-target="#formDonasi">
 								<i className='fas fa-plus'></i>	Buat Donasi
 							</button>
 						</div>
@@ -209,7 +209,7 @@ const Donasi = ({ listDonations }) => {
 										disabled={formState.isSubmitting}
 										type="submit"
 										className="btn btn-login"
-									// data-bs-dismiss="modal"
+										data-bs-dismiss="modal"
 									>
 										{formState.isSubmitting && (
 											<span className="spinner-border spinner-border-sm mr-1"></span>
