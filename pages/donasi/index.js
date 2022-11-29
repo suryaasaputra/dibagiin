@@ -77,7 +77,7 @@ const Donasi = ({ listDonations }) => {
 					<div className="row mt-5">
 						<div className="col-md-12">
 							<h4 className="text-black-50">Donasi</h4>
-							<button className="btn btn-success" data-bs-toggle="modal" data-bs-target="#formDonasi">
+							<button className="btn btn-success" style={{padding: '10px 12px'}} data-bs-toggle="modal" data-bs-target="#formDonasi">
 								<i className='fas fa-plus'></i>	Buat Donasi
 							</button>
 						</div>

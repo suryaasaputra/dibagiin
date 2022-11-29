@@ -108,14 +108,14 @@ const OffCanvas = () => {
 						</li>
 
 						<li>
-							<Link href="/beranda" className="nav-link px-2 active text-black-50 fw-bold">
+							<Link href="/beranda" className="nav-link px-2 p-3 active text-black-50 fw-bold">
 								<span className="me-2"></span>
-								<span className="p-2 hover"><i className="fas fa-home"></i> Beranda</span>
+								<span className="p-3"><i className="fas fa-home"></i> Beranda</span>
 							</Link>
 
-							<Link href="/profil" className="nav-link px-2 active text-black-50 fw-bold">
+							<Link href="/profil" className="nav-link px-2 p-3 active text-black-50 fw-bold">
 								<span className="me-2"></span>
-								<span className="p-2 hover"><i className="fas fa-user"></i> Profil</span>
+								<span className="p-3"><i className="fas fa-user"></i> Profil</span>
 							</Link>
 						</li>
 
@@ -128,16 +128,16 @@ const OffCanvas = () => {
 						</li>
 
 						<li>
-							<Link href="/donasi" className="nav-link px-2 active text-black-50 fw-bold">
+							<Link href="/donasi" className="nav-link px-2 p-3 active text-black-50 fw-bold">
 								<span className="me-2"></span>
-								<span className="p-2"><i className="fas fa-plus"></i> Donasi</span>
+								<span className="p-3"><i className="fas fa-plus"></i> Donasi</span>
 							</Link>
 						</li>
 
 						<li>
-							<a onClick={() => userService.logout()} style={{ cursor: 'pointer' }} className="nav-link px-2 active text-black-50 fw-bold">
+							<a onClick={() => userService.logout()} style={{ cursor: 'pointer' }} className="nav-link px-2 p-3 active text-black-50 fw-bold">
 								<span className="me-2"></span>
-								<span className="p-2"><i className="fa-solid fa-right-from-bracket"></i> Keluar</span>
+								<span className="p-3"><i className="fa-solid fa-right-from-bracket"></i> Keluar</span>
 							</a>
 						</li>
 

@@ -164,7 +164,7 @@ const Profil = ({ user }) => {
                                     alt="profil-photo"
                                 >
                                 </Image>
-                                <button className='btn' data-bs-toggle="modal" data-bs-target="#uploadPhoto"><i className="fa-solid fa-pen-to-square">Ganti Photo Profil</i></button>
+                                <button className='btn' data-bs-toggle="modal" data-bs-target="#uploadPhoto"><i className="fa-solid p-3 mr-3 fa-pen-to-square">Ganti Photo Profil</i></button>
                             </div>
                         </div>
 
