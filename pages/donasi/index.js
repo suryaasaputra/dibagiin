@@ -31,23 +31,52 @@ const StatusBadge = ({ item }) => {
 }
 
 const TombolAmbil = ({ item }) => {
+
+	// kondisi ketika donasi sudah diambil pengguna lain
+	if (item.status != "Tersedia") {
+		return (
+			<>
+				<button
+					className='btn-style ms-2'
+					style={{ cursor: 'not-allowed', backgroundColor: 'darkgrey' }}
+				>
+					Sudah diambil
+				</button>
+				<span>
+					<p>
+						diambil oleh <Link className="nama-donatur-url" href={`/user/${item.taker.user_name}`}><b>{item.taker.full_name}</b> </Link>
+					</p>
+				</span>
+			</>
+		)
+	}
+
 	const user = userService.userData;
+
+	// cek apakah user sudah pernah request ke donasi
+	const requester = String(item.requester_id)
+	const userId = user.id
+	const isRequester = requester.includes(userId)
+	// kondisi jika user sudah pernah request
+	if (isRequester) {
+		return (
+			<button
+				className='btn-style ms-2'
+				style={{ cursor: 'not-allowed', backgroundColor: 'darkgrey' }}
+			>
+				Menunggu Konfirmasi
+			</button>
+		)
+	}
+
+
 
 	// kondisi jika donasi merupakan donasi yang dibuat sendiri 
 	if (item.donator.id == user.id) {
 		return
 	}
 
-	// kondisi ketika donasi sudah diambil pengguna lain
-	if (item.status != "Tersedia") {
-		return (
-			<span>
-				<p>
-					diambil oleh <Link className="nama-donatur-url" href={`/user/${item.taker.user_name}`}><b>{item.taker.full_name}</b> </Link>
-				</p>
-			</span>
-		)
-	}
+
 	// kondisi jika donasi masih tersedia
 	return (
 		<button
@@ -168,6 +197,7 @@ const DonasiCard = ({ item }) => {
 							<StatusBadge item={item} />
 
 							<p className='lokasi mt-3'>Lokasi : {item.location}</p>
+							<p className='lokasi mt-3'>requester : {item.requester_id}</p>
 
 							<a href='#' className='btn-style outer-shadow inner-shadow hover-in-shadow'>
 								Lihat Detail
@@ -247,7 +277,6 @@ const Donasi = () => {
 	// 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	// }, []);
 	const uploadToClient = (event) => {
-		console.log(event)
 		if (event.target.files && event.target.files[0]) {
 			const i = event.target.files[0];
 			setImage(i);
@@ -322,7 +351,7 @@ const Donasi = () => {
 			<span className="spinner-border spinner-border-sm mr-1"></span>
 		</div>
 	</div>)
-	console.log(listDonations)
+	// console.log(listDonations)
 	if (listDonations.error) {
 		return (
 			<div className="mt-3 pt-3 beranda">
