@@ -14,6 +14,7 @@ export const donationService = {
     getRequestDetail,
     confirmRequest,
     getAllSubmittedRequest,
+    getHistory,
 };
 
 function createDonation(donationData) {
@@ -102,9 +103,17 @@ function getAllSubmittedRequest() {
         isLoading: !data,
         error: error
     }
-    // return fetchWrapper.get(endpoint).then((response) => {
-    //     return response;
-    // });
+}
+
+
+function getHistory() {
+    const endpoint = `${API_ENDPOINT.history}`
+    const { data, error } = useSWR(endpoint, fetchWrapper.fetcher, { refreshInterval: 60000 })
+    return {
+        listHistory: data,
+        isLoading: !data,
+        error: error
+    }
 }
 
 

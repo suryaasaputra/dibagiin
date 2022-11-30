@@ -32,13 +32,27 @@ const Terkirim = () => {
         )
     }
 
-
+    if (listRequest.data == []) {
+        return (
+            <div className="mt-3 pt-3 beranda">
+                <div className="container-fluid">
+                    Belum ada data
+                </div>
+            </div>
+        )
+    }
+    const data = listRequest.data.length
     return (
         <div className="mt-3 pt-3 beranda">
             <div className="container-fluid">
                 <Head>
                     <title>Permintaan diterima-Dibagiin</title>
                 </Head>
+
+                {!data && (
+                    <div className="row m-5"><h2>Belum ada data</h2></div>
+                )
+                }
                 {listRequest.data.map((item) => (
                     <div className="row m-5">
                         <div className="col-md-12 p-4 mb-3 outer-shadow rounded-2">
