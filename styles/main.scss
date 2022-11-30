@@ -321,6 +321,14 @@ input[type="text"] {
 	text-decoration: none;
 }
 
+.accordion-body {
+	background-color: #F8F8F8;
+}
+
+.accordion-button {
+	background-color: #E7F1FF;
+}
+
 /* 
 OUR TEAMS
 */
@@ -565,6 +573,21 @@ header .navbar-nav .dropdown-menu {
 .card-table .card-header {
 	color: #333;
 }
+
+.nama-donatur-url {
+	display: inline-block;
+	color: $green;
+}
+
+// .date {
+// 	position: relative;
+// }
+
+// .date span {
+// 	position: relative;
+// 	top: 15px;
+// 	right: 5px;
+// }
 
 /* 
   PROFIL
