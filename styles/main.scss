@@ -601,18 +601,27 @@ header .navbar-nav .dropdown-menu {
 	overflow: auto;
 	padding: 10px;
 	box-shadow: 2px 2px 2px #d0d0d0,
-	-2px -2px 2px #f8f8f8;
+		-2px -2px 2px #f8f8f8;
 }
 
 .deskripsi {
 	margin-bottom: 0;
 }
+
 .lokasi {
 	margin-top: 5px;
 }
 
-.status-barang {
+.status-tersedia {
 	background-color: $green;
+	border-radius: 50px;
+	padding: 5px;
+	font-size: 11px;
+	color: #EFF0F4;
+}
+
+.status-tidak-tersedia {
+	background-color: $error;
 	border-radius: 50px;
 	padding: 5px;
 	font-size: 11px;
@@ -673,6 +682,7 @@ header .navbar-nav .dropdown-menu {
 	0% {
 		transform: translateY(0);
 	}
+
 	100% {
 		transform: translateY(-12px);
 	}

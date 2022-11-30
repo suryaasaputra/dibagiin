@@ -9,8 +9,56 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import Image from 'next/image';
 import { donationService } from '../../services';
+import { userService } from '../../services';
 import Layout2 from "../../components/Layout2";
 import API_ENDPOINT from '../../globals/api-endpoint';
+
+
+const StatusBadge = ({ item }) => {
+
+	// kondisi jika status tersedia
+	if (item.status != "Tersedia") {
+		return (
+			<div className='mt-3'><p>Status: <span className='status-tidak-tersedia'>{item.status}</span></p></div>
+		)
+	}
+
+	// kondisi jika sudah diambil 
+	return (
+		<div className='mt-3'><p>Status: <span className='status-tersedia'>{item.status}</span></p></div>
+	)
+
+}
+
+const TombolAmbil = ({ item }) => {
+	const user = userService.userData;
+
+	// kondisi jika donasi merupakan donasi yang dibuat sendiri 
+	if (item.donator.id == user.id) {
+		return
+	}
+
+	// kondisi ketika donasi sudah diambil pengguna lain
+	if (item.status != "Tersedia") {
+		return (
+			<span>
+				<p>
+					diambil oleh <Link className="nama-donatur-url" href={`/user/${item.taker.user_name}`}><b>{item.taker.full_name}</b> </Link>
+				</p>
+			</span>
+		)
+	}
+	// kondisi jika donasi masih tersedia
+	return (
+		<button
+			className='btn-style outer-shadow inner-shadow hover-in-shadow ms-2'
+			data-bs-toggle="modal"
+			data-bs-target={`#formModal${item.id}`}
+		>
+			Ajukan Permintaan
+		</button>
+	)
+}
 
 //component donasiCard
 const DonasiCard = ({ item }) => {
@@ -63,6 +111,7 @@ const DonasiCard = ({ item }) => {
 				setError2({ apiError: { message: error } });
 			});
 	}
+	// const requester = item.requester_id.join(", ")
 	return (
 		<div className="row mt-3 p-2">
 			<div className="col-md-12 p-4 mb-3 outer-shadow rounded-2">
@@ -80,19 +129,18 @@ const DonasiCard = ({ item }) => {
 								<Link className="nama-donatur-url" href={`/user/${item.donator.user_name}`}><h3>{item.donator.full_name}</h3></Link>
 								<p>@{item.donator.user_name}</p>
 							</div>
-
-							{/* <p className=''>Pada {item.created_at}</p> */}
 						</div>
 
 					</div>
 					<div className="col-md-6 date align-self-center">
 						<p className='text-end'>Ditambah Pada : {new Date(item.created_at).toLocaleTimeString('id-ID', {
-								day: 'numeric', // numeric, 2-digit
-								year: 'numeric', // numeric, 2-digit
-								month: 'long', // numeric, 2-digit, long, short, narrow
-								hour: 'numeric', // numeric, 2-digit
-								minute: '2-digit', // numeric, 2-digit
-							})}</p>
+							day: 'numeric', // numeric, 2-digit
+							year: 'numeric', // numeric, 2-digit
+							month: 'long', // numeric, 2-digit, long, short, narrow
+							hour: 'numeric', // numeric, 2-digit
+							minute: '2-digit', // numeric, 2-digit
+						})}
+						</p>
 					</div>
 				</div>
 
@@ -117,19 +165,14 @@ const DonasiCard = ({ item }) => {
 							<div className='deskripsi-barang'>
 								<p>{item.description}</p>
 							</div>
+							<StatusBadge item={item} />
 
 							<p className='lokasi mt-3'>Lokasi : {item.location}</p>
-							<p>Status: <span className='status-barang'>{item.status}</span></p>
-							{/* <p>Requester {item.requester_id.map((request) => { <li>{request}</li> })}</p> */}
 
-							<a href='#' className='btn-style outer-shadow inner-shadow hover-in-shadow'>Lihat Detail</a>
-							<button
-								className='btn-style outer-shadow inner-shadow hover-in-shadow ms-2'
-								data-bs-toggle="modal"
-								data-bs-target={`#formModal${item.id}`}
-							>
-								Ajukan Permintaan
-							</button>
+							<a href='#' className='btn-style outer-shadow inner-shadow hover-in-shadow'>
+								Lihat Detail
+							</a>
+							<TombolAmbil item={item} />
 						</div>
 
 					</div>
