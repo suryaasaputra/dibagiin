@@ -81,7 +81,13 @@ const DonasiCard = ({ item }) => {
 								<p>@{item.donator.user_name}</p>
 							</div>
 
-							<p className=''>Pada {item.created_at}</p>
+							<p className=''>Pada : {new Date(item.created_at).toLocaleTimeString('id-ID', {
+								day: 'numeric', // numeric, 2-digit
+								year: 'numeric', // numeric, 2-digit
+								month: 'long', // numeric, 2-digit, long, short, narrow
+								hour: 'numeric', // numeric, 2-digit
+								minute: '2-digit', // numeric, 2-digit
+							})}</p>
 						</div>
 
 					</div>
