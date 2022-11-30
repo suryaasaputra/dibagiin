@@ -65,7 +65,7 @@ const DonasiCard = ({ item }) => {
 		<div className="row mt-5 p-2">
 			<div className="col-md-12 p-4 mb-3 outer-shadow rounded-2">
 				<div className='row'>
-					<div className='col-md-12 header-card-donasi d-flex align-items-center p-2'>
+					<div className='col-md-6 header-card-donasi d-flex align-items-center p-2'>
 						<Image
 							width={80}
 							height={80}
@@ -75,13 +75,16 @@ const DonasiCard = ({ item }) => {
 						/>
 						<div className='nama-donator ms-2'>
 							<div>
-								<Link href={`/user/${item.donator.user_name}`}><h3>{item.donator.full_name}</h3></Link>
+								<Link className="nama-donatur-url" href={`/user/${item.donator.user_name}`}><h3>{item.donator.full_name}</h3></Link>
 								<p>@{item.donator.user_name}</p>
 							</div>
 
-							<p className=''>Pada {item.created_at}</p>
+							{/* <p className=''>Pada {item.created_at}</p> */}
 						</div>
 
+					</div>
+					<div className="col-md-6 date align-self-center">
+						<p className="text-end">Pada: {item.created_at}</p>
 					</div>
 				</div>
 
