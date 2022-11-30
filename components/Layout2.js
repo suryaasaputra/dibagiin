@@ -48,7 +48,7 @@ const Header = () => {
 								<input
 									className="form-control search-form"
 									type="search"
-									placeholder="Search"
+									placeholder="Cari barang"
 									aria-label="Search"
 								/>
 								<button className="btn ms-1 btn-search" type="submit">
@@ -159,10 +159,10 @@ const Footer = () => {
 				<div className="our-service box-footer">
 					<h4>Layanan Kami</h4>
 					<ul>
-						<li>Stuff donation</li>
-						<li>Take stuff</li>
-						<li>Accept stuff</li>
-						<li>About us</li>
+						<li>Donasi barang</li>
+						<li>Mengambil barang</li>
+						<li>Menerima barang</li>
+						<li>Tentang kami</li>
 					</ul>
 				</div>
 

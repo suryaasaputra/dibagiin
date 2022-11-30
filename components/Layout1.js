@@ -28,7 +28,7 @@ const Header = () => {
 						<ul className="navbar-nav me-auto mb-2 mb-lg-0">
 
 							<li className="nav-item">
-								<a className="nav-link" aria-current="page" href="#home">
+								<a className="nav-link" aria-current="page" href="/#home">
 									<i className="fa fa-home"></i> Beranda
 								</a>
 							</li>
@@ -89,10 +89,10 @@ const Footer = () => {
 				<div className="our-service box-footer">
 					<h4>Layanan Kami</h4>
 					<ul>
-						<li><Link className="serviceLink" href="#">Stuff donation</Link></li>
-						<li><Link className="serviceLink" href="#">Take stuff</Link></li>
-						<li><Link className="serviceLink" href="#">Accept stuff</Link></li>
-						<li><Link className="serviceLink" href="#">About us</Link></li>
+						<li><Link className="serviceLink" href="#">Donasi barang</Link></li>
+						<li><Link className="serviceLink" href="#">Mengambil barang</Link></li>
+						<li><Link className="serviceLink" href="#">Menerima barang</Link></li>
+						<li><Link className="serviceLink" href="#">Tentang kami</Link></li>
 					</ul>
 				</div>
 
