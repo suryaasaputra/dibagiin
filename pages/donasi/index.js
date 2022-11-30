@@ -350,11 +350,11 @@ const Donasi = () => {
 									</label>
 									<input
 										type="text"
-										className={`form-control ${errors.description ? "is-invalid" : ""}`}
+										className={`text-deskripsi form-control ${errors.description ? "is-invalid" : ""}`}
 										name="description"
 										id="description"
 										autoComplete='on'
-										placeholder="Sepatu converse  70s White ukuran 41"
+										placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean semper metus vel tincidunt venenatis. Nunc faucibus quis augue a bibendum. Aenean eget porttitor est, ac auctor tortor. Curabitur tincidunt vehicula viverra. Praesent tincidunt tempus diam, sed interdum leo imperdiet non. Donec egestas, quam eget viverra lobortis, mi mi porta lacus, at malesuada metus ligula quis dui."
 										{...register("description")}
 									/>
 									<div className="invalid-feedback">{errors.description?.message}</div>
