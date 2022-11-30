@@ -579,6 +579,20 @@ header .navbar-nav .dropdown-menu {
 	color: $green;
 }
 
+.img-barang {
+	object-fit: cover;
+	max-width: 100%;
+	max-height: 370px;
+	min-height: 370px;
+}
+
+.foto-barang {
+	object-fit: cover;
+	max-width: 370px;
+	max-height: 370px;
+	min-height: 370px;
+}
+
 // .date {
 // 	position: relative;
 // }

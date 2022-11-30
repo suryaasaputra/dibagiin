@@ -103,7 +103,7 @@ const DonasiCard = ({ item }) => {
 							height={350}
 							// style={{width: '100%'}}
 							src={item.photo_url}
-							className="img-fluid rounded-2"
+							className="img-fluid rounded-2 img-barang p-1"
 							alt="Image Barang"
 						/>
 					</div>
@@ -357,7 +357,7 @@ const Donasi = () => {
 									<label htmlFor="donation_photo" className="form-label">
 										Foto Barang*
 									</label>
-									<img src={createObjectURL} className="img-fluid mb-2" />
+									<img src={createObjectURL} className="img-fluid mb-2 foto-barang" />
 									<input
 										type="file"
 										className={`form-control ${errors.donation_photo ? "is-invalid" : ""
