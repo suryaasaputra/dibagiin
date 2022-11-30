@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Logo from '../public/images/logo/logo.png';
 import LogoText from '../public/images/logo/logo-text.png';
 
+
 const Header = () => {
 	return (
 		<header className="fixed-top header">
