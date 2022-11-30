@@ -167,7 +167,7 @@ const Profil = ({ user }) => {
                             </div>
                         </div>
 
-                        <div className='col-md-6 card-user mt-3'>
+                        <div className='col-md-6 card-user mt-4'>
                             <h2>Info : </h2>
                             <p><i className='fa fa-envelope'></i> {user.email}</p>
                             <p><i className='fab fa-whatsapp'></i> {user.phone_number}</p>

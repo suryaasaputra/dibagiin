@@ -46,7 +46,7 @@ const User = () => {
                                 </Image>
                             </div>
 
-                            <div className="info-user mt-3 p-3">
+                            <div className="info-user mt-4 p-3">
                                 <h2>{user.data.full_name}</h2>
                                 <p><i className='fa fa-envelope'></i> {user.data.email}</p>
                                 <p><i className='fab fa-whatsapp'></i> {user.data.phone_number}</p>
