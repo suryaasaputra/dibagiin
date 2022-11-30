@@ -19,7 +19,7 @@ function fetcher(url) {
 		method: "GET",
 		headers: authHeader(url),
 	};
-	return fetch(url, requestOptions).then(r => r.json())
+	return fetch(url, requestOptions).then(handleResponse)
 }
 
 
