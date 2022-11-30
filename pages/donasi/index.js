@@ -248,7 +248,6 @@ const DonasiCard = ({ item }) => {
 										type="submit"
 										className="btn btn-login"
 										data-bs-dismiss="modal"
-
 									>
 										Kirim Permintaan
 									</button>
@@ -474,6 +473,7 @@ const Donasi = () => {
 										disabled={formState.isSubmitting}
 										type="submit"
 										className="btn btn-login"
+										data-bs-dismiss="modal"
 									>
 										{formState.isSubmitting && (
 											<span className="spinner-border spinner-border-sm mr-1"></span>
