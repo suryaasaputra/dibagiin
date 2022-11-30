@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { userService } from "../services";
 
-
 export default function MyApp({ Component, pageProps }) {
 	const getLayout = Component.getLayout || ((page) => page)
 

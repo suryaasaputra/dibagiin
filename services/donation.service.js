@@ -25,15 +25,15 @@ function createDonation(donationData) {
 
 function getAllDonation() {
     const endpoint = `${API_ENDPOINT.donation}`
-    // const { data, error } = useSWR(endpoint, fetchWrapper.fetcher)
-    // return {
-    //     donation: data,
-    //     isLoading: !data,
-    //     error: error
-    // }
-    return fetchWrapper.get(endpoint).then((response) => {
-        return response;
-    });
+    const { data, error } = useSWR(endpoint, fetchWrapper.fetcher, { refreshInterval: 2000 })
+    return {
+        listDonations: data,
+        isLoading: !data,
+        error: error
+    }
+    //     return fetchWrapper.get(endpoint).then((response) => {
+    //         return response;
+    //     });
 }
 
 function getDonationDetail(donationId) {
