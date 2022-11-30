@@ -64,7 +64,7 @@ const DonasiCard = ({ item }) => {
 			});
 	}
 	return (
-		<div className="row mt-5 p-2">
+		<div className="row mt-3 p-2">
 			<div className="col-md-12 p-4 mb-3 outer-shadow rounded-2">
 				<div className='row'>
 					<div className='col-md-6 header-card-donasi d-flex align-items-center p-2'>
@@ -127,6 +127,7 @@ const DonasiCard = ({ item }) => {
 							<button
 								className='btn-style outer-shadow inner-shadow hover-in-shadow ms-2'
 								data-bs-toggle="modal"
+								// style={{border: 'none'}}
 								data-bs-target={`#formModal${item.id}`}
 							>
 								Ajukan Permintaan

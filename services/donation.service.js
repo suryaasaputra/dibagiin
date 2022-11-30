@@ -65,9 +65,15 @@ function requestDonation(donationId, data) {
 
 function getAllRequest() {
     const endpoint = `${API_ENDPOINT.donation}/request`
-    return fetchWrapper.get(endpoint).then((response) => {
-        return response;
-    });
+    const { data, error } = useSWR(endpoint, fetchWrapper.fetcher, { refreshInterval: 60000 })
+    return {
+        listRequest: data,
+        isLoading: !data,
+        error: error
+    }
+    // return fetchWrapper.get(endpoint).then((response) => {
+    //     return response;
+    // });
 }
 
 
@@ -88,11 +94,17 @@ function confirmRequest(requestId) {
 
 
 
-function getAllSubmittedRequest(userId) {
-    const endpoint = `${API_ENDPOINT.request}/${userId}`
-    return fetchWrapper.get(endpoint).then((response) => {
-        return response;
-    });
+function getAllSubmittedRequest() {
+    const endpoint = `${API_ENDPOINT.request}`
+    const { data, error } = useSWR(endpoint, fetchWrapper.fetcher, { refreshInterval: 60000 })
+    return {
+        listRequest: data,
+        isLoading: !data,
+        error: error
+    }
+    // return fetchWrapper.get(endpoint).then((response) => {
+    //     return response;
+    // });
 }
 
 

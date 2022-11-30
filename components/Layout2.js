@@ -133,6 +133,18 @@ const OffCanvas = () => {
 								<span className="p-3"><i className="fas fa-plus"></i> Donasi</span>
 							</Link>
 						</li>
+						<li>
+							<Link href="/permintaan/diterima" className="nav-link px-2 p-3 active text-black-50 fw-bold">
+								<span className="me-2"></span>
+								<span className="p-3"><i className="fa-solid fa-inbox-in"></i> Permintaan Diterima</span>
+							</Link>
+						</li>
+						<li>
+							<Link href="/permintaan/terkirim" className="nav-link px-2 p-3 active text-black-50 fw-bold">
+								<span className="me-2"></span>
+								<span className="p-3"><i className="fa-solid fa-inbox-out"></i> Permintaan Terkirim</span>
+							</Link>
+						</li>
 
 						<li>
 							<a onClick={() => userService.logout()} style={{ cursor: 'pointer' }} className="nav-link px-2 p-3 active text-black-50 fw-bold">
