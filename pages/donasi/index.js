@@ -102,7 +102,6 @@ const DonasiCard = ({ item }) => {
 							<Image
 								width={500}
 								height={350}
-								// style={{width: '100%'}}
 								src={item.photo_url}
 								className="img-fluid rounded-2 img-barang p-1"
 								alt="Image Barang"
@@ -119,7 +118,7 @@ const DonasiCard = ({ item }) => {
 								<p>{item.description}</p>
 							</div>
 
-							<p className='lokasi'>Lokasi : {item.location}</p>
+							<p className='lokasi mt-3'>Lokasi : {item.location}</p>
 							<p>Status: <span className='status-barang'>{item.status}</span></p>
 							{/* <p>Requester {item.requester_id.map((request) => { <li>{request}</li> })}</p> */}
 
@@ -127,7 +126,6 @@ const DonasiCard = ({ item }) => {
 							<button
 								className='btn-style outer-shadow inner-shadow hover-in-shadow ms-2'
 								data-bs-toggle="modal"
-								// style={{border: 'none'}}
 								data-bs-target={`#formModal${item.id}`}
 							>
 								Ajukan Permintaan
@@ -338,7 +336,7 @@ const Donasi = () => {
 										placeholder="Sepatu bekas "
 										autoComplete='on'
 										{...register("title")}
-										maxlength="30"
+										maxLength="30"
 									/>
 									<div className="invalid-feedback">
 										{errors.title?.message}

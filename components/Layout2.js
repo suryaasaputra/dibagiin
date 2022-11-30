@@ -136,13 +136,13 @@ const OffCanvas = () => {
 						<li>
 							<Link href="/permintaan/diterima" className="nav-link px-2 p-3 active text-black-50 fw-bold">
 								<span className="me-2"></span>
-								<span className="p-3"><i className="fa-solid fa-inbox-in"></i> Permintaan Diterima</span>
+								<span className="p-3"><i className="fa fa-inbox"></i> Permintaan Diterima</span>
 							</Link>
 						</li>
 						<li>
 							<Link href="/permintaan/terkirim" className="nav-link px-2 p-3 active text-black-50 fw-bold">
 								<span className="me-2"></span>
-								<span className="p-3"><i className="fa-solid fa-inbox-out"></i> Permintaan Terkirim</span>
+								<span className="p-3"><i className="fa fa-paper-plane"></i> Permintaan Terkirim</span>
 							</Link>
 						</li>
 

@@ -167,14 +167,17 @@ const Profil = ({ user }) => {
                             </div>
                         </div>
 
-                        <div className='col-md-6 card-user mt-4'>
-                            <h2>Info : </h2>
-                            <p><i className='fa fa-envelope'></i> {user.email}</p>
-                            <p><i className='fab fa-whatsapp'></i> {user.phone_number}</p>
-                            <p><i className='fa fa-user'></i> {user.gender}</p>
-                            <p><i className="fa-solid fa-map-location-dot"></i> {user.address}</p>
-                            <a href='/beranda' className='btn-style outer-shadow inner-shadow hover-in-shadow '>  <i className='fa fa-arrow-left'></i> Kembali</a>
-                            <button style={{ border: 'none' }} className='btn-style outer-shadow inner-shadow hover-in-shadow  ms-2' data-bs-toggle="modal" data-bs-target="#editProfil"> <i className="fa-solid fa-pen-to-square"></i> Edit Profile</button>
+                        <div className='col-md-6 mt-4'>
+                            <div className='info-user'>
+                                <h2>Info : </h2>
+                                <p><i className='fa fa-envelope'></i> {user.email}</p>
+                                <p><i className='fab fa-whatsapp'></i> {user.phone_number}</p>
+                                <p><i className='fa fa-user'></i> {user.gender}</p>
+                                <p><i className="fa-solid fa-map-location-dot"></i> {user.address}</p>
+                                <a href='/beranda' className='btn-style outer-shadow inner-shadow hover-in-shadow '>  <i className='fa fa-arrow-left'></i> Kembali</a>
+                                <button style={{ border: 'none' }} className='btn-style outer-shadow inner-shadow hover-in-shadow  ms-2' data-bs-toggle="modal" data-bs-target="#editProfil"> <i className="fa-solid fa-pen-to-square"></i> Edit Profile</button>
+                            </div>
+                           
                         </div>
 
                        
