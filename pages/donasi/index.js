@@ -86,7 +86,7 @@ const DonasiCard = ({ item }) => {
 
 					</div>
 					<div className="col-md-6 date align-self-center">
-						<p className='text-end'>Pada : {new Date(item.created_at).toLocaleTimeString('id-ID', {
+						<p className='text-end'>Ditambah Pada : {new Date(item.created_at).toLocaleTimeString('id-ID', {
 								day: 'numeric', // numeric, 2-digit
 								year: 'numeric', // numeric, 2-digit
 								month: 'long', // numeric, 2-digit, long, short, narrow
@@ -114,9 +114,13 @@ const DonasiCard = ({ item }) => {
 						<div className='info-content-card-donasi'>
 							<h2>Info :</h2>
 							<h4>{item.title}</h4>
-							<p>Deskripsi : {item.description}</p>
-							<p>Lokasi : {item.location}</p>
-							<p>Status {item.status}</p>
+							<p className='deskripsi'>Deskripsi :</p>
+							<div className='deskripsi-barang'>
+								<p>{item.description}</p>
+							</div>
+
+							<p className='lokasi'>Lokasi : {item.location}</p>
+							<p>Status: <span className='status-barang'>{item.status}</span></p>
 							{/* <p>Requester {item.requester_id.map((request) => { <li>{request}</li> })}</p> */}
 
 							<a href='#' className='btn-style outer-shadow inner-shadow hover-in-shadow'>Lihat Detail</a>
@@ -322,7 +326,7 @@ const Donasi = () => {
 							<form onSubmit={handleSubmit(onSubmit)}>
 								<div className="mb-4">
 									<label htmlFor="title" className="form-label">
-										Nama Donasi*
+										Nama Donasi (maksimal 30 karakter)*
 									</label>
 									<input
 										type="text"
@@ -333,6 +337,7 @@ const Donasi = () => {
 										placeholder="Sepatu bekas "
 										autoComplete='on'
 										{...register("title")}
+										maxlength="30"
 									/>
 									<div className="invalid-feedback">
 										{errors.title?.message}

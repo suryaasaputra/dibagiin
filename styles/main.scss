@@ -589,12 +589,35 @@ header .navbar-nav .dropdown-menu {
 
 .foto-barang {
 	object-fit: cover;
+	object-position: center;
 	max-width: 370px;
 	max-height: 370px;
 }
 
+.deskripsi-barang {
+	// padding: 10px;
+	max-height: 160px;
+	overflow: auto;
+}
+
+.deskripsi {
+	margin-bottom: 0;
+}
+.lokasi {
+	margin-top: 5px;
+}
+
+.status-barang {
+	background-color: $green;
+	border-radius: 50px;
+	padding: 5px;
+	font-size: 11px;
+	color: #EFF0F4;
+}
+
 .img-barang-wrapper {
 	background-color: white;
+	border-radius: 50px;
 }
 
 /* 
