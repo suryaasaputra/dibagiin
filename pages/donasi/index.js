@@ -241,15 +241,15 @@ const Donasi = () => {
 					confirmButtonColor: "#73a700",
 					timer: 2000,
 				})
-				// .then((result) => {
-				// 	if (result.isConfirmed) {
-				// 		router.replace(router.asPath)
-				// 	} else if (result.isDenied) {
-				// 		router.replace(router.asPath)
-				// 	} else if (result.isDismissed) {
-				// 		router.replace(router.asPath)
-				// 	}
-				// })
+					.then((result) => {
+						if (result.isConfirmed) {
+							router.replace(router.asPath)
+						} else if (result.isDenied) {
+							router.replace(router.asPath)
+						} else if (result.isDismissed) {
+							router.replace(router.asPath)
+						}
+					})
 			})
 			.catch((error) => {
 				setError("apiError", { message: error });
