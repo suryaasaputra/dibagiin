@@ -12,9 +12,11 @@ import { donationService } from '../../services';
 import Layout2 from "../../components/Layout2";
 import API_ENDPOINT from '../../globals/api-endpoint';
 
+//component donasiCard
 const DonasiCard = ({ item }) => {
 	const router = useRouter();
 	const [errors2, setError2] = useState({});
+
 	function handleOnSubmit(event) {
 		// Stop the form from submitting and refreshing the page.
 		event.preventDefault()
@@ -84,7 +86,13 @@ const DonasiCard = ({ item }) => {
 
 					</div>
 					<div className="col-md-6 date align-self-center">
-						<p className="text-end">Pada: {item.created_at}</p>
+						<p className='text-end'>Pada : {new Date(item.created_at).toLocaleTimeString('id-ID', {
+								day: 'numeric', // numeric, 2-digit
+								year: 'numeric', // numeric, 2-digit
+								month: 'long', // numeric, 2-digit, long, short, narrow
+								hour: 'numeric', // numeric, 2-digit
+								minute: '2-digit', // numeric, 2-digit
+							})}</p>
 					</div>
 				</div>
 
@@ -182,11 +190,14 @@ const DonasiCard = ({ item }) => {
 	)
 }
 
-const Donasi = ({ listDonations }) => {
+const Donasi = () => {
 	const [image, setImage] = useState(null);
 	const [createObjectURL, setCreateObjectURL] = useState(null);
-
-
+	// useEffect(() => {
+	// 	import("jquery")
+	// 	import("bootstrap/dist/js/bootstrap")
+	// 	// eslint-disable-next-line react-hooks/exhaustive-deps
+	// }, []);
 	const uploadToClient = (event) => {
 		console.log(event)
 		if (event.target.files && event.target.files[0]) {
@@ -210,6 +221,22 @@ const Donasi = ({ listDonations }) => {
 	const { errors } = formState;
 
 	function onSubmit(data) {
+		// Swal.fire({
+		// 	icon: "success",
+		// 	title: "Berhasil Membuat Donasi",
+		// 	text: data,
+		// 	confirmButtonColor: "#73a700",
+		// 	timer: 2000,
+		// })
+		// .then((result) => {
+		// 	if (result.isConfirmed) {
+		// 		$('#formDonasi').modal('hide')
+		// 	} else if (result.isDenied) {
+		// 		$('#formDonasi').modal('hide')
+		// 	} else if (result.isDismissed) {
+		// 		$('#formDonasi').modal('hide')
+		// 	}
+		// })
 		const body = new FormData();
 		body.append("donation_photo", image)
 		body.append("title", data.title)
@@ -222,19 +249,40 @@ const Donasi = ({ listDonations }) => {
 					title: "Berhasil Membuat Donasi",
 					confirmButtonColor: "#73a700",
 					timer: 2000,
-				}).then((result) => {
-					if (result.isConfirmed) {
-						router.replace(router.asPath)
-					} else if (result.isDenied) {
-						router.replace(router.asPath)
-					} else if (result.isDismissed) {
-						router.replace(router.asPath)
-					}
 				})
+					.then((result) => {
+						if (result.isConfirmed) {
+							router.replace(router.asPath)
+						} else if (result.isDenied) {
+							router.replace(router.asPath)
+						} else if (result.isDismissed) {
+							router.replace(router.asPath)
+						}
+					})
 			})
 			.catch((error) => {
 				setError("apiError", { message: error });
 			});
+	}
+
+
+	//fetch donation list
+	const { listDonations, isLoading } = donationService.getAllDonation()
+	if (isLoading) return (<div className="mt-3 pt-3 beranda">
+		<div className="container-fluid">
+			<p>loading...</p>
+			<span className="spinner-border spinner-border-sm mr-1"></span>
+		</div>
+	</div>)
+	console.log(listDonations)
+	if (listDonations.error) {
+		return (
+			<div className="mt-3 pt-3 beranda">
+				<div className="container-fluid">
+					{listDonations.message}
+				</div>
+			</div>
+		)
 	}
 	return (
 		<>
@@ -252,7 +300,7 @@ const Donasi = ({ listDonations }) => {
 							</button>
 						</div>
 					</div>
-					{listDonations.map((item) => (
+					{listDonations.data.map((item) => (
 						<DonasiCard key={item.id} item={item} />
 					))}
 
@@ -348,7 +396,6 @@ const Donasi = ({ listDonations }) => {
 										disabled={formState.isSubmitting}
 										type="submit"
 										className="btn btn-login"
-										data-bs-dismiss="modal"
 									>
 										{formState.isSubmitting && (
 											<span className="spinner-border spinner-border-sm mr-1"></span>
@@ -376,23 +423,23 @@ Donasi.getLayout = function getLayout(page) {
 		</Layout2>
 	)
 }
-export async function getServerSideProps(ctx) {
-	// Parse
-	const cookies = nookies.get(ctx)
-	const userData = JSON.parse(cookies.userCookies)
-	const requestOptions = {
-		method: "GET",
-		headers: { "Authorization": `Bearer ${userData.token}` }
-	}
-	const endpoint = API_ENDPOINT.donation
-	const res = await fetch(endpoint, requestOptions)
-	const data = await res.json()
-	const listDonations = data.data
-	return {
-		props: {
-			listDonations,
-		},
-	};
-}
+// export async function getServerSideProps(ctx) {
+// 	// Parse
+// 	const cookies = nookies.get(ctx)
+// 	const userData = JSON.parse(cookies.userCookies)
+// 	const requestOptions = {
+// 		method: "GET",
+// 		headers: { "Authorization": `Bearer ${userData.token}` }
+// 	}
+// 	const endpoint = API_ENDPOINT.donation
+// 	const res = await fetch(endpoint, requestOptions)
+// 	const data = await res.json()
+// 	const listDonations = data.data
+// 	return {
+// 		props: {
+// 			listDonations,
+// 		},
+// 	};
+// }
 
 export default Donasi
