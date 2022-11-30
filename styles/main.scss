@@ -89,6 +89,7 @@ a {
 	color: $green;
 	transition: 0.3s ease;
 	box-shadow: $outer-shadow;
+	border: none;
 }
 
 .btn-style:hover {
@@ -590,18 +591,11 @@ header .navbar-nav .dropdown-menu {
 	object-fit: cover;
 	max-width: 370px;
 	max-height: 370px;
-	min-height: 370px;
 }
 
-// .date {
-// 	position: relative;
-// }
-
-// .date span {
-// 	position: relative;
-// 	top: 15px;
-// 	right: 5px;
-// }
+.img-barang-wrapper {
+	background-color: white;
+}
 
 /* 
   PROFIL

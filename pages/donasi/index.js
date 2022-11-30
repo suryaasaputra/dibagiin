@@ -98,14 +98,16 @@ const DonasiCard = ({ item }) => {
 
 				<div className='row'>
 					<div className='col-md-6 content-card-donasi p-2 text-center'>
-						<Image
-							width={350}
-							height={350}
-							// style={{width: '100%'}}
-							src={item.photo_url}
-							className="img-fluid rounded-2 img-barang p-1"
-							alt="Image Barang"
-						/>
+						<div className="img-barang-wrapper">
+							<Image
+								width={500}
+								height={350}
+								// style={{width: '100%'}}
+								src={item.photo_url}
+								className="img-fluid rounded-2 img-barang p-1"
+								alt="Image Barang"
+							/>
+						</div>
 					</div>
 
 					<div className='col-md-6 content-card-donasi p-2'>
