@@ -103,6 +103,9 @@ header {
 	width: 100%;
 	padding: 2px 8px;
 	transition: .3s ease;
+	position: fixed;
+	top: 0;
+	z-index: 100;
 }
 
 header.sticky {

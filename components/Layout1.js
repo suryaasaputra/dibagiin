@@ -6,7 +6,7 @@ import LogoText from '../public/images/logo/logo-text.png';
 
 const Header = () => {
 	return (
-		<header className="fixed-top header">
+		<header className="header">
 			<nav className="navbar navbar-expand-lg navbar-light">
 				<div className="container">
 
