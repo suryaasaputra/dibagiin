@@ -99,18 +99,14 @@ a {
 /*
   HEADER
 */
-header {
+.header {
 	width: 100%;
 	padding: 2px 8px;
+	background-color: $ligth-white;
 	transition: .3s ease;
 	position: fixed;
 	top: 0;
 	z-index: 100;
-}
-
-header.sticky {
-	background-color: $ligth-white;
-	padding: 5px 10px;
 }
 
 .container .navbar-item ul {
@@ -559,6 +555,21 @@ header .navbar-nav .dropdown-menu {
 	color: $black-555;
 }
 
+#sidebar .pemberitahuan-btn {
+	position: relative;
+}
+
+#sidebar .pemberitahuan-btn::before {
+	position: absolute;
+	content: "";
+	top: 14px;
+	right: 10px;
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	background-color: $salmon;
+}
+
 .beranda {
 	color: $black-555;
 }
@@ -606,10 +617,6 @@ header .navbar-nav .dropdown-menu {
 
 .deskripsi {
 	margin-bottom: 0;
-}
-
-.lokasi {
-	margin-top: 5px;
 }
 
 .status-tersedia {

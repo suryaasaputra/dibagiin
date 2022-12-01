@@ -122,7 +122,7 @@ const OffCanvas = () => {
 						<li className="my-4"><hr className="dropdown-divider bg-dark" /></li>
 
 						<li>
-							<div className="text-muted small fw-bold text-uppercase px-3 mb-3">
+							<div className="text-muted small fw-bold text-uppercase px-3">
 								Antarmuka
 							</div>
 						</li>
@@ -136,7 +136,7 @@ const OffCanvas = () => {
 						<li>
 							<Link href="/pemberitahuan" className="nav-link px-2 p-3 active text-black-50 fw-bold">
 								<span className="me-2"></span>
-								<span className="p-3"><i className="fas fa-bell"></i>Pemberitahuan</span>
+								<span className="p-3 pemberitahuan-btn"><i className="fas fa-bell"></i> Pemberitahuan</span>
 							</Link>
 						</li>
 						<li>

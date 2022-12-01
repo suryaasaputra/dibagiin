@@ -36,9 +36,9 @@ const User = () => {
                             <div className='img-user'>
                                 <Image
                                     src={user.data.profil_photo_url}
-                                    width={150}
-                                    height={150}
-                                    className="logo-text img-fluid"
+                                    width={180}
+                                    height={180}
+                                    className="logo-text img-fluid p-2 outer-shadow rounded-2"
                                     alt="profil-photo"
                                     loading='eager'
                                     priority

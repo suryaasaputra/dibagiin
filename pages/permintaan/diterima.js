@@ -33,8 +33,8 @@ const Diterima = () => {
     }
     const data = listRequest.data.length
     return (
-        <div className="mt-3 pt-3 beranda">
-            <div className="container-fluid">
+        <div className="mt-3 pt-3 beranda ">
+            <div className="container-fluid p-3">
                 <Head>
                     <title>Permintaan diterima-Dibagiin</title>
                 </Head>
@@ -44,53 +44,42 @@ const Diterima = () => {
                 )
                 }
                 {listRequest.data.map((item) => (
-                    <div className="row m-5">
-                        <div className="col-md-12 p-5 mb-3 outer-shadow rounded-2">
-                            <div className="row ">
-                                <div className='col-4'>
-                                    <Image
-                                        width={80}
-                                        height={80}
-                                        src={item.user.profil_photo_url}
-                                        className="img-fluid rounded-circle"
-                                        alt='avatar'
-                                    />
-                                </div>
-                                <div className='col-8'>
-                                    <div className="row ">
-                                        <p><Link href={`/user/${item.user.user_name}`}> <b>{item.user.full_name}</b></Link> meminta <Link href={`/donasi/${item.donation.id}`}> <b>{item.donation.title}</b></Link></p>
-                                    </div>
-                                    <div className="row ">
-                                        <p className='text-end'>Pada : {new Date(item.created_at).toLocaleTimeString('id-ID', {
+                    <div className="row m-2 mt-4 p-4 rounded-2 outer-shadow">
+                            <div className='col-md-6'>
+                                <Image
+                                    width={80}
+                                    height={80}
+                                    src={item.user.profil_photo_url}
+                                    className="img-fluid rounded-circle"
+                                    alt='avatar'
+                                />
+                                <p><Link href={`/user/${item.user.user_name}`}> <b>{item.user.full_name}</b></Link> meminta <Link href={`/donasi/${item.donation.id}`}> <b>{item.donation.title}</b></Link></p> 
+                                <i>@{item.user.user_name}</i>
+                            </div>
+
+                            <div className='col-md-6'>
+                                
+                                <p className=''>Pada : {new Date(item.created_at).toLocaleTimeString('id-ID', {
                                             day: 'numeric', // numeric, 2-digit
                                             year: 'numeric', // numeric, 2-digit
                                             month: 'long', // numeric, 2-digit, long, short, narrow
                                             hour: 'numeric', // numeric, 2-digit
                                             minute: '2-digit', // numeric, 2-digit
-                                        })}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="row ">
-                                <div className='col-12'>
-                                    <p className=' fw-bold'>"{item.message}"</p>
-                                </div>
-                            </div>
-                            <div className="row ">
-                                <div className='col-12'>
-                                    <button
-                                        className='btn-style outer-shadow inner-shadow hover-in-shadow ms-2'
+                                })}</p>
+
+                                <p className=' fw-bold'>Pesan : "{item.message}"</p>
+
+                                <button
+                                    className='btn-style outer-shadow inner-shadow hover-in-shadow ms-2'
                                     >
-                                        Konfirmasi
-                                    </button>
-                                    <button
-                                        className='btn-style outer-shadow inner-shadow hover-in-shadow ms-2'
+                                    Konfirmasi
+                                </button>
+                                <button
+                                    className='btn-style outer-shadow inner-shadow hover-in-shadow ms-2'
                                     >
-                                        Hapus
-                                    </button>
-                                </div>
+                                    Hapus
+                                </button>
                             </div>
-                        </div>
                     </div>
                 ))}
 

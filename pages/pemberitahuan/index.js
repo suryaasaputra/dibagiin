@@ -128,7 +128,7 @@ const Pemberitahuan = () => {
                     <title>Permintaan diterima-Dibagiin</title>
                 </Head>
 
-                <div className='mt-5'><h1>Pemberitahuan</h1></div>
+                <div className='mt-5'><h2>Pemberitahuan</h2></div>
 
                 {!data && (
                     <div className="row m-5"><h2>Belum ada data</h2></div>

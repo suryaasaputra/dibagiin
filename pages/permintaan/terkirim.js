@@ -43,7 +43,7 @@ const Terkirim = () => {
     }
     const data = listRequest.data.length
     return (
-        <div className="mt-3 pt-3 beranda">
+        <div className="mt-5 pt-3 beranda">
             <div className="container-fluid">
                 <Head>
                     <title>Permintaan diterima-Dibagiin</title>
@@ -54,40 +54,33 @@ const Terkirim = () => {
                 )
                 }
                 {listRequest.data.map((item) => (
-                    <div className="row m-5">
-                        <div className="col-md-12 p-4 mb-3 outer-shadow rounded-2">
-                            <div className="row ">
-                                <div className='col-2'>
-                                    <Image
-                                        width={100}
-                                        height={100}
-                                        src={item.donation.photo_url}
-                                        className="img-fluid rounded-2"
-                                        alt='avatar'
-                                    />
-                                </div>
-                                <div className='col-8'>
-                                    <div className="row ">
-                                        <p>Anda meminta <Link href={`/donasi/${item.donation.id}`}> <b>{item.donation.title}</b> </Link> dari <Link href={`/user/${item.donator.user_name}`}> <b>{item.donator.full_name}</b></Link></p>
-                                    </div>
-                                    <div className="row ">
-                                        <p className='text-end'>Pada : {new Date(item.created_at).toLocaleTimeString('id-ID', {
+                    <div className="row m-1 mt-3 p-4 mb-4 rounded-2 outer-shadow">
+                            <div className="col-md-6 p-2">
+                                <p>Anda meminta <Link href={`/donasi/${item.donation.id}`}> <b>{item.donation.title}</b> </Link> dari <Link href={`/user/${item.donator.user_name}`}> <b>{item.donator.full_name}</b></Link></p>
+
+                                <Image
+                                    width={200}
+                                    height={200}
+                                    src={item.donation.photo_url}
+                                    className="img-fluid rounded-2 p-2 outer-shadow"
+                                    alt='avatar'
+                                />
+                    
+                            </div>
+
+                            <div className='col-md-6 p-2'>
+                                <p className=''>Pada : {new Date(item.created_at).toLocaleTimeString('id-ID', {
                                             day: 'numeric', // numeric, 2-digit
                                             year: 'numeric', // numeric, 2-digit
                                             month: 'long', // numeric, 2-digit, long, short, narrow
                                             hour: 'numeric', // numeric, 2-digit
                                             minute: '2-digit', // numeric, 2-digit
-                                        })}</p>
-                                    </div>
-                                </div>
+                                })}</p>
+                                <p>Status : <b className='rounded-3' style={{fontSize: '14.5px' ,padding: '5px', background: '#73a700', color: '#f8f8f8'}}> {item.status}</b></p>
                             </div>
-                            <div className="row ">
-                                <div className='col-12'>
-                                    <p>Status :<b>{item.status}</b></p>
-                                </div>
-                            </div>
-                        </div>
+                          
                     </div>
+                    
                 ))}
 
             </div>

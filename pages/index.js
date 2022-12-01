@@ -18,12 +18,6 @@ import watch2Image from '../public/images/gallery/watch2.jpg'
 import Link from 'next/link'
 import Layout1 from "../components/Layout1"
 export default function Home() {
-  // Header Sticky
-  window.addEventListener('scroll', () => {
-    const header = document.querySelector('.header');
-    header.classList.toggle('sticky', window.scrollY > 0);
-  });
-
   // Filter feature for gallery
   const galleryFilter = e => {
     const filterButtonContainer = document.querySelector(".filter-button");

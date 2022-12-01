@@ -147,16 +147,17 @@ const DonasiCard = ({ item }) => {
 				<div className='row'>
 					<div className='col-md-6 header-card-donasi d-flex align-items-center p-2'>
 						<Image
-							width={80}
-							height={80}
+							width={70}
+							height={70}
 							src={item.donator.profil_photo_url}
-							className="img-fluid rounded-circle"
+							style={{border: '4px solid #73a700'}}
+							className="img-fluid rounded-circle mb-3"
 							alt='avatar'
 						/>
 						<div className='nama-donator ms-2'>
 							<div>
-								<Link className="nama-donatur-url" href={`/user/${item.donator.user_name}`}><h3>{item.donator.full_name}</h3></Link>
-								<p>@{item.donator.user_name}</p>
+								<Link className="nama-donatur-url" href={`/user/${item.donator.user_name}`}><h4>{item.donator.full_name}</h4></Link>
+								<p><i>@{item.donator.user_name}</i></p>
 							</div>
 						</div>
 
@@ -197,7 +198,7 @@ const DonasiCard = ({ item }) => {
 							<StatusBadge item={item} />
 
 							<p className='lokasi mt-3'>Lokasi : {item.location}</p>
-							<p className='lokasi mt-3'>requester : {item.requester_id}</p>
+							<p style={{width: '100%'}} className='lokasi mt-3'>requester : {item.requester_id}</p>
 
 							<a href='#' className='btn-style outer-shadow inner-shadow hover-in-shadow'>
 								Lihat Detail
