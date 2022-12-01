@@ -188,9 +188,9 @@ const Footer = () => {
 					<h4>Pusat Bantuan</h4>
 					<ul>
 						<li>+62 82289675042 (yuda)</li>
-						<li>+62 82289675042 (surya)</li>
-						<li>+62 82289675042 (arif)</li>
-						<li>+62 82289675042 (annas)</li>
+						<li>+62 81930924356 (surya)</li>
+						<li>+62 85946362394 (arif)</li>
+						<li>+62 85156555122 (annas)</li>
 					</ul>
 				</div>
 			</div>

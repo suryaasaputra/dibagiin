@@ -50,6 +50,7 @@ const Diterima = () => {
                                     width={80}
                                     height={80}
                                     src={item.user.profil_photo_url}
+                                    style={{border: '4px solid #73a700'}}
                                     className="img-fluid rounded-circle"
                                     alt='avatar'
                                 />
