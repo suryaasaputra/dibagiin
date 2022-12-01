@@ -3,7 +3,6 @@ import Image from 'next/image';
 import Logo from '../public/images/logo/logo.png';
 import LogoText from '../public/images/logo/logo-text.png';
 
-
 const Header = () => {
 	return (
 		<header className="header">
@@ -28,7 +27,7 @@ const Header = () => {
 					<div className="collapse navbar-collapse navbar-item" id="navbarSupportedContent">
 						<ul className="navbar-nav me-auto mb-2 mb-lg-0">
 
-							<li className="nav-item">
+							<li className="nav-item ">
 								<a className="nav-link" aria-current="page" href="/">
 									<i className="fa fa-home"></i> Beranda
 								</a>
@@ -59,7 +58,7 @@ const Header = () => {
 								<i className="fa fa-sign-in"></i> Masuk
 							</Link>
 
-							<Link className="nav-link btn-style outer-shadow inner-shadow hover-in-shadow ms-4" href="/registrasi">
+							<Link className="nav-link btn-style-second outer-shadow inner-shadow  ms-4" href="/registrasi">
 								<i className="fa fa-user-plus"></i> Daftar
 							</Link>
 						</div>

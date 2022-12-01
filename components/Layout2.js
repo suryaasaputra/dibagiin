@@ -94,6 +94,10 @@ const Header = () => {
 
 const OffCanvas = () => {
 	const router = useRouter()
+
+	const cekActive = (url) => {
+		return String(router.asPath).includes(url)
+	}
 	return (
 		<div
 			className="offcanvas offcanvas-start sidebar-nav"
@@ -112,12 +116,12 @@ const OffCanvas = () => {
 						<li className="sidebar-item">
 							<Link href="/beranda" className="nav-link px-2 p-3 text-black-50 fw-bold">
 								<span className="me-2"></span>
-								<span className="p-3"><i className="fas fa-home"></i> Beranda</span>
+								<span className={`p-3 ${cekActive("/beranda") ? 'link-active' : ''}`}><i className="fas fa-home"></i> Beranda</span>
 							</Link>
 
 							<Link href="/profil" className="nav-link px-2 p-3 active text-black-50 fw-bold">
 								<span className="me-2"></span>
-								<span className="p-3"><i className="fas fa-user"></i> Profil</span>
+								<span className={`p-3 ${cekActive("/profil") ? 'link-active' : ''} ${cekActive("/user") ? 'link-active' : ''}`}><i className="fas fa-user"></i> Profil</span>
 							</Link>
 						</li>
 
@@ -130,41 +134,41 @@ const OffCanvas = () => {
 						</li>
 
 						<li className="sidebar-item">
-							<Link href="/donasi" className="nav-link px-2 p-3 active text-black-50 fw-bold">
+							<Link href="/donasi" className="nav-link px-2 p-3 text-black-50 fw-bold ">
 								<span className="me-2"></span>
-								<span className="p-3"><i className="fas fa-plus"></i> Donasi</span>
+								<span className={`p-3 ${cekActive("/donasi") ? 'link-active' : ''}`}><i className="fas fa-plus"></i> Donasi</span>
 							</Link>
 						</li>
 						<li className="sidebar-item">
 							<Link href="/pemberitahuan" className="nav-link px-2 p-3 active text-black-50 fw-bold">
 								<span className="me-2"></span>
-								<span className="p-3 pemberitahuan-btn"><i className="fas fa-bell"></i> Pemberitahuan</span>
+								<span className={`p-3 pemberitahuan-btn ${cekActive("/pemberitahuan") ? 'link-active' : ''}`}><i className="fas fa-bell"></i> Pemberitahuan</span>
 							</Link>
 						</li>
 						<li className="sidebar-item">
 							<Link href="/permintaan/diterima" className="nav-link px-2 p-3 active text-black-50 fw-bold">
 								<span className="me-2"></span>
-								<span className="p-3"><i className="fa fa-inbox"></i> Permintaan Diterima</span>
+								<span className={`p-3 ${cekActive("/permintaan/diterima") ? 'link-active' : ''}`}><i className="fa fa-inbox"></i> Permintaan Diterima</span>
 							</Link>
 						</li>
 						<li className="sidebar-item">
 							<Link href="/permintaan/terkirim" className="nav-link px-2 p-3 active text-black-50 fw-bold">
 								<span className="me-2"></span>
-								<span className="p-3"><i className="fa fa-paper-plane"></i> Permintaan Terkirim</span>
+								<span className={`p-3 ${cekActive("/permintaan/terkirim") ? 'link-active' : ''}`}><i className="fa fa-paper-plane"></i> Permintaan Terkirim</span>
 							</Link>
 						</li>
 
 						<li className="sidebar-item">
 							<a onClick={() => userService.logout()} style={{ cursor: 'pointer' }} className="nav-link px-2 p-3 active text-black-50 fw-bold">
 								<span className="me-2"></span>
-								<span className="p-3"><i className="fa-solid fa-right-from-bracket"></i> Keluar</span>
+								<span className="p-3 salmon"><i className="fa-solid fa-right-from-bracket"></i> Keluar</span>
 							</a>
 						</li>
 
 					</ul>
 				</nav>
 			</div>
-		</div>
+		</div >
 	);
 }
 

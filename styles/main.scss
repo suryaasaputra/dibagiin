@@ -25,6 +25,7 @@ $outer-shadow-0: 0 0 0 #d0d0d0,
 $inner-shadow: inset 3px 3px 3px #d0d0d0,
 inset -3px -3px 3px #f8f8f8;
 
+
 .outer-shadow {
 	box-shadow: $outer-shadow;
 }
@@ -57,6 +58,7 @@ inset -3px -3px 3px #f8f8f8;
 	box-shadow: $inner-shadow;
 	border-radius: 10px;
 }
+
 
 body {
 	background: $white;
@@ -92,8 +94,38 @@ a {
 	border: none;
 }
 
+.btn-style:focus {
+	color: $green;
+}
+
 .btn-style:hover {
 	color: $green;
+}
+
+.btn-style-second {
+	padding: 10px 25px;
+	font-size: 16px;
+	font-weight: 500;
+	background-color: $green;
+	line-height: 1.5;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	border-radius: 10px;
+	display: inline-block;
+	color: $white;
+	transition: 0.3s ease;
+	box-shadow: $outer-shadow;
+	border: none;
+}
+
+.btn-style-second:focus {
+	background: $green;
+	color: $ligth-white;
+}
+
+.btn-style-second:hover {
+	background: $green;
+	color: $ligth-white;
 }
 
 /*
@@ -574,8 +606,12 @@ header .navbar-nav .dropdown-menu {
 	transition: 0.3s ease;
 }
 
-.active {
+.link-active {
 	color: $green;
+}
+
+.salmon {
+	color: $salmon;
 }
 
 #sidebar nav ul .sidebar-item span:hover {
