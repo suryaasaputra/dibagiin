@@ -13,6 +13,7 @@ export const donationService = {
     getAllRequest,
     getRequestDetail,
     confirmRequest,
+    rejectRequest,
     getAllSubmittedRequest,
     getHistory,
 };
@@ -87,8 +88,15 @@ function getRequestDetail(requestId) {
 }
 
 function confirmRequest(requestId) {
-    const endpoint = `${API_ENDPOINT.donation}/request/${requestId}`
-    return fetchWrapper.put(endpoint).then((response) => {
+    const endpoint = `${API_ENDPOINT.donation}/request/${requestId}/confirm`
+    return fetchWrapper.post(endpoint).then((response) => {
+        return response;
+    });
+}
+
+function rejectRequest(requestId) {
+    const endpoint = `${API_ENDPOINT.donation}/request/${requestId}/reject`
+    return fetchWrapper.post(endpoint).then((response) => {
         return response;
     });
 }

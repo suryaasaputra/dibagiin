@@ -7,7 +7,7 @@ import Layout2 from "../../components/Layout2";
 import { donationService } from '../../services';
 
 const CardPemberitahuan = ({ item }) => {
-    if (item.status) {
+    if (item.type == "confirm") {
         const pesan = `Halo, saya ingin mengambil barang yang didonasikan di website Dibagiin...`
         const linkWa = `https://wa.me/${item.donation.donator.phone_number}?text=${pesan}`
         return (
@@ -51,7 +51,8 @@ const CardPemberitahuan = ({ item }) => {
                 </div>
             </div>
         )
-    } else {
+    }
+    if (item.type == "reject") {
         <div className="row m-5">
             <div className="col-md-12 p-5 mb-3 outer-shadow rounded-2">
                 <div className="row ">
@@ -61,7 +62,52 @@ const CardPemberitahuan = ({ item }) => {
                                 Permintaan Anda untuk barang
                                 <Link href={`/donasi/${item.donation.id}`}> <b>{item.donation.title}</b></Link>
                                 ditolak oleh
-                                <Link href={`/user/${item.donation.donator.user_name}`}> <b>{item.donation.donator.full_name}</b></Link>
+                                <Link href={`/user/${item.donation.donator.user_name}`}> <b>{item.donation.donator.full_name}.</b></Link>
+                                {item.message}
+                            </p>
+                        </div>
+                        <div className="row ">
+                            <p className='text-end'>Pada : {new Date(item.created_at).toLocaleTimeString('id-ID', {
+                                day: 'numeric', // numeric, 2-digit
+                                year: 'numeric', // numeric, 2-digit
+                                month: 'long', // numeric, 2-digit, long, short, narrow
+                                hour: 'numeric', // numeric, 2-digit
+                                minute: '2-digit', // numeric, 2-digit
+                            })}</p>
+                        </div>
+                    </div>
+                    <div className='col-4'>
+                        <Image
+                            width={100}
+                            height={100}
+                            src={item.donation.photo_url}
+                            className="img-fluid rounded-circle"
+                            alt='avatar'
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    if (item.type == "request") {
+        <div className="row m-5">
+            <div className="col-md-12 p-5 mb-3 outer-shadow rounded-2">
+                <div className="row ">
+                    <div className='col-8'>
+                        <div className='row'>
+                            <Image
+                                width={80}
+                                height={80}
+                                src={item.donation_request.user.photo_url}
+                                className="img-fluid rounded-circle"
+                                alt='avatar'
+                            />
+                        </div>
+                        <div className="row ">
+                            <p>
+                                <Link href={`/user/${item.donation_request.user.user_name}`}> <b>{item.donation_request.user.full_name}</b></Link>
+                                Mengirimkan permintaan untuk
+                                <Link href={`/donasi/${item.donation.id}`}> <b>{item.donation.title}</b></Link>
                             </p>
                         </div>
                         <div className="row ">
