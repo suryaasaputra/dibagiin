@@ -4,6 +4,7 @@ import Logo from '../public/images/logo/logo.png';
 import LogoText from '../public/images/logo/logo-text.png';
 import { userService } from "../services";
 import { useEffect, useState } from 'react'
+import { useRouter } from "next/router";
 
 const Header = () => {
 
@@ -92,6 +93,7 @@ const Header = () => {
 };
 
 const OffCanvas = () => {
+	const router = useRouter()
 	return (
 		<div
 			className="offcanvas offcanvas-start sidebar-nav"

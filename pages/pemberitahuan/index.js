@@ -95,40 +95,60 @@ const CardPemberitahuan = ({ item }) => {
     }
     if (item.type == "request") {
         return (
-            <Link href={"/permintaan/diterima"}><div className="row m-5">
-                <div className="col-md-12 p-5 mb-3 outer-shadow rounded-2">
-                    <div className="row ">
-                        <div className='col-8'>
-                            <div className="row ">
-                                <Link href={`/user/${item.donation_request.requester.user_name}`}> <b>{item.donation_request.requester.full_name}</b></Link>
-                                Mengirimkan permintan untuk
-                                <Link href={`/donasi/${item.donation.id}`}> <b>{item.donation.title}</b></Link>
+            <>
+                <div className='d-flex  border shadow-sm p-3 my-3   '>
+                    <div className='d-flex flex-column '>
+                        <div className='d-flex justify-content-start mb-2'>
+                            <div className='me-3'>
+                                <Image
+                                    width={70}
+                                    height={70}
+                                    src={item.donation_request.requester.profil_photo_url}
+                                    className="img-fluid rounded-circle"
+                                    alt='avatar'
+                                />
+                            </div>
+                            <div className='py-2 align-self-start'>
+                                <div>
+                                    <Link href={`/user/${item.donation_request.requester.user_name}`}> <b>{item.donation_request.requester.full_name} </b></Link>
+                                </div>
+                                <div>
+                                    @{item.donation_request.requester.user_name}
+                                </div>
 
                             </div>
-                            <div className="row ">
-                                <p className='text-end'>Pada : {new Date(item.created_at).toLocaleTimeString('id-ID', {
-                                    day: 'numeric', // numeric, 2-digit
-                                    year: 'numeric', // numeric, 2-digit
-                                    month: 'long', // numeric, 2-digit, long, short, narrow
-                                    hour: 'numeric', // numeric, 2-digit
-                                    minute: '2-digit', // numeric, 2-digit
-                                })}</p>
+                        </div>
+                        <div className='d-flex flex-row ps-4'>
+                            <div className='ms-5 align-self-center'>
+                                <Link href={"/permintaan/diterima"}>
+                                    Mengirimkan permintan untuk
+                                    <Link href={`/donasi/${item.donation.id}`}> <b>{item.donation.title}</b></Link>
+                                </Link>
                             </div>
                         </div>
-                        <div className='col-4'>
-                            <Image
-                                width={100}
-                                height={100}
-                                src={item.donation.photo_url}
-                                className="img-fluid rounded-circle"
-                                alt='avatar'
-                            />
-                        </div>
+                    </div>
+                    <div className='mx-auto'>
+                        <Image
+                            width={100}
+                            height={100}
+                            src={item.donation.photo_url}
+                            className="img-fluid rounded-2"
+                            alt='avatar'
+                        />
+                    </div>
+                    <div className=''>
+                        {new Date(item.created_at).toLocaleTimeString('id-ID', {
+                            day: 'numeric', // numeric, 2-digit
+                            year: 'numeric', // numeric, 2-digit
+                            month: 'long', // numeric, 2-digit, long, short, narrow
+                            hour: 'numeric', // numeric, 2-digit
+                            minute: '2-digit', // numeric, 2-digit
+                        })}
                     </div>
                 </div>
-            </div >
-            </Link>
+            </>
         )
+
     }
 }
 

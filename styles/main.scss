@@ -574,6 +574,10 @@ header .navbar-nav .dropdown-menu {
 	transition: 0.3s ease;
 }
 
+.active {
+	color: $green;
+}
+
 #sidebar nav ul .sidebar-item span:hover {
 	color: $green;
 }
@@ -655,16 +659,16 @@ header .navbar-nav .dropdown-menu {
 
 // WHY CHOOSE US
 .why-us-title-desc {
-    max-width: 70%;
-    display: block;
-    padding-top: 10px;
-    font-size: 16px;
-    margin: 0 auto;
-    line-height: 1.7;
+	max-width: 70%;
+	display: block;
+	padding-top: 10px;
+	font-size: 16px;
+	margin: 0 auto;
+	line-height: 1.7;
 }
 
-.wu-box  {
-    padding: 10px;
+.wu-box {
+	padding: 10px;
 	border: 1px solid $black-555;
 	border-radius: 50px;
 }
