@@ -570,6 +570,14 @@ header .navbar-nav .dropdown-menu {
 	background-color: $salmon;
 }
 
+#sidebar nav ul .sidebar-item {
+	transition: 0.3s ease;
+}
+
+#sidebar nav ul .sidebar-item span:hover {
+	color: $green;
+}
+
 .beranda {
 	color: $black-555;
 }

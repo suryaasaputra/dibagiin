@@ -107,8 +107,8 @@ const OffCanvas = () => {
 							</div>
 						</li>
 
-						<li>
-							<Link href="/beranda" className="nav-link px-2 p-3 active text-black-50 fw-bold">
+						<li className="sidebar-item">
+							<Link href="/beranda" className="nav-link px-2 p-3 text-black-50 fw-bold">
 								<span className="me-2"></span>
 								<span className="p-3"><i className="fas fa-home"></i> Beranda</span>
 							</Link>
@@ -127,32 +127,32 @@ const OffCanvas = () => {
 							</div>
 						</li>
 
-						<li>
+						<li className="sidebar-item">
 							<Link href="/donasi" className="nav-link px-2 p-3 active text-black-50 fw-bold">
 								<span className="me-2"></span>
 								<span className="p-3"><i className="fas fa-plus"></i> Donasi</span>
 							</Link>
 						</li>
-						<li>
+						<li className="sidebar-item">
 							<Link href="/pemberitahuan" className="nav-link px-2 p-3 active text-black-50 fw-bold">
 								<span className="me-2"></span>
 								<span className="p-3 pemberitahuan-btn"><i className="fas fa-bell"></i> Pemberitahuan</span>
 							</Link>
 						</li>
-						<li>
+						<li className="sidebar-item">
 							<Link href="/permintaan/diterima" className="nav-link px-2 p-3 active text-black-50 fw-bold">
 								<span className="me-2"></span>
 								<span className="p-3"><i className="fa fa-inbox"></i> Permintaan Diterima</span>
 							</Link>
 						</li>
-						<li>
+						<li className="sidebar-item">
 							<Link href="/permintaan/terkirim" className="nav-link px-2 p-3 active text-black-50 fw-bold">
 								<span className="me-2"></span>
 								<span className="p-3"><i className="fa fa-paper-plane"></i> Permintaan Terkirim</span>
 							</Link>
 						</li>
 
-						<li>
+						<li className="sidebar-item">
 							<a onClick={() => userService.logout()} style={{ cursor: 'pointer' }} className="nav-link px-2 p-3 active text-black-50 fw-bold">
 								<span className="me-2"></span>
 								<span className="p-3"><i className="fa-solid fa-right-from-bracket"></i> Keluar</span>
