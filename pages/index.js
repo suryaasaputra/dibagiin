@@ -4,6 +4,7 @@ import Head from 'next/head'
 import heroImage from '../public/images/heros/hero-image.png'
 import aboutImage from '../public/images/about-img.png'
 import faqImage from '../public/images/faq.png'
+import whyusImage from '../public/images/why-us.png'
 import arifImage from '../public/images/teams/arif.jpg'
 import suryaImage from '../public/images/teams/surya.jpg'
 import annasImage from '../public/images/teams/annas.jpg'
@@ -139,8 +140,7 @@ export default function Home() {
                   src={faqImage}
                   className='img-fluid'
                   alt="FAQ Image"
-                >
-                </Image>
+                />
               </div>
             </div>
             <div className="col-md-6 info-about">
@@ -197,6 +197,92 @@ export default function Home() {
         </section>
       </div>
       {/* SECTION FAQ END */}
+
+      {/* SECTION WHY CHOOSE US START */}
+
+      <div className='container mb-5 mt-5'>
+        <section class="why-us">
+              <div class="why-us-title">
+                  <h2 style={{ fontWeight: 'bold' }} className="text-center">Kenapa Memilih <span style={{ color: '#73a700' }} >Kami</span>
+          </h2>
+              </div>
+              <div class="why-us-title-desc">
+                  <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, iure cupiditate! Aliquid, quia, iusto saepe quos sunt numquam quasi magni autem, natus animi rerum quaerat! Quam accusamus quidem fugit amet.</p>
+              </div>
+              <div class="row">
+                  <div class="col-lg-6">
+                      {/* <img src="why-us.png" alt="img" class="img-fluid"> */}
+                      <Image
+                        width={450}
+                        height={450}
+                        src={whyusImage}
+                        className='img-fluid img-why-us'
+                        alt="Why Choose Us"
+                      /> 
+                  </div>
+                  <div class="col-lg-6">
+                      <div class="row">
+                          <div class="col-lg-6 col-md-6">
+                              <div class="wu-box">
+                                  <div class="wu-text-box-icon">
+                                      <i class="fas fas-hand-index-thumb"></i>
+                                  </div>
+                                  <div class="wu-text-box-title">
+                                      <h5>Mudah Digunakan</h5>
+                                  </div>
+                                  <div class="wu-text-box-desc">
+                                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat provident quis laudantium sequi, nulla veritatis ut.</p>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-lg-6 col-md-6">
+                              <div class="wu-box">
+                                  <div class="wu-text-box-icon">
+                                      <i class="fas fas-hand-index-thumb"></i>
+                                  </div>
+                                  <div class="wu-text-box-title">
+                                      <h5>Mudah Digunakan</h5>
+                                  </div>
+                                  <div class="wu-text-box-desc">
+                                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat provident quis laudantium sequi, nulla veritatis ut.</p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="row mt-3">
+                          <div class="col-lg-6 col-md-6">
+                              <div class="wu-box">
+                                  <div class="wu-text-box-icon">
+                                      <i class="fas fas-hand-index-thumb"></i>
+                                  </div>
+                                  <div class="wu-text-box-title">
+                                      <h5>Mudah Digunakan</h5>
+                                  </div>
+                                  <div class="wu-text-box-desc">
+                                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat provident quis laudantium sequi, nulla veritatis ut.</p>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-lg-6 col-md-6">
+                              <div class="wu-box">
+                                  <div class="wu-text-box-icon">
+                                      <i class="fas fas-hand-index-thumb"></i>
+                                  </div>
+                                  <div class="wu-text-box-title">
+                                      <h5>Mudah Digunakan</h5>
+                                  </div>
+                                  <div class="wu-text-box-desc">
+                                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat provident quis laudantium sequi, nulla veritatis ut.</p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+      </section>
+      </div>
+
+      {/* SECTION WHY CHOOSE US END */}
 
       {/* SECTION GALLERY START */}
       <div className='container mb-5 mt-5'>

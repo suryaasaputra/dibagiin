@@ -653,6 +653,26 @@ header .navbar-nav .dropdown-menu {
 	height: 100px;
 }
 
+// WHY CHOOSE US
+.why-us-title-desc {
+    max-width: 70%;
+    display: block;
+    padding-top: 10px;
+    font-size: 16px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+.wu-box  {
+    padding: 10px;
+	border: 1px solid $black-555;
+	border-radius: 50px;
+}
+
+.img-why-us {
+	margin: 0 auto;
+}
+
 /* 
   PROFIL
 */
