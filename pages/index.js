@@ -59,7 +59,7 @@ export default function Home() {
         </Head>
         <section className="home" id="home">
           <div className="row">
-            <div className="col-md-6 info-home" data-aos="fade-right">
+            <div className="col-md-6 info-home" data-aos="fade-up">
               <div className="text-home">
                 <h4>Selamat Datang</h4>
                 <h2>Ayo bagikan barang layak pakai kamu sekarang!</h2>
@@ -68,7 +68,7 @@ export default function Home() {
                 <a className="btn-style outer-shadow inner-shadow hover-in-shadow ms-3" href="#about">Detail</a>
               </div>
             </div>
-            <div className="col-md-6" data-aos="fade-left" data-aos-delay="200">
+            <div className="col-md-6" data-aos="fade-up" data-aos-delay="200">
               <div className="img-home">
                 <Image
                   src={heroImage}
@@ -91,7 +91,7 @@ export default function Home() {
           <h2 style={{ fontWeight: 'bold' }} data-aos="fade-up" data-aos-once="true" data-aos-duration="500" className="text-center">Tentang <span style={{ color: '#73a700' }} >Dibagiin</span>
           </h2>
           <div className="row">
-            <div className="col-md-6" data-aos="fade-right" data-aos-once="true">
+            <div className="col-md-6" data-aos="fade-up" data-aos-once="true">
               <div className="img-about">
                 <Image
                   src={aboutImage}
@@ -101,7 +101,7 @@ export default function Home() {
                 </Image>
               </div>
             </div>
-            <div className="col-md-6 info-about" data-aos="fade-left" data-aos-once="true" data-aos-delay="100">
+            <div className="col-md-6 info-about" data-aos="fade-up" data-aos-once="true" data-aos-delay="100">
               <div className="text-about">
                 <h3>Platform Berbagi Barang Layak Pakai</h3>
                 <p><span style={{ color: '#73a700' }} >Dibagiin</span> merupakan suatu platform berbagi barang layak pakai yang ditujukan bagi korban bencana yang sangat membutuhkan bantuan barang layak pakai dari donatur yang selalu sedia mendonasikan barang mereka melalui platform <span style={{ color: '#73a700' }} >Dibagiin</span>, Platform ini sebagai perantara atau penghubung antara donatur dengan para korban bencana. <br /> Cara kerja aplikasi ini sangat sederhana, Donatur cukup memotret barang layak pakai mereka di platform <span style={{ color: '#73a700' }} >Dibagiin</span> kemudian pada korban bencana yang membutuhkan barang cukup klik ambil pada dashboard <span style={{ color: '#73a700' }} >Dibagiin</span> </p>
@@ -147,7 +147,7 @@ export default function Home() {
           <h2 style={{ fontWeight: 'bold' }} data-aos="fade-up" data-aos-once="true" data-aos-duration="500" className="text-center">Yang Sering <span style={{ color: '#73a700' }} >Ditanyakan</span>
           </h2>
           <div className="row">
-            <div className="col-md-6" data-aos="fade-right" data-aos-once="true">
+            <div className="col-md-6" data-aos="fade-up" data-aos-once="true">
               <div className="img-about">
                 <Image
                   src={faqImage}
@@ -156,7 +156,7 @@ export default function Home() {
                 />
               </div>
             </div>
-            <div className="col-md-6 info-about" data-aos-once="true" data-aos="fade-left" data-aos-delay="100">
+            <div className="col-md-6 info-about" data-aos-once="true" data-aos="fade-up" data-aos-delay="100">
               <div className="text-about">
 
                 <div className="accordion" id="accordionExample">
@@ -245,7 +245,7 @@ export default function Home() {
             <p className="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, iure cupiditate! Aliquid, quia, iusto saepe quos sunt numquam quasi magni autem, natus animi rerum quaerat! Quam accusamus quidem fugit amet.</p>
           </div>
           <div className="row">
-            <div className="col-lg-6" data-aos="fade-right" data-aos-once="true">
+            <div className="col-lg-6" data-aos="fade-up" data-aos-once="true">
               {/* <img src="why-us.png" alt="img" className="img-fluid"> */}
               <Image
                 width={450}
@@ -256,7 +256,7 @@ export default function Home() {
               />
             </div>
 
-            <div className="col-lg-6" data-aos="fade-left" data-aos-once="true" data-aos-delay="120">
+            <div className="col-lg-6" data-aos="fade-up" data-aos-once="true" data-aos-delay="120">
               <div className="row">
                 <div className="col-lg-6 col-md-6">
                   <div className="wu-box mb-3">
@@ -326,7 +326,7 @@ export default function Home() {
           <h2 className="gallery-title text-center" data-aos-once="true" data-aos="fade-up" data-aos-duration="500">Contoh Barang Yang <span style={{ color: '#73a700' }} >Didonasikan</span></h2>
 
           <div className="row row-button-gallery mt-3">
-            <div className="button-gallery" data-aos="fade-right" data-aos-once="true" data-aos-duration="500" data-aos-delay="150">
+            <div className="button-gallery" data-aos="fade-up" data-aos-once="true" data-aos-duration="500" data-aos-delay="150">
               <ul className="filter-button">
                 <li className="list active" onClick={galleryFilter} data-filter="all">Semua</li>
                 <li className="list" onClick={galleryFilter} data-filter="buku">Buku</li>
