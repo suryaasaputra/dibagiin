@@ -91,13 +91,13 @@ export default function Registrasi() {
 				<Head>
 					<title>Registrasi-Dibagiin</title>
 				</Head>
-				<div className="card register-form">
+				<div className="register-form rounded-2">
 					<div className="card-body">
-						<h2 className="card-title text-center">Daftar</h2>
-						<form onSubmit={handleSubmit(onSubmit)}>
+						<h3 className="card-title text-center">Daftar</h3>
+						<form className="mt-3" onSubmit={handleSubmit(onSubmit)}>
 							<div className="mb-4">
 								<label htmlFor="full_name" className="form-label">
-									Nama Lengkap*
+									<i className="fa fa-user"></i> Nama Lengkap
 								</label>
 								<input
 									type="text"
@@ -113,7 +113,7 @@ export default function Registrasi() {
 							</div>
 							<div className="mb-4">
 								<label htmlFor="email" className="form-label">
-									Email*
+								<i className="fa fa-envelope"></i> Email
 								</label>
 								<input
 									type="text"
@@ -127,7 +127,7 @@ export default function Registrasi() {
 							</div>
 							<div className="mb-4">
 								<label htmlFor="user_name" className="form-label">
-									Username*
+								<i className="fa fa-user"></i> Username
 								</label>
 								<input
 									type="username"
@@ -144,7 +144,7 @@ export default function Registrasi() {
 							</div>
 							<div className="mb-3">
 								<label htmlFor="password" className="form-label">
-									Kata Sandi*
+								<i className="fa fa-key"></i> Kata Sandi
 								</label>
 								<input
 									type="password"
@@ -161,7 +161,7 @@ export default function Registrasi() {
 							</div>
 							<div className="mb-4  ">
 								<label htmlFor="phone_number" className="form-label">
-									No. WhatsApp*
+								<i className="fab fa-whatsapp"></i> No. WhatsApp
 								</label>
 								<input
 									type="text"
@@ -177,7 +177,7 @@ export default function Registrasi() {
 							</div>
 							<div className="mb-4">
 								<label htmlFor="gender" className="form-label">
-									Jenis Kelamin*
+									<i className="fa fa-genderless"></i> Jenis Kelamin
 								</label>
 								<select
 									className={`form-select ${errors.gender ? "is-invalid" : ""}`}
@@ -193,7 +193,7 @@ export default function Registrasi() {
 
 							<div className="mb-3">
 								<label htmlFor="address" className="form-label">
-									Alamat*
+									<i className="fa fa-map-marker"></i> Alamat
 								</label>
 								<input
 									type="text"

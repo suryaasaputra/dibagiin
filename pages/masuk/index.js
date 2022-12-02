@@ -50,18 +50,18 @@ export default function Masuk() {
         <Head>
           <title>Masuk-Dibagiin</title>
         </Head>
-        <div className="card login-form">
+        <div className="login-form rounded-2">
           <div className="card-body">
-            <h2 className="card-title text-center">Masuk</h2>
+            <h3 className="card-title text-center">Masuk</h3>
 
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form className="mt-3" onSubmit={handleSubmit(onSubmit)}>
               <div className="mb-4">
-                <label htmlFor="email" className="form-label">Email*</label>
+                <label htmlFor="email" className="form-label"><i className="fa fa-envelope"></i> Email</label>
                 <input type="text" {...register('email')} className={`form-control ${errors.email ? 'is-invalid' : ''}`} id="email" aria-describedby="emailHelp" placeholder="raisa@gmail.com" />
                 <div className="invalid-feedback">{errors.email?.message}</div>
               </div>
               <div className="mb-3">
-                <label htmlFor="password" className="form-label">Kata Sandi*</label>
+                <label htmlFor="password" className="form-label"><i className="fa fa-key"></i> Kata Sandi</label>
                 <input type="password" {...register('password')} className={`form-control ${errors.password ? 'is-invalid' : ''}`} id="password" placeholder="*****" autoComplete="on" />
                 <div className="invalid-feedback">{errors.password?.message}</div>
               </div>

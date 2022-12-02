@@ -50,7 +50,7 @@ const User = () => {
                                 <h2>{user.data.full_name}</h2>
                                 <p><i className='fa fa-envelope'></i> {user.data.email}</p>
                                 <p><i className='fab fa-whatsapp'></i> {user.data.phone_number}</p>
-                                <p><i className="fa-solid fa-map-location-dot"></i>{user.data.address}</p>
+                                <p><i className="fa-solid fa-map-location-dot"></i> {user.data.address}</p>
                                 <a href='/donasi' className='btn-style outer-shadow inner-shadow hover-in-shadow '>Kembali</a>
                             </div>
                         </div>

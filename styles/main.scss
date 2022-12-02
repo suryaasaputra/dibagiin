@@ -297,17 +297,26 @@ a {
 .register-form {
 	margin-top: 5rem;
 	width: 430px;
-	padding: 0 35px;
-	background: $ligth-white;
+	padding: 20px 35px;
 	border: none;
+	box-shadow: $outer-shadow;
+	font-family: 'Viga', sans-serif;
+	color: $black-555;
+}
+
+.login-form h3,
+.register-form h3 {
+	color: $black-555;
 }
 
 input[type="email"],
 input[type="password"],
 input[type="username"],
 input[type="text"] {
-	border-radius: 20px;
-	border: 2px solid rgb(224, 224, 224);
+	border-radius: 10px;
+	border: none;
+	background: none;
+	box-shadow: $inner-shadow;
 	min-width: 44px;
 	min-height: 44px;
 }
@@ -320,11 +329,11 @@ input[type="text"] {
 
 .btn-login {
 	height: 35px;
-	border-radius: 20px;
+	border-radius: 10px;
 	font-weight: 700;
 	min-width: 44px;
 	min-height: 44px;
-	margin-top: -40px;
+	margin-top: -10px;
 	background-color: $green;
 	color: white;
 	transition: 0.3s ease;
