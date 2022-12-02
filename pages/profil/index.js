@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import Swal from "sweetalert2";
 import Link from 'next/link';
-import nookies from 'nookies'
-import { useEffect, useState } from 'react'
+import nookies from 'nookies';
+import { useEffect, useState } from 'react';
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
