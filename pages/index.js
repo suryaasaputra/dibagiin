@@ -248,8 +248,8 @@ export default function Home() {
             <div className="col-lg-6" data-aos="fade-up" data-aos-once="true">
               {/* <img src="why-us.png" alt="img" className="img-fluid"> */}
               <Image
-                width={450}
-                height={450}
+                width={430}
+                height={430}
                 src={whyusImage}
                 className='img-fluid img-why-us'
                 alt="Why Choose Us"
