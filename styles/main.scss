@@ -138,7 +138,7 @@ a {
 	transition: .3s ease;
 	position: fixed;
 	top: 0;
-	z-index: 100;
+	z-index: 999;
 }
 
 .container .navbar-item ul {
@@ -704,9 +704,34 @@ header .navbar-nav .dropdown-menu {
 }
 
 .wu-box {
+	position: relative;
 	padding: 10px;
-	border: 1px solid $black-555;
-	border-radius: 50px;
+	box-shadow: $outer-shadow;
+	border-radius: 10px;
+	transition: 0.3s ease;
+	cursor: pointer;
+	z-index: 100;
+	text-align: justify;
+}
+.wu-box:hover {
+	color: $ligth-white;
+}
+
+.wu-box::before {
+	position: absolute;
+	content: '';
+	width: 0;
+	height: 100%;
+	top: 0;
+	left: 0;
+	transition: 0.3s ease;
+	background: $green;
+	z-index: -99;
+	color: $ligth-white;
+}
+
+.wu-box:hover::before {
+	width: 100%;
 }
 
 .img-why-us {

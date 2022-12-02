@@ -105,8 +105,10 @@ export default function Home() {
                 <div className="share-stuff">
                   <ul>
                     <li>Masuk ke halaman dashboard terlebih dahulu.</li>
-                    <li>Pilih menu upload barang.</li>
-                    <li>isi detail barang, lalu klik posting.</li>
+                    <li>Pilih menu "Donasi" di sidebar.</li>
+                    <li>Kemudian klik atau pilih tombol "Buat Donasi" untuk membuat atau mengupload donasi baru</li>
+                    <li>isi form untuk barang yang mau didonasikan, lalu klik tombol "Buat".</li>
+                    <li>Selesai, donasi berhasil dibuat</li>
                   </ul>
                 </div>
               </div>
@@ -117,8 +119,10 @@ export default function Home() {
                 <div className="share-stuff">
                   <ul>
                     <li>Masuk ke halaman dashboard terlebih dahulu.</li>
-                    <li>Klik menu daftar barang.</li>
-                    <li>Apabila sudah menemukan barang yang sesuai kemudian klik ambil.</li>
+                    <li>Klik menu "Donasi"</li>
+                    <li>Lalu pilih barang yang mau diambil dengan mengklik tombol "Ajukan Permintaan" terlebih dahulu</li>
+                    <li>Tunggu sampai barang dikonfirmasi orang tersebut</li>
+                    <li>Selesai, barang dapat diambil</li>
                   </ul>
                 </div>
               </div>
@@ -160,15 +164,17 @@ export default function Home() {
                   <div className="accordion-item">
                     <h2 className="accordion-header" id="headingTwo">
                       <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        <span style={{ color: '#73a700' }} >Bagaimana cara memberikan donasi?</span>
+                        <span style={{ color: '#73a700' }} >Bagaimana cara edit profil</span>
                       </button>
                     </h2>
                     <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                       <div className="accordion-body">
                         <ul>
-                          <li>Masuk ke halaman dashboard terlebih dahulu.</li>
-                          <li>Pilih menu upload barang.</li>
-                          <li>isi detail barang seperti nama barang, foto barang, lalu klik posting.</li>
+                        <li>Masuk ke halaman dashboard terlebih dahulu.</li>
+                        <li>Pilih menu "Profil" atau icon di navbar bagian atas di sebelah kanan</li>
+                        <li>Kemudian klik tombol "Edit Profil"</li>
+                        <li>isi form untuk mengedit profil lalu klik tombol "simpan"</li>
+                        <li>Selesai, profil berhasil di edit</li>
                         </ul>
                       </div>
                     </div>
@@ -176,15 +182,35 @@ export default function Home() {
                   <div className="accordion-item">
                     <h2 className="accordion-header" id="headingThree">
                       <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        <span style={{ color: '#73a700' }} >Bagaimana cara menerima donasi?</span>
+                        <span style={{ color: '#73a700' }} >Bagaimana cara memberikan donasi?</span>
                       </button>
                     </h2>
                     <div id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                       <div className="accordion-body">
                         <ul>
-                          <li>Masuk ke halaman dashboard terlebih dahulu.</li>
-                          <li>Klik menu daftar barang.</li>
-                          <li>Apabila sudah menemukan barang yang sesuai kemudian klik ambil.</li>
+                        <li>Masuk ke halaman dashboard terlebih dahulu.</li>
+                        <li>Pilih menu "Donasi" di sidebar.</li>
+                        <li>Kemudian klik atau pilih tombol "Buat Donasi" untuk membuat atau mengupload donasi baru</li>
+                        <li>isi form untuk barang yang mau didonasikan, lalu klik tombol "Buat".</li>
+                        <li>Selesai, donasi berhasil dibuat</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="accordion-item">
+                    <h2 className="accordion-header" id="headingFour">
+                      <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        <span style={{ color: '#73a700' }} >Bagaimana cara mengambil donasi?</span>
+                      </button>
+                    </h2>
+                    <div id="collapseFour" className="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                      <div className="accordion-body">
+                        <ul>
+                        <li>Masuk ke halaman dashboard terlebih dahulu.</li>
+                        <li>Klik menu "Donasi"</li>
+                        <li>Lalu pilih barang yang mau diambil dengan mengklik tombol "Ajukan Permintaan" terlebih dahulu</li>
+                        <li>Tunggu sampai barang dikonfirmasi orang tersebut</li>
+                        <li>Selesai, barang dapat diambil</li>
                         </ul>
                       </div>
                     </div>
@@ -200,7 +226,7 @@ export default function Home() {
 
       {/* SECTION WHY CHOOSE US START */}
 
-      <div className='container mb-5 mt-5'>
+      <div className='container mb-5' style={{marginTop: '7rem'}}>
         <section className="why-us">
           <div className="why-us-title">
             <h2 style={{ fontWeight: 'bold' }} className="text-center">Kenapa Memilih <span style={{ color: '#73a700' }} >Kami</span>
@@ -220,10 +246,11 @@ export default function Home() {
                 alt="Why Choose Us"
               />
             </div>
+
             <div className="col-lg-6">
               <div className="row">
                 <div className="col-lg-6 col-md-6">
-                  <div className="wu-box">
+                  <div className="wu-box mb-3">
                     <div className="wu-text-box-icon">
                       <i className="fas fas-hand-index-thumb"></i>
                     </div>
