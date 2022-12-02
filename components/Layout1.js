@@ -87,12 +87,12 @@ const Footer = () => {
 				</div>
 
 				<div className="our-service box-footer">
-					<h4>Layanan Kami</h4>
+					<h4>Navigasi</h4>
 					<ul>
 						<li><Link className="serviceLink" href="/donasi">Donasi barang</Link></li>
 						<li><Link className="serviceLink" href="/pemberitahuan">Pemberitahuan</Link></li>
 						<li><Link className="serviceLink" href="/masuk">Masuk</Link></li>
-						<li><Link className="serviceLink" href="/daftar">Daftar</Link></li>
+						<li><Link className="serviceLink" href="/registrasi">Daftar</Link></li>
 					</ul>
 				</div>
 
@@ -108,7 +108,7 @@ const Footer = () => {
 
 			</div>
 			<div className="copyright">
-				<p>Copyright © 2022: Create & Design with <span className="love">&#9829;</span> by Capstone Team C22-053</p>
+				<p>Copyright © 2022: Create & Design with <span className="love">&#9829;</span> by <Link className="tim-capstone" href="https://github.com/suryaasaputra/dibagiin">Capstone Team C22-053</Link></p>
 			</div>
 
 
