@@ -854,11 +854,31 @@ footer .content-footer .logo-footer h1 i {
 	color: $green;
 }
 
-footer .content-footer .copyright {
-	grid-column: 1/4;
+footer .copyright {
+	// grid-column: 1/4;
 	padding: 15px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: #555;
+	border-top: 1px solid $white;
+	background-color: #ddd;
+}
+
+
+footer ul {
+	margin-top: 1rem;
+	padding-left: 0;
+}
+
+footer ul li {
+	list-style: none;
+}
+
+footer .copyright p .love {
+	color: salmon;
+}
+
+footer .copyright p {
+	color: $black-333;
+	margin-bottom: 0px;
 }

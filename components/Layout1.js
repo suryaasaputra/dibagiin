@@ -89,27 +89,26 @@ const Footer = () => {
 				<div className="our-service box-footer">
 					<h4>Layanan Kami</h4>
 					<ul>
-						<li><Link className="serviceLink" href="#">Donasi barang</Link></li>
-						<li><Link className="serviceLink" href="#">Mengambil barang</Link></li>
-						<li><Link className="serviceLink" href="#">Menerima barang</Link></li>
-						<li><Link className="serviceLink" href="#">Tentang kami</Link></li>
+						<li><Link className="serviceLink" href="/donasi">Donasi barang</Link></li>
+						<li><Link className="serviceLink" href="/pemberitahuan">Pemberitahuan</Link></li>
+						<li><Link className="serviceLink" href="/masuk">Masuk</Link></li>
+						<li><Link className="serviceLink" href="/daftar">Daftar</Link></li>
 					</ul>
 				</div>
 
 				<div className="help-center box-footer">
 					<h4>Pusat Bantuan</h4>
 					<ul>
-						<li><Link className="helpCenter" href="https://wa.me/6282289675042">+62 82289675042 (yuda)</Link></li>
-						<li><Link className="helpCenter" href="https://wa.me/6281930924356">+62 81930924356 (surya)</Link></li>
-						<li><Link className="helpCenter" href="https://wa.me/6285946362394">+62 85946362394 (arif)</Link></li>
-						<li><Link className="helpCenter" href="https://wa.me/6285156555122">+62 85156555122 (annas)</Link></li>
+						<li><Link className="helpCenter" href="https://www.instagram.com/yudagrh_/?hl=id">Yuda</Link></li>
+						<li><Link className="helpCenter" href="https://www.instagram.com/suryaa_saputra/">Surya</Link></li>
+						<li><Link className="helpCenter" href="https://www.instagram.com/arif_rizqi27/">Arif</Link></li>
+						<li><Link className="helpCenter" href="https://www.instagram.com/annassetywn/">Annas</Link></li>
 					</ul>
 				</div>
 
-				{/* <div className="copyright box-footer">
-				<p>© 2022 Copyright: Create & Design with <span>&#9829;</span> by Capstone
-				Team C22-053</p>
-			</div> */}
+			</div>
+			<div className="copyright">
+				<p>Copyright © 2022: Create & Design with <span className="love">&#9829;</span> by Capstone Team C22-053</p>
 			</div>
 
 
