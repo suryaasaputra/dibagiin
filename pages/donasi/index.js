@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Swal from "sweetalert2";
+import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
 import nookies from 'nookies'
 import { useEffect, useState } from 'react'
 import { useRouter } from "next/router";
@@ -11,7 +12,6 @@ import Image from 'next/image';
 import { donationService } from '../../services';
 import { userService } from '../../services';
 import Layout2 from "../../components/Layout2";
-import API_ENDPOINT from '../../globals/api-endpoint';
 
 
 const StatusBadge = ({ item }) => {
@@ -150,7 +150,7 @@ const DonasiCard = ({ item }) => {
 							width={70}
 							height={70}
 							src={item.donator.profil_photo_url}
-							style={{border: '4px solid #73a700'}}
+							style={{ border: '4px solid #73a700' }}
 							className="img-fluid rounded-circle mb-3"
 							alt='avatar'
 						/>
@@ -198,8 +198,6 @@ const DonasiCard = ({ item }) => {
 							<StatusBadge item={item} />
 
 							<p className='lokasi mt-3'>Lokasi : {item.location}</p>
-							<p style={{width: '100%'}} className='lokasi mt-3'>requester : {item.requester_id}</p>
-
 							<a href='#' className='btn-style outer-shadow inner-shadow hover-in-shadow'>
 								Lihat Detail
 							</a>
@@ -269,7 +267,9 @@ const DonasiCard = ({ item }) => {
 }
 
 const Donasi = () => {
+	const API_KEY = process.env.NEXT_PUBLIC_MAP_API_KEY;
 	const [image, setImage] = useState(null);
+	const [value, setValue] = useState(null);
 	const [createObjectURL, setCreateObjectURL] = useState(null);
 	// useEffect(() => {
 	// 	import("jquery")
@@ -289,7 +289,6 @@ const Donasi = () => {
 	const validationSchema = Yup.object().shape({
 		title: Yup.string().required("Nama Donasi tidak boleh kosong"),
 		description: Yup.string().required("Deskripsi tidak boleh kosong"),
-		location: Yup.string().required("Lokasi tidak boleh kosong"),
 	})
 	const formOptions = { resolver: yupResolver(validationSchema) }
 
@@ -318,7 +317,7 @@ const Donasi = () => {
 		body.append("donation_photo", image)
 		body.append("title", data.title)
 		body.append("description", data.description)
-		body.append("location", data.location)
+		body.append("location", value.label)
 		return donationService.createDonation(body)
 			.then(() => {
 				Swal.fire({
@@ -454,15 +453,15 @@ const Donasi = () => {
 									<label htmlFor="location" className="form-label">
 										Lokasi*
 									</label>
-									<input
-										type="text"
-										className={`form-control ${errors.location ? "is-invalid" : ""
-											}`}
-										id="location"
-										name='location'
-										autoComplete='on'
-										placeholder="Jl. Garuda No. 76 Jakarta Selatan"
-										{...register("location")}
+									<GooglePlacesAutocomplete
+										apiKey={API_KEY}
+										apiOptions={{ language: "id" }}
+										selectProps={{
+											value,
+											onChange: setValue,
+											placeholder: 'Masukkan Lokasi...',
+
+										}}
 									/>
 									<div className="invalid-feedback">
 										{errors.location?.message}
