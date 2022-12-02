@@ -1,12 +1,13 @@
 import Head from 'next/head';
 
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import $ from 'jquery'
 import Layout2 from "../components/Layout2";
 import { useEffect, useRef, useState } from 'react';
 import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
+import { usePlacesWidget } from "react-google-autocomplete";
 // import { GoogleMap, LoadScript, StandaloneSearchBox } from '@react-google-maps/api';
 
 import { parseCookies } from "nookies";
@@ -15,9 +16,11 @@ import { userService } from "../services";
 
 const Tes = () => {
     const [value, setValue] = useState(null);
-    console.log(value)
+    const [location, setLocation] = useState(null);
+    const [selectedLocation, setSelectedLocation] = useState(null);
     const [currenLocation, setcurrenLocation] = useState(null);
     useEffect(() => {
+
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
                 (position) => {
@@ -34,29 +37,40 @@ const Tes = () => {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-    useEffect(() => {
-        if (currenLocation) {
+    // useEffect(() => {
+    //     if (currenLocation) {
 
 
-            const center = {
-                lat: -3.745,
-                lng: -38.523
-            };
-            //     const loader = new Loader({
-            //         apiKey: process.env.NEXT_PUBLIC_API_KEY,
-            //         version: 'weekly',
+    //         const center = {
+    //             lat: -3.745,
+    //             lng: -38.523
+    //         };
+    //         //     const loader = new Loader({
+    //         //         apiKey: process.env.NEXT_PUBLIC_API_KEY,
+    //         //         version: 'weekly',
 
-            //     });
-            //     let map;
-            //     loader.load().then(() => {
-            //         const google = window.google
-            //         map = new google.maps.Map(googlemap.current, {
-            //             center: { lat: currenLocation.lat, lng: currenLocation.lng },
-            //             zoom: 8,
-            //         });
-            //     });
-        }
-    }, [location]);
+    //         //     });
+    //         //     let map;
+    //         //     loader.load().then(() => {
+    //         //         const google = window.google
+    //         //         map = new google.maps.Map(googlemap.current, {
+    //         //             center: { lat: currenLocation.lat, lng: currenLocation.lng },
+    //         //             zoom: 8,
+    //         //         });
+    //         //     });
+    //     }
+    // }, [location]);
+    // const { ref: bootstrapRef } = usePlacesWidget({
+    //     apiKey: process.env.NEXT_PUBLIC_MAP_API_KEY,
+    //     onPlaceSelected: (place) => {
+    //         setLocation(place);
+    //         setSelectedLocation(place.formatted_address)
+
+    //     },
+    //     language: 'id'
+    // });
+
+
     const containerStyle = {
         width: '400px',
         height: '400px'
@@ -70,15 +84,16 @@ const Tes = () => {
     const formOptions = { resolver: yupResolver(validationSchema) }
 
     // get functions to build form with useForm() hook
-    const { register, handleSubmit, setError, formState } = useForm(formOptions);
+    const { register, handleSubmit, setError, formState, setValue: setData, control } = useForm(formOptions);
     const { errors } = formState;
 
     function onSubmit(data) {
+        console.log(data)
         $('#result').html('')
         $('#result').append(`
         <p>Title : ${data.title}</p>
         <p>Description : ${data.description}</p>
-        <p>Location : ${value.label}</p>
+        <p>Location : ${data.location}</p>
         `)
         $(':input', '#myform')
             .not(':button, :submit, :reset, :hidden')
@@ -165,12 +180,13 @@ const Tes = () => {
                                     autoComplete='on'
                                     placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean semper metus vel tincidunt venenatis. Nunc faucibus quis augue a bibendum. Aenean eget porttitor est, ac auctor tortor. Curabitur tincidunt vehicula viverra. Praesent tincidunt tempus diam, sed interdum leo imperdiet non. Donec egestas, quam eget viverra lobortis, mi mi porta lacus, at malesuada metus ligula quis dui."
                                     {...register("description")}
+
                                 />
                                 <div className="invalid-feedback">{errors.description?.message}</div>
                             </div>
 
                             <div className="mb-4">
-                                <GooglePlacesAutocomplete
+                                {/* <GooglePlacesAutocomplete
                                     apiKey={API_KEY}
                                     apiOptions={{ language: "id" }}
                                     selectProps={{
@@ -179,11 +195,26 @@ const Tes = () => {
                                         placeholder: 'Masukkan Lokasi...',
 
                                     }}
-                                />
+                                /> */}
                                 <label htmlFor="location" className="form-label">
                                     Lokasi*
                                 </label>
-                                <input
+                                <Controller
+                                    name="location"
+                                    control={control}
+                                    rules={{ required: true }}
+                                    render={() => <GooglePlacesAutocomplete
+                                        apiKey={API_KEY}
+                                        apiOptions={{ language: "id" }}
+                                        selectProps={{
+                                            value,
+                                            onChange: setValue,
+                                            placeholder: 'Masukkan Lokasi...',
+                                            className: `form-control ${errors.location ? "is-invalid" : ""}`
+                                        }}
+                                    />}
+                                />
+                                {/* <input
                                     type="text"
                                     className={`form-control ${errors.location ? "is-invalid" : ""
                                         }`}
@@ -192,16 +223,30 @@ const Tes = () => {
                                     autoComplete='on'
                                     placeholder="Jl. Garuda No. 76 Jakarta Selatan"
                                     {...register("location")}
-                                />
+                                    ref={bootstrapRef}
+                                /> */}
                                 <div className="invalid-feedback">
                                     {errors.location?.message}
                                 </div>
                             </div>
 
+                            {/* <div className="mb-4">
+                                <GooglePlacesAutocomplete
+                                    apiKey={API_KEY}
+                                    apiOptions={{ language: "id" }}
+                                    selectProps={{
+                                        value,
+                                        onChange: setValue,
+                                        placeholder: 'Masukkan Lokasi...',
+                                    }}
+                                />
+                            </div> */}
+
 
                             <div className="d-grid mt-5">
                                 <button
                                     disabled={formState.isSubmitting}
+                                    onClick={() => { setData('location', value?.label) }}
                                     type="submit"
                                     className="btn btn-login"
                                 >
