@@ -77,7 +77,7 @@ const Terkirim = () => {
                                     hour: 'numeric', // numeric, 2-digit
                                     minute: '2-digit', // numeric, 2-digit
                                 })}</p>
-                                <p>Status : <b className='rounded-3' style={{ fontSize: '14.5px', padding: '5px', background: '#73a700', color: '#f8f8f8' }}> {item.status}</b></p>
+                                <p>Status : <b className='rounded-3 btn-info'><i className='fa fa-info-circle'></i> {item.status}</b></p>
                             </div>
 
                         </div>

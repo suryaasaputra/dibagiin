@@ -14,44 +14,39 @@ const CardPemberitahuan = ({ item }) => {
         const linkWa = `https://wa.me/${item.donation.donator.phone_number}?text=${pesan}`
         return (
             <>
-                <div className=" mt-4 mb-4 p-3 rounded-2 outer-shadow">
-                    <div className='d-flex flex-column '>
-                        <div className='ms-auto'>
-                            <small>
-                                {new Date(item.created_at).toLocaleTimeString('id-ID', {
-                                    day: 'numeric', // numeric, 2-digit
-                                    year: 'numeric', // numeric, 2-digit
-                                    month: 'long', // numeric, 2-digit, long, short, narrow
-                                    hour: 'numeric', // numeric, 2-digit
-                                    minute: '2-digit', // numeric, 2-digit
-                                })}
-                            </small>
-                        </div>
-                        <div className="d-flex flex-row align-items-center">
-                            <div>
-                                <p>
-                                    Permintaan Anda untuk barang
-                                    <Link href={`/donasi/${item.donation.id}`}> <b>{item.donation.title} </b></Link>
-                                    telah dikonfirmasi oleh
-                                    <Link href={`/user/${item.donation.donator.user_name}`}> <b>{item.donation.donator.full_name}</b></Link>
-                                </p>
-                                {/* <p>
-                                    "{item.message}"
-                                </p> */}
-                            </div>
-                            <div className='mx-4'>
-                                <Image
-                                    width={100}
-                                    height={100}
-                                    src={item.donation.photo_url}
-                                    className="img-fluid rounded-2"
-                                    alt='avatar'
-                                />
-                            </div>
+                <div className="row mt-4 m-2 mb-4 p-3 rounded-2 outer-shadow">
+                    <div className='col-md-6'>
+                        <div>
+                            <p>
+                                Permintaan Anda untuk barang
+                                <Link href={`/donasi/${item.donation.id}`}> <b>{item.donation.title} </b></Link>
+                                telah dikonfirmasi oleh
+                                <Link href={`/user/${item.donation.donator.user_name}`}> <b>{item.donation.donator.full_name}</b></Link>
+                            </p>
                         </div>
                         <div className=''>
-                            <a href={linkWa} target="_blank">Klik untuk mengambil donasi</a>
+                            <Image
+                                width={120}
+                                height={120}
+                                src={item.donation.photo_url}
+                                className="img-fluid rounded-2 p-2 outer-shadow"
+                                alt='avatar'
+                            />
                         </div>
+                    </div>
+
+                    <div className="col-md-6">
+                        <p>
+                            {new Date(item.created_at).toLocaleTimeString('id-ID', {
+                                day: 'numeric', // numeric, 2-digit
+                                year: 'numeric', // numeric, 2-digit
+                                month: 'long', // numeric, 2-digit, long, short, narrow
+                                hour: 'numeric', // numeric, 2-digit
+                                minute: '2-digit', // numeric, 2-digit
+                            })}
+                        </p>
+
+                        <a href={linkWa} className='btn-style outer-shadow inner-shadow hover-in-shadow' target="_blank" rel='noreferrer'>Klik untuk mengambil donasi</a>
                     </div>
                 </div>
             </>
@@ -61,40 +56,43 @@ const CardPemberitahuan = ({ item }) => {
     if (item.type == "reject") {
         return (
             <>
-                <div className=" mt-4 mb-4 p-3 rounded-2 outer-shadow">
-                    <div className='d-flex flex-column '>
-                        <div className='ms-auto'>
-                            <small>
-                                {new Date(item.created_at).toLocaleTimeString('id-ID', {
-                                    day: 'numeric', // numeric, 2-digit
-                                    year: 'numeric', // numeric, 2-digit
-                                    month: 'long', // numeric, 2-digit, long, short, narrow
-                                    hour: 'numeric', // numeric, 2-digit
-                                    minute: '2-digit', // numeric, 2-digit
-                                })}
-                            </small>
+                <div className="row mt-4 m-2 mb-4 p-3 rounded-2 outer-shadow">
+                    <div className='col-md-6'>
+                        <div>
+                            <p>
+                                Permintaan Anda untuk barang
+                                <Link href={`/donasi/${item.donation.id}`}> <b>{item.donation.title} </b></Link>
+                                ditolak oleh
+                                <Link href={`/user/${item.donation.donator.user_name}`}> <b> {item.donation.donator.full_name}</b></Link>
+                            </p>
                         </div>
-                        <div className="d-flex flex-row align-items-center">
-                            <div>
-                                <p>
-                                    Permintaan Anda untuk barang
-                                    <Link href={`/donasi/${item.donation.id}`}> <b>{item.donation.title} </b></Link>
-                                    ditolak oleh
-                                    <Link href={`/user/${item.donation.donator.user_name}`}> <b> {item.donation.donator.full_name}</b></Link>
-                                </p>
-                                {/* <p>
-                                    "{item.message}"
-                                </p> */}
-                            </div>
-                            <div className='mx-4'>
-                                <Image
-                                    width={100}
-                                    height={100}
-                                    src={item.donation.photo_url}
-                                    className="img-fluid rounded-2"
-                                    alt='avatar'
-                                />
-                            </div>
+
+                        <div>
+                            <Image
+                                width={120}
+                                height={120}
+                                src={item.donation.photo_url}
+                                className="img-fluid rounded-2 p-2 outer-shadow"
+                                alt='avatar'
+                            />
+                        </div>
+                    </div>
+
+                    <div className="col-md-6">
+                        <small>
+                            {new Date(item.created_at).toLocaleTimeString('id-ID', {
+                                day: 'numeric', // numeric, 2-digit
+                                year: 'numeric', // numeric, 2-digit
+                                month: 'long', // numeric, 2-digit, long, short, narrow
+                                hour: 'numeric', // numeric, 2-digit
+                                minute: '2-digit', // numeric, 2-digit
+                            })}
+                        </small>
+
+                        <div className='mt-3'> 
+                            <b className='btn-danger' style={{fontSize: '13.5px'}}>
+                                "{item.message}"
+                            </b>
                         </div>
                     </div>
                 </div>
@@ -104,41 +102,42 @@ const CardPemberitahuan = ({ item }) => {
     if (item.type == "rejectAll") {
         return (
             <>
-                <div className=" mt-4 mb-4 p-3 rounded-2 outer-shadow">
-                    <div className='d-flex flex-column '>
-                        <div className='ms-auto'>
-                            <small>
-                                {new Date(item.created_at).toLocaleTimeString('id-ID', {
-                                    day: 'numeric', // numeric, 2-digit
-                                    year: 'numeric', // numeric, 2-digit
-                                    month: 'long', // numeric, 2-digit, long, short, narrow
-                                    hour: 'numeric', // numeric, 2-digit
-                                    minute: '2-digit', // numeric, 2-digit
-                                })}
-                            </small>
+                <div className="row mt-4 m-2 mb-4 p-3 rounded-2 outer-shadow">
+                    <div className='col-md-6'>
+                        <p>
+                            Permintaan Anda untuk barang
+                            <Link href={`/donasi/${item.donation.id}`}> <b>{item.donation.title} </b></Link>
+                            ditolak oleh
+                            <Link href={`/user/${item.donation.donator.user_name}`}> <b> {item.donation.donator.full_name}</b></Link>
+                        </p>
+                        <div>
+                            <Image
+                                width={120}
+                                height={120}
+                                src={item.donation.photo_url}
+                                className="img-fluid rounded-2 p-2 outer-shadow"
+                                alt='avatar'
+                            />
+                        </div> 
+                    </div>
+                      
+                    <div className="col-md-6">
+                        <small>
+                            {new Date(item.created_at).toLocaleTimeString('id-ID', {
+                                day: 'numeric', // numeric, 2-digit
+                                year: 'numeric', // numeric, 2-digit
+                                month: 'long', // numeric, 2-digit, long, short, narrow
+                                hour: 'numeric', // numeric, 2-digit
+                                minute: '2-digit', // numeric, 2-digit
+                            })}
+                        </small>
+
+                        <div className='mt-3'> 
+                            <b className='btn-info' style={{fontSize: '13.5px'}}>
+                                "{item.message}"
+                            </b>
                         </div>
-                        <div className="d-flex flex-row align-items-center">
-                            <div>
-                                <p>
-                                    Permintaan Anda untuk barang
-                                    <Link href={`/donasi/${item.donation.id}`}> <b>{item.donation.title} </b></Link>
-                                    ditolak oleh
-                                    <Link href={`/user/${item.donation.donator.user_name}`}> <b> {item.donation.donator.full_name}</b></Link>
-                                </p>
-                                <p>
-                                    "{item.message}"
-                                </p>
-                            </div>
-                            <div className='mx-4'>
-                                <Image
-                                    width={100}
-                                    height={100}
-                                    src={item.donation.photo_url}
-                                    className="img-fluid rounded-2"
-                                    alt='avatar'
-                                />
-                            </div>
-                        </div>
+                           
                     </div>
                 </div>
             </>
@@ -147,54 +146,47 @@ const CardPemberitahuan = ({ item }) => {
     if (item.type == "request") {
         return (
             <>
-                <div className='d-flex  border shadow-sm p-3 my-3   '>
-                    <div className='d-flex flex-column '>
-                        <div className='d-flex justify-content-start mb-2'>
-                            <div className='me-3'>
-                                <Image
-                                    width={70}
-                                    height={70}
-                                    src={item.donation_request.requester.profil_photo_url}
-                                    className="img-fluid rounded-circle"
-                                    alt='avatar'
-                                />
-                            </div>
-                            <div className='py-2 align-self-start'>
-                                <div>
-                                    <Link href={`/user/${item.donation_request.requester.user_name}`}> <b>{item.donation_request.requester.full_name} </b></Link>
-                                </div>
-                                <div>
-                                    @{item.donation_request.requester.user_name}
-                                </div>
+                <div className='row mt-4 m-2 mb-4 p-3 rounded-2 outer-shadow'>
+                    <div className='col-md-6'>
+                        <div>
+                            <Image
+                                width={70}
+                                height={70}
+                                src={item.donation_request.requester.profil_photo_url}
+                                className="img-fluid rounded-circle"
+                                alt='avatar'
+                            />
+                            <Link href={`/user/${item.donation_request.requester.user_name}`}> <b>{item.donation_request.requester.full_name} </b></Link>
+                            <i>@{item.donation_request.requester.user_name}</i>
+                        </div>
+                        
+                        <div className='mt-3'>
+                            <Link href={"/permintaan/diterima"}>
+                                   Mengirimkan permintan untuk
+                                <Link href={`/donasi/${item.donation.id}`}> <b>{item.donation.title}</b></Link>
+                            </Link>
+                        </div>  
+                    </div>
 
-                            </div>
+                    <div className='col-md-6'>
+                        <div>
+                            {new Date(item.created_at).toLocaleTimeString('id-ID', {
+                                day: 'numeric', // numeric, 2-digit
+                                year: 'numeric', // numeric, 2-digit
+                                month: 'long', // numeric, 2-digit, long, short, narrow
+                                hour: 'numeric', // numeric, 2-digit
+                                minute: '2-digit', // numeric, 2-digit
+                            })}
                         </div>
-                        <div className='d-flex flex-row ps-4'>
-                            <div className='ms-5 align-self-center'>
-                                <Link href={"/permintaan/diterima"}>
-                                    Mengirimkan permintan untuk
-                                    <Link href={`/donasi/${item.donation.id}`}> <b>{item.donation.title}</b></Link>
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='mx-auto'>
-                        <Image
-                            width={100}
-                            height={100}
-                            src={item.donation.photo_url}
-                            className="img-fluid rounded-2"
-                            alt='avatar'
-                        />
-                    </div>
-                    <div className=''>
-                        {new Date(item.created_at).toLocaleTimeString('id-ID', {
-                            day: 'numeric', // numeric, 2-digit
-                            year: 'numeric', // numeric, 2-digit
-                            month: 'long', // numeric, 2-digit, long, short, narrow
-                            hour: 'numeric', // numeric, 2-digit
-                            minute: '2-digit', // numeric, 2-digit
-                        })}
+                        <div className='mt-2'>
+                            <Image
+                                width={120}
+                                height={120}
+                                src={item.donation.photo_url}
+                                className="img-fluid rounded-2 p-2 outer-shadow"
+                                alt='avatar'
+                            />
+                        </div>  
                     </div>
                 </div>
             </>

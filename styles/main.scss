@@ -99,6 +99,20 @@ a {
 	border: none;
 }
 
+.btn-info {
+	padding: 8px;
+	background-color: $green;
+	border-radius: 20px;
+	color: $ligth-white;
+}
+
+.btn-danger {
+	padding: 8px;
+	background-color: $error;
+	border-radius: 20px;
+	color: $ligth-white;
+}
+
 .btn-style:focus {
 	color: $green;
 }
