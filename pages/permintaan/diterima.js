@@ -39,15 +39,16 @@ const Diterima = () => {
                 <Head>
                     <title>Permintaan diterima-Dibagiin</title>
                 </Head>
-
+                <div className='mt-5'><h2>Permintaan diterima</h2></div>
                 {!data && (
                     <div className="row m-5"><h2>Belum ada data</h2></div>
                 )
                 }
-                <div className='mt-5'><h2>Permintaan diterima</h2></div>
 
                 {listRequest.data.map((item) => (
-                    <PermintaanDiterimaCard key={item.id} item={item} />
+                    <>
+                        <PermintaanDiterimaCard key={item.id} item={item} />
+                    </>
                 ))}
 
             </div>

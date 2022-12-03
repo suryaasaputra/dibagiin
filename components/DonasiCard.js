@@ -31,7 +31,7 @@ const TombolAmbil = ({ item }) => {
             <>
                 <button
                     className='btn-style ms-2'
-                    style={{ cursor: 'not-allowed', backgroundColor: 'darkgrey' }}
+                    style={{ cursor: 'not-allowed', backgroundColor: 'darkgrey', color: 'gray' }}
                 >
                     Sudah diambil
                 </button>

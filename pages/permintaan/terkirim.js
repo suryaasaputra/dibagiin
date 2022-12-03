@@ -46,15 +46,16 @@ const Terkirim = () => {
         <div className="mt-5 pt-3 beranda">
             <div className="container-fluid">
                 <Head>
-                    <title>Permintaan diterima-Dibagiin</title>
+                    <title>Permintaan Terkirim - Dibagiin</title>
                 </Head>
-
+                <div className='mt-5'><h2>Permintaan terkirim</h2></div>
                 {!data && (
                     <div className="row m-5"><h2>Belum ada data</h2></div>
                 )
                 }
                 {listRequest.data.map((item) => (
-                    <div className="row m-1 mt-3 p-4 mb-4 rounded-2 outer-shadow">
+                    <>
+                        <div className="row m-1 mt-3 p-4 mb-4 rounded-2 outer-shadow">
                             <div className="col-md-6 p-2">
                                 <p>Anda meminta <Link href={`/donasi/${item.donation.id}`}> <b>{item.donation.title}</b> </Link> dari <Link href={`/user/${item.donator.user_name}`}> <b>{item.donator.full_name}</b></Link></p>
 
@@ -65,22 +66,23 @@ const Terkirim = () => {
                                     className="img-fluid rounded-2 p-2 outer-shadow"
                                     alt='avatar'
                                 />
-                    
+
                             </div>
 
                             <div className='col-md-6 p-2'>
                                 <p className=''>Pada : {new Date(item.created_at).toLocaleTimeString('id-ID', {
-                                            day: 'numeric', // numeric, 2-digit
-                                            year: 'numeric', // numeric, 2-digit
-                                            month: 'long', // numeric, 2-digit, long, short, narrow
-                                            hour: 'numeric', // numeric, 2-digit
-                                            minute: '2-digit', // numeric, 2-digit
+                                    day: 'numeric', // numeric, 2-digit
+                                    year: 'numeric', // numeric, 2-digit
+                                    month: 'long', // numeric, 2-digit, long, short, narrow
+                                    hour: 'numeric', // numeric, 2-digit
+                                    minute: '2-digit', // numeric, 2-digit
                                 })}</p>
-                                <p>Status : <b className='rounded-3' style={{fontSize: '14.5px' ,padding: '5px', background: '#73a700', color: '#f8f8f8'}}> {item.status}</b></p>
+                                <p>Status : <b className='rounded-3' style={{ fontSize: '14.5px', padding: '5px', background: '#73a700', color: '#f8f8f8' }}> {item.status}</b></p>
                             </div>
-                          
-                    </div>
-                    
+
+                        </div>
+                    </>
+
                 ))}
 
             </div>
