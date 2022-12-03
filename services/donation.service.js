@@ -40,9 +40,15 @@ function getAllDonation() {
 
 function getDonationDetail(donationId) {
     const endpoint = `${API_ENDPOINT.donation}/${donationId}`
-    return fetchWrapper.get(endpoint).then((response) => {
-        return response;
-    });
+    const { data, error } = useSWR(endpoint, fetchWrapper.fetcher, { refreshInterval: 2000 })
+    return {
+        donationData: data,
+        isLoading: !data,
+        error: error
+    }
+    // return fetchWrapper.get(endpoint).then((response) => {
+    //     return response;
+    // });
 }
 
 function editDonation(donationId, data) {

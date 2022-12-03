@@ -55,7 +55,7 @@ const TombolAmbil = ({ item }) => {
         return (
             <button
                 className='btn-style ms-2'
-                style={{ cursor: 'not-allowed', backgroundColor: 'darkgrey' }}
+                style={{ cursor: 'not-allowed', backgroundColor: 'darkgrey', color: 'gray' }}
             >
                 Menunggu Konfirmasi
             </button>
@@ -156,13 +156,15 @@ const DonasiCard = ({ item }) => {
 
                     </div>
                     <div className="col-md-6 date align-self-center">
-                        <p className='text-end'>Ditambah Pada : {new Date(item.created_at).toLocaleTimeString('id-ID', {
-                            day: 'numeric', // numeric, 2-digit
-                            year: 'numeric', // numeric, 2-digit
-                            month: 'long', // numeric, 2-digit, long, short, narrow
-                            hour: 'numeric', // numeric, 2-digit
-                            minute: '2-digit', // numeric, 2-digit
-                        })}
+                        <p className='text-end'><small>
+                            {new Date(item.created_at).toLocaleTimeString('id-ID', {
+                                day: 'numeric', // numeric, 2-digit
+                                year: 'numeric', // numeric, 2-digit
+                                month: 'long', // numeric, 2-digit, long, short, narrow
+                                hour: 'numeric', // numeric, 2-digit
+                                minute: '2-digit', // numeric, 2-digit
+                            })}
+                        </small>
                         </p>
                     </div>
                 </div>
@@ -182,8 +184,7 @@ const DonasiCard = ({ item }) => {
 
                     <div className='col-md-6 content-card-donasi p-2'>
                         <div className='info-content-card-donasi'>
-                            <h2>Info :</h2>
-                            <h4>{item.title}</h4>
+                            <h2 className='fw-bold'>{item.title}</h2>
                             <p className='deskripsi'>Deskripsi :</p>
                             <div className='deskripsi-barang'>
                                 <p>{item.description}</p>
@@ -191,9 +192,9 @@ const DonasiCard = ({ item }) => {
                             <StatusBadge item={item} />
 
                             <p className='lokasi mt-3'>Lokasi : {item.location}</p>
-                            <a href='#' className='btn-style outer-shadow inner-shadow hover-in-shadow'>
+                            <Link href={`/donasi/${item.id}`} className='btn-style outer-shadow inner-shadow hover-in-shadow'>
                                 Lihat Detail
-                            </a>
+                            </Link>
                             <TombolAmbil item={item} />
                         </div>
 

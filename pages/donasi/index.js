@@ -29,7 +29,7 @@ const Donasi = () => {
 
 	// form validation rules
 	const validationSchema = Yup.object().shape({
-		title: Yup.string().required("Nama Donasi tidak boleh kosong"),
+		title: Yup.string().required("Nama Donasi tidak boleh kosong").max(30, "Maksimal 30 karakter"),
 		description: Yup.string().required("Deskripsi tidak boleh kosong"),
 		location: Yup.string().required("Lokasi tidak boleh kosong"),
 	})
