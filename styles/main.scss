@@ -107,6 +107,34 @@ a {
 	color: $green;
 }
 
+.btn-style-danger {
+	padding: 10px 25px;
+	font-size: 16px;
+	font-weight: 500;
+	background-color: $error;
+	line-height: 1.5;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	border-radius: 10px;
+	display: inline-block;
+	color: $white;
+	transition: 0.3s ease;
+	box-shadow: $outer-shadow;
+	border: none;
+}
+
+.btn-style-danger:focus {
+	background: $error;
+	color: $ligth-white;
+	font-weight: 700;
+}
+
+.btn-style-danger:hover {
+	background: $error;
+	color: $ligth-white;
+	font-weight: 700;
+}
+
 .btn-style-second {
 	padding: 10px 25px;
 	font-size: 16px;
@@ -126,11 +154,14 @@ a {
 .btn-style-second:focus {
 	background: $green;
 	color: $ligth-white;
+	font-weight: 700;
 }
 
 .btn-style-second:hover {
 	background: $green;
 	color: $ligth-white;
+	font-weight: 700;
+
 }
 
 /*
@@ -727,6 +758,7 @@ header .navbar-nav .dropdown-menu {
 	z-index: 100;
 	text-align: justify;
 }
+
 .wu-box:hover {
 	color: $ligth-white;
 }

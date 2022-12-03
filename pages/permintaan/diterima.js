@@ -10,6 +10,7 @@ import * as Yup from "yup";
 import Image from 'next/image';
 import { donationService } from '../../services';
 import Layout2 from "../../components/Layout2";
+import PermintaanDiterimaCard from '../../components/PermintaanDiterimaCard';
 
 const Diterima = () => {
 
@@ -43,45 +44,10 @@ const Diterima = () => {
                     <div className="row m-5"><h2>Belum ada data</h2></div>
                 )
                 }
+                <div className='mt-5'><h2>Permintaan diterima</h2></div>
+
                 {listRequest.data.map((item) => (
-                    <div className="row m-2 mt-4 p-4 rounded-2 outer-shadow">
-                            <div className='col-md-6'>
-                                <Image
-                                    width={80}
-                                    height={80}
-                                    src={item.user.profil_photo_url}
-                                    style={{border: '4px solid #73a700'}}
-                                    className="img-fluid rounded-circle"
-                                    alt='avatar'
-                                />
-                                <p><Link href={`/user/${item.user.user_name}`}> <b>{item.user.full_name}</b></Link> meminta <Link href={`/donasi/${item.donation.id}`}> <b>{item.donation.title}</b></Link></p> 
-                                <i>@{item.user.user_name}</i>
-                            </div>
-
-                            <div className='col-md-6'>
-                                
-                                <p className=''>Pada : {new Date(item.created_at).toLocaleTimeString('id-ID', {
-                                            day: 'numeric', // numeric, 2-digit
-                                            year: 'numeric', // numeric, 2-digit
-                                            month: 'long', // numeric, 2-digit, long, short, narrow
-                                            hour: 'numeric', // numeric, 2-digit
-                                            minute: '2-digit', // numeric, 2-digit
-                                })}</p>
-
-                                <p className=' fw-bold'>Pesan : "{item.message}"</p>
-
-                                <button
-                                    className='btn-style outer-shadow inner-shadow hover-in-shadow ms-2'
-                                    >
-                                    Konfirmasi
-                                </button>
-                                <button
-                                    className='btn-style outer-shadow inner-shadow hover-in-shadow ms-2'
-                                    >
-                                    Hapus
-                                </button>
-                            </div>
-                    </div>
+                    <PermintaanDiterimaCard key={item.id} item={item} />
                 ))}
 
             </div>

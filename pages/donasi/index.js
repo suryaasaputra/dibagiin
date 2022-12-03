@@ -77,11 +77,11 @@ const Donasi = () => {
 				})
 					.then((result) => {
 						if (result.isConfirmed) {
-							// router.replace(router.asPath)
+							router.replace(router.asPath)
 						} else if (result.isDenied) {
-							// router.replace(router.asPath)
+							router.replace(router.asPath)
 						} else if (result.isDismissed) {
-							// router.replace(router.asPath)
+							router.replace(router.asPath)
 						}
 					})
 			})

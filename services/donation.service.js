@@ -73,7 +73,7 @@ function requestDonation(donationId, data) {
 
 function getAllRequest() {
     const endpoint = `${API_ENDPOINT.donation}/request`
-    const { data, error } = useSWR(endpoint, fetchWrapper.fetcher, { refreshInterval: 60000 })
+    const { data, error } = useSWR(endpoint, fetchWrapper.fetcher, { refreshInterval: 3000 })
     return {
         listRequest: data,
         isLoading: !data,
