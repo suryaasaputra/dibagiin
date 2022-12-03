@@ -242,7 +242,7 @@ export default function Home() {
             </h2>
           </div>
           <div className="why-us-title-desc" data-aos-once="true" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="150">
-            <p className="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, iure cupiditate! Aliquid, quia, iusto saepe quos sunt numquam quasi magni autem, natus animi rerum quaerat! Quam accusamus quidem fugit amet.</p>
+            <p className="text-center">Dibagiin sebagai platform berbagi yang membantu anda menyalurkan barang layak pakai kepada orang lain yang membutuhkan ingin memberikan pelayanan yang terbaik kepada anda dengan alasan yang kuat.</p>
           </div>
           <div className="row">
             <div className="col-lg-6" data-aos="fade-up" data-aos-once="true">
@@ -267,7 +267,7 @@ export default function Home() {
                       <h5>Mudah Digunakan</h5>
                     </div>
                     <div className="wu-text-box-desc">
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat provident quis laudantium sequi, nulla veritatis ut.</p>
+                      <p>Tampilan website kami desain dengan memperhatikan kemudahan anda dalam menggunakan aplikasi kami.</p>
                     </div>
                   </div>
                 </div>
@@ -277,10 +277,10 @@ export default function Home() {
                       <i className="fas fas-hand-index-thumb"></i>
                     </div>
                     <div className="wu-text-box-title">
-                      <h5>Mudah Digunakan</h5>
+                      <h5>Gratis</h5>
                     </div>
                     <div className="wu-text-box-desc">
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat provident quis laudantium sequi, nulla veritatis ut.</p>
+                      <p>Semua layanan yang kami tawarkan pada aplikasi dapat anda gunakan secara gratis.</p>
                     </div>
                   </div>
                 </div>
@@ -292,10 +292,10 @@ export default function Home() {
                       <i className="fas fas-hand-index-thumb"></i>
                     </div>
                     <div className="wu-text-box-title">
-                      <h5>Mudah Digunakan</h5>
+                      <h5>Mudah Dihubungi</h5>
                     </div>
                     <div className="wu-text-box-desc">
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat provident quis laudantium sequi, nulla veritatis ut.</p>
+                      <p>Kami menyediakan kontak tim yang dapat anda hubungi apabila membutuhkan bantuan.</p>
                     </div>
                   </div>
                 </div>
@@ -305,10 +305,10 @@ export default function Home() {
                       <i className="fas fas-hand-index-thumb"></i>
                     </div>
                     <div className="wu-text-box-title">
-                      <h5>Mudah Digunakan</h5>
+                      <h5>Jangkauan Luas</h5>
                     </div>
                     <div className="wu-text-box-desc">
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat provident quis laudantium sequi, nulla veritatis ut.</p>
+                      <p>Anda dapat mendonasikan dan mengambil barang dari seluruh kota di wilayah Indonesia.</p>
                     </div>
                   </div>
                 </div>
