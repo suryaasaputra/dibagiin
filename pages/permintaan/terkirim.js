@@ -70,7 +70,7 @@ const Terkirim = () => {
                             </div>
 
                             <div className='col-md-6 p-2'>
-                                <p className=''>Pada : {new Date(item.created_at).toLocaleTimeString('id-ID', {
+                                <p className=''>{new Date(item.created_at).toLocaleTimeString('id-ID', {
                                     day: 'numeric', // numeric, 2-digit
                                     year: 'numeric', // numeric, 2-digit
                                     month: 'long', // numeric, 2-digit, long, short, narrow

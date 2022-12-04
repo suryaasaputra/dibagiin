@@ -36,8 +36,8 @@ const TombolAmbil = ({ item }) => {
                     Sudah diambil
                 </button>
                 <span>
-                    <p>
-                        diambil oleh <Link className="nama-donatur-url" href={`/user/${item.taker.user_name}`}><b>{item.taker.full_name}</b> </Link>
+                    <p className='mt-2'>
+                        Diambil oleh <Link className="nama-donatur-url" href={`/user/${item.taker.user_name}`}><b>{item.taker.full_name}</b> </Link>
                     </p>
                 </span>
             </>
@@ -143,7 +143,6 @@ const DonasiCard = ({ item }) => {
                             width={70}
                             height={70}
                             src={item.donator.profil_photo_url}
-                            style={{ border: '4px solid #73a700' }}
                             className="img-fluid rounded-circle mb-3"
                             alt='avatar'
                         />

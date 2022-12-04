@@ -68,6 +68,19 @@ body {
 	overflow: auto !important;
 }
 
+a {
+	text-decoration: none;
+	color: $black-444;
+}
+
+a:hover {
+	color: $green
+}
+
+a:active {
+	color: $green;
+}
+
 #__next {
 	height: 100%;
 	min-height: 100vh;
@@ -80,9 +93,6 @@ body {
 	height: 100%;
 }
 
-a {
-	text-decoration: none;
-}
 
 .btn-style {
 	padding: 10px 25px;
@@ -701,6 +711,11 @@ header .navbar-nav .dropdown-menu {
 	display: inline-block;
 	color: $green;
 }
+
+.nama-donatur-url {
+	font-weight: bolder;
+}
+
 
 .img-barang {
 	object-fit: cover;

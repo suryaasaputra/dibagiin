@@ -31,7 +31,6 @@ const DonasiDetail = () => {
             <div className="mt-3 pt-3 beranda">
                 <div className="container-fluid">
                     <h1>Detail Donasi {donationData.data.title}</h1>
-
                 </div>
                 <div>
                     datanya :

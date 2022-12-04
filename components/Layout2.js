@@ -58,7 +58,7 @@ const Header = () => {
 							</div>
 						</form>
 
-						<ul className="navbar-nav">
+						{/* <ul className="navbar-nav">
 							<li className="nav-item dropdown">
 								<a
 									className="nav-link dropdown-toggle ms-2 text-black-50"
@@ -83,7 +83,7 @@ const Header = () => {
 									<li><a className="dropdown-item" style={{ cursor: 'pointer' }} onClick={() => userService.logout()}><i className="fa-solid fa-right-from-bracket"></i> Keluar</a></li>
 								</ul>
 							</li>
-						</ul>
+						</ul> */}
 
 					</div>
 				</div>
@@ -94,7 +94,12 @@ const Header = () => {
 
 const OffCanvas = () => {
 	const router = useRouter()
-
+	const [userData, setUserData] = useState({})
+	useEffect(() => {
+		const user = JSON.parse(localStorage.getItem("user"))
+		setUserData(user)
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 	const cekActive = (url) => {
 		return String(router.asPath).includes(url)
 	}
@@ -108,8 +113,26 @@ const OffCanvas = () => {
 					<ul className="navbar-nav">
 
 						<li>
+							<Link className="" href="/profil">
+								<div className="d-flex flex-column align-items-center justify-content-center pb-3">
+									<Image
+										src={userData.profil_photo_url || "https://storage.googleapis.com/dibagiin-data/profil_photo/default.png"}
+										width={80}
+										height={80}
+										className="logo-text img-fluid"
+										alt="profil-photo"
+										loading='eager'
+										priority
+									>
+									</Image>
+									<span className={`text - center ${cekActive("/profil") ? 'link-active' : ''}`}  >@{userData.user_name}</span>
+
+								</div>
+							</Link>
+						</li>
+						<li>
 							<div className="text-muted small fw-bold text-uppercase px-3">
-								Menu Utama
+								Menu
 							</div>
 						</li>
 
@@ -118,27 +141,14 @@ const OffCanvas = () => {
 								<span className="me-2"></span>
 								<span className={`p-3 ${cekActive("/beranda") ? 'link-active' : ''}`}><i className="fas fa-home"></i> Beranda</span>
 							</Link>
-
-							<Link href="/profil" className="nav-link px-2 p-3 active text-black-50 fw-bold">
-								<span className="me-2"></span>
-								<span className={`p-3 ${cekActive("/profil") ? 'link-active' : ''} ${cekActive("/user") ? 'link-active' : ''}`}><i className="fas fa-user"></i> Profil</span>
-							</Link>
 						</li>
-
-						<li className="my-4"><hr className="dropdown-divider bg-dark" /></li>
-
-						<li>
-							<div className="text-muted small fw-bold text-uppercase px-3">
-								Antarmuka
-							</div>
-						</li>
-
+						{/* 
 						<li className="sidebar-item">
 							<Link href="/donasi" className="nav-link px-2 p-3 text-black-50 fw-bold ">
 								<span className="me-2"></span>
 								<span className={`p-3 ${cekActive("/donasi") ? 'link-active' : ''}`}><i className="fas fa-plus"></i> Donasi</span>
 							</Link>
-						</li>
+						</li> */}
 						<li className="sidebar-item">
 							<Link href="/pemberitahuan" className="nav-link px-2 p-3 active text-black-50 fw-bold">
 								<span className="me-2"></span>
@@ -200,7 +210,7 @@ const Footer = () => {
 						<li><Link className="helpCenter" href="https://www.instagram.com/annassetywn/">Annas Setiawan</Link></li>
 					</ul>
 				</div>
-				
+
 			</div>
 			<div className="copyright">
 				<p className="text-center">Copyright © 2022: Create & Design with <span className="love">&#9829;</span> by <Link className="tim-capstone" href="https://github.com/suryaasaputra/dibagiin">Capstone Team C22-053</Link></p>
