@@ -99,10 +99,10 @@ const Footer = () => {
 				<div className="help-center box-footer">
 					<h4>Pusat Bantuan</h4>
 					<ul>
-						<li><Link className="helpCenter" href="https://www.instagram.com/yudagrh_/?hl=id">Yuda</Link></li>
-						<li><Link className="helpCenter" href="https://www.instagram.com/suryaa_saputra/">Surya</Link></li>
-						<li><Link className="helpCenter" href="https://www.instagram.com/arif_rizqi27/">Arif</Link></li>
-						<li><Link className="helpCenter" href="https://www.instagram.com/annassetywn/">Annas</Link></li>
+						<li><Link className="helpCenter" href="https://www.instagram.com/yudagrh_/?hl=id">Yuda Anugrah</Link></li>
+						<li><Link className="helpCenter" href="https://www.instagram.com/suryaa_saputra/">Surya Maulana Saputra</Link></li>
+						<li><Link className="helpCenter" href="https://www.instagram.com/arif_rizqi27/">Arif Rizqi</Link></li>
+						<li><Link className="helpCenter" href="https://www.instagram.com/annassetywn/">Annas Setiawan</Link></li>
 					</ul>
 				</div>
 

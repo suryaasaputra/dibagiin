@@ -4,6 +4,7 @@ import Head from 'next/head';
 import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Typewriter from 'typewriter-effect';
 import heroImage from '../public/images/heros/hero-image.png';
 import aboutImage from '../public/images/about-img.png';
 import faqImage from '../public/images/faq.png';
@@ -61,8 +62,16 @@ export default function Home() {
           <div className="row">
             <div className="col-md-6 info-home" data-aos="fade-up">
               <div className="text-home">
-                <h4>Selamat Datang</h4>
-                <h2>Ayo bagikan barang layak pakai kamu sekarang!</h2>
+                <h4>
+                  <Typewriter
+                    options={{
+                      strings: ['Hallo, Selamat Datang'],
+                      autoStart: true,
+                      loop: true,
+                    }}
+                  />
+                </h4>
+                <h2 data-aos="zoom-in">Ayo bagikan barang layak pakai kamu sekarang!</h2>
                 <p>Kamu bingung ingin mendonasikan barang layak pakai kamu kemana? Tenaaang!, sekarang kamu bisa bagiin barang barang kamu di sini.</p>
                 <Link className="btn-style outer-shadow inner-shadow hover-in-shadow" href="/masuk">Mulai</Link>
                 <a className="btn-style outer-shadow inner-shadow hover-in-shadow ms-3" href="#about">Detail</a>
@@ -287,7 +296,7 @@ export default function Home() {
               </div>
               <div className="row mt-3">
                 <div className="col-lg-6 col-md-6">
-                  <div className="wu-box">
+                  <div className="wu-box mb-3">
                     <div className="wu-text-box-icon">
                       <i className="fas fas-hand-index-thumb"></i>
                     </div>
@@ -435,7 +444,7 @@ export default function Home() {
         <section className="our-team" id="our-team">
           <h2 className="team-title text-center">Tim <span>Kami</span>
           </h2>
-          <div className="row row-team mt-4" data-aos="fade-up">
+          <div className="row row-team mt-4" data-aos="fade-up" data-aos-once="true">
             <div className="team-card">
               <div className="image">
                 <Image
