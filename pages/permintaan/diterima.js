@@ -37,7 +37,7 @@ const Diterima = () => {
         <div className="mt-3 pt-3 beranda ">
             <div className="container-fluid p-3">
                 <Head>
-                    <title>Permintaan diterima-Dibagiin</title>
+                    <title>Permintaan Diterima - Dibagiin</title>
                 </Head>
                 <div className='mt-5'><h2>Permintaan diterima</h2></div>
                 {!data && (

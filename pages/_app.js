@@ -36,6 +36,12 @@ export default function MyApp({ Component, pageProps }) {
 		const path = url.split("?")[0];
 		if (!userService.userValue && !publicPaths.includes(path)) {
 			setAuthorized(false);
+			Swal.fire({
+				icon: "error",
+				title: `Sesi anda telah berakhir, silahkan masuk kembali...`,
+				confirmButtonColor: "#73a700",
+				timer: 2000,
+			})
 			router.push({
 				pathname: "/masuk",
 				query: { returnUrl: router.asPath },

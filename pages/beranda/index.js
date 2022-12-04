@@ -118,7 +118,7 @@ const Beranda = () => {
 			<div className="mt-3 pt-3 beranda">
 				<div className="container-fluid pt-2">
 					<Head>
-						<title>Donasi-Dibagiin</title>
+						<title>Beranda - Dibagiin</title>
 					</Head>
 
 					<div className="row mt-5">

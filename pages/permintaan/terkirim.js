@@ -43,8 +43,8 @@ const Terkirim = () => {
     }
     const data = listRequest.data.length
     return (
-        <div className="mt-5 pt-3 beranda">
-            <div className="container-fluid">
+        <div className="mt-3 pt-3 beranda">
+            <div className="container-fluid p-3">
                 <Head>
                     <title>Permintaan Terkirim - Dibagiin</title>
                 </Head>
@@ -55,7 +55,7 @@ const Terkirim = () => {
                 }
                 {listRequest.data.map((item) => (
                     <>
-                        <div className="row m-1 mt-3 p-4 mb-4 rounded-2 outer-shadow">
+                        <div className="row mt-3 p-4 mb-4 rounded-2 outer-shadow">
                             <div className="col-md-6 p-2">
                                 <p>Anda meminta <Link href={`/donasi/${item.donation.id}`}> <b>{item.donation.title}</b> </Link> dari <Link href={`/user/${item.donator.user_name}`}> <b>{item.donator.full_name}</b></Link></p>
 

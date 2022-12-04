@@ -221,7 +221,7 @@ const Pemberitahuan = () => {
 
     return (
         <div className="mt-3 pt-3 beranda">
-            <div className="container-fluid">
+            <div className="container-fluid p-3">
                 <Head>
                     <title>Pemberitahuan - Dibagiin</title>
                 </Head>

@@ -16,6 +16,8 @@ export const donationService = {
     rejectRequest,
     getAllSubmittedRequest,
     getHistory,
+    searchByLocation,
+    searchByTitle
 };
 
 function createDonation(donationData) {
@@ -28,6 +30,30 @@ function createDonation(donationData) {
 function getAllDonation() {
     const endpoint = `${API_ENDPOINT.donation}`
     const { data, error } = useSWR(endpoint, fetchWrapper.fetcher, { refreshInterval: 2000 })
+    return {
+        listDonations: data,
+        isLoading: !data,
+        error: error
+    }
+    //     return fetchWrapper.get(endpoint).then((response) => {
+    //         return response;
+    //     });
+}
+function searchByTitle(keyword) {
+    const endpoint = `${API_ENDPOINT.donation}?title=${keyword}`;
+    const { data, error } = useSWR(endpoint, fetchWrapper.fetcher, { refreshInterval: 600000 })
+    return {
+        listDonations: data,
+        isLoading: !data,
+        error: error
+    }
+    //     return fetchWrapper.get(endpoint).then((response) => {
+    //         return response;
+    //     });
+}
+function searchByLocation(location) {
+    const endpoint = `${API_ENDPOINT.donation}?location=${location}`;
+    const { data, error } = useSWR(endpoint, fetchWrapper.fetcher, { refreshInterval: 600000 })
     return {
         listDonations: data,
         isLoading: !data,

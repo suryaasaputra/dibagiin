@@ -29,8 +29,8 @@ const DonasiDetail = () => {
                 <title>Donasi {idDonasi}</title>
             </Head>
             <div className="mt-3 pt-3 beranda">
-                <div className="container-fluid">
-                    <h1>Detail Donasi {donationData.data.title}</h1>
+                <div className="container-fluid p-3">
+                    <div className="mt-5"><h2>Detail Donasi {donationData.data.title}</h2></div>
                 </div>
                 <div>
                     datanya :

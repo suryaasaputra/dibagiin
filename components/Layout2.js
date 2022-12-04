@@ -5,16 +5,28 @@ import LogoText from '../public/images/logo/logo-text.png';
 import { userService } from "../services";
 import { useEffect, useState } from 'react'
 import { useRouter } from "next/router";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as Yup from "yup";
 
 const Header = () => {
+	const router = useRouter()
+	const validationSchema = Yup.object().shape({
+		keyword: Yup.string().required('Email tidak boleh kosong'),
+	});
+	const formOptions = { resolver: yupResolver(validationSchema) };
 
-	const [userData, setUserData] = useState({})
-	useEffect(() => {
-		const user = JSON.parse(localStorage.getItem("user"))
-		setUserData(user)
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	// get functions to build form with useForm() hook
+	const { register, handleSubmit, setError, formState } = useForm(formOptions);
+	const { errors } = formState;
 
+	function onSubmit({ keyword }) {
+		router.push({
+			pathname: "/donasi",
+			query: { cari: keyword },
+		});
+
+	}
 	return (
 		<header>
 			<nav className="navbar navbar-app navbar-expand-lg navbar-dark fixed-top">
@@ -44,15 +56,20 @@ const Header = () => {
 
 					<div className="collapse navbar-collapse" id="topNavbar">
 
-						<form className="d-flex ms-auto my-3 my-lg-0">
+						<form onSubmit={handleSubmit(onSubmit)} className="d-flex ms-auto my-3 my-lg-0">
 							<div className="input-group">
 								<input
 									className="form-control search-form"
+									id='keyword'
+									name='keyword'
 									type="search"
 									placeholder="Cari barang"
 									aria-label="Search"
+									{...register('keyword')}
 								/>
-								<button className="btn ms-1 btn-search" type="submit">
+								<div className="invalid-feedback">{errors.keyword?.message}</div>
+								<button disabled={formState.isSubmitting} className="btn ms-1 btn-search" type="submit">
+									{formState.isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
 									<i className="fas fa-search"></i>
 								</button>
 							</div>
