@@ -86,13 +86,24 @@ const PermintaanDiterimaCard = ({ item }) => {
     if (item.status == 'Dikonfirmasi') {
         return (
             <div className="row m-2 mt-4 p-4 rounded-2 outer-shadow">
+                <div className='text-end'>
+                    <small>
+                        {new Date(item.created_at).toLocaleTimeString('id-ID', {
+                            day: 'numeric', // numeric, 2-digit
+                            year: 'numeric', // numeric, 2-digit
+                            month: 'long', // numeric, 2-digit, long, short, narrow
+                            hour: 'numeric', // numeric, 2-digit
+                            minute: '2-digit', // numeric, 2-digit
+                        })}
+                    </small>
+                </div>
                 <div className='col-md-6'>
+
                     <div className=''>
                         <Image
                             width={60}
                             height={60}
                             src={item.user.profil_photo_url}
-                            style={{ border: '4px solid #73a700' }}
                             className="img-fluid rounded-circle"
                             alt='avatar'
                         />
@@ -111,16 +122,7 @@ const PermintaanDiterimaCard = ({ item }) => {
                     </div>
                 </div>
 
-                <div className='col-md-6 mt-3'>
-                    <small>
-                        {new Date(item.created_at).toLocaleTimeString('id-ID', {
-                            day: 'numeric', // numeric, 2-digit
-                            year: 'numeric', // numeric, 2-digit
-                            month: 'long', // numeric, 2-digit, long, short, narrow
-                            hour: 'numeric', // numeric, 2-digit
-                            minute: '2-digit', // numeric, 2-digit
-                        })}
-                    </small>
+                <div className='col-md-6'>
                     <div className='mt-3 fw-bold'>
                         <p>Pesan : "{item.message}"</p>
                         <b className='btn-info' style={{ fontSize: '13.5px' }}><i className='fa fa-check-circle'></i> Permintaan sudah dikonfirmasi</b>
@@ -132,13 +134,23 @@ const PermintaanDiterimaCard = ({ item }) => {
     if (item.status == 'Ditolak') {
         return (
             <div className="row m-2 mt-4 p-4 rounded-2 outer-shadow">
+                <div className='text-end'>
+                    <small>
+                        {new Date(item.created_at).toLocaleTimeString('id-ID', {
+                            day: 'numeric', // numeric, 2-digit
+                            year: 'numeric', // numeric, 2-digit
+                            month: 'long', // numeric, 2-digit, long, short, narrow
+                            hour: 'numeric', // numeric, 2-digit
+                            minute: '2-digit', // numeric, 2-digit
+                        })}
+                    </small>
+                </div>
                 <div className='col-md-6'>
                     <div>
                         <Image
                             width={60}
                             height={60}
                             src={item.user.profil_photo_url}
-                            style={{ border: '4px solid #73a700' }}
                             className="img-fluid rounded-circle"
                             alt='avatar'
                         />
@@ -157,18 +169,8 @@ const PermintaanDiterimaCard = ({ item }) => {
                     </div>
                 </div>
 
-                <div className='col-md-6 mt-3'>
-                    <small>
-                        {new Date(item.created_at).toLocaleTimeString('id-ID', {
-                            day: 'numeric', // numeric, 2-digit
-                            year: 'numeric', // numeric, 2-digit
-                            month: 'long', // numeric, 2-digit, long, short, narrow
-                            hour: 'numeric', // numeric, 2-digit
-                            minute: '2-digit', // numeric, 2-digit
-                        })}
-                    </small>
-
-                    <div className='mt-3 fw-bold'>
+                <div className='col-md-6'>
+                    <div className='fw-bold mt-3'>
                         <p>Pesan : "{item.message}"</p>
                         <b className='btn-danger' style={{ fontSize: '13.5px' }}><i className='fa fa-ban'></i> Permintaan ditolak</b>
                     </div>
@@ -178,13 +180,23 @@ const PermintaanDiterimaCard = ({ item }) => {
     }
     return (
         <div className="row m-2 mt-4 p-4 rounded-2 outer-shadow">
+            <div className='text-end'>
+                <small>
+                    {new Date(item.created_at).toLocaleTimeString('id-ID', {
+                        day: 'numeric', // numeric, 2-digit
+                        year: 'numeric', // numeric, 2-digit
+                        month: 'long', // numeric, 2-digit, long, short, narrow
+                        hour: 'numeric', // numeric, 2-digit
+                        minute: '2-digit', // numeric, 2-digit
+                    })}
+                </small>
+            </div>
             <div className='col-md-6 p-3'>
                 <div>
                     <Image
                         width={60}
                         height={60}
                         src={item.user.profil_photo_url}
-                        style={{ border: '4px solid #73a700' }}
                         className="img-fluid rounded-circle"
                         alt='avatar'
                     />
@@ -205,15 +217,6 @@ const PermintaanDiterimaCard = ({ item }) => {
             </div>
 
             <div className='col-md-6 p-3'>
-                <small>
-                    {new Date(item.created_at).toLocaleTimeString('id-ID', {
-                        day: 'numeric', // numeric, 2-digit
-                        year: 'numeric', // numeric, 2-digit
-                        month: 'long', // numeric, 2-digit, long, short, narrow
-                        hour: 'numeric', // numeric, 2-digit
-                        minute: '2-digit', // numeric, 2-digit
-                    })}
-                </small>
 
                 <div className='mt-3'>
                     <p className='fw-bold'>Pesan : "{item.message}"</p>
