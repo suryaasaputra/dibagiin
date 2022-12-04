@@ -183,10 +183,11 @@ const Footer = () => {
 				<div className="our-service box-footer">
 					<h4>Navigasi</h4>
 					<ul>
-						<li><Link className="serviceLink" href="/donasi">Donasi barang</Link></li>
+						<li><Link className="serviceLink" href="/donasi">Tambah Donasi</Link></li>
 						<li><Link className="serviceLink" href="/pemberitahuan">Pemberitahuan</Link></li>
-						<li><Link className="serviceLink" href="/masuk">Masuk</Link></li>
-						<li><Link className="serviceLink" href="/registrasi">Daftar</Link></li>
+						<li><Link className="serviceLink" href="/permintaan/diterima">Permintaan Diterima</Link></li>
+						<li><Link className="serviceLink" href="/permintaan/terkirim">Permintaan Terkirim</Link></li>
+						<li><Link className="serviceLink" href="/profil">Profil</Link></li>
 					</ul>
 				</div>
 
