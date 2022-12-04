@@ -181,25 +181,30 @@ const Footer = () => {
 				</div>
 
 				<div className="our-service box-footer">
-					<h4>Layanan Kami</h4>
+					<h4>Navigasi</h4>
 					<ul>
-						<li>Donasi barang</li>
-						<li>Mengambil barang</li>
-						<li>Menerima barang</li>
-						<li>Tentang kami</li>
+						<li><Link className="serviceLink" href="/donasi">Donasi barang</Link></li>
+						<li><Link className="serviceLink" href="/pemberitahuan">Pemberitahuan</Link></li>
+						<li><Link className="serviceLink" href="/masuk">Masuk</Link></li>
+						<li><Link className="serviceLink" href="/registrasi">Daftar</Link></li>
 					</ul>
 				</div>
 
 				<div className="help-center box-footer">
 					<h4>Pusat Bantuan</h4>
 					<ul>
-						<li>+62 82289675042 (yuda)</li>
-						<li>+62 81930924356 (surya)</li>
-						<li>+62 85946362394 (arif)</li>
-						<li>+62 85156555122 (annas)</li>
+						<li><Link className="helpCenter" href="https://www.instagram.com/yudagrh_/?hl=id">Yuda Anugrah</Link></li>
+						<li><Link className="helpCenter" href="https://www.instagram.com/suryaa_saputra/">Surya Maulana Saputra</Link></li>
+						<li><Link className="helpCenter" href="https://www.instagram.com/arif_rizqi27/">Arif Rizqi</Link></li>
+						<li><Link className="helpCenter" href="https://www.instagram.com/annassetywn/">Annas Setiawan</Link></li>
 					</ul>
 				</div>
+				
 			</div>
+			<div className="copyright">
+				<p className="text-center">Copyright © 2022: Create & Design with <span className="love">&#9829;</span> by <Link className="tim-capstone" href="https://github.com/suryaasaputra/dibagiin">Capstone Team C22-053</Link></p>
+			</div>
+
 		</footer>
 	);
 };
