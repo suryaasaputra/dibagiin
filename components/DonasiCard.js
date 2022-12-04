@@ -37,7 +37,7 @@ const TombolAmbil = ({ item }) => {
                 </button>
                 <span>
                     <p className='mt-2'>
-                        Diambil oleh <Link className="nama-donatur-url" href={`/user/${item.taker.user_name}`}><b>{item.taker.full_name}</b> </Link>
+                        Diambil oleh <Link className="nama-donatur-url" href={`/user/${item.taker?.user_name}`}><b>{item.taker?.full_name}</b> </Link>
                     </p>
                 </span>
             </>

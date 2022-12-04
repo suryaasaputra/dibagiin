@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import Swal from "sweetalert2";
-import Link from 'next/link';
-import nookies from 'nookies';
+import DonasiCard from '../../components/DonasiCard';
 import { useEffect, useState } from 'react';
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
@@ -10,12 +9,12 @@ import * as Yup from "yup";
 import Image from 'next/image';
 import Layout2 from '../../components/Layout2';
 import { userService } from '../../services';
-import API_ENDPOINT from '../../globals/api-endpoint';
 
 
-const Profil = ({ user }) => {
+const Profil = () => {
     const router = useRouter();
-
+    const userData = userService.userData;
+    // console.log(userData)
     // form validation rules
     const validationSchema = Yup.object().shape({
         full_name: Yup.string().required("Nama lengkap tidak boleh kosong"),
@@ -46,20 +45,18 @@ const Profil = ({ user }) => {
     const { errors } = formState;
     // submit data from form value
     function onSubmit(data) {
-        let oldData = JSON.parse(localStorage.getItem("user"));
         const newData = {
-            id: oldData.id,
+            id: userData.id,
             email: data.email,
-            user_name: oldData.user_name,
+            user_name: userData.user_name,
             full_name: data.full_name,
-            profil_photo_url: oldData.profil_photo_url,
-            token: oldData.token
+            profil_photo_url: userData.profil_photo_url,
+            token: userData.token,
+            login_time: userData.login_time
         }
-        localStorage.removeItem("user");
-        localStorage.setItem("user", JSON.stringify(newData));
-        // console.log(data);
+        userService.updateCookie(newData)
         return userService
-            .editProfile(user.user_name, data)
+            .editProfile(userData.user_name, data)
             .then(() => {
                 Swal.fire({
                     icon: "success",
@@ -97,19 +94,17 @@ const Profil = ({ user }) => {
         const body = new FormData();
         body.append("profil_photo", image);
         return userService
-            .setProfilPhoto(user.user_name, body).then((r) => {
-                console.log(r);
-                const oldData = JSON.parse(localStorage.getItem("user"));
+            .setProfilPhoto(userData.user_name, body).then((r) => {
                 const newData = {
-                    id: oldData.id,
-                    email: oldData.email,
-                    user_name: oldData.user_name,
-                    full_name: oldData.full_name,
+                    id: userData.id,
+                    email: userData.email,
+                    user_name: userData.user_name,
+                    full_name: userData.full_name,
                     profil_photo_url: r.data.profil_photo_url,
-                    token: oldData.token
+                    token: userData.token,
+                    login_time: userData.login_time
                 };
-                localStorage.removeItem("user");
-                localStorage.setItem("user", JSON.stringify(newData));
+                userService.updateCookie(newData);
             })
             .then(() => {
                 Swal.fire({
@@ -131,18 +126,23 @@ const Profil = ({ user }) => {
                 setError("apiError", { message: error });
             });
     };
-    // const { user, isLoading } = userService.getUser(userData.user_name);
-    // if (isLoading) return <div>loading...</div>
-    // if (user.error) {
-    //     return (
-    //         <div className="mt-3 pt-3 beranda">
-    //             <div className="container-fluid">
-    //                 {user.message}
-    //             </div>
-    //         </div>
-    //     )
-    // };
-
+    const { user, isLoading } = userService.getUser(userData.user_name)
+    if (isLoading) return (<div className="mt-3 pt-3 beranda">
+        <div className="container-fluid">
+            <p>loading...</p>
+            <span className="spinner-border spinner-border-sm mr-1"></span>
+        </div>
+    </div>)
+    if (user.error) {
+        return (
+            <div className="mt-3 pt-3 beranda">
+                <div className="container-fluid">
+                    {user.message}
+                </div>
+            </div>
+        )
+    }
+    console.log(user)
     return (
         <>
             <Head>
@@ -153,13 +153,13 @@ const Profil = ({ user }) => {
 
                     <div className="row mt-3 mb-3 p-3">
                         <div className='col-md-6 card-user'>
-                            <div className='img-user'>
-                                <h2>{user.full_name}</h2>
+                            <div className='img-user d-flex flex-column justify-content-center align-items-center'>
+                                <h2>{user.data.full_name}</h2>
                                 <Image
-                                    src={user.profil_photo_url}
+                                    src={user.data.profil_photo_url}
                                     width={150}
                                     height={150}
-                                    className="logo-text img-fluid rounded-2"
+                                    className="logo-text img-fluid rounded-circle "
                                     alt="profil-photo"
                                 >
                                 </Image>
@@ -170,19 +170,22 @@ const Profil = ({ user }) => {
                         <div className='col-md-6 mt-4'>
                             <div className='info-user'>
                                 <h2>Info : </h2>
-                                <p><i className='fa fa-envelope'></i> {user.email}</p>
-                                <p><i className='fab fa-whatsapp'></i> {user.phone_number}</p>
-                                <p><i className='fa fa-user'></i> {user.gender}</p>
-                                <p><i className="fa-solid fa-map-location-dot"></i> {user.address}</p>
+                                <p><i className='fa fa-envelope'></i> {user.data.email}</p>
+                                <p><i className='fab fa-whatsapp'></i> {user.data.phone_number}</p>
+                                <p><i className='fa fa-user'></i> {user.data.gender}</p>
+                                <p><i className="fa-solid fa-map-location-dot"></i> {user.data.address}</p>
                                 <a href='/beranda' className='btn-style outer-shadow inner-shadow hover-in-shadow '>  <i className='fa fa-arrow-left'></i> Kembali</a>
                                 <button style={{ border: 'none' }} className='btn-style outer-shadow inner-shadow hover-in-shadow  ms-2' data-bs-toggle="modal" data-bs-target="#editProfil"> <i className="fa-solid fa-pen-to-square"></i> Edit Profile</button>
                             </div>
-                           
                         </div>
 
-                       
                     </div>
-
+                    <div className="row">
+                        <h2 className='text-center text-decoration-underline'>Donasi {user.data.full_name}</h2>
+                    </div>
+                    {user.data.donation.map((item) => (
+                        <DonasiCard key={item.id} item={item} />
+                    ))}
                 </div>
             </div>
             <div className="modal fade" id="editProfil" tabIndex="-1" aria-labelledby="editProfilForm" aria-hidden="true">
@@ -206,7 +209,7 @@ const Profil = ({ user }) => {
                                         placeholder="Raisa Andriana"
                                         {...register("full_name")}
 
-                                        defaultValue={user.full_name}
+                                        defaultValue={user.data.full_name}
                                     />
                                     <div className="invalid-feedback">
                                         {errors.full_name?.message}
@@ -223,7 +226,7 @@ const Profil = ({ user }) => {
                                         aria-describedby="emailHelp"
                                         placeholder="raisa@gmail.com"
                                         {...register("email")}
-                                        defaultValue={user.email}
+                                        defaultValue={user.data.email}
                                     />
                                     <div className="invalid-feedback">{errors.email?.message}</div>
                                 </div>
@@ -239,7 +242,7 @@ const Profil = ({ user }) => {
                                         aria-describedby="usernameHelp"
                                         placeholder="raisa6690"
                                         {...register("user_name")}
-                                        defaultValue={user.user_name}
+                                        defaultValue={user.data.user_name}
                                         disabled
                                     />
                                     <div className="invalid-feedback">
@@ -257,7 +260,7 @@ const Profil = ({ user }) => {
                                         id="phone_number"
                                         placeholder="+628123468798"
                                         {...register("phone_number")}
-                                        defaultValue={user.phone_number}
+                                        defaultValue={user.data.phone_number}
                                     />
                                     <div className="invalid-feedback">
                                         {errors.phone_number?.message}
@@ -290,7 +293,7 @@ const Profil = ({ user }) => {
                                         id="address"
                                         placeholder="Jl. Garuda No. 76 Jakarta Selatan"
                                         {...register("address")}
-                                        defaultValue={user.address}
+                                        defaultValue={user.data.address}
                                     />
                                     <div className="invalid-feedback">
                                         {errors.address?.message}
@@ -371,24 +374,24 @@ const Profil = ({ user }) => {
     )
 }
 
-export async function getServerSideProps(ctx) {
-    // Parse
-    const cookies = nookies.get(ctx)
-    const userData = JSON.parse(cookies.userCookies)
-    const requestOptions = {
-        method: "GET",
-        headers: { "Authorization": `Bearer ${userData.token}` }
-    }
-    const endpoint = `${API_ENDPOINT.user}/${userData.user_name}`
-    const res = await fetch(endpoint, requestOptions)
-    const data = await res.json()
-    const user = data.data
-    return {
-        props: {
-            user,
-        },
-    };
-}
+// export async function getServerSideProps(ctx) {
+//     // Parse
+//     const cookies = nookies.get(ctx)
+//     const userData = JSON.parse(cookies.userCookies)
+//     const requestOptions = {
+//         method: "GET",
+//         headers: { "Authorization": `Bearer ${userData.token}` }
+//     }
+//     const endpoint = `${API_ENDPOINT.user}/${userData.user_name}`
+//     const res = await fetch(endpoint, requestOptions)
+//     const data = await res.json()
+//     const user = data.data
+//     return {
+//         props: {
+//             user,
+//         },
+//     };
+// }
 
 Profil.getLayout = function getLayout(page) {
     return (

@@ -5,8 +5,9 @@ import Router from "next/router";
 import { parseCookies, setCookie, destroyCookie } from "nookies";
 import { fetchWrapper } from "../helpers/fetch-wrapper";
 
+const cookies = parseCookies()
 const userSubject = new BehaviorSubject(
-	typeof window !== 'undefined' && JSON.parse(localStorage.getItem("user"))
+	typeof window !== 'undefined' && JSON.parse(cookies.userCookies ?? false)
 );
 
 export const userService = {
@@ -24,6 +25,7 @@ export const userService = {
 	},
 	register,
 	login,
+	updateCookie,
 	getUser,
 	setProfilPhoto,
 	editProfile,
@@ -36,16 +38,23 @@ function login(email, password) {
 	return fetchWrapper.login(endpoint, { email, password }).then((user) => {
 		// publish user to subscribers and store in local storage to stay logged in between page refreshes
 		userSubject.next(user);
-		localStorage.setItem("user", JSON.stringify(user.data));
-		const cookies = parseCookies();
-		console.log({ cookies });
-
+		const cookies = parseCookies()
 		// Set
 		setCookie(null, "userCookies", JSON.stringify(user.data), {
 			maxAge: 30 * 24 * 60 * 60,
 			path: "/"
 		});
 		return user;
+	});
+}
+
+function updateCookie(user) {
+	const cookies = parseCookies();
+	destroyCookie(null, "userCookies");
+	// Set
+	setCookie(null, "userCookies", JSON.stringify(user), {
+		maxAge: 30 * 24 * 60 * 60,
+		path: "/"
 	});
 }
 
@@ -94,7 +103,6 @@ function deleteAccount(username) {
 
 function logout() {
 	// remove user from local storage, publish null to user subscribers and redirect to login page
-	localStorage.removeItem("user");
 	destroyCookie(null, "userCookies");
 	userSubject.next(null);
 	Router.push("/masuk");

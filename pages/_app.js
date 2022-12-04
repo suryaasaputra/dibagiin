@@ -39,7 +39,7 @@ export default function MyApp({ Component, pageProps }) {
 			setAuthorized(false);
 			Swal.fire({
 				icon: "error",
-				title: `Sesi anda telah berakhir, silahkan masuk kembali...`,
+				title: `Silahkan masuk terlebih dahulu untuk melanjutkan`,
 				confirmButtonColor: "#73a700",
 				timer: 2000,
 			})

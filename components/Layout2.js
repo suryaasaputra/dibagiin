@@ -111,12 +111,7 @@ const Header = () => {
 
 const OffCanvas = () => {
 	const router = useRouter()
-	const [userData, setUserData] = useState({})
-	useEffect(() => {
-		const user = JSON.parse(localStorage.getItem("user"))
-		setUserData(user)
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	const user = userService.userData
 	const cekActive = (url) => {
 		return String(router.asPath).includes(url)
 	}
@@ -133,16 +128,15 @@ const OffCanvas = () => {
 							<Link className="" href="/profil">
 								<div className="d-flex flex-column align-items-center justify-content-center pb-3">
 									<Image
-										src={userData.profil_photo_url || "https://storage.googleapis.com/dibagiin-data/profil_photo/default.png"}
+										src={user?.profil_photo_url}
 										width={80}
 										height={80}
-										className="logo-text img-fluid"
+										className="img-fluid rounded-circle"
 										alt="profil-photo"
 										loading='eager'
-										priority
 									>
 									</Image>
-									<span className={`text - center ${cekActive("/profil") ? 'link-active' : ''}`}  >@{userData.user_name}</span>
+									<span className={`text - center ${cekActive("/profil") ? 'link-active' : ''}`}  >@{user?.user_name}</span>
 
 								</div>
 							</Link>
@@ -156,7 +150,7 @@ const OffCanvas = () => {
 						<li className="sidebar-item">
 							<Link href="/beranda" className="nav-link px-2 p-3 text-black-50 fw-bold">
 								<span className="me-2"></span>
-								<span className={`p-3 ${cekActive("/beranda") ? 'link-active' : ''}`}><i className="fas fa-home"></i> Beranda</span>
+								<span className={`p-3 ${cekActive("/beranda") ? 'link-active' : ''} ${cekActive("/donasi") ? 'link-active' : ''} ${cekActive("/user") ? 'link-active' : ''}`} ><i className="fas fa-home"></i> Beranda</span>
 							</Link>
 						</li>
 						{/* 
