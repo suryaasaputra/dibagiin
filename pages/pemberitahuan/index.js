@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Layout2 from "../../components/Layout2";
 import { donationService } from '../../services';
+import empty from '../../public/images/empty.png'
 
 const CardPemberitahuan = ({ item }) => {
     const router = useRouter()
@@ -228,7 +229,17 @@ const Pemberitahuan = () => {
                 <div className='mt-5'><h2>Pemberitahuan</h2></div>
 
                 {!data && (
-                    <div className="row m-5"><h2>Belum ada data</h2></div>
+                    <div className="d-flex flex-column justify-content-center align-items-center">
+                        <img
+                            src="/images/empty.webp"
+                            width={400}
+                            alt="Empty"
+                            className='img-fluid'
+                            loading='eager'
+                            priority
+                        />
+                        <h3>Belum ada data</h3>
+                    </div>
                 )
                 }
 

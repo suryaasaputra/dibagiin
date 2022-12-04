@@ -3,6 +3,7 @@ import { donationService } from '../../services';
 import Layout2 from "../../components/Layout2";
 import PermintaanDiterimaCard from '../../components/PermintaanDiterimaCard';
 
+
 const Diterima = () => {
 
     //fetch daftar permintaan
@@ -32,7 +33,18 @@ const Diterima = () => {
                 </Head>
                 <div className='mt-5'><h2>Permintaan diterima</h2></div>
                 {!data && (
-                    <div className="row m-5"><h2>Belum ada data</h2></div>
+                    <div className="d-flex flex-column justify-content-center align-items-center">
+
+                        <img
+                            src="/images/empty.webp"
+                            width={400}
+                            alt="Empty"
+                            className='img-fluid'
+                            loading='eager'
+                            priority
+                        />
+                        <h3>Belum ada data</h3>
+                    </div>
                 )
                 }
 

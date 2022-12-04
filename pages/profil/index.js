@@ -183,7 +183,7 @@ const Profil = () => {
                     <div className="row">
                         <h2 className='text-center text-decoration-underline'>Donasi {user.data.full_name}</h2>
                     </div>
-                    {user.data.donation.map((item) => (
+                    {user.data.donation?.map((item) => (
                         <DonasiCard key={item.id} item={item} />
                     ))}
                 </div>

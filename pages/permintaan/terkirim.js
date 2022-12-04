@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { donationService } from '../../services';
 import Layout2 from "../../components/Layout2";
+import empty from '../../public/images/empty.png'
 
 
 const Terkirim = () => {
@@ -43,7 +44,17 @@ const Terkirim = () => {
                 </Head>
                 <div className='mt-5'><h2>Permintaan terkirim</h2></div>
                 {!data && (
-                    <div className="row m-5"><h2>Belum ada data</h2></div>
+                    <div className="d-flex flex-column justify-content-center align-items-center">
+                        <img
+                            src="/images/empty.webp"
+                            width={400}
+                            alt="Empty"
+                            className='img-fluid'
+                            loading='eager'
+                            priority
+                        />
+                        <h3>Belum ada data</h3>
+                    </div>
                 )
                 }
                 {listRequest.data.map((item) => (

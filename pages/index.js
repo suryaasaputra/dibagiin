@@ -26,7 +26,7 @@ export default function Home() {
 
   // inisialisasi AOS (Animation on Scroll)
   useEffect(() => {
-    AOS.init({duration: 1000});
+    AOS.init({ duration: 1000 });
   }, []);
 
   // Filter feature for gallery
@@ -114,7 +114,7 @@ export default function Home() {
               <div className="text-about">
                 <h3>Platform Berbagi Barang Layak Pakai</h3>
                 <p><span style={{ color: '#73a700' }} >Dibagiin</span> merupakan suatu platform berbagi barang layak pakai yang ditujukan bagi korban bencana yang sangat membutuhkan bantuan barang layak pakai dari donatur yang selalu sedia mendonasikan barang mereka melalui platform <span style={{ color: '#73a700' }} >Dibagiin</span>, Platform ini sebagai perantara atau penghubung antara donatur dengan para korban bencana. <br /> Cara kerja aplikasi ini sangat sederhana, Donatur cukup memotret barang layak pakai mereka di platform <span style={{ color: '#73a700' }} >Dibagiin</span> kemudian pada korban bencana yang membutuhkan barang cukup klik ambil pada dashboard <span style={{ color: '#73a700' }} >Dibagiin</span> </p>
-                <a className="btn-style outer-shadow inner-shadow hover-in-shadow" href="masuk">Mulai Sekarang!</a>
+                <Link className="btn-style outer-shadow inner-shadow hover-in-shadow" href="/masuk">Mulai Sekarang!</Link>
               </div>
             </div>
             <div className="col-md-6 mt-5" data-aos="fade-up" data-aos-once="true">
@@ -188,11 +188,11 @@ export default function Home() {
                     <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                       <div className="accordion-body">
                         <ul>
-                        <li>Masuk ke halaman dashboard terlebih dahulu.</li>
-                        <li>Pilih menu "Profil" atau icon di navbar bagian atas di sebelah kanan</li>
-                        <li>Kemudian klik tombol "Edit Profil"</li>
-                        <li>isi form untuk mengedit profil lalu klik tombol "simpan"</li>
-                        <li>Selesai, profil berhasil di edit</li>
+                          <li>Masuk ke halaman dashboard terlebih dahulu.</li>
+                          <li>Pilih menu "Profil" atau icon di navbar bagian atas di sebelah kanan</li>
+                          <li>Kemudian klik tombol "Edit Profil"</li>
+                          <li>isi form untuk mengedit profil lalu klik tombol "simpan"</li>
+                          <li>Selesai, profil berhasil di edit</li>
                         </ul>
                       </div>
                     </div>
@@ -206,11 +206,11 @@ export default function Home() {
                     <div id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                       <div className="accordion-body">
                         <ul>
-                        <li>Masuk ke halaman dashboard terlebih dahulu.</li>
-                        <li>Pilih menu "Donasi" di sidebar.</li>
-                        <li>Kemudian klik atau pilih tombol "Buat Donasi" untuk membuat atau mengupload donasi baru</li>
-                        <li>isi form untuk barang yang mau didonasikan, lalu klik tombol "Buat".</li>
-                        <li>Selesai, donasi berhasil dibuat</li>
+                          <li>Masuk ke halaman dashboard terlebih dahulu.</li>
+                          <li>Pilih menu "Donasi" di sidebar.</li>
+                          <li>Kemudian klik atau pilih tombol "Buat Donasi" untuk membuat atau mengupload donasi baru</li>
+                          <li>isi form untuk barang yang mau didonasikan, lalu klik tombol "Buat".</li>
+                          <li>Selesai, donasi berhasil dibuat</li>
                         </ul>
                       </div>
                     </div>
@@ -224,11 +224,11 @@ export default function Home() {
                     <div id="collapseFour" className="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                       <div className="accordion-body">
                         <ul>
-                        <li>Masuk ke halaman dashboard terlebih dahulu.</li>
-                        <li>Klik menu "Donasi"</li>
-                        <li>Lalu pilih barang yang mau diambil dengan mengklik tombol "Ajukan Permintaan" terlebih dahulu</li>
-                        <li>Tunggu sampai barang dikonfirmasi orang tersebut</li>
-                        <li>Selesai, barang dapat diambil</li>
+                          <li>Masuk ke halaman dashboard terlebih dahulu.</li>
+                          <li>Klik menu "Donasi"</li>
+                          <li>Lalu pilih barang yang mau diambil dengan mengklik tombol "Ajukan Permintaan" terlebih dahulu</li>
+                          <li>Tunggu sampai barang dikonfirmasi orang tersebut</li>
+                          <li>Selesai, barang dapat diambil</li>
                         </ul>
                       </div>
                     </div>
@@ -244,7 +244,7 @@ export default function Home() {
 
       {/* SECTION WHY CHOOSE US START */}
 
-      <div className='container mb-5' style={{marginTop: '5rem'}}>
+      <div className='container mb-5' style={{ marginTop: '5rem' }}>
         <section className="why-us">
           <div className="why-us-title">
             <h2 style={{ fontWeight: 'bold' }} data-aos="fade-up" data-aos-once="true" data-aos-duration="500" className="text-center">Kenapa Memilih <span style={{ color: '#73a700' }} >Kami</span>

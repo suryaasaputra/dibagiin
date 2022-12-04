@@ -107,91 +107,6 @@ const Header = () => {
 	);
 };
 
-const OffCanvas = () => {
-	const router = useRouter()
-	const user = userService.userData
-	const cekActive = (url) => {
-		return String(router.asPath).includes(url)
-	}
-	return (
-		<div
-			className="offcanvas offcanvas-start sidebar-nav"
-			id="sidebar"
-		>
-			<div className="offcanvas-body p-0">
-				<nav className="navbar-dark mt-4">
-					<ul className="navbar-nav">
-
-						<li>
-							<Link className="" href="/profil">
-								<div className="d-flex flex-column align-items-center justify-content-center pb-3">
-									<Image
-										src={user?.profil_photo_url}
-										width={80}
-										height={80}
-										className="img-fluid rounded-circle"
-										alt="profil-photo"
-										loading='eager'
-									>
-									</Image>
-									<span className={`text - center ${cekActive("/profil") ? 'link-active' : ''}`}  >@{user?.user_name}</span>
-
-								</div>
-							</Link>
-						</li>
-						<li>
-							<div className="text-muted small fw-bold text-uppercase px-3">
-								Menu
-							</div>
-						</li>
-
-						<li className="sidebar-item">
-							<Link href="/beranda" className="nav-link px-2 p-3 text-black-50 fw-bold">
-								<span className="me-2"></span>
-								<span className={`p-3 ${cekActive("/beranda") ? 'link-active' : ''} ${cekActive("/donasi") ? 'link-active' : ''} ${cekActive("/user") ? 'link-active' : ''}`} ><i className="fas fa-home"></i> Beranda</span>
-							</Link>
-						</li>
-						{/* 
-						<li className="sidebar-item">
-							<Link href="/donasi" className="nav-link px-2 p-3 text-black-50 fw-bold ">
-								<span className="me-2"></span>
-								<span className={`p-3 ${cekActive("/donasi") ? 'link-active' : ''}`}><i className="fas fa-plus"></i> Donasi</span>
-							</Link>
-						</li> */}
-						<li className="sidebar-item">
-							<Link href="/pemberitahuan" className="nav-link px-2 p-3 active text-black-50 fw-bold">
-								<span className="me-2"></span>
-								<span className={`p-3 pemberitahuan-btn ${cekActive("/pemberitahuan") ? 'link-active' : ''}`}><i className="fas fa-bell"></i> Pemberitahuan</span>
-							</Link>
-						</li>
-						<li className="sidebar-item">
-							<Link href="/permintaan/diterima" className="nav-link px-2 p-3 active text-black-50 fw-bold">
-								<span className="me-2"></span>
-								<span className={`p-3 ${cekActive("/permintaan/diterima") ? 'link-active' : ''}`}><i className="fa fa-inbox"></i> Permintaan Diterima</span>
-							</Link>
-						</li>
-						<li className="sidebar-item">
-							<Link href="/permintaan/terkirim" className="nav-link px-2 p-3 active text-black-50 fw-bold">
-								<span className="me-2"></span>
-								<span className={`p-3 ${cekActive("/permintaan/terkirim") ? 'link-active' : ''}`}><i className="fa fa-paper-plane"></i> Permintaan Terkirim</span>
-							</Link>
-						</li>
-
-						<li className="sidebar-item">
-							<a onClick={() => userService.logout()} style={{ cursor: 'pointer' }} className="nav-link px-2 p-3 active text-black-50 fw-bold">
-								<span className="me-2"></span>
-								<span className="p-3 salmon"><i className="fa-solid fa-right-from-bracket"></i> Keluar</span>
-							</a>
-						</li>
-
-					</ul>
-				</nav>
-			</div>
-		</div >
-	);
-}
-
-
 const Footer = () => {
 	return (
 		<footer >
@@ -229,11 +144,10 @@ const Footer = () => {
 	);
 };
 
-export default function Layout2({ children }) {
+export default function LayoutError({ children }) {
 	return (
 		<>
 			<Header />
-			<OffCanvas />
 			<main id="mainContent">
 				{children}
 			</main>
