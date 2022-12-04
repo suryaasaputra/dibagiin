@@ -55,14 +55,6 @@ export default function MyApp({ Component, pageProps }) {
 
 	return (
 		<>
-			<Head>
-				<meta name="apple-mobile-web-app-title" content="Dibagiin" />
-				<meta name="application-name" content="Dibagiin" />
-				<meta name="msapplication-TileColor" content="#eff0f4" />
-				<meta name="theme-color" content="#eff0f4" />
-				<meta name="viewport" content="width=device-width, initial-scale=1" />
-				<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-			</Head>
 			{authorized && getLayout(<Component {...pageProps} />)}
 		</>
 	);
