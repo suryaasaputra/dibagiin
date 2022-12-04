@@ -1,6 +1,7 @@
 import "../styles/main.scss";
 import "../styles/responsive.scss";
 import Head from "next/head";
+import Swal from "sweetalert2";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { userService } from "../services";
