@@ -109,7 +109,7 @@ const OffCanvas = () => {
 
 						<li>
 							<div className="text-muted small fw-bold text-uppercase px-3">
-								Inti
+								Menu Utama
 							</div>
 						</li>
 
