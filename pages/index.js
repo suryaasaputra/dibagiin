@@ -95,7 +95,7 @@ export default function Home() {
       {/* SECTION HOME END */}
 
       {/* SECTION ABOUT START */}
-      <div className="container">
+      <div className="container" style={{ marginTop: '5rem' }}>
         <section className="about" id="about">
           <h2 style={{ fontWeight: 'bold' }} data-aos="fade-up" data-aos-once="true" data-aos-duration="500" className="text-center">Tentang <span style={{ color: '#73a700' }} >Dibagiin</span>
           </h2>
@@ -151,7 +151,7 @@ export default function Home() {
       {/* SECTION ABOUT END */}
 
       {/* SECTION FAQ START */}
-      <div className="container">
+      <div className="container" style={{ marginTop: '5rem' }}>
         <section className="about" id="faq">
           <h2 style={{ fontWeight: 'bold' }} data-aos="fade-up" data-aos-once="true" data-aos-duration="500" className="text-center">Yang Sering <span style={{ color: '#73a700' }} >Ditanyakan</span>
           </h2>
@@ -244,7 +244,7 @@ export default function Home() {
 
       {/* SECTION WHY CHOOSE US START */}
 
-      <div className='container mb-5' style={{marginTop: '7rem'}}>
+      <div className='container mb-5' style={{marginTop: '5rem'}}>
         <section className="why-us">
           <div className="why-us-title">
             <h2 style={{ fontWeight: 'bold' }} data-aos="fade-up" data-aos-once="true" data-aos-duration="500" className="text-center">Kenapa Memilih <span style={{ color: '#73a700' }} >Kami</span>
@@ -330,7 +330,7 @@ export default function Home() {
       {/* SECTION WHY CHOOSE US END */}
 
       {/* SECTION GALLERY START */}
-      <div className='container mb-5 mt-5'>
+      <div className='container mb-5' style={{ marginTop: '5rem' }}>
         <section className='gallery mt-5' id='gallery'>
           <h2 className="gallery-title text-center" data-aos-once="true" data-aos="fade-up" data-aos-duration="500">Contoh Barang Yang <span style={{ color: '#73a700' }} >Didonasikan</span></h2>
 
@@ -440,11 +440,11 @@ export default function Home() {
       {/* SECTION GALLERY END */}
 
       {/* SECTION TEAM START */}
-      <div className="container mt-2">
+      <div className="container mb-5" style={{ marginTop: '5rem' }}>
         <section className="our-team" id="our-team">
           <h2 className="team-title text-center">Tim <span>Kami</span>
           </h2>
-          <div className="row row-team mt-4" data-aos="fade-up" data-aos-once="true">
+          <div className="row row-team mt-4">
             <div className="team-card">
               <div className="image">
                 <Image
