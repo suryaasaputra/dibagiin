@@ -1,12 +1,5 @@
 import Head from 'next/head';
-import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
-import Swal from "sweetalert2";
-
-import { useState } from 'react';
 import { useRouter } from "next/router";
-import { useForm, Controller } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as Yup from "yup";
 import { donationService } from '../../services';
 import DonasiCard from '../../components/DonasiCard';
 import Layout2 from "../../components/Layout2";

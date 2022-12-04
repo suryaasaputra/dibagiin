@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Swal from "sweetalert2";
 import DonasiCard from '../../components/DonasiCard';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";

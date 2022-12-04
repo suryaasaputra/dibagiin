@@ -1,12 +1,5 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import Swal from "sweetalert2";
-import nookies from 'nookies';
-import { useEffect, useState } from 'react';
-import { useRouter } from "next/router";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as Yup from "yup";
 import Image from 'next/image';
 import { donationService } from '../../services';
 import Layout2 from "../../components/Layout2";

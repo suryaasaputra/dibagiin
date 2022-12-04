@@ -1,8 +1,7 @@
 
 import Head from 'next/head';
 import Link from 'next/link';
-import Router, { useRouter } from 'next/router';
-import Swal from "sweetalert2";
+import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Layout2 from "../../components/Layout2";
 import { donationService } from '../../services';
