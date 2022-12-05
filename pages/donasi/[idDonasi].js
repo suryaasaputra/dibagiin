@@ -2,7 +2,6 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Layout2 from '../../components/Layout2';
 import { donationService } from '../../services';
-import SkeletonLoading from '../../components/skeletonLoading';
 
 const DonasiDetail = () => {
     const router = useRouter()
@@ -10,7 +9,12 @@ const DonasiDetail = () => {
     //fetch donation list
     const { donationData, isLoading } = donationService.getDonationDetail(idDonasi)
     if (isLoading) return (
-        <SkeletonLoading />
+        <div className='beranda'>
+            <div className='container-fluid'>
+                <p>loading</p>
+                <span className='spinner-border'></span>
+            </div>
+        </div>
     )
     if (donationData?.error) {
         return (

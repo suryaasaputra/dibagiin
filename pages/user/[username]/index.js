@@ -3,7 +3,6 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Layout2 from '../../../components/Layout2';
 import { userService } from '../../../services';
-// import SkeletonLoading from '../../../components/SkeletonLoading';
 
 const User = () => {
     const router = useRouter()
