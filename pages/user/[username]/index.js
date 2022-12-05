@@ -30,26 +30,26 @@ const User = () => {
             <Head>
                 <title>User</title>
             </Head>
-            <div className="pt-3 beranda">
+            <div className="beranda">
                 <div className="container-fluid">
 
-                    <div className="row mb-3 p-3">
-                        <div className='col-md-12 card-user'>
-                            <div className='img-user'>
+                    <div className="row p-3 mb-3" style={{marginTop: '4rem'}}>
+                        <div className='col-md-6 card-user'>
+                            <div className='img-user d-flex flex-column justify-content-center align-items-center'>
+                                <h2>{user.data.full_name}</h2>
                                 <Image
                                     src={user.data.profil_photo_url}
-                                    width={180}
-                                    height={180}
-                                    className="logo-text img-fluid p-2 outer-shadow rounded-2"
+                                    width={150}
+                                    height={150}
+                                    className="logo-text img-fluid rounded-circle "
                                     alt="profil-photo"
-                                    loading='eager'
-                                    priority
                                 >
                                 </Image>
                             </div>
-
-                            <div className="info-user mt-4 p-3">
-                                <h2>{user.data.full_name}</h2>
+                        </div>
+                        <div className='col-md-6 mt-4'>
+                            <div className='info-user'>
+                                <h2>Info User</h2>
                                 <p><i className='fa fa-envelope'></i> {user.data.email}</p>
                                 <p><i className='fab fa-whatsapp'></i> {user.data.phone_number}</p>
                                 <p><i className="fa-solid fa-map-location-dot"></i> {user.data.address}</p>
