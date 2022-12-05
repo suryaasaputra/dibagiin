@@ -902,6 +902,7 @@ header .navbar-nav .dropdown-menu {
 	transition: 0.3s ease;
 	cursor: pointer;
 	z-index: 100;
+	min-height: 200px;
 }
 
 .wu-box:hover {

@@ -65,7 +65,7 @@ export default function Home() {
                 <h4>
                   <Typewriter
                     options={{
-                      strings: ['Hallo, Selamat Datang'],
+                      strings: ['Halo, Selamat Datang'],
                       autoStart: true,
                       loop: true,
                     }}
@@ -270,7 +270,7 @@ export default function Home() {
                 <div className="col-lg-6 col-md-6">
                   <div className="wu-box mb-3">
                     <div className="wu-text-box-icon">
-                      <i className="fas fas-hand-index-thumb"></i>
+                      <i className="fa-solid fa-star"></i>
                     </div>
                     <div className="wu-text-box-title">
                       <h5>Mudah Digunakan</h5>
@@ -283,7 +283,7 @@ export default function Home() {
                 <div className="col-lg-6 col-md-6">
                   <div className="wu-box">
                     <div className="wu-text-box-icon">
-                      <i className="fas fas-hand-index-thumb"></i>
+                      <i class="fa-solid fa-rss"></i>
                     </div>
                     <div className="wu-text-box-title">
                       <h5>Gratis</h5>
@@ -298,10 +298,10 @@ export default function Home() {
                 <div className="col-lg-6 col-md-6">
                   <div className="wu-box mb-3">
                     <div className="wu-text-box-icon">
-                      <i className="fas fas-hand-index-thumb"></i>
+                      <i className="fa-solid fa-phone-volume"></i>
                     </div>
                     <div className="wu-text-box-title">
-                      <h5>Mudah Dihubungi</h5>
+                      <h5>Dukungan Handal</h5>
                     </div>
                     <div className="wu-text-box-desc">
                       <p>Kami menyediakan kontak tim yang dapat anda hubungi apabila membutuhkan bantuan.</p>
@@ -311,7 +311,7 @@ export default function Home() {
                 <div className="col-lg-6 col-md-6">
                   <div className="wu-box">
                     <div className="wu-text-box-icon">
-                      <i className="fas fas-hand-index-thumb"></i>
+                      <i className="fa-solid fa-globe"></i>
                     </div>
                     <div className="wu-text-box-title">
                       <h5>Jangkauan Luas</h5>
