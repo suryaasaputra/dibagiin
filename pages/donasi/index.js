@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { donationService } from '../../services';
 import DonasiCard from '../../components/DonasiCard';
 import Layout2 from "../../components/Layout2";
-import SkeletonLoading from '../../components/skeletonLoading';
+import SkeletonLoading from "../../components/SkeletonLoading";
 
 
 const Donasi = () => {

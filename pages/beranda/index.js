@@ -10,7 +10,7 @@ import * as Yup from "yup";
 import { donationService } from '../../services';
 import DonasiCard from '../../components/DonasiCard';
 import Layout2 from "../../components/Layout2";
-import SkeletonLoading from '../../components/skeletonLoading';
+import SkeletonLoading from "../../components/SkeletonLoading";
 
 const Beranda = () => {
 	const API_KEY = process.env.NEXT_PUBLIC_MAP_API_KEY

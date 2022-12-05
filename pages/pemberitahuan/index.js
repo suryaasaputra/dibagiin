@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Layout2 from "../../components/Layout2";
 import { donationService } from '../../services';
 import empty from '../../public/images/empty.png';
-import SkeletonLoading from '../../components/skeletonLoading';
+import SkeletonLoading from "../../components/SkeletonLoading";
 
 const CardPemberitahuan = ({ item }) => {
     const router = useRouter()

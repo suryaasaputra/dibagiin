@@ -4,8 +4,7 @@ import Image from 'next/image';
 import { donationService } from '../../services';
 import Layout2 from "../../components/Layout2";
 import empty from '../../public/images/empty.png'
-import SkeletonLoading from '../../components/skeletonLoading';
-
+import SkeletonLoading from "../../components/SkeletonLoading";
 
 const Terkirim = () => {
     //fetch daftar permintaan

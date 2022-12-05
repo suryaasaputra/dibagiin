@@ -9,8 +9,7 @@ import * as Yup from "yup";
 import Image from 'next/image';
 import Layout2 from '../../components/Layout2';
 import { userService } from '../../services';
-import SkeletonLoading from '../../components/skeletonLoading';
-
+import SkeletonLoading from "../../components/SkeletonLoading";
 
 const Profil = () => {
     const router = useRouter();
@@ -146,7 +145,7 @@ const Profil = () => {
             <Head>
                 <title>Profil</title>
             </Head>
-            
+
             <div className="mt-5 pt-3 beranda">
                 <div className="container-fluid">
 

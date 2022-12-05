@@ -2,8 +2,7 @@ import Head from 'next/head';
 import { donationService } from '../../services';
 import Layout2 from "../../components/Layout2";
 import PermintaanDiterimaCard from '../../components/PermintaanDiterimaCard';
-import SkeletonLoading from '../../components/skeletonLoading';
-
+import SkeletonLoading from "../../components/SkeletonLoading";
 
 const Diterima = () => {
 

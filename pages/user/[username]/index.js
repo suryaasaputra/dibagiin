@@ -3,14 +3,19 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Layout2 from '../../../components/Layout2';
 import { userService } from '../../../services';
-import SkeletonLoading from '../../../components/skeletonLoading';
+// import SkeletonLoading from '../../../components/SkeletonLoading';
 
 const User = () => {
     const router = useRouter()
     const { username } = router.query
     const { user, isLoading } = userService.getUser(username)
     if (isLoading) return (
-        <SkeletonLoading />
+       <div className='beranda'>
+        <div className='container-fluid'>
+            <p>loading</p>
+            <span className='spinner-border'></span>
+        </div>
+       </div>
     )
     if (user.error) {
         return (
@@ -26,10 +31,10 @@ const User = () => {
             <Head>
                 <title>User</title>
             </Head>
-            <div className="mt-5 pt-3 beranda">
+            <div className="pt-3 beranda">
                 <div className="container-fluid">
 
-                    <div className="row mt-3 mb-3">
+                    <div className="row mb-3 p-3">
                         <div className='col-md-12 card-user'>
                             <div className='img-user'>
                                 <Image

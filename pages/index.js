@@ -283,7 +283,7 @@ export default function Home() {
                 <div className="col-lg-6 col-md-6">
                   <div className="wu-box">
                     <div className="wu-text-box-icon">
-                      <i class="fa-solid fa-rss"></i>
+                      <i className="fa-solid fa-rss"></i>
                     </div>
                     <div className="wu-text-box-title">
                       <h5>Gratis</h5>
