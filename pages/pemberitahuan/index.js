@@ -228,8 +228,8 @@ const Pemberitahuan = () => {
 
                 {!data && (
                     <div className="d-flex flex-column justify-content-center align-items-center">
-                        <img
-                            src="/images/empty.webp"
+                        <Image
+                            src={empty}
                             width={400}
                             alt="Empty"
                             className='img-fluid'
