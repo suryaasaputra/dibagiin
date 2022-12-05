@@ -122,8 +122,7 @@ export default function Home() {
                 <h3 className="text-center"><i className="fas fa-box"></i> Cara Memposting Barang Donasi</h3>
                 <div className="share-stuff">
                   <ul>
-                    <li>Masuk ke halaman dashboard terlebih dahulu.</li>
-                    <li>Pilih menu "Donasi" di sidebar.</li>
+                    <li>Masuk ke halaman beranda terlebih dahulu.</li>
                     <li>Kemudian klik atau pilih tombol "Buat Donasi" untuk membuat atau mengupload donasi baru</li>
                     <li>isi form untuk barang yang mau didonasikan, lalu klik tombol "Buat".</li>
                     <li>Selesai, donasi berhasil dibuat</li>
@@ -136,8 +135,7 @@ export default function Home() {
                 <h3 className="text-center"><i className="fa-solid fa-hand-holding-heart"></i> Cara Mengambil Barang Donasi</h3>
                 <div className="share-stuff">
                   <ul>
-                    <li>Masuk ke halaman dashboard terlebih dahulu.</li>
-                    <li>Klik menu "Donasi"</li>
+                    <li>Masuk ke halaman beranda terlebih dahulu.</li>
                     <li>Lalu pilih barang yang mau diambil dengan mengklik tombol "Ajukan Permintaan" terlebih dahulu</li>
                     <li>Tunggu sampai barang dikonfirmasi orang tersebut</li>
                     <li>Selesai, barang dapat diambil</li>
@@ -188,8 +186,8 @@ export default function Home() {
                     <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                       <div className="accordion-body">
                         <ul>
-                          <li>Masuk ke halaman dashboard terlebih dahulu.</li>
-                          <li>Pilih menu "Profil" atau icon di navbar bagian atas di sebelah kanan</li>
+                          <li>Masuk ke halaman beranda terlebih dahulu.</li>
+                          <li>Pilih menu "Profil" atau icon di navbar sebelah kanan</li>
                           <li>Kemudian klik tombol "Edit Profil"</li>
                           <li>isi form untuk mengedit profil lalu klik tombol "simpan"</li>
                           <li>Selesai, profil berhasil di edit</li>
@@ -206,8 +204,7 @@ export default function Home() {
                     <div id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                       <div className="accordion-body">
                         <ul>
-                          <li>Masuk ke halaman dashboard terlebih dahulu.</li>
-                          <li>Pilih menu "Donasi" di sidebar.</li>
+                          <li>Masuk ke halaman beranda terlebih dahulu.</li>
                           <li>Kemudian klik atau pilih tombol "Buat Donasi" untuk membuat atau mengupload donasi baru</li>
                           <li>isi form untuk barang yang mau didonasikan, lalu klik tombol "Buat".</li>
                           <li>Selesai, donasi berhasil dibuat</li>
@@ -224,8 +221,7 @@ export default function Home() {
                     <div id="collapseFour" className="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                       <div className="accordion-body">
                         <ul>
-                          <li>Masuk ke halaman dashboard terlebih dahulu.</li>
-                          <li>Klik menu "Donasi"</li>
+                          <li>Masuk ke halaman beranda terlebih dahulu.</li>
                           <li>Lalu pilih barang yang mau diambil dengan mengklik tombol "Ajukan Permintaan" terlebih dahulu</li>
                           <li>Tunggu sampai barang dikonfirmasi orang tersebut</li>
                           <li>Selesai, barang dapat diambil</li>
