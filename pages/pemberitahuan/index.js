@@ -5,7 +5,8 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Layout2 from "../../components/Layout2";
 import { donationService } from '../../services';
-import empty from '../../public/images/empty.png'
+import empty from '../../public/images/empty.png';
+import SkeletonLoading from '../../components/skeletonLoading';
 
 const CardPemberitahuan = ({ item }) => {
     const router = useRouter()
@@ -200,12 +201,9 @@ const CardPemberitahuan = ({ item }) => {
 const Pemberitahuan = () => {
     //fetch history
     const { listHistory, isLoading } = donationService.getHistory()
-    if (isLoading) return (<div className="mt-3 pt-3 beranda">
-        <div className="container-fluid">
-            <p>loading...</p>
-            <span className="spinner-border spinner-border-sm mr-1"></span>
-        </div>
-    </div>)
+    if (isLoading) return (
+        <SkeletonLoading />
+    )
 
     if (listHistory.error) {
         return (

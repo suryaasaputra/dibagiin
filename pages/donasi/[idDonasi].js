@@ -2,18 +2,16 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Layout2 from '../../components/Layout2';
 import { donationService } from '../../services';
+import SkeletonLoading from '../../components/skeletonLoading';
 
 const DonasiDetail = () => {
     const router = useRouter()
     const { idDonasi } = router.query
     //fetch donation list
     const { donationData, isLoading } = donationService.getDonationDetail(idDonasi)
-    if (isLoading) return (<div className="mt-3 pt-3 beranda">
-        <div className="container-fluid">
-            <p>loading...</p>
-            <span className="spinner-border spinner-border-sm mr-1"></span>
-        </div>
-    </div>)
+    if (isLoading) return (
+        <SkeletonLoading />
+    )
     if (donationData?.error) {
         return (
             <div className="mt-3 pt-3 beranda">

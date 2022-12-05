@@ -4,17 +4,15 @@ import Image from 'next/image';
 import { donationService } from '../../services';
 import Layout2 from "../../components/Layout2";
 import empty from '../../public/images/empty.png'
+import SkeletonLoading from '../../components/skeletonLoading';
 
 
 const Terkirim = () => {
     //fetch daftar permintaan
     const { listRequest, isLoading } = donationService.getAllSubmittedRequest()
-    if (isLoading) return (<div className="mt-3 pt-3 beranda">
-        <div className="container-fluid">
-            <p>loading...</p>
-            <span className="spinner-border spinner-border-sm mr-1"></span>
-        </div>
-    </div>)
+    if (isLoading) return (
+        <SkeletonLoading />
+    )
 
     if (listRequest.error) {
         return (

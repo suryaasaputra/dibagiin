@@ -2,18 +2,16 @@ import Head from 'next/head';
 import { donationService } from '../../services';
 import Layout2 from "../../components/Layout2";
 import PermintaanDiterimaCard from '../../components/PermintaanDiterimaCard';
+import SkeletonLoading from '../../components/skeletonLoading';
 
 
 const Diterima = () => {
 
     //fetch daftar permintaan
     const { listRequest, isLoading } = donationService.getAllRequest()
-    if (isLoading) return (<div className="mt-3 pt-3 beranda">
-        <div className="container-fluid">
-            <p>loading...</p>
-            <span className="spinner-border spinner-border-sm mr-1"></span>
-        </div>
-    </div>)
+    if (isLoading) return (
+        <SkeletonLoading />
+    )
 
     if (listRequest.error) {
         return (

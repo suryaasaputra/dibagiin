@@ -3,17 +3,15 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Layout2 from '../../../components/Layout2';
 import { userService } from '../../../services';
+import SkeletonLoading from '../../../components/skeletonLoading';
 
 const User = () => {
     const router = useRouter()
     const { username } = router.query
     const { user, isLoading } = userService.getUser(username)
-    if (isLoading) return (<div className="mt-3 pt-3 beranda">
-        <div className="container-fluid">
-            <p>loading...</p>
-            <span className="spinner-border spinner-border-sm mr-1"></span>
-        </div>
-    </div>)
+    if (isLoading) return (
+        <SkeletonLoading />
+    )
     if (user.error) {
         return (
             <div className="mt-3 pt-3 beranda">
@@ -51,7 +49,7 @@ const User = () => {
                                 <p><i className='fa fa-envelope'></i> {user.data.email}</p>
                                 <p><i className='fab fa-whatsapp'></i> {user.data.phone_number}</p>
                                 <p><i className="fa-solid fa-map-location-dot"></i> {user.data.address}</p>
-                                <a href='/donasi' className='btn-style outer-shadow inner-shadow hover-in-shadow '>Kembali</a>
+                                <a href='/beranda' className='btn-style outer-shadow inner-shadow hover-in-shadow '>Kembali</a>
                             </div>
                         </div>
                     </div>

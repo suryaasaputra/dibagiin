@@ -10,7 +10,7 @@ import * as Yup from "yup";
 import { donationService } from '../../services';
 import DonasiCard from '../../components/DonasiCard';
 import Layout2 from "../../components/Layout2";
-
+import SkeletonLoading from '../../components/skeletonLoading';
 
 const Beranda = () => {
 	const API_KEY = process.env.NEXT_PUBLIC_MAP_API_KEY
@@ -97,12 +97,9 @@ const Beranda = () => {
 
 	//fetch donation list
 	const { listDonations, isLoading } = donationService.getAllDonation()
-	if (isLoading) return (<div className="mt-3 pt-3 beranda">
-		<div className="container-fluid">
-			<p>loading...</p>
-			<span className="spinner-border spinner-border-sm mr-1"></span>
-		</div>
-	</div>)
+	if (isLoading) return (
+		<SkeletonLoading />
+	)
 	if (listDonations.error) {
 		return (
 			<div className="mt-3 pt-3 beranda">
@@ -120,7 +117,7 @@ const Beranda = () => {
 					<Head>
 						<title>Beranda - Dibagiin</title>
 					</Head>
-
+					
 					<div className="row mt-5">
 						<div className="col-md-12">
 							<button className="btn-style outer-shadow inner-shadow hover-in-shadow" style={{ padding: '10px 12px', border: 'none' }} data-bs-toggle="modal" data-bs-target="#formDonasi">

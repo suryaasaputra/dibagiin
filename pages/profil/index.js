@@ -9,6 +9,7 @@ import * as Yup from "yup";
 import Image from 'next/image';
 import Layout2 from '../../components/Layout2';
 import { userService } from '../../services';
+import SkeletonLoading from '../../components/skeletonLoading';
 
 
 const Profil = () => {
@@ -127,12 +128,9 @@ const Profil = () => {
             });
     };
     const { user, isLoading } = userService.getUser(userData.user_name)
-    if (isLoading) return (<div className="mt-3 pt-3 beranda">
-        <div className="container-fluid">
-            <p>loading...</p>
-            <span className="spinner-border spinner-border-sm mr-1"></span>
-        </div>
-    </div>)
+    if (isLoading) return (
+        <SkeletonLoading />
+    )
     if (user.error) {
         return (
             <div className="mt-3 pt-3 beranda">
@@ -148,6 +146,7 @@ const Profil = () => {
             <Head>
                 <title>Profil</title>
             </Head>
+            
             <div className="mt-5 pt-3 beranda">
                 <div className="container-fluid">
 

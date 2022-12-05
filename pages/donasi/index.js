@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { donationService } from '../../services';
 import DonasiCard from '../../components/DonasiCard';
 import Layout2 from "../../components/Layout2";
+import SkeletonLoading from '../../components/skeletonLoading';
 
 
 const Donasi = () => {
@@ -10,12 +11,9 @@ const Donasi = () => {
 	const { cari } = router.query
 	//fetch donation list
 	const { listDonations, isLoading } = donationService.searchByTitle(cari)
-	if (isLoading) return (<div className="mt-3 pt-3 beranda">
-		<div className="container-fluid">
-			<p>loading...</p>
-			<span className="spinner-border spinner-border-sm mr-1"></span>
-		</div>
-	</div>)
+	if (isLoading) return (
+		<SkeletonLoading />
+	)
 	if (listDonations.error) {
 		return (
 			<div className="mt-3 pt-3 beranda">
