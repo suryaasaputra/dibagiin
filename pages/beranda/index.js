@@ -183,15 +183,19 @@ const Beranda = () => {
 									<label htmlFor="weight" className="form-label">
 										Berat Barang*
 									</label>
-									<input
-										type="number"
-										className={`text-deskripsi form-control ${errors.weight ? "is-invalid" : ""}`}
-										name="weight"
-										id="weight"
-										autoComplete='on'
-										placeholder="1 Kg"
-										{...register("weight")}
-									/>
+									<div className='d-flex justify-content-center align-items-center'>
+										<input
+											type="number"
+											className={`form-control ${errors.weight ? "is-invalid" : ""}`}
+											name="weight"
+											id="weight"
+											width='50'
+											autoComplete='on'
+											placeholder="100"
+											{...register("weight")}
+										/>
+										<span className='mx-2'>Gram</span>
+									</div>
 									<div className="invalid-feedback">{errors.weight?.message}</div>
 								</div>
 

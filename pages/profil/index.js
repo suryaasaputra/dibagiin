@@ -139,7 +139,6 @@ const Profil = () => {
             </div>
         )
     }
-    console.log(user)
     return (
         <>
             <Head>
