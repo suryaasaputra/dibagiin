@@ -31,6 +31,7 @@ const Beranda = () => {
 	const validationSchema = Yup.object().shape({
 		title: Yup.string().required("Nama Donasi tidak boleh kosong").max(30, "Maksimal 30 karakter"),
 		description: Yup.string().required("Deskripsi tidak boleh kosong"),
+		weight: Yup.number().required("Berat tidak boleh kosong"),
 		location: Yup.string().required("Lokasi tidak boleh kosong"),
 	})
 	const formOptions = { resolver: yupResolver(validationSchema) }
@@ -66,6 +67,7 @@ const Beranda = () => {
 		body.append("donation_photo", image)
 		body.append("title", data.title)
 		body.append("description", data.description)
+		body.append("weight", data.weight)
 		body.append("location", data.location)
 		return donationService.createDonation(body)
 			.then(() => {
@@ -117,7 +119,7 @@ const Beranda = () => {
 					<Head>
 						<title>Beranda - Dibagiin</title>
 					</Head>
-					
+
 					<div className="row mt-5">
 						<div className="col-md-12">
 							<button className="btn-style outer-shadow inner-shadow hover-in-shadow" style={{ padding: '10px 12px', border: 'none' }} data-bs-toggle="modal" data-bs-target="#formDonasi">
@@ -176,6 +178,21 @@ const Beranda = () => {
 										{...register("description")}>
 									</textarea>
 									<div className="invalid-feedback">{errors.description?.message}</div>
+								</div>
+								<div className="mb-4">
+									<label htmlFor="weight" className="form-label">
+										Berat Barang*
+									</label>
+									<input
+										type="number"
+										className={`text-deskripsi form-control ${errors.weight ? "is-invalid" : ""}`}
+										name="weight"
+										id="weight"
+										autoComplete='on'
+										placeholder="1 Kg"
+										{...register("weight")}
+									/>
+									<div className="invalid-feedback">{errors.weight?.message}</div>
 								</div>
 
 								<div className="mb-4">
