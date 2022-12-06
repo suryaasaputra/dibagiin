@@ -61,15 +61,7 @@ inset -3px -3px 3px #f8f8f8;
 		margin-right: 35px;
 		width: 20rem;
 	}
-
-	[data-aos='fade-right'] {
-		transform: translate3d(0);
-	}
-	  
-	[data-aos='fade-left'] {
-		transform: translate3d(0);
-	}
-
+	
 	footer .content-footer {
 		grid-template-columns: repeat(1, 1fr);
 	}
