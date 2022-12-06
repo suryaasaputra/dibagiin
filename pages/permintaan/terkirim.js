@@ -4,9 +4,7 @@ import Image from 'next/image';
 import { donationService } from '../../services';
 import Layout2 from "../../components/Layout2";
 import empty from '../../public/images/empty.png'
-import SkeletonLoading from "../../components/SkeletonLoading";
-
-
+import SkeletonLoading2 from '../../components/SkeletonLoading2';
 
 const PermintaanTerkirimCard = ({ item }) => {
     return (
@@ -45,7 +43,7 @@ const Terkirim = () => {
     const { listRequest, isLoading } = donationService.getAllSubmittedRequest()
     if (isLoading) {
         return (
-            <SkeletonLoading />
+            <SkeletonLoading2/>
         )
     }
 

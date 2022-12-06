@@ -9,7 +9,7 @@ import * as Yup from "yup";
 import Image from 'next/image';
 import Layout2 from '../../components/Layout2';
 import { userService } from '../../services';
-import SkeletonLoading from "../../components/SkeletonLoading";
+import SkeletonLoading3 from '../../components/SkeletonLoading3';
 
 const Profil = () => {
     const router = useRouter();
@@ -128,7 +128,7 @@ const Profil = () => {
     };
     const { user, isLoading } = userService.getUser(userData.user_name)
     if (isLoading) return (
-        <SkeletonLoading />
+        <SkeletonLoading3 />
     )
     if (user.error) {
         return (

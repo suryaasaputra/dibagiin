@@ -3,15 +3,15 @@ import Image from 'next/image';
 import { donationService } from '../../services';
 import Layout2 from "../../components/Layout2";
 import PermintaanDiterimaCard from '../../components/PermintaanDiterimaCard';
-import SkeletonLoading from "../../components/SkeletonLoading";
 import empty from '../../public/images/empty.png'
+import SkeletonLoading2 from '../../components/SkeletonLoading2';
 
 const Diterima = () => {
 
     //fetch daftar permintaan
     const { listRequest, isLoading } = donationService.getAllRequest()
     if (isLoading) return (
-        <SkeletonLoading />
+        <SkeletonLoading2 />
     )
 
     if (listRequest.error) {

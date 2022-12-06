@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Layout2 from "../../components/Layout2";
 import { donationService } from '../../services';
 import empty from '../../public/images/empty.png';
-import SkeletonLoading from "../../components/SkeletonLoading";
+import SkeletonLoading2 from '../../components/SkeletonLoading2';
 
 const CardPemberitahuan = ({ item }) => {
     const router = useRouter()
@@ -202,7 +202,7 @@ const Pemberitahuan = () => {
     //fetch history
     const { listHistory, isLoading } = donationService.getHistory()
     if (isLoading) return (
-        <SkeletonLoading />
+        <SkeletonLoading2 />
     )
 
     if (listHistory.error) {
