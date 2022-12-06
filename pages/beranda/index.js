@@ -174,7 +174,7 @@ const Beranda = () => {
 										name="description"
 										id="description"
 										autoComplete='on'
-										placeholder="Sepatu bekas yang masih dalam kondisi baik. Sepatu bekas ini pernah digunakan oleh seseorang sebelumnya, tetapi kami sudah memeriksa kondisinya dan memastikan bahwa sepatu ini masih layak digunakan. Sepatu bekas ini bisa menjadi pilihan yang baik bagi Anda yang ingin menghemat pengeluaran pembelian sepatu baru. Dengan membeli sepatu bekas ini, Anda juga turut berpartisipasi dalam upaya mengurangi sampah dan mengurangi pengeluaran pembelian sepatu baru."
+										placeholder="Sepatu bekas yang masih dalam kondisi baik. Sepatu bekas ini pernah digunakan oleh seseorang sebelumnya, tetapi kami sudah memeriksa kondisinya dan memastikan bahwa sepatu ini masih layak digunakan. Sepatu bekas ini bisa menjadi pilihan yang baik bagi Anda yang ingin menghemat pengeluaran pembelian sepatu baru. Dengan mengambil sepatu bekas ini, Anda juga turut berpartisipasi dalam upaya mengurangi sampah dan mengurangi pengeluaran pembelian sepatu baru."
 										{...register("description")}>
 									</textarea>
 									<div className="invalid-feedback">{errors.description?.message}</div>
@@ -185,7 +185,7 @@ const Beranda = () => {
 									</label>
 									<input
 										type="number"
-										className={`text-deskripsi form-control ${errors.weight ? "is-invalid" : ""}`}
+										className={`form-control ${errors.weight ? "is-invalid" : ""}`}
 										name="weight"
 										id="weight"
 										autoComplete='on'

@@ -213,7 +213,7 @@ const DonasiDetail = () => {
                                 <p>Nama Donator: {donationData.data.donator.full_name}</p>
                                 <p>WhatsApp Donator: {donationData.data.donator.phone_number}</p>
                                 <p>Lokasi Barang: {donationData.data.location}</p>
-                                <p>Berat Barang: {donationData.data.weight} gram</p>
+                                <p>Berat Barang: {donationData.data.weight} Kg</p>
                                 <p>Diperbaharui pada: {new Date(donationData.data.updated_at).toLocaleTimeString('id-ID', {
                                         day: 'numeric', // numeric, 2-digit
                                         year: 'numeric', // numeric, 2-digit
