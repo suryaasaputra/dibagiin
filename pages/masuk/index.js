@@ -33,7 +33,7 @@ export default function Masuk() {
   function onSubmit({ email, password }) {
     return userService.login(email, password)
       .then((response) => {
-        console.log(response);
+
       })
       .then(() => {
         // get return url from query parameters or default to '/'
