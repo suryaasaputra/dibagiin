@@ -194,7 +194,6 @@ const Beranda = () => {
 										{...register("weight")}
 									/>
 									<span className='mx-2'>Gram</span>
-									</div>
 									<div className="invalid-feedback">{errors.weight?.message}</div>
 								</div>
 
