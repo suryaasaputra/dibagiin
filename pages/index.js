@@ -20,6 +20,11 @@ import shoes1Image from '../public/images/gallery/shoes1.jpg';
 import shoes2Image from '../public/images/gallery/shoes2.jpg';
 import watch1Image from '../public/images/gallery/watch1.jpg';
 import watch2Image from '../public/images/gallery/watch2.jpg';
+import selimut1Image from '../public/images/gallery/selimut1.jpg';
+import selimut2Image from '../public/images/gallery/selimut2.jpg';
+import baju1Image from '../public/images/gallery/baju1.jpg';
+import baju2Image from '../public/images/gallery/baju2.jpg';
+import baju3Image from '../public/images/gallery/baju3.jpg';
 import Link from 'next/link';
 import Layout1 from "../components/Layout1";
 export default function Home() {
@@ -112,8 +117,8 @@ export default function Home() {
             </div>
             <div className="col-md-6 info-about" data-aos="fade-up" data-aos-once="true" data-aos-delay="100">
               <div className="text-about">
-                <h3>Platform Berbagi Barang Layak Pakai</h3>
-                <p><span style={{ color: '#73a700' }} >Dibagiin</span> merupakan suatu platform berbagi barang layak pakai yang ditujukan bagi korban bencana yang sangat membutuhkan bantuan barang layak pakai dari donatur yang selalu sedia mendonasikan barang mereka melalui platform <span style={{ color: '#73a700' }} >Dibagiin</span>, Platform ini sebagai perantara atau penghubung antara donatur dengan para korban bencana. <br /> Cara kerja aplikasi ini sangat sederhana, Donatur cukup memotret barang layak pakai mereka di platform <span style={{ color: '#73a700' }} >Dibagiin</span> kemudian pada korban bencana yang membutuhkan barang cukup klik ambil pada dashboard <span style={{ color: '#73a700' }} >Dibagiin</span> </p>
+                <h3>Aplikasi Berbagi Barang Layak Pakai</h3>
+                <p><span style={{ color: '#73a700' }} >Dibagiin</span> merupakan suatu Aplikasi berbagi barang layak pakai yang ditujukan bagi korban bencana yang sangat membutuhkan bantuan barang layak pakai dari donatur yang selalu sedia mendonasikan barang mereka melalui Aplikasi <span style={{ color: '#73a700' }} >Dibagiin</span>, Aplikasi ini sebagai perantara atau penghubung antara donatur dengan para korban bencana. <br /> Cara kerja aplikasi ini sangat sederhana, Donatur cukup memotret barang layak pakai mereka di Aplikasi <span style={{ color: '#73a700' }} >Dibagiin</span> kemudian pada korban bencana yang membutuhkan barang cukup klik ambil pada dashboard <span style={{ color: '#73a700' }} >Dibagiin</span> </p>
                 <Link className="btn-style outer-shadow inner-shadow hover-in-shadow" href="/masuk">Mulai Sekarang!</Link>
               </div>
             </div>
@@ -174,7 +179,7 @@ export default function Home() {
                       </button>
                     </h2>
                     <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                      <div className="accordion-body"> <span style={{ color: '#73a700' }} >Dibagiin</span> merupakan suatu platform berbagi barang layak pakai yang ditujukan bagi korban bencana yang sangat membutuhkan bantuan barang layak pakai dari donatur yang selalu sedia mendonasikan barang mereka melalui platform <span style={{ color: '#73a700' }} >Dibagiin</span>, Platform ini sebagai perantara atau penghubung antara donatur dengan para korban bencana. </div>
+                      <div className="accordion-body"> <span style={{ color: '#73a700' }} >Dibagiin</span> merupakan suatu Aplikasi berbagi barang layak pakai yang ditujukan bagi korban bencana yang sangat membutuhkan bantuan barang layak pakai dari donatur yang selalu sedia mendonasikan barang mereka melalui Aplikasi <span style={{ color: '#73a700' }} >Dibagiin</span>, Aplikasi ini sebagai perantara atau penghubung antara donatur dengan para korban bencana. </div>
                     </div>
                   </div>
                   <div className="accordion-item">
@@ -247,7 +252,7 @@ export default function Home() {
             </h2>
           </div>
           <div className="why-us-title-desc" data-aos-once="true" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="150">
-            <p className="text-center">Dibagiin sebagai platform berbagi yang membantu anda menyalurkan barang layak pakai kepada orang lain yang membutuhkan ingin memberikan pelayanan yang terbaik kepada anda dengan alasan yang kuat.</p>
+            <p className="text-center">Dibagiin sebagai Aplikasi berbagi yang membantu anda menyalurkan barang layak pakai kepada orang lain yang membutuhkan ingin memberikan pelayanan yang terbaik kepada anda dengan alasan yang kuat.</p>
           </div>
           <div className="row">
             <div className="col-lg-6" data-aos="fade-up" data-aos-once="true">
@@ -335,8 +340,8 @@ export default function Home() {
               <ul className="filter-button">
                 <li className="list active" onClick={galleryFilter} data-filter="all">Semua</li>
                 <li className="list" onClick={galleryFilter} data-filter="buku">Buku</li>
-                <li className="list" onClick={galleryFilter} data-filter="kotak">Kotak</li>
-                <li className="list" onClick={galleryFilter} data-filter="jam">Jam</li>
+                <li className="list" onClick={galleryFilter} data-filter="kotak">Baju</li>
+                <li className="list" onClick={galleryFilter} data-filter="jam">Selimut</li>
                 <li className="list" onClick={galleryFilter} data-filter="sepatu">Sepatu</li>
               </ul>
             </div>
@@ -371,38 +376,60 @@ export default function Home() {
 
               <div className="item kotak">
                 <Image
-                  src={kotak1Image}
+                  src={baju1Image}
                   title="kotak"
                   className='img-fluid img'
                   style={{ transition: '0.3s' }}
                   alt="kotak"
                 >
                 </Image>
-                <p className="mt-1">Sebuah kotak</p>
+                <p className="mt-1">Baju</p>
+              </div>
+              <div className="item kotak">
+                <Image
+                  src={baju2Image}
+                  title="kotak"
+                  className='img-fluid img'
+                  style={{ transition: '0.3s' }}
+                  alt="kotak"
+                >
+                </Image>
+                <p className="mt-1">Baju</p>
+              </div>
+              <div className="item kotak">
+                <Image
+                  src={baju3Image}
+                  title="kotak"
+                  className='img-fluid img'
+                  style={{ transition: '0.3s' }}
+                  alt="kotak"
+                >
+                </Image>
+                <p className="mt-1">Baju</p>
               </div>
 
               <div className="item jam">
                 <Image
-                  src={watch1Image}
+                  src={selimut1Image}
                   title="jam"
                   className='img-fluid img'
                   style={{ transition: '0.3s' }}
                   alt="jam"
                 >
                 </Image>
-                <p className="mt-1">Sebuah jam</p>
+                <p className="mt-1">Sebuah Selimut</p>
               </div>
 
               <div className="item jam">
                 <Image
-                  src={watch2Image}
+                  src={selimut2Image}
                   title="jam"
                   className='img-fluid img'
                   style={{ transition: '0.3s' }}
                   alt="jam"
                 >
                 </Image>
-                <p className="mt-1">Sebuah jam</p>
+                <p className="mt-1">Sebuah Selimut</p>
               </div>
 
               <div className="item sepatu">
