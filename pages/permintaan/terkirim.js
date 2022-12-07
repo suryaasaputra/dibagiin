@@ -19,7 +19,7 @@ const PermintaanTerkirimCard = ({ item }) => {
                             height={160}
                             src={item.donation.photo_url}
                             className="img-fluid rounded-2 p-2 outer-shadow"
-                            alt='avatar'
+                            alt='barang'
                         />
                     </div>
                 </div>

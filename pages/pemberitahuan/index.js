@@ -15,7 +15,7 @@ const CardPemberitahuan = ({ item }) => {
         const linkWa = `https://wa.me/${item.donation.donator.phone_number}?text=${pesan}`
         return (
             <>
-                <div className="row mt-4 m-2 mb-4 p-3 rounded-2 outer-shadow" onClick={() => router.push("/permintaan/diterima")}>
+                <div className="row mt-4 m-2 mb-4 p-3 rounded-2 outer-shadow" >
                     <div className='col-md-6'>
                         <div>
                             <p>
@@ -57,7 +57,7 @@ const CardPemberitahuan = ({ item }) => {
     if (item.type == "reject") {
         return (
             <>
-                <div className="row mt-4 m-2 mb-4 p-3 rounded-2 outer-shadow" onClick={() => router.push("/permintaan/diterima")}>
+                <div className="row mt-4 m-2 mb-4 p-3 rounded-2 outer-shadow">
                     <div className='col-md-6'>
                         <div>
                             <p>
@@ -103,7 +103,7 @@ const CardPemberitahuan = ({ item }) => {
     if (item.type == "rejectAll") {
         return (
             <>
-                <div className="row mt-4 m-2 mb-4 p-3 rounded-2 outer-shadow" onClick={() => router.push("/permintaan/diterima")}>
+                <div className="row mt-4 m-2 mb-4 p-3 rounded-2 outer-shadow">
                     <div className='col-md-6'>
                         <p>
                             Permintaan Anda untuk barang
@@ -147,7 +147,7 @@ const CardPemberitahuan = ({ item }) => {
     if (item.type == "request") {
         return (
             <>
-                <div className='row mt-4 m-2 mb-4 p-3 rounded-2 outer-shadow' onClick={() => router.push("/permintaan/diterima")}>
+                <div className='row mt-4 m-2 mb-4 p-3 rounded-2 outer-shadow' >
                     <div className='text-end'>
                         {new Date(item.created_at).toLocaleTimeString('id-ID', {
                             day: 'numeric', // numeric, 2-digit
@@ -173,7 +173,8 @@ const CardPemberitahuan = ({ item }) => {
                         </div>
 
                         <div className='mt-3'>
-                            Mengirimkan permintan untuk barang
+                            <Link href={"/permintaan/diterima"}>Mengirimkan permintan </Link>
+                            untuk barang
                             <Link href={`/donasi/${item.donation.id}`}> <b>{item.donation.title}</b></Link>
 
                         </div>

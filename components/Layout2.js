@@ -10,7 +10,7 @@ import * as Yup from "yup";
 const Header = () => {
 	const router = useRouter()
 	const validationSchema = Yup.object().shape({
-		keyword: Yup.string().required('Email tidak boleh kosong'),
+		keyword: Yup.string().required('Kata kunci tidak boleh kosong'),
 	});
 	const formOptions = { resolver: yupResolver(validationSchema) };
 
@@ -52,9 +52,8 @@ const Header = () => {
 						</Image>
 					</Link>
 
-					<div className="collapse navbar-collapse" id="topNavbar">
-
-						<form onSubmit={handleSubmit(onSubmit)} className="d-flex ms-auto my-3 my-lg-0">
+					<div className="search-bar" id="topNavbar">
+						<form onSubmit={handleSubmit(onSubmit)} className="d-flex ms-auto 	">
 							<div className="input-group">
 								<input
 									className="form-control search-form"
@@ -73,33 +72,6 @@ const Header = () => {
 							</div>
 						</form>
 
-						{/* <ul className="navbar-nav">
-							<li className="nav-item dropdown">
-								<a
-									className="nav-link dropdown-toggle ms-2 text-black-50"
-									href="#"
-									role="button"
-									data-bs-toggle="dropdown"
-									aria-expanded="false"
-								>
-									<Image
-										src={userData.profil_photo_url || "https://storage.googleapis.com/dibagiin-data/profil_photo/default.png"}
-										width={30}
-										height={30}
-										className="logo-text img-fluid"
-										alt="profil-photo"
-										loading='eager'
-										priority
-									>
-									</Image>
-								</a>
-								<ul className="dropdown-menu dropdown-menu-end">
-									<li><Link className="dropdown-item" href="/profil"><i className="fas fa-user">{userData.full_name}</i></Link></li>
-									<li><a className="dropdown-item" style={{ cursor: 'pointer' }} onClick={() => userService.logout()}><i className="fa-solid fa-right-from-bracket"></i> Keluar</a></li>
-								</ul>
-							</li>
-						</ul> */}
-
 					</div>
 				</div>
 			</nav>
@@ -113,11 +85,30 @@ const OffCanvas = () => {
 	const cekActive = (url) => {
 		return String(router.asPath).includes(url)
 	}
+	const validationSchema = Yup.object().shape({
+		keyword: Yup.string().required('Kata kunci tidak boleh kosong'),
+	});
+	const formOptions = { resolver: yupResolver(validationSchema) };
+
+	// get functions to build form with useForm() hook
+	const { register, handleSubmit, setError, formState } = useForm(formOptions);
+	const { errors } = formState;
+
+	function onSubmit({ keyword }) {
+		router.push({
+			pathname: "/donasi",
+			query: { cari: keyword },
+		});
+
+	}
 	return (
 		<div
 			className="offcanvas offcanvas-start sidebar-nav"
 			id="sidebar"
 		>
+			<div className="offcanvas-header ms-auto">
+				<button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+			</div>
 			<div className="offcanvas-body p-0">
 				<nav className="navbar-dark mt-4">
 					<ul className="navbar-nav">
@@ -140,6 +131,28 @@ const OffCanvas = () => {
 							</Link>
 						</li>
 						<li>
+							<div className="mx-3 mb-3 search-bar-off-canvas">
+								<form onSubmit={handleSubmit(onSubmit)} className="d-flex ms-auto 	">
+									<div className="input-group">
+										<input
+											className="form-control search-form"
+											id='keyword'
+											name='keyword'
+											type="search"
+											placeholder="Cari barang"
+											aria-label="Search"
+											{...register('keyword')}
+										/>
+										<div className="invalid-feedback">{errors.keyword?.message}</div>
+										<button disabled={formState.isSubmitting} className="btn ms-1 btn-search" type="submit">
+											{formState.isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
+											<i className="fas fa-search"></i>
+										</button>
+									</div>
+								</form>
+							</div>
+						</li>
+						<li>
 							<div className="text-muted small fw-bold text-uppercase px-3">
 								Menu
 							</div>
@@ -151,13 +164,6 @@ const OffCanvas = () => {
 								<span className={`p-3 ${cekActive("/beranda") ? 'link-active' : ''} ${cekActive("/donasi") ? 'link-active' : ''} ${cekActive("/user") ? 'link-active' : ''}`} ><i className="fas fa-home"></i> Beranda</span>
 							</Link>
 						</li>
-						{/* 
-						<li className="sidebar-item">
-							<Link href="/donasi" className="nav-link px-2 p-3 text-black-50 fw-bold ">
-								<span className="me-2"></span>
-								<span className={`p-3 ${cekActive("/donasi") ? 'link-active' : ''}`}><i className="fas fa-plus"></i> Donasi</span>
-							</Link>
-						</li> */}
 						<li className="sidebar-item">
 							<Link href="/pemberitahuan" className="nav-link px-2 p-3 active text-black-50 fw-bold">
 								<span className="me-2"></span>
@@ -187,7 +193,7 @@ const OffCanvas = () => {
 					</ul>
 				</nav>
 			</div>
-		</div >
+		</div>
 	);
 }
 
@@ -234,7 +240,7 @@ export default function Layout2({ children }) {
 		<>
 			<Header />
 			<OffCanvas />
-			<main id="mainContent">
+			<main id="mainContent" >
 				{children}
 			</main>
 			<Footer />

@@ -84,7 +84,7 @@ const TombolAmbil = ({ item }) => {
 }
 
 //component donasiCard
-const DonasiCard = ({ item, mutate }) => {
+const DonasiCard = ({ item, mutate, user }) => {
     const router = useRouter();
     const [errors2, setError2] = useState({});
 
@@ -108,23 +108,32 @@ const DonasiCard = ({ item, mutate }) => {
                     timer: 2000,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        const close = document.getElementById('closeModal');
+                        const close = document.getElementById(`closeModal${item.id}`);
                         close.click()
                         const message = document.getElementById('message');
                         message.value = '';
                         mutate(`${API_ENDPOINT.donation}`)
+                        if (user) {
+                            mutate(`${API_ENDPOINT.user}/${user}`)
+                        }
                     } else if (result.isDenied) {
-                        const close = document.getElementById('closeModal');
+                        const close = document.getElementById(`closeModal${item.id}`);
                         close.click()
                         const message = document.getElementById('message');
                         message.value = '';
                         mutate(`${API_ENDPOINT.donation}`)
+                        if (user) {
+                            mutate(`${API_ENDPOINT.user}/${user}`)
+                        }
                     } else if (result.isDismissed) {
-                        const close = document.getElementById('closeModal');
+                        const close = document.getElementById(`closeModal${item.id}`);
                         close.click()
                         const message = document.getElementById('message');
                         message.value = '';
                         mutate(`${API_ENDPOINT.donation}`)
+                        if (user) {
+                            mutate(`${API_ENDPOINT.user}/${user}`)
+                        }
                     }
                 })
             })
@@ -136,19 +145,19 @@ const DonasiCard = ({ item, mutate }) => {
                     timer: 2000,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        const close = document.getElementById('closeModal');
+                        const close = document.getElementById(`closeModal${item.id}`);
                         close.click()
                         const message = document.getElementById('message');
                         message.value = '';
                         mutate(`${API_ENDPOINT.donation}`)
                     } else if (result.isDenied) {
-                        const close = document.getElementById('closeModal');
+                        const close = document.getElementById(`closeModal${item.id}`);
                         close.click()
                         const message = document.getElementById('message');
                         message.value = '';
                         mutate(`${API_ENDPOINT.donation}`)
                     } else if (result.isDismissed) {
-                        const close = document.getElementById('closeModal');
+                        const close = document.getElementById(`closeModal${item.id}`);
                         close.click()
                         const message = document.getElementById('message');
                         message.value = '';
@@ -231,7 +240,7 @@ const DonasiCard = ({ item, mutate }) => {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h1 className="modal-title fs-5" id="exampleModalLabel">Ambil Donasi</h1>
-                            <button type="button" className="btn-close" id='closeModal' data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" className="btn-close" id={`closeModal${item.id}`} data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
                             <form onSubmit={handleOnSubmit}>
@@ -254,6 +263,7 @@ const DonasiCard = ({ item, mutate }) => {
                                         placeholder="Izinkan saya mengambil donasi nya."
                                         autoComplete='on'
                                         required
+                                        autoFocus
                                     />
                                     <div className="invalid-feedback">
                                         {errors2.message?.message}
