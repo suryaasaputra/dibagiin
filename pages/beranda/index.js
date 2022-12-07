@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
+import GooglePlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-google-places-autocomplete';
 import Swal from "sweetalert2";
 import { useState } from 'react';
 import { useForm, Controller } from "react-hook-form";
@@ -15,6 +15,7 @@ const Beranda = () => {
 	const API_KEY = process.env.NEXT_PUBLIC_MAP_API_KEY
 	const [image, setImage] = useState(null);
 	const [value, setValue] = useState(null);
+	const [coord, setCoord] = useState(null);
 
 	const [createObjectURL, setCreateObjectURL] = useState(null);
 	const uploadToClient = (event) => {
@@ -39,7 +40,6 @@ const Beranda = () => {
 	const { register, resetField, handleSubmit, setError, formState, setValue: setData, control } = useForm(formOptions);
 	const { errors } = formState;
 	function onSubmit(data) {
-
 		const body = new FormData();
 		body.append("donation_photo", image)
 		body.append("title", data.title)
@@ -62,6 +62,8 @@ const Beranda = () => {
 							resetField("description")
 							resetField("weight")
 							resetField("location")
+							resetField("lat")
+							resetField("lng")
 							const file = document.getElementById('donation_photo');
 							file.value = '';
 							setCreateObjectURL("")
@@ -75,6 +77,8 @@ const Beranda = () => {
 							resetField("weight")
 							resetField("donation_photo")
 							resetField("location")
+							resetField("lat")
+							resetField("lng")
 							mutate(`${API_ENDPOINT.donation}`)
 							const file = document.getElementById('donation_photo');
 							file.value = '';
@@ -89,6 +93,8 @@ const Beranda = () => {
 							resetField("weight")
 							resetField("donation_photo")
 							resetField("location")
+							resetField("lat")
+							resetField("lng")
 							const file = document.getElementById('donation_photo');
 							file.value = '';
 							setCreateObjectURL("")
@@ -101,9 +107,22 @@ const Beranda = () => {
 				setError("apiError", { message: error });
 			});
 	}
+	const setCoordValue = (coord) => {
+		setCoord(coord)
+	}
 
-
-
+	const onClickSubmit = () => {
+		setData('location', value?.label)
+		geocodeByAddress(value.value.description)
+			.then(results => getLatLng(results[0]))
+			.then((r) => {
+				setCoordValue(r)
+			}).then(() => {
+				setData("lat", coord.lat)
+				setData("lng", coord.lng)
+			})
+			.catch(error => console.error(error));
+	}
 
 
 
@@ -244,11 +263,14 @@ const Beranda = () => {
 											selectProps={{
 												value,
 												onChange: setValue,
+
 												placeholder: 'Masukkan Lokasi...',
 												className: `${errors.location ? "is-invalid" : ""} lokasi-form`
 											}}
 										/>}
 									/>
+									<input type="hidden" name="lat" id="lat" {...register("lat")}></input>
+									<input type="hidden" name="lng" id="lng" {...register("lng")}></input>
 									<div className="invalid-feedback">
 										{errors.location?.message}
 									</div>
@@ -257,10 +279,9 @@ const Beranda = () => {
 								<div className="d-grid mt-5">
 									<button
 										disabled={formState.isSubmitting}
-										onClick={() => { setData('location', value?.label) }}
+										onClick={onClickSubmit}
 										type="submit"
 										className="btn btn-login"
-
 									>
 										{formState.isSubmitting && (
 											<span className="spinner-border spinner-border-sm mr-1"></span>
