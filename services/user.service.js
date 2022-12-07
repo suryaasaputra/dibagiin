@@ -1,5 +1,5 @@
 import { BehaviorSubject } from "rxjs";
-import useSWR from 'swr'
+import useSWR, { useSWRConfig } from 'swr'
 import API_ENDPOINT from "../globals/api-endpoint";
 import Router from "next/router";
 import { parseCookies, setCookie, destroyCookie } from "nookies";
@@ -67,10 +67,12 @@ function register(user) {
 
 
 function getUser(username) {
+	const { mutate } = useSWRConfig()
 	const { data, error } = useSWR(`${API_ENDPOINT.user}/${username}`, fetchWrapper.fetcher)
 
 	return {
 		user: data,
+		mutate: mutate,
 		isLoading: !data,
 		error: error
 	}

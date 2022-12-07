@@ -126,7 +126,7 @@ const Profil = () => {
                 setError("apiError", { message: error });
             });
     };
-    const { user, isLoading, mutate } = userService.getUser(userData.user_name)
+    const { user, isLoading } = userService.getUser(userData.user_name)
     if (isLoading) return (
         <SkeletonLoading3 />
     )
@@ -182,7 +182,7 @@ const Profil = () => {
                     </div>
 
                     {user.data.donation?.map((item) => (
-                        <DonasiCardProfil key={item.id} item={item} mutate={mutate} />
+                        <DonasiCardProfil key={item.id} item={item} />
                     ))}
                 </div>
             </div>

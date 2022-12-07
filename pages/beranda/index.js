@@ -1,9 +1,7 @@
 import Head from 'next/head';
 import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
 import Swal from "sweetalert2";
-
 import { useState } from 'react';
-import { useRouter } from "next/router";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
@@ -11,6 +9,7 @@ import { donationService } from '../../services';
 import DonasiCard from '../../components/DonasiCard';
 import Layout2 from "../../components/Layout2";
 import SkeletonLoading from "../../components/SkeletonLoading";
+import API_ENDPOINT from '../../globals/api-endpoint';
 
 const Beranda = () => {
 	const API_KEY = process.env.NEXT_PUBLIC_MAP_API_KEY
@@ -23,9 +22,9 @@ const Beranda = () => {
 			const i = event.target.files[0];
 			setImage(i);
 			setCreateObjectURL(URL.createObjectURL(i));
+
 		};
 	};
-	const router = useRouter();
 
 	// form validation rules
 	const validationSchema = Yup.object().shape({
@@ -39,30 +38,8 @@ const Beranda = () => {
 	// get functions to build form with useForm() hook
 	const { register, resetField, handleSubmit, setError, formState, setValue: setData, control } = useForm(formOptions);
 	const { errors } = formState;
-
 	function onSubmit(data) {
-		// Swal.fire({
-		// 	icon: "success",
-		// 	title: "Berhasil Membuat Donasi",
-		// 	text: JSON.stringify(data),
-		// 	confirmButtonColor: "#73a700",
-		// 	timer: 2000,
-		// })
-		// 	.then((result) => {
-		// 		if (result.isConfirmed) {
-		// 			var myModalEl = document.getElementById('staticBackdrop');
-		// 			var modal = bootstrap.Modal.getInstance(myModalEl)
-		// 			modal.hide();
-		// 		} else if (result.isDenied) {
-		// 			var myModalEl = document.getElementById('staticBackdrop');
-		// 			var modal = bootstrap.Modal.getInstance(myModalEl)
-		// 			modal.hide();
-		// 		} else if (result.isDismissed) {
-		// 			var myModalEl = document.getElementById('staticBackdrop');
-		// 			var modal = bootstrap.Modal.getInstance(myModalEl)
-		// 			modal.hide();
-		// 		}
-		// 	})
+
 		const body = new FormData();
 		body.append("donation_photo", image)
 		body.append("title", data.title)
@@ -75,15 +52,48 @@ const Beranda = () => {
 					icon: "success",
 					title: "Berhasil Membuat Donasi",
 					confirmButtonColor: "#73a700",
-					timer: 10000,
+					timer: 2000,
 				})
 					.then((result) => {
 						if (result.isConfirmed) {
-							router.replace(router.asPath)
+							const close = document.getElementById('closeModal');
+							close.click()
+							resetField("title")
+							resetField("description")
+							resetField("weight")
+							resetField("location")
+							const file = document.getElementById('donation_photo');
+							file.value = '';
+							setCreateObjectURL("")
+							setValue(null)
+							mutate(`${API_ENDPOINT.donation}`)
 						} else if (result.isDenied) {
-							router.replace(router.asPath)
+							const close = document.getElementById('closeModal');
+							close.click()
+							resetField("title")
+							resetField("description")
+							resetField("weight")
+							resetField("donation_photo")
+							resetField("location")
+							mutate(`${API_ENDPOINT.donation}`)
+							const file = document.getElementById('donation_photo');
+							file.value = '';
+							setCreateObjectURL("")
+							setValue(null)
+							mutate(`${API_ENDPOINT.donation}`)
 						} else if (result.isDismissed) {
-							router.replace(router.asPath)
+							const close = document.getElementById('closeModal');
+							close.click()
+							resetField("title")
+							resetField("description")
+							resetField("weight")
+							resetField("donation_photo")
+							resetField("location")
+							const file = document.getElementById('donation_photo');
+							file.value = '';
+							setCreateObjectURL("")
+							setValue(null)
+							mutate(`${API_ENDPOINT.donation}`)
 						}
 					})
 			})
@@ -98,7 +108,7 @@ const Beranda = () => {
 
 
 	//fetch donation list
-	const { listDonations, isLoading } = donationService.getAllDonation()
+	const { listDonations, isLoading, mutate } = donationService.getAllDonation()
 	if (isLoading) return (
 		<SkeletonLoading />
 	)
@@ -141,7 +151,7 @@ const Beranda = () => {
 					<div className="modal-content">
 						<div className="modal-header">
 							<h1 className="modal-title fs-5" id="exampleModalLabel">Buat Donasi</h1>
-							<button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							<button type="button" className="btn-close" id="closeModal" data-bs-dismiss="modal" aria-label="Close"></button>
 						</div>
 						<div className="modal-body">
 							<form onSubmit={handleSubmit(onSubmit)}>
@@ -213,7 +223,7 @@ const Beranda = () => {
 										name='donation_photo'
 										accept="image/png, image/jpeg, image/jpg"
 										onChange={uploadToClient}
-										required={true}
+
 									/>
 									<div className="invalid-feedback">
 										{errors.donation_photo?.message}
@@ -226,6 +236,7 @@ const Beranda = () => {
 									</label>
 									<Controller
 										name="location"
+
 										control={control}
 										rules={{ required: true }}
 										render={() => <GooglePlacesAutocomplete
@@ -250,7 +261,7 @@ const Beranda = () => {
 										onClick={() => { setData('location', value?.label) }}
 										type="submit"
 										className="btn btn-login"
-										data-bs-dismiss="modal"
+
 									>
 										{formState.isSubmitting && (
 											<span className="spinner-border spinner-border-sm mr-1"></span>

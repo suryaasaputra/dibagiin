@@ -1,4 +1,4 @@
-import useSWR from 'swr'
+import useSWR, { useSWRConfig } from 'swr'
 import API_ENDPOINT from "../globals/api-endpoint";
 import { fetchWrapper } from "../helpers/fetch-wrapper";
 
@@ -29,8 +29,10 @@ function createDonation(donationData) {
 
 function getAllDonation() {
     const endpoint = `${API_ENDPOINT.donation}`
-    const { data, error } = useSWR(endpoint, fetchWrapper.fetcher, { refreshInterval: 2000 })
+    const { mutate } = useSWRConfig()
+    const { data, error } = useSWR(endpoint, fetchWrapper.fetcher, { refreshInterval: 15000 })
     return {
+        mutate: mutate,
         listDonations: data,
         isLoading: !data,
         error: error
@@ -47,9 +49,6 @@ function searchByTitle(keyword) {
         isLoading: !data,
         error: error
     }
-    //     return fetchWrapper.get(endpoint).then((response) => {
-    //         return response;
-    //     });
 }
 function searchByLocation(location) {
     const endpoint = `${API_ENDPOINT.donation}?location=${location}`;
@@ -85,7 +84,7 @@ function editDonation(donationId, data) {
 }
 function deleteDonation(donationId) {
     const endpoint = `${API_ENDPOINT.donation}/${donationId}`
-    return fetchWrapper.delete(endpoint, data).then((response) => {
+    return fetchWrapper.delete(endpoint).then((response) => {
         return response;
     });
 }
@@ -99,9 +98,11 @@ function requestDonation(donationId, data) {
 
 function getAllRequest() {
     const endpoint = `${API_ENDPOINT.donation}/request`
+    const { mutate } = useSWRConfig()
     const { data, error } = useSWR(endpoint, fetchWrapper.fetcher, { refreshInterval: 3000 })
     return {
         listRequest: data,
+        mutate: mutate,
         isLoading: !data,
         error: error
     }
