@@ -31,7 +31,7 @@ const Header = () => {
 				<div className="container-fluid">
 					<button
 						className="navbar-toggler"
-						style={{ background: '#888' }}
+						style={{ background: '#999', }}
 						type="button"
 						data-bs-toggle="offcanvas"
 						data-bs-target="#sidebar"

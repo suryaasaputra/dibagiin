@@ -40,8 +40,9 @@ const Header = () => {
 							</li>
 
 							<li className="nav-item">
-								<a className="nav-link" href="/#gallery">
-									<i className="fa fa-image"></i> Galeri
+								<a className="nav-link" href="/#faq">
+
+									<i className="fa fa-question-circle"></i> FAQ
 								</a>
 							</li>
 

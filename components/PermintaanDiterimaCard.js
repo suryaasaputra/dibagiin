@@ -88,7 +88,7 @@ const PermintaanDiterimaCard = ({ item, mutate }) => {
     }
     if (item.status == 'Dikonfirmasi') {
         return (
-            <div className="row m-2 mt-4 p-4 rounded-2 outer-shadow">
+            <div key={item.id} className="row m-2 mt-4 p-4 rounded-2 outer-shadow">
                 <div className='text-end'>
                     <small>
                         {new Date(item.created_at).toLocaleTimeString('id-ID', {
@@ -136,7 +136,7 @@ const PermintaanDiterimaCard = ({ item, mutate }) => {
     }
     if (item.status == 'Ditolak') {
         return (
-            <div className="row m-2 mt-4 p-4 rounded-2 outer-shadow">
+            <div key={item.id} className="row m-2 mt-4 p-4 rounded-2 outer-shadow">
                 <div className='text-end'>
                     <small>
                         {new Date(item.created_at).toLocaleTimeString('id-ID', {
@@ -182,7 +182,7 @@ const PermintaanDiterimaCard = ({ item, mutate }) => {
         )
     }
     return (
-        <div className="row m-2 mt-4 p-4 rounded-2 outer-shadow">
+        <div key={item.id} className="row m-2 mt-4 p-4 rounded-2 outer-shadow">
             <div className='text-end'>
                 <small>
                     {new Date(item.created_at).toLocaleTimeString('id-ID', {

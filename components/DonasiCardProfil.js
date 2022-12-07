@@ -299,8 +299,19 @@ const DonasiCardProfil = ({ item, mutate }) => {
     return (
         <div className="row mt-3 p-2">
             <div className="col-md-12 p-4 mb-3 outer-shadow rounded-2">
+                <div className='text-end mb-0'>
+                    <small>
+                        {new Date(item.created_at).toLocaleTimeString('id-ID', {
+                            day: 'numeric', // numeric, 2-digit
+                            year: 'numeric', // numeric, 2-digit
+                            month: 'long', // numeric, 2-digit, long, short, narrow
+                            hour: 'numeric', // numeric, 2-digit
+                            minute: '2-digit', // numeric, 2-digit
+                        })}
+                    </small>
+                </div>
                 <div className='row'>
-                    <div className='col-md-6 header-card-donasi d-flex align-items-center p-2'>
+                    <div className='col-md-12 header-card-donasi d-flex align-items-center p-2'>
                         <Image
                             width={70}
                             height={70}
@@ -315,17 +326,6 @@ const DonasiCardProfil = ({ item, mutate }) => {
                             </div>
                         </div>
 
-                    </div>
-                    <div className="col-md-6 date  align-self-center    text-end">
-                        <small>
-                            {new Date(item.created_at).toLocaleTimeString('id-ID', {
-                                day: 'numeric', // numeric, 2-digit
-                                year: 'numeric', // numeric, 2-digit
-                                month: 'long', // numeric, 2-digit, long, short, narrow
-                                hour: 'numeric', // numeric, 2-digit
-                                minute: '2-digit', // numeric, 2-digit
-                            })}
-                        </small>
                     </div>
                 </div>
 

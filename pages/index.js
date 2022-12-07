@@ -158,7 +158,7 @@ export default function Home() {
       <div className='container mb-5' style={{ marginTop: '5rem' }}>
         <section className="why-us">
           <div className="why-us-title">
-            <h2 style={{ fontWeight: 'bold' }} data-aos="fade-up" data-aos-once="true" data-aos-duration="500" className="text-center">Kenapa Memilih <span style={{ color: '#73a700' }} >Kami</span>
+            <h2 style={{ fontWeight: 'bold' }} data-aos="fade-up" data-aos-once="true" data-aos-duration="500" className="text-center">Kenapa Memilih <span style={{ color: '#73a700' }} >Dibagiin</span>
             </h2>
           </div>
           <div className="why-us-title-desc" data-aos-once="true" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="150">
@@ -187,7 +187,7 @@ export default function Home() {
                       <h5>Mudah Digunakan</h5>
                     </div>
                     <div className="wu-text-box-desc">
-                      <p>Tampilan website kami desain dengan memperhatikan kemudahan anda dalam menggunakan aplikasi kami.</p>
+                      <p>Tampilan website Dibagiin desain dengan memperhatikan kemudahan anda dalam menggunakan aplikasi Dibagiin.</p>
                     </div>
                   </div>
                 </div>
@@ -200,7 +200,7 @@ export default function Home() {
                       <h5>Gratis</h5>
                     </div>
                     <div className="wu-text-box-desc">
-                      <p>Semua layanan yang kami tawarkan pada aplikasi dapat anda gunakan secara gratis.</p>
+                      <p>Semua layanan yang Dibagiin tawarkan pada aplikasi dapat anda gunakan secara gratis.</p>
                     </div>
                   </div>
                 </div>
@@ -215,7 +215,7 @@ export default function Home() {
                       <h5>Dukungan Handal</h5>
                     </div>
                     <div className="wu-text-box-desc">
-                      <p>Kami menyediakan kontak tim yang dapat anda hubungi apabila membutuhkan bantuan.</p>
+                      <p>Dibagiin menyediakan kontak tim yang dapat anda hubungi apabila membutuhkan bantuan.</p>
                     </div>
                   </div>
                 </div>
@@ -465,7 +465,7 @@ export default function Home() {
       {/* SECTION TEAM START */}
       <div className="container mb-5" style={{ marginTop: '5rem' }}>
         <section className="our-team" id="our-team">
-          <h2 className="team-title text-center">Tim <span>Kami</span>
+          <h2 className="team-title text-center">Tim <span>Dibagiin</span>
           </h2>
           <div className="row row-team mt-4">
             <div className="team-card">
@@ -480,7 +480,7 @@ export default function Home() {
               </div>
               <div className="caption">
                 <h4>Yuda Anugrah</h4>
-                <p>Front-end Developer</p>
+                <p>Front-End Developer</p>
                 <div className="sosmed">
                   <a href="https://www.linkedin.com/in/yuda-anugrah-6314bb24b/" target="_blank" rel="noreferrer">
                     <i className="fab fa-linkedin"></i>
@@ -506,7 +506,7 @@ export default function Home() {
               </div>
               <div className="caption">
                 <h4>Surya Saputra</h4>
-                <p>Back-end Developer</p>
+                <p>Full-Stack Developer</p>
                 <div className="sosmed">
                   <a href="https://www.linkedin.com/in/surya-maulana-saputra/" target="_blank" rel="noreferrer">
                     <i className="fab fa-linkedin"></i>
@@ -532,7 +532,7 @@ export default function Home() {
               </div>
               <div className="caption">
                 <h4>Arif Rizqi</h4>
-                <p>Front-end Developer</p>
+                <p>Front-End Developer</p>
                 <div className="sosmed">
                   <a href="https://www.linkedin.com/in/arif-rizqi-58543221a/" target="_blank" rel="noreferrer">
                     <i className="fab fa-linkedin"></i>
@@ -558,7 +558,7 @@ export default function Home() {
               </div>
               <div className="caption">
                 <h4>Annas Setiawan</h4>
-                <p>Front-end Developer</p>
+                <p>Front-End Developer</p>
                 <div className="sosmed">
                   <a href="https://www.linkedin.com/in/annas-setiawan-9271a7234/" target="_blank" rel="noreferrer">
                     <i className="fab fa-linkedin"></i>
