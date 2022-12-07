@@ -250,8 +250,8 @@ export default function Home() {
               <ul className="filter-button">
                 <li className="list active" onClick={galleryFilter} data-filter="all">Semua</li>
                 <li className="list" onClick={galleryFilter} data-filter="buku">Buku</li>
-                <li className="list" onClick={galleryFilter} data-filter="kotak">Baju</li>
-                <li className="list" onClick={galleryFilter} data-filter="jam">Selimut</li>
+                <li className="list" onClick={galleryFilter} data-filter="baju">Baju</li>
+                <li className="list" onClick={galleryFilter} data-filter="selimut">Selimut</li>
                 <li className="list" onClick={galleryFilter} data-filter="sepatu">Sepatu</li>
               </ul>
             </div>
@@ -284,59 +284,59 @@ export default function Home() {
                 <p className="mt-1">Buku Bahasa Inggris</p>
               </div>
 
-              <div className="item kotak">
+              <div className="item baju">
                 <Image
                   src={baju1Image}
-                  title="kotak"
+                  title="baju"
                   className='img-fluid img'
                   style={{ transition: '0.3s' }}
-                  alt="kotak"
+                  alt="baju"
                 >
                 </Image>
                 <p className="mt-1">Baju Kemeja dan Kaos</p>
               </div>
-              <div className="item kotak">
+              <div className="item baju">
                 <Image
                   src={baju2Image}
-                  title="kotak"
+                  title="baju"
                   className='img-fluid img'
                   style={{ transition: '0.3s' }}
-                  alt="kotak"
+                  alt="baju"
                 >
                 </Image>
                 <p className="mt-1">Baju Biasa</p>
               </div>
-              <div className="item kotak">
+              <div className="item baju">
                 <Image
                   src={baju3Image}
-                  title="kotak"
+                  title="baju"
                   className='img-fluid img'
                   style={{ transition: '0.3s' }}
-                  alt="kotak"
+                  alt="baju"
                 >
                 </Image>
                 <p className="mt-1">Baju Perempuan</p>
               </div>
 
-              <div className="item jam">
+              <div className="item selimut">
                 <Image
                   src={selimut1Image}
-                  title="jam"
+                  title="selimut"
                   className='img-fluid img'
                   style={{ transition: '0.3s' }}
-                  alt="jam"
+                  alt="selimut"
                 >
                 </Image>
                 <p className="mt-1">Selimut Tebal</p>
               </div>
 
-              <div className="item jam">
+              <div className="item selimut">
                 <Image
                   src={selimut2Image}
-                  title="jam"
+                  title="selimut"
                   className='img-fluid img'
                   style={{ transition: '0.3s' }}
-                  alt="jam"
+                  alt="selimut"
                 >
                 </Image>
                 <p className="mt-1">Selimut Hangat</p>
