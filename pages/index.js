@@ -359,7 +359,7 @@ export default function Home() {
                   alt="buku"
                 >
                 </Image>
-                <p className="mt-1">Sebuah buku</p>
+                <p className="mt-1">Buku Bacaan Campuran</p>
               </div>
 
               <div className="item buku">
@@ -371,7 +371,7 @@ export default function Home() {
                   alt="buku"
                 >
                 </Image>
-                <p className="mt-1">Sebuah buku</p>
+                <p className="mt-1">Buku Bahasa Inggris</p>
               </div>
 
               <div className="item kotak">
@@ -383,7 +383,7 @@ export default function Home() {
                   alt="kotak"
                 >
                 </Image>
-                <p className="mt-1">Baju</p>
+                <p className="mt-1">Baju Kemeja dan Kaos</p>
               </div>
               <div className="item kotak">
                 <Image
@@ -394,7 +394,7 @@ export default function Home() {
                   alt="kotak"
                 >
                 </Image>
-                <p className="mt-1">Baju</p>
+                <p className="mt-1">Baju Biasa</p>
               </div>
               <div className="item kotak">
                 <Image
@@ -405,7 +405,7 @@ export default function Home() {
                   alt="kotak"
                 >
                 </Image>
-                <p className="mt-1">Baju</p>
+                <p className="mt-1">Baju Perempuan</p>
               </div>
 
               <div className="item jam">
@@ -417,7 +417,7 @@ export default function Home() {
                   alt="jam"
                 >
                 </Image>
-                <p className="mt-1">Sebuah Selimut</p>
+                <p className="mt-1">Selimut Tebal</p>
               </div>
 
               <div className="item jam">
@@ -429,7 +429,7 @@ export default function Home() {
                   alt="jam"
                 >
                 </Image>
-                <p className="mt-1">Sebuah Selimut</p>
+                <p className="mt-1">Selimut Hangat</p>
               </div>
 
               <div className="item sepatu">
@@ -441,7 +441,7 @@ export default function Home() {
                   alt="sepatu"
                 >
                 </Image>
-                <p className="mt-1">Sebuah sepatu</p>
+                <p className="mt-1">Sepatu Sneakers Bekas</p>
               </div>
 
               <div className="item sepatu">
@@ -453,7 +453,7 @@ export default function Home() {
                   alt="sepatu"
                 >
                 </Image>
-                <p className="mt-1">Sebuah sepatu</p>
+                <p className="mt-1">Sepatu Sneakers Merah</p>
               </div>
 
             </div>
