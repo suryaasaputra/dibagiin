@@ -77,8 +77,10 @@ export default function Home() {
                   />
                 </h4>
                 <h2 data-aos="zoom-in">Ayo bagikan barang layak pakai kamu sekarang!</h2>
-                <p>Kamu bingung ingin mendonasikan barang layak pakai kamu kemana? Tenaaang!, sekarang kamu bisa bagiin barang barang kamu di sini.</p>
-                <Link className="btn-style outer-shadow inner-shadow hover-in-shadow" href="/masuk">Mulai</Link>
+                <p>Kamu bingung barang-barang tidak terpakai menumpuk di rumah?<br />
+                  Bingung ingin mendonasikan barang layak pakai kamu kemana?
+                  <br />Tenaaang! sekarang kamu bisa bagiin barang-barang kamu di sini.</p>
+                <Link className="btn-style outer-shadow inner-shadow hover-in-shadow" href="/registrasi">Mulai</Link>
                 <a className="btn-style outer-shadow inner-shadow hover-in-shadow ms-3" href="#about">Detail</a>
               </div>
             </div>
@@ -118,8 +120,11 @@ export default function Home() {
             <div className="col-md-6 info-about" data-aos="fade-up" data-aos-once="true" data-aos-delay="100">
               <div className="text-about">
                 <h3>Aplikasi Berbagi Barang Layak Pakai</h3>
-                <p><span style={{ color: '#73a700' }} >Dibagiin</span> merupakan suatu Aplikasi berbagi barang layak pakai yang ditujukan bagi korban bencana yang sangat membutuhkan bantuan barang layak pakai dari donatur yang selalu sedia mendonasikan barang mereka melalui Aplikasi <span style={{ color: '#73a700' }} >Dibagiin</span>, Aplikasi ini sebagai perantara atau penghubung antara donatur dengan para korban bencana. <br /> Cara kerja aplikasi ini sangat sederhana, Donatur cukup memotret barang layak pakai mereka di Aplikasi <span style={{ color: '#73a700' }} >Dibagiin</span> kemudian pada korban bencana yang membutuhkan barang cukup klik ambil pada dashboard <span style={{ color: '#73a700' }} >Dibagiin</span> </p>
-                <Link className="btn-style outer-shadow inner-shadow hover-in-shadow" href="/masuk">Mulai Sekarang!</Link>
+                <p className=''><span style={{ color: '#73a700' }} >Dibagiin</span> merupakan Aplikasi untuk mendonasikan barang-barang yang sudah tidak digunakan namun masih layak pakai dengan tujuan untuk mengurangi sampah yang dihasilkan dari barang bekas.
+                  <br />Selain itu <span style={{ color: '#73a700' }} >Dibagiin</span>  dapat dimanfaatkan sebagai media perantara antara donatur dengan para korban bencana. Melalui Aplikasi ini para korban bencana dapat mengambil barang yang di donasikan oleh donator sesuai dengan lokasi mereka.
+                  <br />Cara kerjanya sangat sederhana, Donatur cukup memotret barang layak pakai mereka di Aplikasi <span style={{ color: '#73a700' }} >Dibagiin</span> kemudian pada korban bencana yang membutuhkan barang tersebut bisa memanfaatkan fitur ambil donasi yang terdapat di Aplikasi <span style={{ color: '#73a700' }} >Dibagiin</span>
+                </p>
+                <Link className="btn-style outer-shadow inner-shadow hover-in-shadow" href="/registrasi">Mulai Sekarang!</Link>
               </div>
             </div>
             <div className="col-md-6 mt-5" data-aos="fade-up" data-aos-once="true">
@@ -162,7 +167,9 @@ export default function Home() {
             </h2>
           </div>
           <div className="why-us-title-desc" data-aos-once="true" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="150">
-            <p className="text-center">Dibagiin sebagai Aplikasi berbagi yang membantu anda menyalurkan barang layak pakai kepada orang lain yang membutuhkan ingin memberikan pelayanan yang terbaik kepada anda dengan alasan yang kuat.</p>
+            <p className="text-center">
+              Dibagiin sebagai Aplikasi berbagi yang membantu anda menyalurkan barang layak pakai kepada orang lain yang membutuhkan ingin memberikan pelayanan yang terbaik kepada anda dengan alasan yang kuat.
+            </p>
           </div>
           <div className="row">
             <div className="col-lg-6" data-aos="fade-up" data-aos-once="true">
