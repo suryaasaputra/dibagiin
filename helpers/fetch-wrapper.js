@@ -106,6 +106,12 @@ function handleResponse(response) {
 
 		if (!response.ok) {
 			if ([401, 403].includes(response.status) && userService.userValue) {
+				Swal.fire({
+					icon: "error",
+					title: `Sesi Anda telah berakhir, silahkan masuk kembali`,
+					confirmButtonColor: "#73a700",
+					timer: 3000,
+				})
 				// auto logout if 401 Unauthorized or 403 Forbidden response returned from api
 				userService.logout();
 			}
