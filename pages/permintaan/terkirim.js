@@ -12,18 +12,13 @@ const PermintaanTerkirimCard = ({ item }) => {
             <div className="row mt-3 p-4 mb-4 rounded-2 outer-shadow">
                 <div className="col-md-6 p-2">
                     <p>Anda meminta <Link href={`/donasi/${item.donation.id}`}> <b>{item.donation.title}</b> </Link> dari <Link href={`/user/${item.donator.user_name}`}> <b>{item.donator.full_name}</b></Link></p>
-
-                    <div className='img-barang-wrapper' style={{ width: 200, height: 200 }}>
-                        <Image
-                            width={200}
-                            height={200}
-
-                            src={item.donation.photo_url}
-                            className="img-fluid rounded-2 img-barang  p-2 outer-shadow"
-                            alt='avatar'
-                        />
-
-                    </div>
+                    <Image
+                        width={200}
+                        height={200}
+                        src={item.donation.photo_url}
+                        className="img-fluid rounded-2 img-barang  p-2 outer-shadow"
+                        alt='Barang'
+                    />
                 </div>
 
                 <div className='col-md-6 p-2'>

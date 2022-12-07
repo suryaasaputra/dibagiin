@@ -14,6 +14,8 @@ const User = () => {
     if (isLoading) return (
         <SkeletonLoading3 />
     )
+
+    console.log(user)
     if (user.error) {
         return (
             <div className="mt-3 pt-3 beranda">
@@ -63,7 +65,7 @@ const User = () => {
                     </div>
 
                     {user.data.donation?.map((item) => (
-                        <DonasiCard key={item.id} item={item} mutate={mutate} />
+                        <DonasiCard key={item.id} item={item} mutate={mutate} user={username} />
                     ))}
                 </div>
             </div>

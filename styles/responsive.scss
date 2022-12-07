@@ -1,4 +1,3 @@
-
 // CUSTOM WARNA
 $white: #eff0f4;
 $ligth-white: #f8f8f8;
@@ -9,7 +8,7 @@ $black-555: #555;
 $error:#E51937;
 $salmon: salmon;
 $skeleton: #d9d9d9;
-$bg-skeleton: linear-gradient(to right, #d9d9d9 0%, rgba(0,0,0,0.05) 20%, #d9d9d9 40%, #d9d9d9 100%);
+$bg-skeleton: linear-gradient(to right, #d9d9d9 0%, rgba(0, 0, 0, 0.05) 20%, #d9d9d9 40%, #d9d9d9 100%);
 
 $outer-shadow: 3px 3px 2px #d0d0d0,
 -3px -3px 2px #f8f8f8;
@@ -17,10 +16,12 @@ $outer-shadow-0: 0 0 0 #d0d0d0,
 0 0 0 #f8f8f8;
 $inner-shadow: inset 3px 3px 3px #d0d0d0,
 inset -3px -3px 3px #f8f8f8;
+
 @media screen and (max-width: 599px) {
 	header {
 		background: #f8f8f8;
 	}
+
 
 	.home {
 		margin-top: 5rem;
@@ -47,13 +48,13 @@ inset -3px -3px 3px #f8f8f8;
 
 	.team-card {
 		margin: 10px 0;
-	} 
+	}
 
 	.gallery-item {
-		grid-template-columns: repeat(1,1fr);
+		grid-template-columns: repeat(1, 1fr);
 	}
-  
-	.button-gallery ul{
+
+	.button-gallery ul {
 		grid-template-columns: repeat(1, 1fr);
 	}
 
@@ -61,7 +62,7 @@ inset -3px -3px 3px #f8f8f8;
 		margin-right: 35px;
 		width: 20rem;
 	}
-	
+
 	footer .content-footer {
 		grid-template-columns: repeat(1, 1fr);
 	}
@@ -73,13 +74,14 @@ inset -3px -3px 3px #f8f8f8;
 	footer .content-footer .box-footer h4 {
 		width: 100%;
 	}
-	
+
 }
 
 @media screen and (min-width: 600px) {
 	header {
 		background: #f8f8f8;
 	}
+
 
 	.our-team .row-team {
 		gap: 45px;
@@ -100,11 +102,15 @@ inset -3px -3px 3px #f8f8f8;
 		min-height: 160px;
 	}
 
-	.gallery-item {
-		grid-template-columns: repeat(2,1fr);
+	.offcanvas-backdrop {
+		display: none;
 	}
-  
-	.button-gallery ul{
+
+	.gallery-item {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.button-gallery ul {
 		grid-template-columns: repeat(4, 1fr);
 	}
 
@@ -118,16 +124,30 @@ inset -3px -3px 3px #f8f8f8;
 
 }
 
+@media screen and (max-width: 800px) {
+	.search-bar {
+		display: none;
+	}
+
+}
+
 @media screen and (min-width: 800px) {
 	header {
 		background: #f8f8f8;
 	}
 
-	.gallery-item {
-		grid-template-columns: repeat(3,1fr);
+	.offcanvas-header,
+	.navbar-toggler {
+		display: none;
 	}
-  
-	.button-gallery ul{
+
+
+
+	.gallery-item {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.button-gallery ul {
 		grid-template-columns: repeat(5, 1fr);
 	}
 
@@ -169,13 +189,13 @@ inset -3px -3px 3px #f8f8f8;
 	}
 
 	.gallery-item {
-		grid-template-columns: repeat(4,1fr);
+		grid-template-columns: repeat(4, 1fr);
 	}
-  
-	.button-gallery ul{
+
+	.button-gallery ul {
 		grid-template-columns: repeat(5, 1fr);
 	}
-  
+
 	footer .content-footer {
 		grid-template-columns: repeat(3, 1fr);
 	}

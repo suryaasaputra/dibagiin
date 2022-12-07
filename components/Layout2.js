@@ -52,9 +52,9 @@ const Header = () => {
 						</Image>
 					</Link>
 
-					<div className="collapse navbar-collapse" id="topNavbar">
+					<div className="search-bar" id="topNavbar">
 
-						<form onSubmit={handleSubmit(onSubmit)} className="d-flex ms-auto my-3 my-lg-0">
+						<form onSubmit={handleSubmit(onSubmit)} className="d-flex ms-auto 	">
 							<div className="input-group">
 								<input
 									className="form-control search-form"
@@ -72,33 +72,6 @@ const Header = () => {
 								</button>
 							</div>
 						</form>
-
-						{/* <ul className="navbar-nav">
-							<li className="nav-item dropdown">
-								<a
-									className="nav-link dropdown-toggle ms-2 text-black-50"
-									href="#"
-									role="button"
-									data-bs-toggle="dropdown"
-									aria-expanded="false"
-								>
-									<Image
-										src={userData.profil_photo_url || "https://storage.googleapis.com/dibagiin-data/profil_photo/default.png"}
-										width={30}
-										height={30}
-										className="logo-text img-fluid"
-										alt="profil-photo"
-										loading='eager'
-										priority
-									>
-									</Image>
-								</a>
-								<ul className="dropdown-menu dropdown-menu-end">
-									<li><Link className="dropdown-item" href="/profil"><i className="fas fa-user">{userData.full_name}</i></Link></li>
-									<li><a className="dropdown-item" style={{ cursor: 'pointer' }} onClick={() => userService.logout()}><i className="fa-solid fa-right-from-bracket"></i> Keluar</a></li>
-								</ul>
-							</li>
-						</ul> */}
 
 					</div>
 				</div>
@@ -118,6 +91,9 @@ const OffCanvas = () => {
 			className="offcanvas offcanvas-start sidebar-nav"
 			id="sidebar"
 		>
+			<div className="offcanvas-header ms-auto">
+				<button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+			</div>
 			<div className="offcanvas-body p-0">
 				<nav className="navbar-dark mt-4">
 					<ul className="navbar-nav">
@@ -187,7 +163,7 @@ const OffCanvas = () => {
 					</ul>
 				</nav>
 			</div>
-		</div >
+		</div>
 	);
 }
 
@@ -234,7 +210,7 @@ export default function Layout2({ children }) {
 		<>
 			<Header />
 			<OffCanvas />
-			<main id="mainContent">
+			<main id="mainContent" >
 				{children}
 			</main>
 			<Footer />
