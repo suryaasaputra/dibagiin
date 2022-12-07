@@ -2,7 +2,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Swal from "sweetalert2";
 import { donationService } from '../services';
-const PermintaanDiterimaCard = ({ item }) => {
+import API_ENDPOINT from '../globals/api-endpoint';
+const PermintaanDiterimaCard = ({ item, mutate }) => {
 
     const onClickConfirm = () => {
         Swal.fire({
@@ -26,6 +27,7 @@ const PermintaanDiterimaCard = ({ item }) => {
                                 confirmButtonColor: "#73a700",
                                 timer: 2000,
                             })
+                            mutate(`${API_ENDPOINT.donation}/request`)
                         })
                         .catch((error) => {
                             Swal.fire({
@@ -65,6 +67,7 @@ const PermintaanDiterimaCard = ({ item }) => {
                                 confirmButtonColor: "#73a700",
                                 timer: 2000,
                             })
+                            mutate(`${API_ENDPOINT.donation}/request`)
                         })
                         .catch((error) => {
                             Swal.fire({
@@ -233,7 +236,7 @@ const PermintaanDiterimaCard = ({ item }) => {
                         onClick={onClickReject}
                         className='btn-style-danger outer-shadow inner-shadow '
                     >
-                        <i className='fa fa-trash'></i>  Hapus
+                        <i className='fa fa-trash'></i>  Tolak
                     </button>
                 </div>
             </div>

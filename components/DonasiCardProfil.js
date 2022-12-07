@@ -2,13 +2,11 @@ import Link from 'next/link';
 import Swal from "sweetalert2";
 import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
 import { useState } from 'react';
-import { useRouter } from "next/router";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import Image from 'next/image';
 import { donationService } from '../services';
-import { userService } from '../services';
 import API_ENDPOINT from '../globals/api-endpoint';
 
 
@@ -51,69 +49,62 @@ const TombolAmbil = ({ item, mutate }) => {
     // kondisi jika donasi masih tersedia
 
     const onClickHapus = () => {
-        Swal.fire({
-            icon: "question",
-            title: "Hapus Donasi",
-            // color: "#73a700",
-            text: "Apakah anda yakin ingin menghapus donasi ini?",
-            focusConfirm: false,
-            confirmButtonColor: "#73a700",
-            showCancelButton: true,
-            cancelButtonColor: '#E51937',
-        })
-            .then((result) => {
-                if (result.isConfirmed) {
-                    return donationService.deleteDonation(item.id)
-                        .then(() => {
-                            Swal.fire({
-                                icon: "success",
-                                title: "Berhasil menghapus donasi",
-                                confirmButtonColor: "#73a700",
-                                timer: 2000,
-                            })
-                                .then(() => mutate(`${API_ENDPOINT.user}/${item.donator.user_name}`))
-                        })
-                        .catch((error) => {
-                            Swal.fire({
-                                icon: "error",
-                                title: `Terjadi kesalahan...${error}`,
-                                confirmButtonColor: "#73a700",
-                                timer: 2000,
-                            })
-                        });
-
-
-                } else if (result.isDenied) {
-                    return
-                } else if (result.isDismissed) {
-                    return
-                }
+        if (item.requester_id?.length) {
+            Swal.fire({
+                icon: "error",
+                title: "Tidak Bisa Hapus Donasi",
+                // color: "#73a700",
+                text: "Tidak bisa menghapus donasi, sudah ada permintaan ke donasi ini.",
+                focusConfirm: false,
+                confirmButtonColor: "#73a700",
             })
-    }
-    return (
-        <>
-            <button
-                className='btn-style-second outer-shadow inner-shadow  ms-2'
-                data-bs-toggle="modal"
-                data-bs-target={`#formModal${item.id}`}
-            >
-                Edit
-            </button>
-            <button
-                className='btn-style-danger outer-shadow inner-shadow ms-2'
-                onClick={onClickHapus}
-            >
-                Hapus
-            </button>
-        </>
-    )
-}
+        } else {
+            Swal.fire({
+                icon: "question",
+                title: "Hapus Donasi",
+                // color: "#73a700",
+                text: "Apakah anda yakin ingin menghapus donasi ini?",
+                focusConfirm: false,
+                confirmButtonColor: "#73a700",
+                showCancelButton: true,
+                cancelButtonColor: '#E51937',
+            })
+                .then((result) => {
+                    if (result.isConfirmed) {
+                        return donationService.deleteDonation(item.id)
+                            .then(() => {
+                                Swal.fire({
+                                    icon: "success",
+                                    title: "Berhasil menghapus donasi",
+                                    confirmButtonColor: "#73a700",
+                                    timer: 2000,
+                                })
+                                    .then(() => mutate(`${API_ENDPOINT.user}/${item.donator.user_name}`))
+                            })
+                            .catch((error) => {
+                                Swal.fire({
+                                    icon: "error",
+                                    title: "Gagal Hapus Donasi",
+                                    // color: "#73a700",
+                                    text: "Tidak bisa menghapus donasi, sudah ada permintaan ke donasi ini.",
+                                    focusConfirm: false,
+                                    confirmButtonColor: "#73a700",
+                                })
+                            });
 
-//component donasiCard
-const DonasiCardProfil = ({ item, mutate }) => {
+
+                    } else if (result.isDenied) {
+                        return
+                    } else if (result.isDismissed) {
+                        return
+                    }
+                })
+        }
+
+    }
+
     const API_KEY = process.env.NEXT_PUBLIC_MAP_API_KEY
     const [value, setValue] = useState(null);
-    const router = useRouter();
     const validationSchema = Yup.object().shape({
         title: Yup.string().required("Nama Donasi tidak boleh kosong").max(30, "Maksimal 30 karakter"),
         description: Yup.string().required("Deskripsi tidak boleh kosong"),
@@ -134,30 +125,31 @@ const DonasiCardProfil = ({ item, mutate }) => {
                     icon: "success",
                     title: "Berhasil Menyimpan Perubahan",
                     confirmButtonColor: "#73a700",
-                    timer: 10000,
+                    timer: 2000,
                 })
                     .then((result) => {
                         if (result.isConfirmed) {
-                            const close = document.getElementById('closeModal');
-                            close.click()
+
                             resetField("title", { defaultValue: data.title })
                             resetField("description", { defaultValue: data.description })
                             resetField("weight", { defaultValue: data.weight })
                             mutate(`${API_ENDPOINT.user}/${item.donator.user_name}`)
+                            const close = document.getElementById('closeModal');
+                            close.click()
                         } else if (result.isDenied) {
-                            const close = document.getElementById('closeModal');
-                            close.click()
                             resetField("title", { defaultValue: data.title })
                             resetField("description", { defaultValue: data.description })
                             resetField("weight", { defaultValue: data.weight })
                             mutate(`${API_ENDPOINT.user}/${item.donator.user_name}`)
+                            const close = document.getElementById('closeModal');
+                            close.click()
                         } else if (result.isDismissed) {
-                            const close = document.getElementById('closeModal');
-                            close.click()
                             resetField("title", { defaultValue: data.title })
                             resetField("description", { defaultValue: data.description })
                             resetField("weight", { defaultValue: data.weight })
                             mutate(`${API_ENDPOINT.user}/${item.donator.user_name}`)
+                            const close = document.getElementById('closeModal');
+                            close.click()
                         }
                     })
             })
@@ -166,73 +158,20 @@ const DonasiCardProfil = ({ item, mutate }) => {
             });
     }
     return (
-        <div className="row mt-3 p-2">
-            <div className="col-md-12 p-4 mb-3 outer-shadow rounded-2">
-                <div className='row'>
-                    <div className='col-md-6 header-card-donasi d-flex align-items-center p-2'>
-                        <Image
-                            width={70}
-                            height={70}
-                            src={item.donator.profil_photo_url}
-                            className="img-fluid rounded-circle mb-3"
-                            alt='avatar'
-                        />
-                        <div className='nama-donator ms-2'>
-                            <div>
-                                <Link className="nama-donatur-url" href={`/user/${item.donator.user_name}`}><h4>{item.donator.full_name}</h4></Link>
-                                <p><i>@{item.donator.user_name}</i></p>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div className="col-md-6 date  align-self-center    text-end">
-                        <small>
-                            {new Date(item.created_at).toLocaleTimeString('id-ID', {
-                                day: 'numeric', // numeric, 2-digit
-                                year: 'numeric', // numeric, 2-digit
-                                month: 'long', // numeric, 2-digit, long, short, narrow
-                                hour: 'numeric', // numeric, 2-digit
-                                minute: '2-digit', // numeric, 2-digit
-                            })}
-                        </small>
-                    </div>
-                </div>
-
-                <div className='row'>
-                    <div className='col-md-6 content-card-donasi p-2 text-center'>
-                        <div className="img-barang-wrapper">
-                            <Image
-                                width={500}
-                                height={350}
-                                src={item.photo_url}
-                                className="img-fluid rounded-2 img-barang p-1"
-                                alt="Image Barang"
-                            />
-                        </div>
-
-                    </div>
-
-                    <div className='col-md-6 content-card-donasi p-2'>
-                        <div className='info-content-card-donasi'>
-                            <h2 className='fw-bold'>{item.title}</h2>
-                            <p className='deskripsi'>Deskripsi :</p>
-                            <div className='deskripsi-barang'>
-                                <p>{item.description}</p>
-                            </div>
-                            <StatusBadge item={item} />
-
-                            <p className='lokasi mt-3'>Lokasi : {item.location}</p>
-                            <Link href={`/donasi/${item.id}`} className='btn-style outer-shadow inner-shadow hover-in-shadow'>
-                                Lihat Detail
-                            </Link>
-                            <TombolAmbil item={item} mutate={mutate} />
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
+        <>
+            <button
+                className='btn-style-second outer-shadow inner-shadow  ms-2'
+                data-bs-toggle="modal"
+                data-bs-target={`#formModal${item.id}`}
+            >
+                Edit
+            </button>
+            <button
+                className='btn-style-danger outer-shadow inner-shadow ms-2'
+                onClick={onClickHapus}
+            >
+                Hapus
+            </button>
             <div className="modal fade" id={`formModal${item.id}`} tabIndex="-1" aria-labelledby="donasiForm" aria-hidden="true">
                 <div className="modal-dialog  modal-lg">
                     <div className="modal-content">
@@ -350,7 +289,83 @@ const DonasiCardProfil = ({ item, mutate }) => {
                     </div>
                 </div>
             </div>
-        </div >
+        </>
+
+    )
+}
+
+//component donasiCard
+const DonasiCardProfil = ({ item, mutate }) => {
+    return (
+        <div className="row mt-3 p-2">
+            <div className="col-md-12 p-4 mb-3 outer-shadow rounded-2">
+                <div className='row'>
+                    <div className='col-md-6 header-card-donasi d-flex align-items-center p-2'>
+                        <Image
+                            width={70}
+                            height={70}
+                            src={item.donator.profil_photo_url}
+                            className="img-fluid rounded-circle mb-3"
+                            alt='avatar'
+                        />
+                        <div className='nama-donator ms-2'>
+                            <div>
+                                <Link className="nama-donatur-url" href={`/user/${item.donator.user_name}`}><h4>{item.donator.full_name}</h4></Link>
+                                <p><i>@{item.donator.user_name}</i></p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div className="col-md-6 date  align-self-center    text-end">
+                        <small>
+                            {new Date(item.created_at).toLocaleTimeString('id-ID', {
+                                day: 'numeric', // numeric, 2-digit
+                                year: 'numeric', // numeric, 2-digit
+                                month: 'long', // numeric, 2-digit, long, short, narrow
+                                hour: 'numeric', // numeric, 2-digit
+                                minute: '2-digit', // numeric, 2-digit
+                            })}
+                        </small>
+                    </div>
+                </div>
+
+                <div className='row'>
+                    <div className='col-md-6 content-card-donasi p-2 text-center'>
+                        <div className="img-barang-wrapper">
+                            <Image
+                                width={500}
+                                height={350}
+                                src={item.photo_url}
+                                className="img-fluid rounded-2 img-barang p-1"
+                                alt="Image Barang"
+                            />
+                        </div>
+
+                    </div>
+
+                    <div className='col-md-6 content-card-donasi p-2'>
+                        <div className='info-content-card-donasi'>
+                            <h2 className='fw-bold'>{item.title}</h2>
+                            <p className='deskripsi'>Deskripsi :</p>
+                            <div className='deskripsi-barang'>
+                                <p>{item.description}</p>
+                            </div>
+                            <StatusBadge item={item} />
+
+                            <p className='lokasi mt-3'>Lokasi : {item.location}</p>
+                            <Link href={`/donasi/${item.id}`} className='btn-style outer-shadow inner-shadow hover-in-shadow'>
+                                Lihat Detail
+                            </Link>
+                            <TombolAmbil item={item} mutate={mutate} />
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
 
     )
 }

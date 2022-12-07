@@ -10,6 +10,7 @@ import Image from 'next/image';
 import Layout2 from '../../components/Layout2';
 import { userService } from '../../services';
 import SkeletonLoading3 from "../../components/SkeletonLoading3";
+import API_ENDPOINT from '../../globals/api-endpoint';
 
 const Profil = () => {
     const router = useRouter();
@@ -41,7 +42,7 @@ const Profil = () => {
     const formOptions = { resolver: yupResolver(validationSchema) }
 
     // get functions to build form with useForm() hook
-    const { register, handleSubmit, setError, formState } = useForm(formOptions);
+    const { register, handleSubmit, setError, formState, resetField } = useForm(formOptions);
     const { errors } = formState;
     // submit data from form value
     function onSubmit(data) {
@@ -65,11 +66,29 @@ const Profil = () => {
                     timer: 2000,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        router.replace(router.asPath)
+                        const close = document.getElementById('closeModal');
+                        close.click()
+                        resetField("full_name", { defaultValue: data.full_name })
+                        resetField("email", { defaultValue: data.email })
+                        resetField("phone_number", { defaultValue: data.phone_number })
+                        resetField("address", { defaultValue: data.address })
+                        mutate(`${API_ENDPOINT.user}/${user?.data.user_name}`)
                     } else if (result.isDenied) {
-                        router.replace(router.asPath)
+                        const close = document.getElementById('closeModal');
+                        close.click()
+                        resetField("full_name", { defaultValue: data.full_name })
+                        resetField("email", { defaultValue: data.email })
+                        resetField("phone_number", { defaultValue: data.phone_number })
+                        resetField("address", { defaultValue: data.address })
+                        mutate(`${API_ENDPOINT.user}/${user?.data.user_name}`)
                     } else if (result.isDismissed) {
-                        router.replace(router.asPath)
+                        const close = document.getElementById('closeModal');
+                        close.click()
+                        resetField("full_name", { defaultValue: data.full_name })
+                        resetField("email", { defaultValue: data.email })
+                        resetField("phone_number", { defaultValue: data.phone_number })
+                        resetField("address", { defaultValue: data.address })
+                        mutate(`${API_ENDPOINT.user}/${user?.data.user_name}`)
                     }
                 });
             })
@@ -127,6 +146,7 @@ const Profil = () => {
             });
     };
     const { user, isLoading, mutate } = userService.getUser(userData.user_name)
+    console.log(user)
     if (isLoading) return (
         <SkeletonLoading3 />
     )
@@ -194,7 +214,7 @@ const Profil = () => {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h1 className="modal-title fs-5" id="exampleModalLabel">Edit Profil</h1>
-                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" className="btn-close" id='closeModal' data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
                             <form onSubmit={handleSubmit(onSubmit)}>
@@ -329,7 +349,7 @@ const Profil = () => {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h1 className="modal-title fs-5" id="exampleModalLabel">Ganti Photo Profil</h1>
-                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" className="btn-close" id='closeModalPhoto' data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
                             <div className="mb-3">

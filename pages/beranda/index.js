@@ -138,7 +138,7 @@ const Beranda = () => {
 						</div>
 					</div>
 					{listDonations.data.map((item) => (
-						<DonasiCard key={item.id} item={item} />
+						<DonasiCard key={item.id} item={item} mutate={mutate} />
 					))}
 
 				</div>

@@ -65,7 +65,7 @@ function searchByLocation(location) {
 
 function getDonationDetail(donationId) {
     const endpoint = `${API_ENDPOINT.donation}/${donationId}`
-    const { data, error } = useSWR(endpoint, fetchWrapper.fetcher, { refreshInterval: 2000 })
+    const { data, error } = useSWR(endpoint, fetchWrapper.fetcher, { refreshInterval: 60000 })
     return {
         donationData: data,
         isLoading: !data,
@@ -99,7 +99,7 @@ function requestDonation(donationId, data) {
 function getAllRequest() {
     const endpoint = `${API_ENDPOINT.donation}/request`
     const { mutate } = useSWRConfig()
-    const { data, error } = useSWR(endpoint, fetchWrapper.fetcher, { refreshInterval: 3000 })
+    const { data, error } = useSWR(endpoint, fetchWrapper.fetcher, { refreshInterval: 60000 })
     return {
         listRequest: data,
         mutate: mutate,

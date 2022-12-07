@@ -9,7 +9,7 @@ import SkeletonLoading2 from '../../components/SkeletonLoading2';
 const Diterima = () => {
 
     //fetch daftar permintaan
-    const { listRequest, isLoading } = donationService.getAllRequest()
+    const { listRequest, isLoading, mutate } = donationService.getAllRequest()
     if (isLoading) return (
         <SkeletonLoading2 />
     )
@@ -49,7 +49,7 @@ const Diterima = () => {
 
                 {listRequest.data.map((item) => (
                     <>
-                        <PermintaanDiterimaCard key={item.id} item={item} />
+                        <PermintaanDiterimaCard key={item.id} item={item} mutate={mutate} />
                     </>
                 ))}
 

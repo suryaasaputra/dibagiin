@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import Image from 'next/image';
 import { donationService } from '../services';
 import { userService } from '../services';
+import API_ENDPOINT from '../globals/api-endpoint';
 
 
 const StatusBadge = ({ item }) => {
@@ -83,7 +84,7 @@ const TombolAmbil = ({ item }) => {
 }
 
 //component donasiCard
-const DonasiCard = ({ item }) => {
+const DonasiCard = ({ item, mutate }) => {
     const router = useRouter();
     const [errors2, setError2] = useState({});
 
@@ -107,11 +108,23 @@ const DonasiCard = ({ item }) => {
                     timer: 2000,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        router.replace(router.asPath)
+                        const close = document.getElementById('closeModal');
+                        close.click()
+                        const message = document.getElementById('message');
+                        message.value = '';
+                        mutate(`${API_ENDPOINT.donation}`)
                     } else if (result.isDenied) {
-                        router.replace(router.asPath)
+                        const close = document.getElementById('closeModal');
+                        close.click()
+                        const message = document.getElementById('message');
+                        message.value = '';
+                        mutate(`${API_ENDPOINT.donation}`)
                     } else if (result.isDismissed) {
-                        router.replace(router.asPath)
+                        const close = document.getElementById('closeModal');
+                        close.click()
+                        const message = document.getElementById('message');
+                        message.value = '';
+                        mutate(`${API_ENDPOINT.donation}`)
                     }
                 })
             })
@@ -123,17 +136,28 @@ const DonasiCard = ({ item }) => {
                     timer: 2000,
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        router.replace(router.asPath)
+                        const close = document.getElementById('closeModal');
+                        close.click()
+                        const message = document.getElementById('message');
+                        message.value = '';
+                        mutate(`${API_ENDPOINT.donation}`)
                     } else if (result.isDenied) {
-                        router.replace(router.asPath)
+                        const close = document.getElementById('closeModal');
+                        close.click()
+                        const message = document.getElementById('message');
+                        message.value = '';
+                        mutate(`${API_ENDPOINT.donation}`)
                     } else if (result.isDismissed) {
-                        router.replace(router.asPath)
+                        const close = document.getElementById('closeModal');
+                        close.click()
+                        const message = document.getElementById('message');
+                        message.value = '';
+                        mutate(`${API_ENDPOINT.donation}`)
                     }
                 })
                 setError2({ apiError: { message: error } });
             });
     }
-    // const requester = item.requester_id.join(", ")
     return (
         <div className="row mt-3 p-2">
             <div className="col-md-12 p-4 mb-3 outer-shadow rounded-2">
@@ -207,7 +231,7 @@ const DonasiCard = ({ item }) => {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h1 className="modal-title fs-5" id="exampleModalLabel">Ambil Donasi</h1>
-                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" className="btn-close" id='closeModal' data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
                             <form onSubmit={handleOnSubmit}>
@@ -239,7 +263,6 @@ const DonasiCard = ({ item }) => {
                                     <button
                                         type="submit"
                                         className="btn btn-login"
-                                        data-bs-dismiss="modal"
                                     >
                                         Kirim Permintaan
                                     </button>
