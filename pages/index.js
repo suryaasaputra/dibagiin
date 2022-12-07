@@ -240,96 +240,6 @@ export default function Home() {
 
       {/* SECTION WHY CHOOSE US END */}
 
-      {/* SECTION FAQ START */}
-      <div className="container">
-        <section className="about" id="faq">
-          <h2 style={{ fontWeight: 'bold' }} data-aos="fade-up" data-aos-once="true" data-aos-duration="500" className="text-center">Yang Sering <span style={{ color: '#73a700' }} >Ditanyakan</span>
-          </h2>
-          <div className="row">
-            <div className="col-md-6" data-aos="fade-up" data-aos-once="true">
-              <div className="img-about">
-                <Image
-                  src={faqImage}
-                  className='img-fluid'
-                  alt="FAQ Image"
-                />
-              </div>
-            </div>
-            <div className="col-md-6 info-about" data-aos-once="true" data-aos="fade-up" data-aos-delay="100">
-              <div className="text-about">
-
-                <div className="accordion" id="accordionExample">
-                  <div className="accordion-item">
-                    <h2 className="accordion-header" id="headingOne">
-                      <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        <span style={{ color: '#73a700' }} >Apa itu <span style={{ color: '#73a700' }} >Dibagiin</span>?</span>
-                      </button>
-                    </h2>
-                    <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                      <div className="accordion-body"> <span style={{ color: '#73a700' }} >Dibagiin</span> merupakan suatu Aplikasi berbagi barang layak pakai yang ditujukan bagi korban bencana yang sangat membutuhkan bantuan barang layak pakai dari donatur yang selalu sedia mendonasikan barang mereka melalui Aplikasi <span style={{ color: '#73a700' }} >Dibagiin</span>, Aplikasi ini sebagai perantara atau penghubung antara donatur dengan para korban bencana. </div>
-                    </div>
-                  </div>
-                  <div className="accordion-item">
-                    <h2 className="accordion-header" id="headingTwo">
-                      <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        <span style={{ color: '#73a700' }} >Bagaimana cara edit profil</span>
-                      </button>
-                    </h2>
-                    <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                      <div className="accordion-body">
-                        <ul>
-                          <li>Masuk ke halaman beranda terlebih dahulu.</li>
-                          <li>Pilih menu "Profil" atau icon di navbar sebelah kanan</li>
-                          <li>Kemudian klik tombol "Edit Profil"</li>
-                          <li>isi form untuk mengedit profil lalu klik tombol "simpan"</li>
-                          <li>Selesai, profil berhasil di edit</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="accordion-item">
-                    <h2 className="accordion-header" id="headingThree">
-                      <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        <span style={{ color: '#73a700' }} >Bagaimana cara memberikan donasi?</span>
-                      </button>
-                    </h2>
-                    <div id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                      <div className="accordion-body">
-                        <ul>
-                          <li>Masuk ke halaman beranda terlebih dahulu.</li>
-                          <li>Kemudian klik atau pilih tombol "Buat Donasi" untuk membuat atau mengupload donasi baru</li>
-                          <li>isi form untuk barang yang mau didonasikan, lalu klik tombol "Buat".</li>
-                          <li>Selesai, donasi berhasil dibuat</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="accordion-item">
-                    <h2 className="accordion-header" id="headingFour">
-                      <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                        <span style={{ color: '#73a700' }} >Bagaimana cara mengambil donasi?</span>
-                      </button>
-                    </h2>
-                    <div id="collapseFour" className="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-                      <div className="accordion-body">
-                        <ul>
-                          <li>Masuk ke halaman beranda terlebih dahulu.</li>
-                          <li>Lalu pilih barang yang mau diambil dengan mengklik tombol "Ajukan Permintaan" terlebih dahulu</li>
-                          <li>Tunggu sampai barang dikonfirmasi orang tersebut</li>
-                          <li>Selesai, barang dapat diambil</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-      {/* SECTION FAQ END */}
-
       {/* SECTION GALLERY START */}
       <div className='container mb-5' style={{ marginTop: '5rem' }}>
         <section className='gallery mt-5' id='gallery'>
@@ -461,6 +371,96 @@ export default function Home() {
         </section>
       </div>
       {/* SECTION GALLERY END */}
+
+      {/* SECTION FAQ START */}
+      <div className="container">
+        <section className="about" id="faq">
+          <h2 style={{ fontWeight: 'bold' }} data-aos="fade-up" data-aos-once="true" data-aos-duration="500" className="text-center">Yang Sering <span style={{ color: '#73a700' }} >Ditanyakan</span>
+          </h2>
+          <div className="row">
+            <div className="col-md-6" data-aos="fade-up" data-aos-once="true">
+              <div className="img-about">
+                <Image
+                  src={faqImage}
+                  className='img-fluid'
+                  alt="FAQ Image"
+                />
+              </div>
+            </div>
+            <div className="col-md-6 info-about" data-aos-once="true" data-aos="fade-up" data-aos-delay="100">
+              <div className="text-about">
+
+                <div className="accordion" id="accordionExample">
+                  <div className="accordion-item">
+                    <h2 className="accordion-header" id="headingOne">
+                      <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <span style={{ color: '#73a700' }} >Apa itu <span style={{ color: '#73a700' }} >Dibagiin</span>?</span>
+                      </button>
+                    </h2>
+                    <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                      <div className="accordion-body"> <span style={{ color: '#73a700' }} >Dibagiin</span> merupakan suatu Aplikasi berbagi barang layak pakai yang ditujukan bagi korban bencana yang sangat membutuhkan bantuan barang layak pakai dari donatur yang selalu sedia mendonasikan barang mereka melalui Aplikasi <span style={{ color: '#73a700' }} >Dibagiin</span>, Aplikasi ini sebagai perantara atau penghubung antara donatur dengan para korban bencana. </div>
+                    </div>
+                  </div>
+                  <div className="accordion-item">
+                    <h2 className="accordion-header" id="headingTwo">
+                      <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <span style={{ color: '#73a700' }} >Bagaimana cara edit profil</span>
+                      </button>
+                    </h2>
+                    <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                      <div className="accordion-body">
+                        <ul>
+                          <li>Masuk ke halaman beranda terlebih dahulu.</li>
+                          <li>Pilih menu "Profil" atau icon di navbar sebelah kanan</li>
+                          <li>Kemudian klik tombol "Edit Profil"</li>
+                          <li>isi form untuk mengedit profil lalu klik tombol "simpan"</li>
+                          <li>Selesai, profil berhasil di edit</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="accordion-item">
+                    <h2 className="accordion-header" id="headingThree">
+                      <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        <span style={{ color: '#73a700' }} >Bagaimana cara memberikan donasi?</span>
+                      </button>
+                    </h2>
+                    <div id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                      <div className="accordion-body">
+                        <ul>
+                          <li>Masuk ke halaman beranda terlebih dahulu.</li>
+                          <li>Kemudian klik atau pilih tombol "Buat Donasi" untuk membuat atau mengupload donasi baru</li>
+                          <li>isi form untuk barang yang mau didonasikan, lalu klik tombol "Buat".</li>
+                          <li>Selesai, donasi berhasil dibuat</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="accordion-item">
+                    <h2 className="accordion-header" id="headingFour">
+                      <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        <span style={{ color: '#73a700' }} >Bagaimana cara mengambil donasi?</span>
+                      </button>
+                    </h2>
+                    <div id="collapseFour" className="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                      <div className="accordion-body">
+                        <ul>
+                          <li>Masuk ke halaman beranda terlebih dahulu.</li>
+                          <li>Lalu pilih barang yang mau diambil dengan mengklik tombol "Ajukan Permintaan" terlebih dahulu</li>
+                          <li>Tunggu sampai barang dikonfirmasi orang tersebut</li>
+                          <li>Selesai, barang dapat diambil</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      {/* SECTION FAQ END */}
 
       {/* SECTION TEAM START */}
       <div className="container mb-5" style={{ marginTop: '5rem' }}>
