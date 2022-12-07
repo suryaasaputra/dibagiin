@@ -1,24 +1,43 @@
 import Link from "next/link";
 import Swal from "sweetalert2";
 import Head from 'next/head';
-import { useEffect } from "react";
+import GooglePlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-google-places-autocomplete';
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { userService } from "../../services";
 import Layout1 from "../../components/Layout1";
 export default function Registrasi() {
 	const router = useRouter();
+	const API_KEY = process.env.NEXT_PUBLIC_MAP_API_KEY
+	// const [currenLocation, setcurrenLocation] = useState(null);
+	const [value, setValue] = useState(null);
+	const [coord, setCoord] = useState(null);
+	// useEffect(() => {
+	// 	// redirect to home if already logged in
+	// 	if (userService.userValue) {
+	// 		router.push("/beranda");
+	// 	}
+	// 	if (navigator.geolocation) {
+	// 		navigator.geolocation.getCurrentPosition(
+	// 			(position) => {
 
-	useEffect(() => {
-		// redirect to home if already logged in
-		if (userService.userValue) {
-			router.push("/beranda");
-		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	// 				const pos = {
+	// 					lat: position.coords.latitude,
+	// 					lng: position.coords.longitude,
+	// 				};
+	// 				setcurrenLocation(pos)
+	// 			}
+	// 		);
 
+	// 	} else {
+	// 		console.log("Browser doesn't support Geolocation")
+	// 	}
+	// 	// eslint-disable-next-line react-hooks/exhaustive-deps
+	// }, []);
+	// console.log(currenLocation)
 	// form validation rules
 	const validationSchema = Yup.object().shape({
 		full_name: Yup.string().required("Nama lengkap tidak boleh kosong"),
@@ -58,11 +77,11 @@ export default function Registrasi() {
 	const formOptions = { resolver: yupResolver(validationSchema) };
 
 	// get functions to build form with useForm() hook
-	const { register, handleSubmit, setError, formState } = useForm(formOptions);
+	const { register, resetField, handleSubmit, setError, formState, setValue: setData, control } = useForm(formOptions);
 	const { errors } = formState;
 	// submit data from form value
 	function onSubmit(data) {
-		// console.log(data);
+		console.log(data);
 		return userService
 			.register(data)
 			.then(() => {
@@ -84,6 +103,25 @@ export default function Registrasi() {
 			.catch((error) => {
 				setError("apiError", { message: error });
 			});
+	}
+
+	const setCoordValue = (coord) => {
+		setCoord(coord)
+	}
+	const handleChange = (value) => {
+		setValue(value)
+		geocodeByAddress(value.value.description)
+			.then(results => getLatLng(results[0]))
+			.then((r) => {
+				setCoordValue(r)
+			})
+			.catch(error => console.error(error));
+
+	};
+	const onClickSubmit = () => {
+		setData('address', value?.label)
+		setData('lat', coord.lat)
+		setData('lng', coord.lng)
 	}
 	return (
 		<>
@@ -113,7 +151,7 @@ export default function Registrasi() {
 							</div>
 							<div className="mb-4">
 								<label htmlFor="email" className="form-label">
-								<i className="fa fa-envelope"></i> Email
+									<i className="fa fa-envelope"></i> Email
 								</label>
 								<input
 									type="text"
@@ -127,7 +165,7 @@ export default function Registrasi() {
 							</div>
 							<div className="mb-4">
 								<label htmlFor="user_name" className="form-label">
-								<i className="fa fa-user"></i> Username
+									<i className="fa fa-user"></i> Username
 								</label>
 								<input
 									type="username"
@@ -144,7 +182,7 @@ export default function Registrasi() {
 							</div>
 							<div className="mb-3">
 								<label htmlFor="password" className="form-label">
-								<i className="fa fa-key"></i> Kata Sandi
+									<i className="fa fa-key"></i> Kata Sandi
 								</label>
 								<input
 									type="password"
@@ -161,7 +199,7 @@ export default function Registrasi() {
 							</div>
 							<div className="mb-4  ">
 								<label htmlFor="phone_number" className="form-label">
-								<i className="fab fa-whatsapp"></i> No. WhatsApp
+									<i className="fab fa-whatsapp"></i> No. WhatsApp
 								</label>
 								<input
 									type="text"
@@ -182,7 +220,7 @@ export default function Registrasi() {
 								<select
 									className={`form-select ${errors.gender ? "is-invalid" : ""}`}
 									id="gender"
-									style={{background: '#eff0f4'}}
+									style={{ background: '#eff0f4' }}
 									aria-label="Default select example"
 									{...register("gender")}
 								>
@@ -192,18 +230,27 @@ export default function Registrasi() {
 								<div className="invalid-feedback">{errors.gender?.message}</div>
 							</div>
 
-							<div className="mb-3">
+							<div className="mb-4">
 								<label htmlFor="address" className="form-label">
-									<i className="fa fa-map-marker"></i> Alamat
+									Alamat*
 								</label>
-								<input
-									type="text"
-									className={`form-control ${errors.address ? "is-invalid" : ""
-										}`}
-									id="address"
-									placeholder="Jl. Garuda No. 76 Jakarta Selatan"
-									{...register("address")}
+								<Controller
+									name="address"
+									control={control}
+									rules={{ required: true }}
+									render={() => <GooglePlacesAutocomplete
+										apiKey={API_KEY}
+										apiOptions={{ language: "id" }}
+										selectProps={{
+											value,
+											onChange: handleChange,
+											placeholder: 'Masukkan Lokasi...',
+											className: `${errors.address ? "is-invalid" : ""} lokasi-form`
+										}}
+									/>}
 								/>
+								<input type="hidden" name="lat" id="lat" {...register("lat")}></input>
+								<input type="hidden" name="lng" id="lng" {...register("lng")}></input>
 								<div className="invalid-feedback">
 									{errors.address?.message}
 								</div>
@@ -213,6 +260,7 @@ export default function Registrasi() {
 								<button
 									disabled={formState.isSubmitting}
 									type="submit"
+									onClick={onClickSubmit}
 									className="btn btn-login"
 								>
 									{formState.isSubmitting && (

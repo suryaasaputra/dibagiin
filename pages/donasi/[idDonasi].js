@@ -8,13 +8,100 @@ import Image from 'next/image';
 import { donationService } from '../../services';
 import { userService } from '../../services';
 import SkeletonLoading from '../../components/SkeletonLoading';
+// import { GoogleMap, useJsApiLoader, DirectionsRenderer, Marker } from '@react-google-maps/api';
+
+
+const StatusBadge = ({ donationData }) => {
+
+    // kondisi jika status tersedia
+    if (donationData.data.status != "Tersedia") {
+        return (
+            <div className='mt-3'><p>Status: <span className='status-tidak-tersedia'>{donationData.data.status}</span></p></div>
+        )
+    }
+
+    // kondisi jika sudah diambil 
+    return (
+        <div className='mt-3'><p>Status: <span className='status-tersedia'>{donationData.data.status}</span></p></div>
+    )
+
+}
+
+const TombolAmbil = ({ donationData }) => {
+
+    // kondisi ketika donasi sudah diambil pengguna lain
+    if (donationData.data.status != "Tersedia") {
+        return (
+            <>
+                <button
+                    className='btn-style ms-2'
+                    style={{ cursor: 'not-allowed', backgroundColor: 'darkgrey', color: 'gray' }}
+                >
+                    Sudah diambil
+                </button>
+                <span>
+                    <p className='mt-2'>
+                        Diambil oleh <Link className="nama-donatur-url" href={`/user/${donationData.data.taker?.user_name}`}><b>{donationData.data.taker?.full_name}</b> </Link>
+                    </p>
+                </span>
+            </>
+        )
+    }
+
+    const user = userService.userData;
+
+    // cek apakah user sudah pernah request ke donasi
+    const requester = String(donationData.data.requester_id)
+    const userId = user.id
+    const isRequester = requester.includes(userId)
+    // kondisi jika user sudah pernah request
+    if (isRequester) {
+        return (
+            <button
+                className='btn-style ms-2'
+                style={{ cursor: 'not-allowed', backgroundColor: 'darkgrey', color: 'gray' }}
+            >
+                Menunggu Konfirmasi
+            </button>
+        )
+    }
+
+
+
+    // kondisi jika donasi merupakan donasi yang dibuat sendiri 
+    if (donationData.data.donator.id == user.id) {
+        return
+    }
+
+
+    // kondisi jika donasi masih tersedia
+    return (
+        <button
+            className='btn-style outer-shadow inner-shadow hover-in-shadow ms-2'
+            data-bs-toggle="modal"
+            data-bs-target={`#formModalrequest`}
+        >
+            Ajukan Permintaan
+        </button>
+    )
+}
 
 const DonasiDetail = () => {
+    const API_KEY = process.env.NEXT_PUBLIC_MAP_API_KEY
+    const user = userService.userData;
     const router = useRouter()
     const { idDonasi } = router.query
 
     const [errors2, setError2] = useState({}); //
-    //fetch donation list
+
+    // const { isLoaded, loadError } = useJsApiLoader({
+    //     googleMapsApiKey: API_KEY // ,
+
+    //     // ...otherOptions
+    // })
+
+
+    //fetch donation detail
     const { donationData, isLoading } = donationService.getDonationDetail(idDonasi)
     if (isLoading) return (
         <SkeletonLoading />
@@ -28,82 +115,6 @@ const DonasiDetail = () => {
             </div>
         )
     }
-
-    const StatusBadge = ({ donationData }) => {
-
-        // kondisi jika status tersedia
-        if (donationData.data.status != "Tersedia") {
-            return (
-                <div className='mt-3'><p>Status: <span className='status-tidak-tersedia'>{donationData.data.status}</span></p></div>
-            )
-        }
-
-        // kondisi jika sudah diambil 
-        return (
-            <div className='mt-3'><p>Status: <span className='status-tersedia'>{donationData.data.status}</span></p></div>
-        )
-
-    }
-
-    const TombolAmbil = ({ donationData }) => {
-
-        // kondisi ketika donasi sudah diambil pengguna lain
-        if (donationData.data.status != "Tersedia") {
-            return (
-                <>
-                    <button
-                        className='btn-style ms-2'
-                        style={{ cursor: 'not-allowed', backgroundColor: 'darkgrey', color: 'gray' }}
-                    >
-                        Sudah diambil
-                    </button>
-                    <span>
-                        <p className='mt-2'>
-                            Diambil oleh <Link className="nama-donatur-url" href={`/user/${donationData.data.taker?.user_name}`}><b>{donationData.data.taker?.full_name}</b> </Link>
-                        </p>
-                    </span>
-                </>
-            )
-        }
-
-        const user = userService.userData;
-
-        // cek apakah user sudah pernah request ke donasi
-        const requester = String(donationData.data.requester_id)
-        const userId = user.id
-        const isRequester = requester.includes(userId)
-        // kondisi jika user sudah pernah request
-        if (isRequester) {
-            return (
-                <button
-                    className='btn-style ms-2'
-                    style={{ cursor: 'not-allowed', backgroundColor: 'darkgrey', color: 'gray' }}
-                >
-                    Menunggu Konfirmasi
-                </button>
-            )
-        }
-
-
-
-        // kondisi jika donasi merupakan donasi yang dibuat sendiri 
-        if (donationData.data.donator.id == user.id) {
-            return
-        }
-
-
-        // kondisi jika donasi masih tersedia
-        return (
-            <button
-                className='btn-style outer-shadow inner-shadow hover-in-shadow ms-2'
-                data-bs-toggle="modal"
-                data-bs-target={`#formModalrequest`}
-            >
-                Ajukan Permintaan
-            </button>
-        )
-    }
-
 
     function handleOnSubmit(event) {
         // Stop the form from submitting and refreshing the page.
@@ -152,6 +163,18 @@ const DonasiDetail = () => {
             });
     }
     // console.log(donationData.data)
+
+
+    const containerStyle = {
+        width: '100%',
+        height: '400px'
+    };
+
+    const center = {
+        lat: donationData.data.lat,
+        lng: donationData.data.lng
+    };
+
     return (
         <>
             <Head>
@@ -231,6 +254,29 @@ const DonasiDetail = () => {
                                 <div className='deskripsi-barang'>
                                     <p>{donationData.data.description}</p>
                                 </div>
+                            </div>
+
+                        </div>
+                        <div className='row'>
+                            <div className='col-md-12 content-card-donasi p-2'>
+                                <p className='deskripsi'>Petunjuk menuju lokasi barang donasi :</p>
+                                <div className='deskripsi-barang'>
+                                    <h3>Lat,Lng barang</h3>
+                                    <p>{donationData.data.lat}</p>
+                                    <p>{donationData.data.lng}</p>
+                                </div>
+                                <div className='deskripsi-barang'>
+                                    <h3>Lat,Lng user</h3>
+                                    <p>{user.lat}</p>
+                                    <p>{user.lng}</p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div className='row'>
+                            <div className='col-md-12 content-card-donasi p-2'>
+                                <p className='deskripsi'>Lokasi barang</p>
+
                             </div>
 
                         </div>

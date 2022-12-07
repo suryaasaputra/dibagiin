@@ -1,9 +1,10 @@
 import Head from 'next/head';
 import Swal from "sweetalert2";
+import GooglePlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-google-places-autocomplete';
 import DonasiCardProfil from '../../components/DonasiCardProfil';
 import { useState } from 'react';
 import { useRouter } from "next/router";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import Image from 'next/image';
@@ -14,6 +15,9 @@ import API_ENDPOINT from '../../globals/api-endpoint';
 
 const Profil = () => {
     const router = useRouter();
+    const API_KEY = process.env.NEXT_PUBLIC_MAP_API_KEY
+    const [value, setValue] = useState(null);
+    const [coord, setCoord] = useState(null);
     const userData = userService.userData;
     // console.log(userData)
     // form validation rules
@@ -42,10 +46,11 @@ const Profil = () => {
     const formOptions = { resolver: yupResolver(validationSchema) }
 
     // get functions to build form with useForm() hook
-    const { register, handleSubmit, setError, formState, resetField } = useForm(formOptions);
+    const { register, resetField, handleSubmit, setError, formState, setValue: setData, control } = useForm(formOptions);
     const { errors } = formState;
     // submit data from form value
     function onSubmit(data) {
+        console.log(data)
         const newData = {
             id: userData.id,
             email: data.email,
@@ -53,6 +58,9 @@ const Profil = () => {
             full_name: data.full_name,
             profil_photo_url: userData.profil_photo_url,
             token: userData.token,
+            lat: data.lat,
+            lng: data.lng,
+            address: data.address,
             login_time: userData.login_time
         }
         userService.updateCookie(newData)
@@ -68,6 +76,7 @@ const Profil = () => {
                     if (result.isConfirmed) {
                         const close = document.getElementById('closeModal');
                         close.click()
+                        close.click()
                         resetField("full_name", { defaultValue: data.full_name })
                         resetField("email", { defaultValue: data.email })
                         resetField("phone_number", { defaultValue: data.phone_number })
@@ -76,6 +85,7 @@ const Profil = () => {
                     } else if (result.isDenied) {
                         const close = document.getElementById('closeModal');
                         close.click()
+                        close.click()
                         resetField("full_name", { defaultValue: data.full_name })
                         resetField("email", { defaultValue: data.email })
                         resetField("phone_number", { defaultValue: data.phone_number })
@@ -83,6 +93,7 @@ const Profil = () => {
                         mutate(`${API_ENDPOINT.user}/${user?.data.user_name}`)
                     } else if (result.isDismissed) {
                         const close = document.getElementById('closeModal');
+                        close.click()
                         close.click()
                         resetField("full_name", { defaultValue: data.full_name })
                         resetField("email", { defaultValue: data.email })
@@ -145,6 +156,26 @@ const Profil = () => {
                 setError("apiError", { message: error });
             });
     };
+
+    const setCoordValue = (coord) => {
+        setCoord(coord)
+    }
+    const handleChange = (value) => {
+        setValue(value)
+        geocodeByAddress(value.value.description)
+            .then(results => getLatLng(results[0]))
+            .then((r) => {
+                setCoordValue(r)
+            })
+            .catch(error => console.error(error));
+
+    };
+    const onClickSubmit = () => {
+        setData('address', value?.label)
+        setData('lat', coord.lat)
+        setData('lng', coord.lng)
+    }
+
     const { user, isLoading, mutate } = userService.getUser(userData.user_name)
     console.log(user)
     if (isLoading) return (
@@ -307,15 +338,23 @@ const Profil = () => {
                                     <label htmlFor="address" className="form-label">
                                         Alamat*
                                     </label>
-                                    <input
-                                        type="text"
-                                        className={`form-control ${errors.address ? "is-invalid" : ""
-                                            }`}
-                                        id="address"
-                                        placeholder="Jl. Garuda No. 76 Jakarta Selatan"
-                                        {...register("address")}
-                                        defaultValue={user.data.address}
+                                    <Controller
+                                        name="address"
+                                        control={control}
+                                        rules={{ required: true }}
+                                        render={() => <GooglePlacesAutocomplete
+                                            apiKey={API_KEY}
+                                            apiOptions={{ language: "id" }}
+                                            selectProps={{
+                                                value,
+                                                onChange: handleChange,
+                                                placeholder: `${user.data.address}`,
+                                                className: `${errors.address ? "is-invalid" : ""}`
+                                            }}
+                                        />}
                                     />
+                                    <input type="hidden" name="lat" id="lat" {...register("lat")}></input>
+                                    <input type="hidden" name="lng" id="lng" {...register("lng")}></input>
                                     <div className="invalid-feedback">
                                         {errors.address?.message}
                                     </div>
@@ -325,8 +364,8 @@ const Profil = () => {
                                     <button
                                         disabled={formState.isSubmitting}
                                         type="submit"
+                                        onClick={onClickSubmit}
                                         className="btn btn-login"
-                                        data-bs-dismiss="modal"
                                     >
                                         {formState.isSubmitting && (
                                             <span className="spinner-border spinner-border-sm mr-1"></span>
@@ -344,6 +383,8 @@ const Profil = () => {
                     </div>
                 </div>
             </div>
+
+            {/* modal ganti foro profil */}
             <div className="modal fade" id="uploadPhoto" tabIndex="-1" aria-labelledby="uploadPhotoForm" aria-hidden="true">
                 <div className="modal-dialog  modal-lg">
                     <div className="modal-content">

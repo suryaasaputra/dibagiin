@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Swal from "sweetalert2";
-import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
+import GooglePlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-google-places-autocomplete';
 import { useState } from 'react';
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -105,6 +105,7 @@ const TombolAmbil = ({ item, mutate }) => {
 
     const API_KEY = process.env.NEXT_PUBLIC_MAP_API_KEY
     const [value, setValue] = useState(null);
+    const [coord, setCoord] = useState(null);
     const validationSchema = Yup.object().shape({
         title: Yup.string().required("Nama Donasi tidak boleh kosong").max(30, "Maksimal 30 karakter"),
         description: Yup.string().required("Deskripsi tidak boleh kosong"),
@@ -133,6 +134,8 @@ const TombolAmbil = ({ item, mutate }) => {
                             resetField("title", { defaultValue: data.title })
                             resetField("description", { defaultValue: data.description })
                             resetField("weight", { defaultValue: data.weight })
+                            resetField("lat", { defaultValue: data.lat })
+                            resetField("lng", { defaultValue: data.lng })
                             mutate(`${API_ENDPOINT.user}/${item.donator.user_name}`)
                             const close = document.getElementById('closeModal');
                             close.click()
@@ -140,6 +143,8 @@ const TombolAmbil = ({ item, mutate }) => {
                             resetField("title", { defaultValue: data.title })
                             resetField("description", { defaultValue: data.description })
                             resetField("weight", { defaultValue: data.weight })
+                            resetField("lat", { defaultValue: data.lat })
+                            resetField("lng", { defaultValue: data.lng })
                             mutate(`${API_ENDPOINT.user}/${item.donator.user_name}`)
                             const close = document.getElementById('closeModal');
                             close.click()
@@ -148,6 +153,8 @@ const TombolAmbil = ({ item, mutate }) => {
                             resetField("description", { defaultValue: data.description })
                             resetField("weight", { defaultValue: data.weight })
                             mutate(`${API_ENDPOINT.user}/${item.donator.user_name}`)
+                            resetField("lat", { defaultValue: data.lat })
+                            resetField("lng", { defaultValue: data.lng })
                             const close = document.getElementById('closeModal');
                             close.click()
                         }
@@ -156,6 +163,25 @@ const TombolAmbil = ({ item, mutate }) => {
             .catch((error) => {
                 setError("apiError", { message: error });
             });
+    }
+
+    const setCoordValue = (coord) => {
+        setCoord(coord)
+    }
+    const handleChange = (value) => {
+        setValue(value)
+        geocodeByAddress(value.value.description)
+            .then(results => getLatLng(results[0]))
+            .then((r) => {
+                setCoordValue(r)
+            })
+            .catch(error => console.error(error));
+
+    };
+    const onClickSubmit = () => {
+        setData('location', value?.label)
+        setData('lat', coord.lat)
+        setData('lng', coord.lng)
     }
     return (
         <>
@@ -253,12 +279,14 @@ const TombolAmbil = ({ item, mutate }) => {
                                             apiOptions={{ language: "id" }}
                                             selectProps={{
                                                 value,
-                                                onChange: setValue,
+                                                onChange: handleChange,
                                                 placeholder: `${item.location}`,
-                                                className: `${errors.location ? "is-invalid" : ""}`
+                                                className: `${errors.location ? "is-invalid" : ""} lokasi-form`
                                             }}
                                         />}
                                     />
+                                    <input type="hidden" name="lat" id="lat" {...register("lat")}></input>
+                                    <input type="hidden" name="lng" id="lng" {...register("lng")}></input>
                                     <div className="invalid-feedback">
                                         {errors.location?.message}
                                     </div>
@@ -267,9 +295,7 @@ const TombolAmbil = ({ item, mutate }) => {
                                 <div className="d-grid mt-5">
                                     <button
                                         disabled={formState.isSubmitting}
-                                        onClick={() => {
-                                            setData('location', value?.label)
-                                        }}
+                                        onClick={onClickSubmit}
                                         type="submit"
                                         className="btn btn-login"
                                     >

@@ -43,6 +43,8 @@ const Beranda = () => {
 		const body = new FormData();
 		body.append("donation_photo", image)
 		body.append("title", data.title)
+		body.append("lat", data.lat)
+		body.append("lng", data.lng)
 		body.append("description", data.description)
 		body.append("weight", data.weight)
 		body.append("location", data.location)
@@ -110,18 +112,20 @@ const Beranda = () => {
 	const setCoordValue = (coord) => {
 		setCoord(coord)
 	}
-
-	const onClickSubmit = () => {
-		setData('location', value?.label)
+	const handleChange = (value) => {
+		setValue(value)
 		geocodeByAddress(value.value.description)
 			.then(results => getLatLng(results[0]))
 			.then((r) => {
 				setCoordValue(r)
-			}).then(() => {
-				setData("lat", coord.lat)
-				setData("lng", coord.lng)
 			})
 			.catch(error => console.error(error));
+
+	};
+	const onClickSubmit = () => {
+		setData('location', value?.label)
+		setData('lat', coord.lat)
+		setData('lng', coord.lng)
 	}
 
 
@@ -262,8 +266,7 @@ const Beranda = () => {
 											apiOptions={{ language: "id" }}
 											selectProps={{
 												value,
-												onChange: setValue,
-
+												onChange: handleChange,
 												placeholder: 'Masukkan Lokasi...',
 												className: `${errors.location ? "is-invalid" : ""} lokasi-form`
 											}}

@@ -21,7 +21,7 @@
     "nookies": "^2.5.2",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-preset-env": "^7.8.3",
-    "react": "18.2.0",
+    "react": "^18.2.0",
     "react-dom": "18.2.0",
     "react-google-places-autocomplete": "^3.4.0",
     "react-hook-form": "^7.39.4",
