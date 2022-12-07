@@ -19,7 +19,7 @@ $black-555: #555;
 $error:#E51937;
 $salmon: salmon;
 $skeleton: #d9d9d9;
-$bg-skeleton: linear-gradient(to right, #d9d9d9 0%, rgba(0,0,0,0.05) 20%, #d9d9d9 40%, #d9d9d9 100%);
+$bg-skeleton: linear-gradient(to right, #d9d9d9 0%, rgba(0, 0, 0, 0.05) 20%, #d9d9d9 40%, #d9d9d9 100%);
 
 $outer-shadow: 3px 3px 2px #d0d0d0,
 -3px -3px 2px #f8f8f8;
@@ -193,7 +193,7 @@ a:active {
 
 /*
   SKELETON LOADING
-*/ 
+*/
 .card-skeleton {
 	padding: 20px;
 	// border: 1px solid $skeleton;
@@ -241,8 +241,7 @@ a:active {
 
 .card-skeleton .content-skeleton,
 .card-skeleton .content-skeleton-img,
-.card-skeleton .content-skeleton-profil
- {
+.card-skeleton .content-skeleton-profil {
 	padding: 5px;
 }
 
@@ -318,6 +317,7 @@ a:active {
 	from {
 		background-position: -450px 0;
 	}
+
 	to {
 		background-position: 450px 0;
 	}
@@ -765,19 +765,19 @@ header .navbar-app {
 	background-color: $white;
 }
 
-header .navbar-app .search-form {
+.search-form {
 	background: none;
 	border: none;
 	box-shadow: $inner-shadow;
 }
 
-header .navbar-app .btn-search {
+.btn-search {
 	background: $green;
 	min-height: 44px;
 	min-height: 44px;
 }
 
-header .navbar-app .btn-search i {
+.btn-search i {
 	color: $ligth-white;
 }
 

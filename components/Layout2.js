@@ -10,7 +10,7 @@ import * as Yup from "yup";
 const Header = () => {
 	const router = useRouter()
 	const validationSchema = Yup.object().shape({
-		keyword: Yup.string().required('Email tidak boleh kosong'),
+		keyword: Yup.string().required('Kata kunci tidak boleh kosong'),
 	});
 	const formOptions = { resolver: yupResolver(validationSchema) };
 
@@ -53,7 +53,6 @@ const Header = () => {
 					</Link>
 
 					<div className="search-bar" id="topNavbar">
-
 						<form onSubmit={handleSubmit(onSubmit)} className="d-flex ms-auto 	">
 							<div className="input-group">
 								<input
@@ -86,6 +85,22 @@ const OffCanvas = () => {
 	const cekActive = (url) => {
 		return String(router.asPath).includes(url)
 	}
+	const validationSchema = Yup.object().shape({
+		keyword: Yup.string().required('Kata kunci tidak boleh kosong'),
+	});
+	const formOptions = { resolver: yupResolver(validationSchema) };
+
+	// get functions to build form with useForm() hook
+	const { register, handleSubmit, setError, formState } = useForm(formOptions);
+	const { errors } = formState;
+
+	function onSubmit({ keyword }) {
+		router.push({
+			pathname: "/donasi",
+			query: { cari: keyword },
+		});
+
+	}
 	return (
 		<div
 			className="offcanvas offcanvas-start sidebar-nav"
@@ -116,6 +131,28 @@ const OffCanvas = () => {
 							</Link>
 						</li>
 						<li>
+							<div className="mx-3 mb-3 search-bar-off-canvas">
+								<form onSubmit={handleSubmit(onSubmit)} className="d-flex ms-auto 	">
+									<div className="input-group">
+										<input
+											className="form-control search-form"
+											id='keyword'
+											name='keyword'
+											type="search"
+											placeholder="Cari barang"
+											aria-label="Search"
+											{...register('keyword')}
+										/>
+										<div className="invalid-feedback">{errors.keyword?.message}</div>
+										<button disabled={formState.isSubmitting} className="btn ms-1 btn-search" type="submit">
+											{formState.isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
+											<i className="fas fa-search"></i>
+										</button>
+									</div>
+								</form>
+							</div>
+						</li>
+						<li>
 							<div className="text-muted small fw-bold text-uppercase px-3">
 								Menu
 							</div>
@@ -127,13 +164,6 @@ const OffCanvas = () => {
 								<span className={`p-3 ${cekActive("/beranda") ? 'link-active' : ''} ${cekActive("/donasi") ? 'link-active' : ''} ${cekActive("/user") ? 'link-active' : ''}`} ><i className="fas fa-home"></i> Beranda</span>
 							</Link>
 						</li>
-						{/* 
-						<li className="sidebar-item">
-							<Link href="/donasi" className="nav-link px-2 p-3 text-black-50 fw-bold ">
-								<span className="me-2"></span>
-								<span className={`p-3 ${cekActive("/donasi") ? 'link-active' : ''}`}><i className="fas fa-plus"></i> Donasi</span>
-							</Link>
-						</li> */}
 						<li className="sidebar-item">
 							<Link href="/pemberitahuan" className="nav-link px-2 p-3 active text-black-50 fw-bold">
 								<span className="me-2"></span>
