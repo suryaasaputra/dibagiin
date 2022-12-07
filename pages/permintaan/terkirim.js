@@ -9,20 +9,18 @@ import SkeletonLoading2 from '../../components/SkeletonLoading2';
 const PermintaanTerkirimCard = ({ item }) => {
     return (
         <>
-            <div className="row mt-3 p-4 mb-4 rounded-2 outer-shadow">
+            <div className="row m-2 p-4 mb-3 rounded-2 outer-shadow">
                 <div className="col-md-6 p-2">
                     <p>Anda meminta <Link href={`/donasi/${item.donation.id}`}> <b>{item.donation.title}</b> </Link> dari <Link href={`/user/${item.donator.user_name}`}> <b>{item.donator.full_name}</b></Link></p>
 
-                    <div className='img-barang-wrapper' style={{ width: 200, height: 200 }}>
+                    <div className='mt-3'>
                         <Image
-                            width={200}
-                            height={200}
-
+                            width={160}
+                            height={160}
                             src={item.donation.photo_url}
-                            className="img-fluid rounded-2 img-barang  p-2 outer-shadow"
+                            className="img-fluid rounded-2 p-2 outer-shadow"
                             alt='avatar'
                         />
-
                     </div>
                 </div>
 

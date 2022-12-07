@@ -196,7 +196,6 @@ a:active {
 */ 
 .card-skeleton {
 	padding: 20px;
-	// border: 1px solid $skeleton;
 	border-radius: 10px;
 	margin-top: 5px;
 }
@@ -208,6 +207,24 @@ a:active {
 	padding: 5px;
 }
 
+.card-skeleton .header-skeleton-profil {
+	padding: 5px;
+}
+
+.card-skeleton .header-skeleton-profil .full-name {
+	position: relative;
+	width: 200px;
+	height: 35px;
+	background-color: $skeleton;
+	border-radius: 10px;
+	margin: 0 auto;
+}
+
+.card-skeleton .header-skeleton-profil .user-skeleton {
+	margin: 10px auto;
+}
+
+.card-skeleton .header-skeleton-profil .user-skeleton,
 .card-skeleton .header-skeleton .user-skeleton {
 	position: relative;
 	width: 80px;
@@ -234,6 +251,7 @@ a:active {
 	height: 35px;
 }
 
+.card-skeleton .header-skeleton-profil .user-skeleton i,
 .card-skeleton .header-skeleton .user-skeleton i {
 	font-size: 2em;
 	z-index: 10;
@@ -248,8 +266,8 @@ a:active {
 
 .card-skeleton .content-skeleton-img .content-line {
 	position: relative;
-	width: 300px;
-	height: 200px;
+	width: 160px;
+	height: 160px;
 	background-color: $skeleton;
 	border-radius: 10px;
 }
@@ -297,6 +315,8 @@ a:active {
 
 .card-skeleton .header-skeleton .user-skeleton::before,
 .card-skeleton .header-skeleton .names-skeleton .name-skeleton::before,
+.card-skeleton .header-skeleton-profil .full-name::before,
+.card-skeleton .header-skeleton-profil .user-skeleton::before,
 .card-skeleton .content-skeleton .content-line::before,
 .card-skeleton .content-skeleton-img .content-line::before,
 .card-skeleton .content-skeleton-profil .content-line::before,
@@ -504,13 +524,26 @@ a:active {
 input[type="email"],
 input[type="password"],
 input[type="username"],
-input[type="text"] {
+input[type="text"],
+textarea[type="text"] {
 	border-radius: 10px;
 	border: none;
 	background: none;
 	box-shadow: $inner-shadow;
+	min-width: 100%;
+	min-height: 44px;
+}
+
+.modal-header,
+.modal-body {
+	background: $white;
+}
+
+input[type="number"] {
 	min-width: 44px;
 	min-height: 44px;
+	background: none;
+	box-shadow: $inner-shadow;
 }
 
 .link {

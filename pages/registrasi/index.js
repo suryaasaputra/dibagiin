@@ -182,6 +182,7 @@ export default function Registrasi() {
 								<select
 									className={`form-select ${errors.gender ? "is-invalid" : ""}`}
 									id="gender"
+									style={{background: '#eff0f4'}}
 									aria-label="Default select example"
 									{...register("gender")}
 								>

@@ -2,16 +2,16 @@ import SkeletonLoading from "./SkeletonLoading";
 
 export default function SkeletonLoading3() {
     return (
-        <div className="beranda mt-5">
+        <div className="mt-5">
             <div className="container-fluid">
                 <div className="row m-2">
                     <div className="col-md-6 card-skeleton">
-                        <div className="header-skeleton">
+                        <div className="header-skeleton-profil">
+                            <div className="full-name"></div>
                             <div className="user-skeleton"><i className="fa fa-user"></i></div>
                         </div>
 
                         <div className="content-skeleton-profil mt-3">
-                            <div className="content-line"></div>
                             <div className="content-line"></div>
                         </div>
                     </div>

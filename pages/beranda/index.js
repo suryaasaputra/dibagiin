@@ -147,7 +147,7 @@ const Beranda = () => {
 
 			{/* modal form */}
 			<div className="modal fade" id="formDonasi" tabIndex="-1" aria-labelledby="donasiForm" aria-hidden="true">
-				<div className="modal-dialog  modal-lg">
+				<div className="modal-dialog modal-lg">
 					<div className="modal-content">
 						<div className="modal-header">
 							<h1 className="modal-title fs-5" id="exampleModalLabel">Buat Donasi</h1>
@@ -236,7 +236,6 @@ const Beranda = () => {
 									</label>
 									<Controller
 										name="location"
-
 										control={control}
 										rules={{ required: true }}
 										render={() => <GooglePlacesAutocomplete
@@ -246,7 +245,7 @@ const Beranda = () => {
 												value,
 												onChange: setValue,
 												placeholder: 'Masukkan Lokasi...',
-												className: `${errors.location ? "is-invalid" : ""}`
+												className: `${errors.location ? "is-invalid" : ""} lokasi-form`
 											}}
 										/>}
 									/>

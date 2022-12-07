@@ -54,6 +54,7 @@ const User = () => {
                                 <p><i className='fab fa-whatsapp'></i> {user.data.phone_number}</p>
                                 <p><i className='fa fa-user'></i> {user.data.gender}</p>
                                 <p><i className="fa-solid fa-map-location-dot"></i> {user.data.address}</p>
+                                <a href='/beranda' className='btn-style outer-shadow inner-shadow hover-in-shadow '>  <i className='fa fa-arrow-left'></i> Kembali</a>
                             </div>
                         </div>
 

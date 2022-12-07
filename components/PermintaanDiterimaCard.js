@@ -210,8 +210,8 @@ const PermintaanDiterimaCard = ({ item, mutate }) => {
 
                 <div className='mt-3'>
                     <Image
-                        width={120}
-                        height={120}
+                        width={160}
+                        height={160}
                         src={item.donation.photo_url}
                         className="img-fluid rounded-2 p-2 outer-shadow"
                         alt='donasi'
