@@ -2,7 +2,7 @@ import SkeletonLoading from "./SkeletonLoading";
 
 export default function SkeletonLoading3() {
     return (
-        <div className="mt-5">
+        <div className="beranda mt-5">
             <div className="container-fluid">
                 <div className="row m-2">
                     <div className="col-md-6 card-skeleton">
