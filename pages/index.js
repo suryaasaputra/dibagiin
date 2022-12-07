@@ -153,8 +153,95 @@ export default function Home() {
       </div>
       {/* SECTION ABOUT END */}
 
+      {/* SECTION WHY CHOOSE US START */}
+
+      <div className='container mb-5' style={{ marginTop: '5rem' }}>
+        <section className="why-us">
+          <div className="why-us-title">
+            <h2 style={{ fontWeight: 'bold' }} data-aos="fade-up" data-aos-once="true" data-aos-duration="500" className="text-center">Kenapa Memilih <span style={{ color: '#73a700' }} >Kami</span>
+            </h2>
+          </div>
+          <div className="why-us-title-desc" data-aos-once="true" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="150">
+            <p className="text-center">Dibagiin sebagai Aplikasi berbagi yang membantu anda menyalurkan barang layak pakai kepada orang lain yang membutuhkan ingin memberikan pelayanan yang terbaik kepada anda dengan alasan yang kuat.</p>
+          </div>
+          <div className="row">
+            <div className="col-lg-6" data-aos="fade-up" data-aos-once="true">
+              {/* <img src="why-us.png" alt="img" className="img-fluid"> */}
+              <Image
+                width={430}
+                height={430}
+                src={whyusImage}
+                className='img-fluid img-why-us'
+                alt="Why Choose Us"
+              />
+            </div>
+
+            <div className="col-lg-6" data-aos="fade-up" data-aos-once="true" data-aos-delay="120">
+              <div className="row">
+                <div className="col-lg-6 col-md-6">
+                  <div className="wu-box mb-3">
+                    <div className="wu-text-box-icon">
+                      <i className="fa-solid fa-star"></i>
+                    </div>
+                    <div className="wu-text-box-title">
+                      <h5>Mudah Digunakan</h5>
+                    </div>
+                    <div className="wu-text-box-desc">
+                      <p>Tampilan website kami desain dengan memperhatikan kemudahan anda dalam menggunakan aplikasi kami.</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-lg-6 col-md-6">
+                  <div className="wu-box">
+                    <div className="wu-text-box-icon">
+                      <i className="fa-solid fa-rss"></i>
+                    </div>
+                    <div className="wu-text-box-title">
+                      <h5>Gratis</h5>
+                    </div>
+                    <div className="wu-text-box-desc">
+                      <p>Semua layanan yang kami tawarkan pada aplikasi dapat anda gunakan secara gratis.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="row mt-3">
+                <div className="col-lg-6 col-md-6">
+                  <div className="wu-box mb-3">
+                    <div className="wu-text-box-icon">
+                      <i className="fa-solid fa-phone-volume"></i>
+                    </div>
+                    <div className="wu-text-box-title">
+                      <h5>Dukungan Handal</h5>
+                    </div>
+                    <div className="wu-text-box-desc">
+                      <p>Kami menyediakan kontak tim yang dapat anda hubungi apabila membutuhkan bantuan.</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-lg-6 col-md-6">
+                  <div className="wu-box">
+                    <div className="wu-text-box-icon">
+                      <i className="fa-solid fa-globe"></i>
+                    </div>
+                    <div className="wu-text-box-title">
+                      <h5>Jangkauan Luas</h5>
+                    </div>
+                    <div className="wu-text-box-desc">
+                      <p>Anda dapat mendonasikan dan mengambil barang dari seluruh kota di wilayah Indonesia.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      {/* SECTION WHY CHOOSE US END */}
+
       {/* SECTION FAQ START */}
-      <div className="container" style={{ marginTop: '5rem' }}>
+      <div className="container">
         <section className="about" id="faq">
           <h2 style={{ fontWeight: 'bold' }} data-aos="fade-up" data-aos-once="true" data-aos-duration="500" className="text-center">Yang Sering <span style={{ color: '#73a700' }} >Ditanyakan</span>
           </h2>
@@ -242,93 +329,6 @@ export default function Home() {
         </section>
       </div>
       {/* SECTION FAQ END */}
-
-      {/* SECTION WHY CHOOSE US START */}
-
-      <div className='container mb-5' style={{ marginTop: '5rem' }}>
-        <section className="why-us">
-          <div className="why-us-title">
-            <h2 style={{ fontWeight: 'bold' }} data-aos="fade-up" data-aos-once="true" data-aos-duration="500" className="text-center">Kenapa Memilih <span style={{ color: '#73a700' }} >Kami</span>
-            </h2>
-          </div>
-          <div className="why-us-title-desc" data-aos-once="true" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="150">
-            <p className="text-center">Dibagiin sebagai Aplikasi berbagi yang membantu anda menyalurkan barang layak pakai kepada orang lain yang membutuhkan ingin memberikan pelayanan yang terbaik kepada anda dengan alasan yang kuat.</p>
-          </div>
-          <div className="row">
-            <div className="col-lg-6" data-aos="fade-up" data-aos-once="true">
-              {/* <img src="why-us.png" alt="img" className="img-fluid"> */}
-              <Image
-                width={430}
-                height={430}
-                src={whyusImage}
-                className='img-fluid img-why-us'
-                alt="Why Choose Us"
-              />
-            </div>
-
-            <div className="col-lg-6" data-aos="fade-up" data-aos-once="true" data-aos-delay="120">
-              <div className="row">
-                <div className="col-lg-6 col-md-6">
-                  <div className="wu-box mb-3">
-                    <div className="wu-text-box-icon">
-                      <i className="fa-solid fa-star"></i>
-                    </div>
-                    <div className="wu-text-box-title">
-                      <h5>Mudah Digunakan</h5>
-                    </div>
-                    <div className="wu-text-box-desc">
-                      <p>Tampilan website kami desain dengan memperhatikan kemudahan anda dalam menggunakan aplikasi kami.</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-6 col-md-6">
-                  <div className="wu-box">
-                    <div className="wu-text-box-icon">
-                      <i className="fa-solid fa-rss"></i>
-                    </div>
-                    <div className="wu-text-box-title">
-                      <h5>Gratis</h5>
-                    </div>
-                    <div className="wu-text-box-desc">
-                      <p>Semua layanan yang kami tawarkan pada aplikasi dapat anda gunakan secara gratis.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="row mt-3">
-                <div className="col-lg-6 col-md-6">
-                  <div className="wu-box mb-3">
-                    <div className="wu-text-box-icon">
-                      <i className="fa-solid fa-phone-volume"></i>
-                    </div>
-                    <div className="wu-text-box-title">
-                      <h5>Dukungan Handal</h5>
-                    </div>
-                    <div className="wu-text-box-desc">
-                      <p>Kami menyediakan kontak tim yang dapat anda hubungi apabila membutuhkan bantuan.</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-6 col-md-6">
-                  <div className="wu-box">
-                    <div className="wu-text-box-icon">
-                      <i className="fa-solid fa-globe"></i>
-                    </div>
-                    <div className="wu-text-box-title">
-                      <h5>Jangkauan Luas</h5>
-                    </div>
-                    <div className="wu-text-box-desc">
-                      <p>Anda dapat mendonasikan dan mengambil barang dari seluruh kota di wilayah Indonesia.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-
-      {/* SECTION WHY CHOOSE US END */}
 
       {/* SECTION GALLERY START */}
       <div className='container mb-5' style={{ marginTop: '5rem' }}>
