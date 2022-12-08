@@ -105,7 +105,7 @@ function handleResponse(response) {
 		const data = text && JSON.parse(text);
 
 		if (!response.ok) {
-			if ([401, 403].includes(response.status)) { //&& userService.userValue) {
+			if ([401, 403].includes(response.status) && userService.userValue) {
 				Swal.fire({
 					icon: "error",
 					title: `Sesi Anda telah berakhir, silahkan masuk kembali`,
