@@ -30,7 +30,7 @@ const Header = () => {
 			<nav className="navbar navbar-app navbar-expand-lg navbar-dark fixed-top">
 				<div className="container-fluid">
 					<button
-						className="navbar-toggler"
+						className="navbar-toggler layout2-toggler"
 						style={{ background: '#999', }}
 						type="button"
 						data-bs-toggle="offcanvas"
