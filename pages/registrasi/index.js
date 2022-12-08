@@ -81,7 +81,6 @@ export default function Registrasi() {
 	const { errors } = formState;
 	// submit data from form value
 	function onSubmit(data) {
-		console.log(data);
 		return userService
 			.register(data)
 			.then(() => {

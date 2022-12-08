@@ -15,7 +15,6 @@ const User = () => {
         <SkeletonLoading3 />
     )
 
-    console.log(user)
     if (user.error) {
         return (
             <div className="mt-3 pt-3 beranda">

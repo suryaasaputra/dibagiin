@@ -50,7 +50,7 @@ const Profil = () => {
     const { errors } = formState;
     // submit data from form value
     function onSubmit(data) {
-        console.log(data)
+        // console.log(data)
         const newData = {
             id: userData.id,
             email: data.email,
@@ -177,7 +177,7 @@ const Profil = () => {
     }
 
     const { user, isLoading, mutate } = userService.getUser(userData.user_name)
-    console.log(user)
+
     if (isLoading) return (
         <SkeletonLoading3 />
     )
