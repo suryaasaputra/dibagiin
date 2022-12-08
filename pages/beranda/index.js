@@ -15,7 +15,7 @@ const Beranda = () => {
 	const API_KEY = process.env.NEXT_PUBLIC_MAP_API_KEY
 	const [image, setImage] = useState(null);
 	const [value, setValue] = useState(null);
-	const [coord, setCoord] = useState(null);
+	const [coord, setCoord] = useState({ lat: null, lng: null });
 
 	const [createObjectURL, setCreateObjectURL] = useState(null);
 	const uploadToClient = (event) => {

@@ -17,7 +17,7 @@ const Profil = () => {
     const router = useRouter();
     const API_KEY = process.env.NEXT_PUBLIC_MAP_API_KEY
     const [value, setValue] = useState(null);
-    const [coord, setCoord] = useState(null);
+    const [coord, setCoord] = useState({ lat: null, lng: null });
     const userData = userService.userData;
     // console.log(userData)
     // form validation rules

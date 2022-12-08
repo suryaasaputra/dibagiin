@@ -14,7 +14,7 @@ export default function Registrasi() {
 	const API_KEY = process.env.NEXT_PUBLIC_MAP_API_KEY
 	// const [currenLocation, setcurrenLocation] = useState(null);
 	const [value, setValue] = useState(null);
-	const [coord, setCoord] = useState(null);
+	const [coord, setCoord] = useState({ lat: null, lng: null });
 	// useEffect(() => {
 	// 	// redirect to home if already logged in
 	// 	if (userService.userValue) {

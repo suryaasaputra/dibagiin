@@ -8,6 +8,7 @@ import Image from 'next/image';
 import { donationService } from '../../services';
 import { userService } from '../../services';
 import SkeletonLoading from '../../components/SkeletonLoading';
+import Map from '../../components/Map';
 // import { GoogleMap, useJsApiLoader, DirectionsRenderer, Marker } from '@react-google-maps/api';
 
 
@@ -87,7 +88,8 @@ const TombolAmbil = ({ donationData }) => {
 }
 
 const DonasiDetail = () => {
-    const API_KEY = process.env.NEXT_PUBLIC_MAP_API_KEY
+
+    // const API_KEY = process.env.NEXT_PUBLIC_MAP_API_KEY
     const user = userService.userData;
     const router = useRouter()
     const { idDonasi } = router.query
@@ -174,7 +176,6 @@ const DonasiDetail = () => {
         lat: donationData.data.lat,
         lng: donationData.data.lng
     };
-
     return (
         <>
             <Head>
@@ -257,7 +258,7 @@ const DonasiDetail = () => {
                             </div>
 
                         </div>
-                        <div className='row'>
+                        {/* <div className='row'>
                             <div className='col-md-12 content-card-donasi p-2'>
                                 <p className='deskripsi'>Petunjuk menuju lokasi barang donasi :</p>
                                 <div className='deskripsi-barang'>
@@ -272,11 +273,25 @@ const DonasiDetail = () => {
                                 </div>
                             </div>
 
-                        </div>
+                        </div> */}
                         <div className='row'>
                             <div className='col-md-12 content-card-donasi p-2'>
-                                <p className='deskripsi'>Lokasi barang</p>
-
+                                <p className='deskripsi'>Lokasi barang donasi</p>
+                                <Map className="homeMap" center={center} zoom={12}>
+                                    {({ TileLayer, Marker, Popup }) => (
+                                        <>
+                                            <TileLayer
+                                                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                                                attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+                                            />
+                                            <Marker position={center}>
+                                                <Popup>
+                                                    {donationData.data.title} dari {donationData.data.donator.full_name}
+                                                </Popup>
+                                            </Marker>
+                                        </>
+                                    )}
+                                </Map>
                             </div>
 
                         </div>
