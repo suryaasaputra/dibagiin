@@ -164,13 +164,8 @@ const DonasiDetail = () => {
                 setError2({ apiError: { message: error } });
             });
     }
-    // console.log(donationData.data)
 
 
-    const containerStyle = {
-        width: '100%',
-        height: '400px'
-    };
 
     const center = {
         lat: donationData.data.lat,
@@ -179,42 +174,16 @@ const DonasiDetail = () => {
     return (
         <>
             <Head>
-                <title>Donasi {idDonasi}</title>
+                <title>Donasi {donationData.data.title} - Dibagiin</title>
             </Head>
             <div className="mt-5 beranda">
-                <div className="container-fluid p-3">
+                <div className="container-fluid p-4">
                     <div className="col-md-12 p-3 outer-shadow rounded-2">
                         <div className='row'>
-                            <div className='col-md-6 header-card-donasi d-flex align-items-center p-2'>
-                                <Image
-                                    width={70}
-                                    height={70}
-                                    src={donationData.data.donator.profil_photo_url}
-                                    className="img-fluid rounded-circle mb-3"
-                                    alt='avatar'
-                                />
-                                <div className='nama-donator ms-2'>
-                                    <div>
-                                        <Link className="nama-donatur-url" href={`/user/${donationData.data.donator.user_name}`}><h4>{donationData.data.donator.full_name}</h4></Link>
-                                        <p><i>@{donationData.data.donator.user_name}</i></p>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div className="col-md-6 date align-self-center">
-                                <p className='text-end'>Diposting pada: <small>
-                                    {new Date(donationData.data.created_at).toLocaleTimeString('id-ID', {
-                                        day: 'numeric', // numeric, 2-digit
-                                        year: 'numeric', // numeric, 2-digit
-                                        month: 'long', // numeric, 2-digit, long, short, narrow
-                                        hour: 'numeric', // numeric, 2-digit
-                                        minute: '2-digit', // numeric, 2-digit
-                                    })}
-                                </small>
-                                </p>
+                            <div className='col header-card-donasi d-flex align-items-center p-2'>
+                                <h4 >Detail Donasi <b>{donationData.data.title}</b></h4>
                             </div>
                         </div>
-                        <h2>Detail Donasi</h2>
                         <div className='row'>
                             <div className='col-md-6 content-card-donasi p-2 text-center'>
                                 <div className="">
@@ -222,19 +191,18 @@ const DonasiDetail = () => {
                                         width={500}
                                         height={350}
                                         src={donationData.data.photo_url}
-                                        className="img-fluid rounded-2 img-barang p-1"
+                                        className="img-fluid rounded-3 img-barang p-1"
                                         alt="Image Barang"
                                     />
                                 </div>
                             </div>
-                            <div className='col-md-6 content-card-donasi p-2'>
+                            <div className='col-md-6 content-card-donasi m-auto'>
                                 <div className='info-content-card-donasi'>
-                                    <h4 className='fw-bold'>Nama Barang: {donationData.data.title}</h4>
-                                    <p>Nama Donator: {donationData.data.donator.full_name}</p>
-                                    <p>WhatsApp Donator: {donationData.data.donator.phone_number}</p>
-                                    <p>Lokasi Barang: {donationData.data.location}</p>
+                                    <p>Donatur:<Link href={`/user/${donationData.data.donator.user_name}`}> {donationData.data.donator.full_name}</Link></p>
+                                    <p>WhatsApp Donatur: <Link href={`https://wa.me/${donationData.data.donator.phone_number}`} target="_blank">{donationData.data.donator.phone_number}</Link></p>
+                                    <p>Lokasi : {donationData.data.location}</p>
                                     <p>Berat Barang: {donationData.data.weight} Gram</p>
-                                    <p>Diperbaharui pada: {new Date(donationData.data.updated_at).toLocaleTimeString('id-ID', {
+                                    <p>Tanggal donasi: {new Date(donationData.data.created_at).toLocaleTimeString('id-ID', {
                                         day: 'numeric', // numeric, 2-digit
                                         year: 'numeric', // numeric, 2-digit
                                         month: 'long', // numeric, 2-digit, long, short, narrow
@@ -243,7 +211,6 @@ const DonasiDetail = () => {
                                     })}
                                     </p>
                                     <StatusBadge donationData={donationData} />
-                                    <a href={"/beranda"} className="btn-style outer-shadow inner-shadow hover-in-shadow">Kembali</a>
                                     <TombolAmbil donationData={donationData} />
                                 </div>
                             </div>
@@ -276,7 +243,7 @@ const DonasiDetail = () => {
                         </div> */}
                         <div className='row'>
                             <div className='col-md-12 content-card-donasi p-2'>
-                                <p className='deskripsi'>Lokasi barang donasi</p>
+                                <p className='deskripsi'>Map Lokasi barang</p>
                                 <Map className="homeMap" center={center} zoom={12}>
                                     {({ TileLayer, Marker, Popup }) => (
                                         <>
@@ -286,7 +253,7 @@ const DonasiDetail = () => {
                                             />
                                             <Marker position={center}>
                                                 <Popup>
-                                                    {donationData.data.title} dari {donationData.data.donator.full_name}
+                                                    Lokasi Donasi {donationData.data.title} oleh {donationData.data.donator.full_name}
                                                 </Popup>
                                             </Marker>
                                         </>
