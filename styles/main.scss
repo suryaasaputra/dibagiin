@@ -787,10 +787,12 @@ input[type="number"] {
 	width: 100%;
 	cursor: pointer;
 	border-radius: 5px;
+	opacity: .8;
 }
 
 .gallery-item .item img:hover {
 	transform: translateY(-8px);
+	opacity: 1;
 }
 
 /*

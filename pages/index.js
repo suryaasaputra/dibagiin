@@ -418,9 +418,9 @@ export default function Home() {
                       <div className="accordion-body">
                         <ul>
                           <li>Masuk ke halaman beranda terlebih dahulu.</li>
-                          <li>Pilih menu "Profil" atau icon di navbar sebelah kanan</li>
+                          <li>Klik gambar profil atau username di sidebar</li>
                           <li>Kemudian klik tombol "Edit Profil"</li>
-                          <li>isi form untuk mengedit profil lalu klik tombol "simpan"</li>
+                          <li>Isi form untuk mengedit profil lalu klik tombol "Simpan"</li>
                           <li>Selesai, profil berhasil di edit</li>
                         </ul>
                       </div>
