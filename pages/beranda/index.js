@@ -10,6 +10,7 @@ import DonasiCard from '../../components/DonasiCard';
 import Layout2 from "../../components/Layout2";
 import SkeletonLoading from "../../components/SkeletonLoading";
 import API_ENDPOINT from '../../globals/api-endpoint';
+import empty from '../../public/images/empty.png';
 
 const Beranda = () => {
 	const API_KEY = process.env.NEXT_PUBLIC_MAP_API_KEY
@@ -144,7 +145,7 @@ const Beranda = () => {
 			</div>
 		)
 	}
-
+	const donasi = listDonations.data.length
 	return (
 		<>
 			<div className="mt-3 pt-3 beranda">
@@ -160,6 +161,20 @@ const Beranda = () => {
 							</button>
 						</div>
 					</div>
+					{!donasi && (
+						<div className="d-flex flex-column justify-content-center align-items-center">
+							<Image
+								src={empty}
+								width={400}
+								alt="Empty"
+								className='img-fluid'
+								loading='eager'
+								priority
+							/>
+							<h3>Belum ada Donasi</h3>
+						</div>
+					)
+					}
 					{listDonations.data.map((item) => (
 						<DonasiCard key={item.id} item={item} mutate={mutate} />
 					))}

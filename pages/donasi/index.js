@@ -1,10 +1,11 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import { useRouter } from "next/router";
 import { donationService } from '../../services';
 import DonasiCard from '../../components/DonasiCard';
 import Layout2 from "../../components/Layout2";
 import SkeletonLoading from "../../components/SkeletonLoading";
-
+import empty from '../../public/images/empty.png';
 
 const Donasi = () => {
 	const router = useRouter()
@@ -36,7 +37,18 @@ const Donasi = () => {
 						<h2 className=" text-decoration-underline">Hasil Pencarian<b> {cari}</b></h2>
 					</div>
 					{!listDonations.data.length && (
-						<div className="row m-5"><h2>Tidak ada hasil</h2></div>
+						<div className="d-flex flex-column justify-content-center mt-5 align-items-center">
+							<h3>Tidak ada Hasil</h3>
+							<Image
+								src={empty}
+								width={400}
+								alt="Empty"
+								className='img-fluid'
+								loading='eager'
+								priority
+							/>
+
+						</div>
 					)
 					}
 

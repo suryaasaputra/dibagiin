@@ -12,6 +12,7 @@ import Layout2 from '../../components/Layout2';
 import { userService } from '../../services';
 import SkeletonLoading3 from "../../components/SkeletonLoading3";
 import API_ENDPOINT from '../../globals/api-endpoint';
+import empty from '../../public/images/empty.png';
 
 const Profil = () => {
     const router = useRouter();
@@ -190,7 +191,7 @@ const Profil = () => {
             </div>
         )
     }
-
+    const donasi = user.data.donation?.length
     return (
         <>
             <Head>
@@ -232,7 +233,20 @@ const Profil = () => {
                     <div className="row">
                         <h2 className='text-center text-decoration-underline'>Donasi {user.data.full_name}</h2>
                     </div>
-
+                    {!donasi && (
+                        <div className="d-flex flex-column justify-content-center align-items-center">
+                            <Image
+                                src={empty}
+                                width={400}
+                                alt="Empty"
+                                className='img-fluid'
+                                loading='eager'
+                                priority
+                            />
+                            <h3>Belum ada Donasi</h3>
+                        </div>
+                    )
+                    }
                     {user.data.donation?.map((item) => (
                         <DonasiCardProfil key={item.id} item={item} mutate={mutate} />
                     ))}
