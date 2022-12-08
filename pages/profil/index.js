@@ -190,6 +190,7 @@ const Profil = () => {
             </div>
         )
     }
+
     return (
         <>
             <Head>
@@ -222,7 +223,7 @@ const Profil = () => {
                                 <p><i className='fab fa-whatsapp'></i> {user.data.phone_number}</p>
                                 <p><i className='fa fa-user'></i> {user.data.gender}</p>
                                 <p><i className="fa-solid fa-map-location-dot"></i> {user.data.address}</p>
-                                <a href='/beranda' className='btn-style outer-shadow inner-shadow hover-in-shadow '>  <i className='fa fa-arrow-left'></i> Kembali</a>
+                                <button onClick={router.back} className='btn-style outer-shadow inner-shadow hover-in-shadow '>  <i className='fa fa-arrow-left'></i> Kembali</button>
                                 <button style={{ border: 'none' }} className='btn-style outer-shadow inner-shadow hover-in-shadow  ms-2' data-bs-toggle="modal" data-bs-target="#editProfil"> <i className="fa-solid fa-pen-to-square"></i> Edit Profile</button>
                             </div>
                         </div>

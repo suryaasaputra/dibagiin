@@ -211,7 +211,6 @@ const DonasiDetail = () => {
                                     })}
                                     </p>
                                     <StatusBadge donationData={donationData} />
-                                    <TombolAmbil donationData={donationData} />
                                 </div>
                             </div>
                         </div>
@@ -260,7 +259,12 @@ const DonasiDetail = () => {
                                     )}
                                 </Map>
                             </div>
-
+                        </div>
+                        <div className='row my-2'>
+                            <div className='col d-flex flex-wrap justify-content-center align-items-center '>
+                                <TombolAmbil donationData={donationData} />
+                                <button onClick={router.back} className='btn-style outer-shadow inner-shadow hover-in-shadow mt-3 '>  <i className='fa fa-arrow-left'></i> Kembali</button>
+                            </div>
                         </div>
                     </div>
                 </div>

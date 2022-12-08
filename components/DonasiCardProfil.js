@@ -120,6 +120,7 @@ const TombolAmbil = ({ item, mutate }) => {
     const { register, resetField, handleSubmit, setError, formState, setValue: setData, control } = useForm(formOptions);
     const { errors } = formState;
     function onSubmit(data) {
+        console.log(data)
         return donationService.editDonation(data.donation_id, data)
             .then(() => {
                 Swal.fire({
@@ -182,6 +183,7 @@ const TombolAmbil = ({ item, mutate }) => {
         setData('location', value?.label)
         setData('lat', coord.lat)
         setData('lng', coord.lng)
+
     }
     return (
         <>
