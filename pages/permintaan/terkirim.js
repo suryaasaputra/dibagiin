@@ -33,6 +33,12 @@ const PermintaanTerkirimCard = ({ item }) => {
                         minute: '2-digit', // numeric, 2-digit
                     })}</p>
                     <p>Status : <b className='rounded-3 btn-info'><i className='fa fa-info-circle'></i> {item.status}</b></p>
+                    <button
+                        // onClick={onClickReject}
+                        className='btn-style-danger outer-shadow inner-shadow '
+                    >
+                        <i className='fa fa-trash'></i>  Batalkan permintaan
+                    </button>
                 </div>
 
             </div>

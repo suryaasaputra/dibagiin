@@ -17,7 +17,7 @@ export const donationService = {
     getAllSubmittedRequest,
     getHistory,
     searchByLocation,
-    searchByTitle
+    searchByKeyword
 };
 
 function createDonation(donationData) {
@@ -41,10 +41,12 @@ function getAllDonation() {
     //         return response;
     //     });
 }
-function searchByTitle(keyword) {
+function searchByKeyword(keyword) {
     const endpoint = `${API_ENDPOINT.donation}?title=${keyword}`;
+    const { mutate } = useSWRConfig()
     const { data, error } = useSWR(endpoint, fetchWrapper.fetcher, { refreshInterval: 600000 })
     return {
+        mutate: mutate,
         listDonations: data,
         isLoading: !data,
         error: error

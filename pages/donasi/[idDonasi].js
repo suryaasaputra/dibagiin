@@ -179,6 +179,7 @@ const DonasiDetail = () => {
             <div className="mt-5 beranda">
                 <div className="container-fluid p-4">
                     <div className="col-md-12 p-3 outer-shadow rounded-2">
+                        <button onClick={router.back} className='btn-style outer-shadow inner-shadow hover-in-shadow '>  <i className='fa fa-arrow-left'></i> Kembali</button>
                         <div className='row'>
                             <div className='col header-card-donasi d-flex align-items-center p-2'>
                                 <h4 >Detail Donasi <b>{donationData.data.title}</b></h4>
@@ -261,9 +262,8 @@ const DonasiDetail = () => {
                             </div>
                         </div>
                         <div className='row my-2'>
-                            <div className='col d-flex flex-wrap justify-content-center align-items-center '>
+                            <div className='col d-flex  justify-content-center align-items-center '>
                                 <TombolAmbil donationData={donationData} />
-                                <button onClick={router.back} className='btn-style outer-shadow inner-shadow hover-in-shadow mt-3 '>  <i className='fa fa-arrow-left'></i> Kembali</button>
                             </div>
                         </div>
                     </div>

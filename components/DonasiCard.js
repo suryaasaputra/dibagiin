@@ -84,7 +84,7 @@ const TombolAmbil = ({ item }) => {
 }
 
 //component donasiCard
-const DonasiCard = ({ item, mutate, user }) => {
+const DonasiCard = ({ item, mutate, user, keyword }) => {
     const router = useRouter();
     const [errors2, setError2] = useState({});
 
@@ -116,6 +116,9 @@ const DonasiCard = ({ item, mutate, user }) => {
                         if (user) {
                             mutate(`${API_ENDPOINT.user}/${user}`)
                         }
+                        if (keyword) {
+                            mutate(`${API_ENDPOINT.donation}?title=${keyword}`)
+                        }
                     } else if (result.isDenied) {
                         const close = document.getElementById(`closeModal${item.id}`);
                         close.click()
@@ -125,6 +128,9 @@ const DonasiCard = ({ item, mutate, user }) => {
                         if (user) {
                             mutate(`${API_ENDPOINT.user}/${user}`)
                         }
+                        if (keyword) {
+                            mutate(`${API_ENDPOINT.donation}?title=${keyword}`)
+                        }
                     } else if (result.isDismissed) {
                         const close = document.getElementById(`closeModal${item.id}`);
                         close.click()
@@ -133,6 +139,9 @@ const DonasiCard = ({ item, mutate, user }) => {
                         mutate(`${API_ENDPOINT.donation}`)
                         if (user) {
                             mutate(`${API_ENDPOINT.user}/${user}`)
+                        }
+                        if (keyword) {
+                            mutate(`${API_ENDPOINT.donation}?title=${keyword}`)
                         }
                     }
                 })

@@ -11,7 +11,7 @@ const Donasi = () => {
 	const router = useRouter()
 	const { cari } = router.query
 	//fetch donation list
-	const { listDonations, isLoading } = donationService.searchByTitle(cari)
+	const { listDonations, isLoading, mutate } = donationService.searchByKeyword(cari)
 	if (isLoading) return (
 		<SkeletonLoading />
 	)
@@ -30,7 +30,7 @@ const Donasi = () => {
 			<div className="mt-3 pt-3 beranda">
 				<div className="container-fluid p-3">
 					<Head>
-						<title>Donasi-Dibagiin</title>
+						<title>Cari Donasi - Dibagiin</title>
 					</Head>
 
 					<div className="mt-5">
@@ -53,7 +53,7 @@ const Donasi = () => {
 					}
 
 					{listDonations.data.map((item) => (
-						<DonasiCard key={item.id} item={item} />
+						<DonasiCard key={item.id} item={item} mutate={mutate} keyword={cari} />
 					))}
 
 				</div>
