@@ -259,14 +259,14 @@ const Profil = () => {
                 <div className="modal-dialog  modal-lg">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h1 className="modal-title fs-5" id="exampleModalLabel">Edit Profil</h1>
+                            <h1 className="modal-title fs-5" id="exampleModalLabel"><i className='fa fa-refresh'></i> Edit Profil</h1>
                             <button type="button" className="btn-close" id='closeModal' data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <div className="mb-4">
                                     <label htmlFor="full_name" className="form-label">
-                                        Nama Lengkap*
+                                        <i className='fa fa-user'></i> Nama Lengkap
                                     </label>
                                     <input
                                         type="text"
@@ -284,7 +284,7 @@ const Profil = () => {
                                 </div>
                                 <div className="mb-4">
                                     <label htmlFor="email" className="form-label">
-                                        Email*
+                                        <i className="fa fa-envelope"></i> Email
                                     </label>
                                     <input
                                         type="text"
@@ -299,7 +299,7 @@ const Profil = () => {
                                 </div>
                                 <div className="mb-4">
                                     <label htmlFor="user_name" className="form-label">
-                                        Username*
+                                        <i className="fa fa-user"></i> Username
                                     </label>
                                     <input
                                         type="username"
@@ -318,7 +318,7 @@ const Profil = () => {
                                 </div>
                                 <div className="mb-4  ">
                                     <label htmlFor="phone_number" className="form-label">
-                                        No. WhatsApp*
+                                        <i className="fab fa-whatsapp"></i> No. WhatsApp
                                     </label>
                                     <input
                                         type="text"
@@ -335,7 +335,7 @@ const Profil = () => {
                                 </div>
                                 <div className="mb-4">
                                     <label htmlFor="gender" className="form-label">
-                                        Jenis Kelamin*
+                                        <i className="fa fa-genderless"></i> Jenis Kelamin
                                     </label>
                                     <select
                                         className={`form-select ${errors.gender ? "is-invalid" : ""}`}
@@ -351,7 +351,7 @@ const Profil = () => {
 
                                 <div className="mb-3">
                                     <label htmlFor="address" className="form-label">
-                                        Alamat*
+                                        <i className="fa fa-map-marker"></i>Alamat
                                     </label>
                                     <Controller
                                         name="address"
@@ -404,14 +404,14 @@ const Profil = () => {
                 <div className="modal-dialog  modal-lg">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h1 className="modal-title fs-5" id="exampleModalLabel">Ganti Photo Profil</h1>
+                            <h1 className="modal-title fs-5" id="exampleModalLabel"><i className='fa fa-refresh'></i> Ganti Photo Profil</h1>
                             <button type="button" className="btn-close" id='closeModalPhoto' data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
                             <div className="mb-3">
                                 <img src={createObjectURL} className="img-fluid" />
                                 <label htmlFor="photo_profil" className="form-label">
-                                    Photo Profil
+                                    <i className='fa fa-image'></i> Photo Profil
                                 </label>
                                 <input
                                     type="file"

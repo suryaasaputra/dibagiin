@@ -188,14 +188,14 @@ const Beranda = () => {
 				<div className="modal-dialog modal-lg">
 					<div className="modal-content">
 						<div className="modal-header">
-							<h1 className="modal-title fs-5" id="exampleModalLabel">Buat Donasi</h1>
+							<h1 className="modal-title fs-5" id="exampleModalLabel"><i className='fas fa-plus'></i> Buat Donasi</h1>
 							<button type="button" className="btn-close" id="closeModal" data-bs-dismiss="modal" aria-label="Close"></button>
 						</div>
 						<div className="modal-body">
 							<form onSubmit={handleSubmit(onSubmit)}>
 								<div className="mb-4">
 									<label htmlFor="title" className="form-label">
-										Nama Donasi (maksimal 30 karakter)*
+										<i className='fa fa-book'></i> Nama Donasi (maksimal 30 karakter)
 									</label>
 									<input
 										type="text"
@@ -214,7 +214,7 @@ const Beranda = () => {
 								</div>
 								<div className="mb-4">
 									<label htmlFor="description" className="form-label">
-										Deskripsi*
+										<i className='fa fa-sticky-note'></i> Deskripsi
 									</label>
 									<textarea
 										type="text"
@@ -229,7 +229,7 @@ const Beranda = () => {
 								</div>
 								<div className="mb-4">
 									<label htmlFor="weight" className="form-label">
-										Berat Barang*
+										<i className="fa-solid fa-weight-scale"></i> Berat Barang
 									</label>
 									<div className='d-flex justify-content-center align-items-center'>
 										<input
@@ -250,7 +250,7 @@ const Beranda = () => {
 								<div className="mb-4">
 
 									<label htmlFor="donation_photo" className="form-label">
-										Foto Barang*
+										<i className='fa fa-image'></i> Foto Barang
 									</label>
 									<img src={createObjectURL} className="img-fluid mb-2 foto-barang" />
 									<input
@@ -270,7 +270,7 @@ const Beranda = () => {
 
 								<div className="mb-4">
 									<label htmlFor="location" className="form-label">
-										Lokasi*
+										<i className='fa fa-map-marker'></i> Lokasi
 									</label>
 									<Controller
 										name="location"

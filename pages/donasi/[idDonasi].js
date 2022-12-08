@@ -217,7 +217,7 @@ const DonasiDetail = () => {
                         </div>
 
                         <div className='row'>
-                            <div className='col-md-12 content-card-donasi p-2'>
+                            <div className='col-md-12 content-card-donasi p-2 rounded-2'>
                                 <p className='deskripsi'>Deskripsi :</p>
                                 <div className='deskripsi-barang'>
                                     <p>{donationData.data.description}</p>
@@ -241,8 +241,8 @@ const DonasiDetail = () => {
                             </div>
 
                         </div> */}
-                        <div className='row'>
-                            <div className='col-md-12 content-card-donasi p-2'>
+                        <div className='row p-2'>
+                            <div className='col-md-12 outer-shadow content-card-donasi p-3 rounded-2'>
                                 <p className='deskripsi'>Map Lokasi barang</p>
                                 <Map className="homeMap" center={center} zoom={12}>
                                     {({ TileLayer, Marker, Popup }) => (

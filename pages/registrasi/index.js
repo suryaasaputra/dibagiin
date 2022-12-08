@@ -231,7 +231,7 @@ export default function Registrasi() {
 
 							<div className="mb-4">
 								<label htmlFor="address" className="form-label">
-									Alamat*
+									<i className="fa fa-map-marker"></i> Alamat
 								</label>
 								<Controller
 									name="address"

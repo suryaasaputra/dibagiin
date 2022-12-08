@@ -203,7 +203,7 @@ const TombolAmbil = ({ item, mutate }) => {
                 <div className="modal-dialog  modal-lg">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h1 className="modal-title fs-5" id="exampleModalLabel">Ubah Data Donasi</h1>
+                            <h1 className="modal-title fs-5" id="exampleModalLabel"><i className='fa fa-refresh'></i> Ubah Data Donasi</h1>
                             <button type="button" id='closeModal' className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
@@ -216,7 +216,7 @@ const TombolAmbil = ({ item, mutate }) => {
                                 />
                                 <div className="mb-4">
                                     <label htmlFor="title" className="form-label">
-                                        Nama Donasi (maksimal 30 karakter)*
+                                       <i className='fa fa-book'></i> Nama Donasi (maksimal 30 karakter)
                                     </label>
                                     <input
                                         type="text"
@@ -235,7 +235,7 @@ const TombolAmbil = ({ item, mutate }) => {
                                 </div>
                                 <div className="mb-4">
                                     <label htmlFor="description" className="form-label">
-                                        Deskripsi*
+                                        <i className='fa fa-sticky-note'></i> Deskripsi
                                     </label>
                                     <textarea
                                         type="text"
@@ -250,7 +250,7 @@ const TombolAmbil = ({ item, mutate }) => {
                                 </div>
                                 <div className="mb-4">
                                     <label htmlFor="weight" className="form-label">
-                                        Berat Barang*
+                                        <i className='fa-solid fa-weight-scale'></i> Berat Barang*
                                     </label>
                                     <div className='d-flex justify-content-center align-items-center'>
                                         <input
@@ -269,7 +269,7 @@ const TombolAmbil = ({ item, mutate }) => {
                                 </div>
                                 <div className="mb-4">
                                     <label htmlFor="location" className="form-label">
-                                        Lokasi*
+                                        <i className='fa fa-map-marker'></i> Lokasi
                                     </label>
                                     <Controller
                                         name="location"
