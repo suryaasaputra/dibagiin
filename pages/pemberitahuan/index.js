@@ -90,9 +90,9 @@ const CardPemberitahuan = ({ item }) => {
                             })}
                         </small>
 
-                        <div className='mt-3'>
-                            <b className='btn-danger' style={{ fontSize: '13.5px' }}>
-                                "{item.message}"
+                        <div className='mt-5'>
+                            <b className='txt-danger' >
+                                " {item.donation.donator.full_name} {item.message} "
                             </b>
                         </div>
                     </div>
@@ -134,8 +134,8 @@ const CardPemberitahuan = ({ item }) => {
                         </small>
 
                         <div className='mt-3'>
-                            <b className='btn-info' style={{ fontSize: '13.5px' }}>
-                                "{item.message}"
+                            <b className='txt-danger' >
+                                " {item.message} "
                             </b>
                         </div>
 

@@ -1,12 +1,81 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
+import Swal from 'sweetalert2';
 import { donationService } from '../../services';
 import Layout2 from "../../components/Layout2";
 import empty from '../../public/images/empty.png'
 import SkeletonLoading2 from '../../components/SkeletonLoading2';
+import API_ENDPOINT from '../../globals/api-endpoint';
 
-const PermintaanTerkirimCard = ({ item }) => {
+const StatusBadge = ({ item }) => {
+
+
+    if (item.status == "Dikonfirmasi") {
+        return (
+            <b className=' txt-success'>Dikonfirmasi</b>
+        )
+    }
+    if (item.status == "Ditolak") {
+        return (
+            <b className=' txt-danger'>Ditolak</b>
+        )
+    }
+    // kondisi jika sudah diambil 
+    return (
+        <b className=''>Belum Dikonfirmasi</b>
+    )
+
+}
+
+const PermintaanTerkirimCard = ({ item, mutate }) => {
+    const onClickBatal = () => {
+        Swal.fire({
+            icon: "question",
+            title: "Batalkan Permintaan",
+            // color: "#73a700",
+            text: "Apakah anda yakin ingin membatalkan permintaan ini?",
+            focusConfirm: false,
+            confirmButtonColor: "#73a700",
+            showCancelButton: true,
+            cancelButtonColor: '#E51937',
+        })
+            .then((result) => {
+                if (result.isConfirmed) {
+                    return donationService.cancelRequest(item.id)
+                        .then(() => {
+                            Swal.fire({
+                                icon: "success",
+                                title: "Permintaan telah dibatalkan",
+                                confirmButtonColor: "#73a700",
+                                timer: 2000,
+                            })
+                            mutate(`${API_ENDPOINT.request}`)
+                            mutate(`${API_ENDPOINT.donation}/request`)
+                        })
+                        .catch((error) => {
+                            Swal.fire({
+                                icon: "error",
+                                title: `Terjadi kesalahan...${error}`,
+                                confirmButtonColor: "#73a700",
+                                timer: 2000,
+                            })
+                        });
+
+
+                } else if (result.isDenied) {
+
+                } else if (result.isDismissed) {
+
+                }
+            })
+    }
+    const pesan = `Halo, saya ingin mengambil barang yang didonasikan di website Dibagiin...`
+    const linkWa = `https://wa.me/${item.donator.phone_number}?text=${pesan}`
+    console.log(item)
+    const isConfirmed = item.status == "Dikonfirmasi"
+    const isRejected = item.status == "Ditolak"
+    const isWaiting = !isConfirmed && !isRejected
     return (
         <>
             <div className="row m-2 p-4 mb-3 rounded-2 outer-shadow">
@@ -32,13 +101,17 @@ const PermintaanTerkirimCard = ({ item }) => {
                         hour: 'numeric', // numeric, 2-digit
                         minute: '2-digit', // numeric, 2-digit
                     })}</p>
-                    <p>Status : <b className='rounded-3 btn-info'><i className='fa fa-info-circle'></i> {item.status}</b></p>
-                    <button
-                        // onClick={onClickReject}
-                        className='btn-style-danger outer-shadow inner-shadow '
-                    >
-                        <i className='fa fa-trash'></i>  Batalkan permintaan
-                    </button>
+                    <p>Status : <StatusBadge item={item} /></p>
+                    {isWaiting &&
+                        <button
+                            onClick={onClickBatal}
+                            className='btn-style-danger outer-shadow inner-shadow '
+                        >
+                            <i className='fa fa-trash'></i>  Batalkan permintaan
+                        </button>
+                    }
+                    {isConfirmed &&
+                        <a href={linkWa} className='btn-style outer-shadow inner-shadow hover-in-shadow' target="_blank" rel='noreferrer'>Klik untuk mengambil donasi</a>}
                 </div>
 
             </div>
@@ -47,7 +120,7 @@ const PermintaanTerkirimCard = ({ item }) => {
 }
 const Terkirim = () => {
     //fetch daftar permintaan
-    const { listRequest, isLoading } = donationService.getAllSubmittedRequest()
+    const { listRequest, isLoading, mutate } = donationService.getAllSubmittedRequest()
     if (isLoading) {
         return (
             <SkeletonLoading2 />
@@ -87,7 +160,7 @@ const Terkirim = () => {
                 )
                 }
                 {listRequest.data.map((item) => (
-                    <PermintaanTerkirimCard key={item.id} item={item} />
+                    <PermintaanTerkirimCard key={item.id} item={item} mutate={mutate} />
                 ))}
 
             </div>

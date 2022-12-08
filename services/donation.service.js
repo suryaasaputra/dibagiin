@@ -14,6 +14,7 @@ export const donationService = {
     getRequestDetail,
     confirmRequest,
     rejectRequest,
+    cancelRequest,
     getAllSubmittedRequest,
     getHistory,
     searchByLocation,
@@ -140,12 +141,21 @@ function rejectRequest(requestId) {
 
 function getAllSubmittedRequest() {
     const endpoint = `${API_ENDPOINT.request}`
+    const { mutate } = useSWRConfig()
     const { data, error } = useSWR(endpoint, fetchWrapper.fetcher, { refreshInterval: 60000 })
     return {
+        mutate: mutate,
         listRequest: data,
         isLoading: !data,
         error: error
     }
+}
+
+function cancelRequest(requestId) {
+    const endpoint = `${API_ENDPOINT.request}/${requestId}`
+    return fetchWrapper.delete(endpoint).then((response) => {
+        return response;
+    });
 }
 
 
