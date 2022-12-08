@@ -15,6 +15,13 @@ export default function Registrasi() {
 	// const [currenLocation, setcurrenLocation] = useState(null);
 	const [value, setValue] = useState(null);
 	const [coord, setCoord] = useState({ lat: null, lng: null });
+	useEffect(() => {
+		// redirect to home if already logged in
+		if (userService.userValue) {
+			router.push('/beranda');
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 	// useEffect(() => {
 	// 	// redirect to home if already logged in
 	// 	if (userService.userValue) {

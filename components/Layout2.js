@@ -60,7 +60,7 @@ const Header = () => {
 									id='keyword'
 									name='keyword'
 									type="search"
-									placeholder="Masukkan kata kunci"
+									placeholder="Cari barang / Lokasi"
 									aria-label="Search"
 									{...register('keyword')}
 								/>
@@ -139,7 +139,7 @@ const OffCanvas = () => {
 											id='keyword'
 											name='keyword'
 											type="search"
-											placeholder="Masukkan kata kunci"
+											placeholder="Cari barang /Lokasi"
 											aria-label="Search"
 											{...register('keyword')}
 										/>
