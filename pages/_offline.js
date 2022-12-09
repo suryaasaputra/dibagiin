@@ -1,7 +1,6 @@
 // import Image from "next/image"
 // import offlineImg from '../public/images/offline.png'
-import LayoutError from "../components/LayoutError"
-import { useRouter } from "next/router"
+
 
 const Offline = () => {
     const router = useRouter()
@@ -20,21 +19,11 @@ const Offline = () => {
                 >
                 </Image> */}
                 <h3 className='text-center'>Koneksi Internet Anda Terputus</h3>
-                <button className="btn btn-style-second" onClick={() => router.reload()}  >
-                    <i className="fas fa-rotate-right"></i>Coba lagi
-                </button>
             </div>
         </div>
     )
 }
 
-Offline.getLayout = function getLayout(page) {
-    return (
-        <LayoutError>
-            {page}
-        </LayoutError>
-    )
-}
 
 
 export default Offline
