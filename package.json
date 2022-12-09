@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^2.9.10",
+    "@popperjs/core": "^2.11.6",
     "aos": "^2.3.4",
     "bootstrap": "^5.2.2",
     "cookie": "^0.5.0",
