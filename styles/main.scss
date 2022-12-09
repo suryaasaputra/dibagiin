@@ -67,9 +67,13 @@ inset -3px -3px 3px #f8f8f8;
 	height: 20rem;
 }
 
+html {
+	scroll-behavior: smooth;
+	scroll-padding-top: 90px;
+}
+
 body {
 	background: $white;
-	scroll-behavior: smooth;
 	margin: 0;
 	overflow: auto !important;
 }
