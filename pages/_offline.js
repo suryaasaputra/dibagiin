@@ -1,5 +1,5 @@
-import Image from "next/image"
-import offlineImg from '../public/images/offline.png'
+// import Image from "next/image"
+// import offlineImg from '../public/images/offline.png'
 import LayoutError from "../components/LayoutError"
 import { useRouter } from "next/router"
 
@@ -9,8 +9,8 @@ const Offline = () => {
 
         <div className="container-fluid mt-4">
             <div className='d-flex justify-content-center align-items-center flex-column'>
-                <Image
-                    src={offlineImg}
+                {/* <Image
+                    src="/public/images/offline.png"
                     width={420}
                     height={420}
                     alt="offline"
@@ -18,7 +18,7 @@ const Offline = () => {
                     loading='eager'
                     priority
                 >
-                </Image>
+                </Image> */}
                 <h3 className='text-center'>Koneksi Internet Anda Terputus</h3>
                 <button className="btn btn-style-second" onClick={() => router.reload()}  >
                     <i className="fas fa-rotate-right"></i>Coba lagi
