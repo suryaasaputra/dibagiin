@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import GooglePlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-google-places-autocomplete';
 import Swal from "sweetalert2";
 import { useState } from 'react';
@@ -11,6 +12,7 @@ import Layout2 from "../../components/Layout2";
 import SkeletonLoading from "../../components/SkeletonLoading";
 import API_ENDPOINT from '../../globals/api-endpoint';
 import empty from '../../public/images/empty.png';
+
 
 const Beranda = () => {
 	const API_KEY = process.env.NEXT_PUBLIC_MAP_API_KEY
