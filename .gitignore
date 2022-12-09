@@ -13,7 +13,6 @@
 **/public/worker-*.js.map
 **/public/fallback-*.js
 
-package-lock.json
 .env.local
 # dependencies
 /node_modules
