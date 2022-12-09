@@ -257,7 +257,7 @@ const DonasiCard = ({ item, mutate, user, keyword }) => {
                             <form onSubmit={handleOnSubmit}>
                                 <div className="mb-4">
                                     <label htmlFor="title" className="form-label">
-                                        Pesan*
+                                        <i className='fa fa-envelope'></i> Pesan
                                     </label>
                                     <input
                                         type="hidden"

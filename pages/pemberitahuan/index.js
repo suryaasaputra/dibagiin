@@ -225,7 +225,7 @@ const Pemberitahuan = () => {
                     <title>Pemberitahuan - Dibagiin</title>
                 </Head>
 
-                <div className='mt-5'><h2>Pemberitahuan</h2></div>
+                <div className='mt-5 m-2'><h2 className='title-sidebar-top'>Pemberitahuan</h2></div>
 
                 {!data && (
                     <div className="d-flex flex-column justify-content-center align-items-center">

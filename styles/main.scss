@@ -837,6 +837,26 @@ header .navbar-nav .dropdown-menu {
 	color: $black-555;
 }
 
+.title-sidebar-top {
+	position: relative;
+	box-shadow: $outer-shadow;
+	padding: 15px;
+	font-size: 1.8em;
+	border-radius: 10px;
+	font-weight: bold;
+}
+
+.title-sidebar-top::before {
+	position: absolute;
+	content: '';
+	width: 35px;
+	height: 35px;
+	top: -12px;
+	left: -12px;
+	background: $green;
+	border-radius: 50%;
+}
+
 #sidebar .pemberitahuan-btn {
 	position: relative;
 }

@@ -489,7 +489,7 @@ export default function Home() {
               </div>
               <div className="caption">
                 <h4>Yuda Anugrah</h4>
-                <p>Front-End Developer</p>
+                <p style={{fontSize: '14px'}}>Front-End Dev & Designer</p>
                 <div className="sosmed">
                   <a href="https://www.linkedin.com/in/yuda-anugrah-6314bb24b/" target="_blank" rel="noreferrer">
                     <i className="fab fa-linkedin"></i>
