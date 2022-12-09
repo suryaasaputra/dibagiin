@@ -113,6 +113,8 @@ export default function Home() {
                   src={aboutImage}
                   className='img-fluid'
                   alt="About Image"
+                  loading='eager'
+                  priority
                 >
                 </Image>
               </div>
