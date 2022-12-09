@@ -3,7 +3,7 @@
 
 
 const Offline = () => {
-    const router = useRouter()
+
     return (
 
         <div className="container-fluid mt-4">
