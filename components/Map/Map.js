@@ -5,10 +5,6 @@ import 'leaflet/dist/leaflet.css';
 
 import styles from './Map.module.css';
 
-import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
-import iconUrl from 'leaflet/dist/images/marker-icon.png';
-import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
-
 const { MapContainer } = ReactLeaflet;
 
 const Map = ({ children, className, ...rest }) => {
@@ -17,19 +13,11 @@ const Map = ({ children, className, ...rest }) => {
     if (className) {
         mapClassName = `${mapClassName} ${className}`;
     }
-
-    useEffect(() => {
-        (async function init() {
-            delete L.Icon.Default.prototype._getIconUrl;
-
-            L.Icon.Default.mergeOptions({
-                iconRetinaUrl: iconRetinaUrl.src,
-                iconUrl: iconUrl.src,
-                shadowUrl: shadowUrl.src,
-            });
-        })();
-    }, []);
-
+    L.Icon.Default.mergeOptions({
+        iconRetinaUrl: "/images/marker-icon-2x.png'",
+        iconUrl: '/images/marker-icon.png',
+        shadowUrl: '/images/marker - shadow.png',
+    });
     return (
         <MapContainer className={mapClassName} {...rest}>
             {children(ReactLeaflet)}
