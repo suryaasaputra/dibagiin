@@ -31,7 +31,7 @@ export default function Masuk() {
   const { errors } = formState;
 
   function onSubmit({ email, password }) {
-    return userService.login(email, password)
+    return userService.login(email.toLowerCase(), password)
       .then((response) => {
 
       })
