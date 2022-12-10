@@ -542,6 +542,25 @@ textarea[type="text"] {
 	min-height: 44px;
 }
 
+input[type="file"] {
+	background: $white;
+}
+
+input[type="username"]:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="number"]:focus,
+input[type="file"]:focus,
+textarea[type="text"]:focus {
+	background: none;
+	border: none;
+	outline: none;
+}
+
+
+
 .modal-header,
 .modal-body {
 	background: $white;

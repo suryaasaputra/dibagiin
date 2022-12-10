@@ -144,7 +144,7 @@ const Terkirim = () => {
                 <Head>
                     <title>Permintaan Terkirim - Dibagiin</title>
                 </Head>
-                <div className='mt-5 m-2'><h2 className='title-sidebar-top'>Permintaan terkirim</h2></div>
+                <div className='mt-5 m-2 mb-3'><h2 className='title-sidebar-top'>Permintaan terkirim</h2></div>
                 {!data && (
                     <div className="d-flex flex-column justify-content-center align-items-center">
                         <Image

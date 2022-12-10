@@ -230,8 +230,8 @@ const Profil = () => {
                         </div>
 
                     </div>
-                    <div className="row">
-                        <h2 className='text-center text-decoration-underline'>Donasi {user.data.full_name}</h2>
+                    <div className="row m-2">
+                        <h2 className='text-center title-sidebar-top'>Donasi {user.data.full_name}</h2>
                     </div>
                     {!donasi && (
                         <div className="d-flex flex-column justify-content-center align-items-center">
@@ -340,6 +340,7 @@ const Profil = () => {
                                     <select
                                         className={`form-select ${errors.gender ? "is-invalid" : ""}`}
                                         id="gender"
+                                        style={{background: '#eff0f4'}}
                                         aria-label="Default select example"
                                         {...register("gender")}
                                     >
