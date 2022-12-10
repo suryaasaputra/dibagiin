@@ -20,6 +20,9 @@ export const userService = {
 	},
 	get userData() {
 		const cookies = parseCookies()
+		if (cookies.userCookies == undefined) {
+			return false
+		}
 		const userData = JSON.parse(cookies.userCookies)
 		return userData
 	},
