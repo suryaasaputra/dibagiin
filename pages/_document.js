@@ -5,6 +5,7 @@ export default function Document() {
             <Head>
                 <meta name="apple-mobile-web-app-title" content="Dibagiin" />
                 <meta name="application-name" content="Dibagiin" />
+                <meta name="dicoding:email" content="suryaaasaputra.s@gmail.com" />
                 <meta name="msapplication-TileColor" content="#eff0f4" />
                 <meta name="description" content="Platform Berbagi Barang Layak Pakai" />
                 <meta name="theme-color" content="#eff0f4" />
