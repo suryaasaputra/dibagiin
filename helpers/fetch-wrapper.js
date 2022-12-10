@@ -1,6 +1,6 @@
 import API_ENDPOINT from "../globals/api-endpoint";
 import { userService } from "../services";
-
+import Swal from "sweetalert2";
 
 
 export const fetchWrapper = {
