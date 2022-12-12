@@ -176,8 +176,8 @@ const DonasiDetail = () => {
             <Head>
                 <title>Donasi {donationData.data.title} - Dibagiin</title>
             </Head>
-            <div className="mt-5 beranda">
-                <div className="container-fluid p-4">
+            <div className="beranda" style={{marginTop: '5rem'}}>
+                <div className="container-fluid mb-4">
                     <div className="col-md-12 p-3 outer-shadow rounded-2">
                         <button onClick={router.back} className='btn-style outer-shadow inner-shadow hover-in-shadow '>  <i className='fa fa-arrow-left'></i> Kembali</button>
                         <div className='row'>

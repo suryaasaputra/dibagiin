@@ -52,7 +52,7 @@ export default function Masuk() {
         </Head>
         <div className="login-form rounded-2">
           <div className="card-body">
-            <h3 className="card-title text-center">Masuk</h3>
+            <h3 className="card-title text-center"><i className="fa fa-user"></i> Masuk</h3>
 
             <form className="mt-3" onSubmit={handleSubmit(onSubmit)}>
               <div className="mb-4">

@@ -524,6 +524,14 @@ a:active {
 	color: $black-555;
 }
 
+.register-form {
+	margin-top: 5rem;
+}
+
+form #message-strength {
+	display: none;
+}
+
 .login-form h3,
 .register-form h3 {
 	color: $black-555;

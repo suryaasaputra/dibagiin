@@ -129,6 +129,47 @@ export default function Registrasi() {
 		setData('lat', coord.lat)
 		setData('lng', coord.lng)
 	}
+
+	// Check validation email
+	const checkValidationEmail = () => {
+		let email = document.getElementById('email');
+		let messageEmail = document.getElementById('message-email');
+		let scheme = /^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/;
+	
+		if (!email.value.match(scheme)) {
+		  messageEmail.innerHTML = 'tidak valid';
+		  messageEmail.style.color = 'salmon';
+		  return false;
+		}
+	
+		messageEmail.innerHTML = 'valid ';
+		messageEmail.style.color = '#73a700';
+		return true;
+	  }
+	
+
+	// Simple check password strength
+	const checkStrengthPassword = () => {
+		const password = document.getElementById('password');
+		let messagePass = document.getElementById('message-strength');
+		let stringCheck = document.getElementById('check-strength');
+
+		if(password.value.length > 0){
+			messagePass.style.display = 'block';
+		} else {
+			messagePass.style.display = 'none';
+		}
+
+		// kondisi check strength password
+		if (password.value.length < 8) {
+			stringCheck.innerHTML = 'lemah';
+			stringCheck.style.color = 'salmon';
+		} else {
+			stringCheck.innerHTML = 'kuat';
+			stringCheck.style.color = '#73a700';
+		}
+	}
+	
 	return (
 		<>
 			<div className="container mt-3 mb-5">
@@ -137,7 +178,7 @@ export default function Registrasi() {
 				</Head>
 				<div className="register-form rounded-2">
 					<div className="card-body">
-						<h3 className="card-title text-center">Daftar</h3>
+						<h3 className="card-title text-center mb-3"> <i className="fa fa-registered"></i> Daftar</h3>
 						<form className="mt-3" onSubmit={handleSubmit(onSubmit)}>
 							<div className="mb-4">
 								<label htmlFor="full_name" className="form-label">
@@ -156,11 +197,13 @@ export default function Registrasi() {
 								</div>
 							</div>
 							<div className="mb-4">
-								<label htmlFor="email" className="form-label">
-									<i className="fa fa-envelope"></i> Email
+								<label htmlFor="email" className="form-label d-flex align-items-center">
+									<i className="fa fa-envelope me-1"></i> Email
+									<span style={{fontSize: '12px', padding: '3.5px'}} className="ms-1 outer-shadow rounded-1" id="message-email"></span>
 								</label>
 								<input
 									type="text"
+									onKeyUp={checkValidationEmail}
 									className={`form-control ${errors.email ? "is-invalid" : ""}`}
 									id="email"
 									aria-describedby="emailHelp"
@@ -192,6 +235,7 @@ export default function Registrasi() {
 								</label>
 								<input
 									type="password"
+									onInput={checkStrengthPassword}
 									className={`form-control ${errors.password ? "is-invalid" : ""
 										}`}
 									id="password"
@@ -199,6 +243,7 @@ export default function Registrasi() {
 									autoComplete="on"
 									{...register("password")}
 								/>
+								<p className="mt-1 ms-1" style={{fontSize: '12.5px'}} id="message-strength"><i className="fa fa-lock"></i> <span id="check-strength"></span></p> 
 								<div className="invalid-feedback">
 									{errors.password?.message}
 								</div>
