@@ -104,19 +104,24 @@ const DonasiDetail = () => {
 
 
     //fetch donation detail
-    const { donationData, isLoading } = donationService.getDonationDetail(idDonasi)
-    if (isLoading) return (
-        <SkeletonLoading />
-    )
-    if (donationData?.error) {
+    const { donationData, isLoading, error } = donationService.getDonationDetail(idDonasi)
+    if (error) {
         return (
-            <div className="mt-3 pt-3 beranda">
-                <div className="container-fluid">
-                    {donationData?.message}
+            <div className="mt-5 pt-3 beranda">
+                <div className="container-fluid mt-4">
+                    <div className='d-flex justify-content-center align-items-center flex-column'>
+                        <h2 className='text-center'>{"Donasi tidak ditemukan"}</h2>
+                        <Link className="btn btn-style-second" href="/beranda">
+                            Kembali ke Beranda
+                        </Link>
+                    </div>
                 </div>
             </div>
         )
     }
+    if (isLoading) return (
+        <SkeletonLoading />
+    )
 
     function handleOnSubmit(event) {
         // Stop the form from submitting and refreshing the page.
@@ -176,7 +181,7 @@ const DonasiDetail = () => {
             <Head>
                 <title>Donasi {donationData.data.title} - Dibagiin</title>
             </Head>
-            <div className="beranda" style={{marginTop: '5rem'}}>
+            <div className="beranda" style={{ marginTop: '5rem' }}>
                 <div className="container-fluid mb-4">
                     <div className="col-md-12 p-3 outer-shadow rounded-2">
                         <button onClick={router.back} className='btn-style outer-shadow inner-shadow hover-in-shadow '>  <i className='fa fa-arrow-left'></i> Kembali</button>

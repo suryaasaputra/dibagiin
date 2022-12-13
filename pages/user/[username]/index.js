@@ -1,7 +1,9 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import DonasiCard from '../../../components/DonasiCard';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import notfound from '../../../public/images/404.png'
 import Layout2 from '../../../components/Layout2';
 import { userService } from '../../../services';
 import SkeletonLoading3 from '../../../components/SkeletonLoading3';
@@ -10,20 +12,28 @@ const User = () => {
     const router = useRouter()
     const { username } = router.query
 
-    const { user, isLoading, mutate } = userService.getUser(username)
-    if (isLoading) return (
-        <SkeletonLoading3 />
-    )
+    const { user, isLoading, error, mutate } = userService.getUser(username)
 
-    if (user.error) {
+    if (error) {
         return (
-            <div className="mt-3 pt-3 beranda">
-                <div className="container-fluid">
-                    {user.message}
+            <div className="mt-5 pt-3 beranda">
+                <div className="container-fluid mt-4">
+                    <div className='d-flex justify-content-center align-items-center flex-column'>
+                        <h2 className='text-center'>{"Pengguna tidak ditemukan"}</h2>
+                        <Link className="btn btn-style-second" href="/beranda">
+                            Kembali ke Beranda
+                        </Link>
+                    </div>
                 </div>
             </div>
         )
     }
+
+    if (isLoading) return (
+        <SkeletonLoading3 />
+    )
+
+
     return (
         <>
             <Head>
