@@ -73,6 +73,7 @@ html {
 }
 
 body {
+	position: relative;
 	background: $white;
 	margin: 0;
 	overflow: auto !important;
@@ -103,6 +104,17 @@ a:active {
 	height: 100%;
 }
 
+.cursor-custom {
+	width: 25px;
+	height: 25px;
+	box-shadow: $outer-shadow;
+	border-radius: 50%;
+	top: -100%;
+	z-index: -99;
+	position: absolute;
+	pointer-events: none;
+	transform: translate(-50%, -50%);
+}
 
 .btn-style {
 	padding: 10px 25px;
@@ -438,6 +450,22 @@ a:active {
 
 .home .row .info-home .text-home p {
 	color: $black-444;
+}
+
+.home .row .img-hero {
+	position: relative;
+}
+
+.home .row .img-hero::before {
+	position: absolute;
+	content: '';
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	top: 30px;
+	right: 25px;
+	border: 4px solid $green;
+	animation: bounce 1s alternate infinite;
 }
 
 .home .row .img-home .img-fluid {
@@ -1096,7 +1124,7 @@ header .navbar-nav .dropdown-menu {
 	}
 
 	100% {
-		transform: translateY(-12px);
+		transform: translateY(-13.5px);
 	}
 }
 

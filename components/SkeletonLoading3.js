@@ -1,5 +1,3 @@
-import SkeletonLoading from "./SkeletonLoading";
-
 export default function SkeletonLoading3() {
     return (
         <div className="beranda mt-5">

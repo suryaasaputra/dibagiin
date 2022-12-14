@@ -27,6 +27,7 @@ import baju2Image from '../public/images/gallery/baju2.jpg';
 import baju3Image from '../public/images/gallery/baju3.jpg';
 import Link from 'next/link';
 import Layout1 from "../components/Layout1";
+import CursorCustom from '../components/CursorCustom';
 export default function Home() {
 
   // inisialisasi AOS (Animation on Scroll)
@@ -63,6 +64,7 @@ export default function Home() {
         <Head>
           <title>Dibagiin</title>
         </Head>
+       <CursorCustom />
         <section className="home" id="home">
           <div className="row">
             <div className="col-md-6 info-home" data-aos="fade-up">
@@ -84,7 +86,7 @@ export default function Home() {
                 <a className="btn-style outer-shadow inner-shadow hover-in-shadow ms-3" href="#about">Detail</a>
               </div>
             </div>
-            <div className="col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div className="col-md-6 img-hero" data-aos="fade-up" data-aos-delay="200">
               <div className="img-home">
                 <Image
                   src={heroImage}
