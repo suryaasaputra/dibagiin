@@ -34,7 +34,7 @@ const Donasi = () => {
 					</Head>
 
 					<div className="mt-5">
-						<h2 className=" text-decoration-underline">Hasil Pencarian<b> {cari}</b></h2>
+						<h2 className="title-sidebar-top">Hasil Pencarian<b> {cari}</b></h2>
 					</div>
 					{!listDonations.data.length && (
 						<div className="d-flex flex-column justify-content-center mt-5 align-items-center">

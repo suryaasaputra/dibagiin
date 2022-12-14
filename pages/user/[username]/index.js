@@ -70,8 +70,8 @@ const User = () => {
                         </div>
 
                     </div>
-                    <div className="row">
-                        <h2 className='text-center text-decoration-underline'>Donasi {user.data.full_name}</h2>
+                    <div className="row p-2 m-2">
+                        <h2 className='text-center title-sidebar-top'>Donasi {user.data.full_name}</h2>
                     </div>
 
                     {user.data.donation?.map((item) => (
