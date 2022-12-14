@@ -27,7 +27,6 @@ import baju2Image from '../public/images/gallery/baju2.jpg';
 import baju3Image from '../public/images/gallery/baju3.jpg';
 import Link from 'next/link';
 import Layout1 from "../components/Layout1";
-import CursorCustom from '../components/CursorCustom';
 export default function Home() {
 
   // inisialisasi AOS (Animation on Scroll)
@@ -64,7 +63,6 @@ export default function Home() {
         <Head>
           <title>Dibagiin</title>
         </Head>
-       <CursorCustom />
         <section className="home" id="home">
           <div className="row">
             <div className="col-md-6 info-home" data-aos="fade-up">

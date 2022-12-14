@@ -415,11 +415,17 @@ a:active {
 
 // SCROLLBAR CUSTOM
 ::-webkit-scrollbar {
-	width: 10px;
+	width: 1.1vw;
+}
+
+::-webkit-scrollbar-track {
+	background: #ddd;
 }
 
 ::-webkit-scrollbar-thumb {
 	background-color: $green;
+	border-radius: 5px;
+	border: 3px solid #ddd;
 }
 
 /* 
