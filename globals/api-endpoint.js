@@ -7,7 +7,7 @@ const API_ENDPOINT = {
   user: `${CONFIG.BASE_URL}/user`,
   donation: `${CONFIG.BASE_URL}/donation`,
   request: `${CONFIG.BASE_URL}/request`,
-  history: `${CONFIG.BASE_URL}/history`,
+  notification: `${CONFIG.BASE_URL}/notification`,
 
 };
 

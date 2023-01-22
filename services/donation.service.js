@@ -16,7 +16,7 @@ export const donationService = {
     rejectRequest,
     cancelRequest,
     getAllSubmittedRequest,
-    getHistory,
+    getNotification,
     searchByLocation,
     searchByKeyword
 };
@@ -100,7 +100,7 @@ function requestDonation(donationId, data) {
 }
 
 function getAllRequest() {
-    const endpoint = `${API_ENDPOINT.donation}/request`
+    const endpoint = `${API_ENDPOINT.request}`
     const { mutate } = useSWRConfig()
     const { data, error } = useSWR(endpoint, fetchWrapper.fetcher, { refreshInterval: 60000 })
     return {
@@ -117,22 +117,22 @@ function getAllRequest() {
 
 
 function getRequestDetail(requestId) {
-    const endpoint = `${API_ENDPOINT.donation}/request/${requestId}`
+    const endpoint = `${API_ENDPOINT.request}/${requestId}`
     return fetchWrapper.get(endpoint).then((response) => {
         return response;
     });
 }
 
 function confirmRequest(requestId) {
-    const endpoint = `${API_ENDPOINT.donation}/request/${requestId}/confirm`
+    const endpoint = `${API_ENDPOINT.request}/${requestId}`
     return fetchWrapper.post(endpoint).then((response) => {
         return response;
     });
 }
 
 function rejectRequest(requestId) {
-    const endpoint = `${API_ENDPOINT.donation}/request/${requestId}/reject`
-    return fetchWrapper.post(endpoint).then((response) => {
+    const endpoint = `${API_ENDPOINT.request}/${requestId}`
+    return fetchWrapper.delete(endpoint).then((response) => {
         return response;
     });
 }
@@ -140,7 +140,7 @@ function rejectRequest(requestId) {
 
 
 function getAllSubmittedRequest() {
-    const endpoint = `${API_ENDPOINT.request}`
+    const endpoint = `${API_ENDPOINT.donation}/request`
     const { mutate } = useSWRConfig()
     const { data, error } = useSWR(endpoint, fetchWrapper.fetcher, { refreshInterval: 60000 })
     return {
@@ -152,15 +152,15 @@ function getAllSubmittedRequest() {
 }
 
 function cancelRequest(requestId) {
-    const endpoint = `${API_ENDPOINT.request}/${requestId}`
+    const endpoint = `${API_ENDPOINT.donation}/request/${requestId}`
     return fetchWrapper.delete(endpoint).then((response) => {
         return response;
     });
 }
 
 
-function getHistory() {
-    const endpoint = `${API_ENDPOINT.history}`
+function getNotification() {
+    const endpoint = `${API_ENDPOINT.notification}`
     const { data, error } = useSWR(endpoint, fetchWrapper.fetcher, { refreshInterval: 60000 })
     return {
         listHistory: data,

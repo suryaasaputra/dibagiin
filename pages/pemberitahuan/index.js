@@ -201,7 +201,7 @@ const CardPemberitahuan = ({ item }) => {
 
 const Pemberitahuan = () => {
     //fetch history
-    const { listHistory, isLoading } = donationService.getHistory()
+    const { listHistory, isLoading } = donationService.getNotification()
     if (isLoading) return (
         <SkeletonLoading2 />
     )
