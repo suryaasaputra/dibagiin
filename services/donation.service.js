@@ -43,7 +43,7 @@ function getAllDonation() {
     //     });
 }
 function searchByKeyword(keyword) {
-    const endpoint = `${API_ENDPOINT.donation}?title=${keyword}`;
+    const endpoint = `${API_ENDPOINT.donation}?keyword=${keyword}`;
     const { mutate } = useSWRConfig()
     const { data, error } = useSWR(endpoint, fetchWrapper.fetcher, { refreshInterval: 600000 })
     return {
