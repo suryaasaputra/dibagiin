@@ -27,7 +27,7 @@ const PermintaanDiterimaCard = ({ item, mutate }) => {
                                 confirmButtonColor: "#73a700",
                                 timer: 2000,
                             })
-                            mutate(`${API_ENDPOINT.donation}/request`)
+                            mutate(`${API_ENDPOINT.request}`)
                         })
                         .catch((error) => {
                             Swal.fire({
@@ -67,7 +67,7 @@ const PermintaanDiterimaCard = ({ item, mutate }) => {
                                 confirmButtonColor: "#73a700",
                                 timer: 2000,
                             })
-                            mutate(`${API_ENDPOINT.donation}/request`)
+                            mutate(`${API_ENDPOINT.request}`)
                         })
                         .catch((error) => {
                             Swal.fire({
