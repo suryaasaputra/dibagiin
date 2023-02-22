@@ -1,4 +1,4 @@
-000000000import Link from "next/link";
+import Link from "next/link";
 import Image from 'next/image';
 import LogoText from '../public/images/logo/logo-text.png';
 import { userService } from "../services";
@@ -165,7 +165,7 @@ const OffCanvas = () => {
 							</Link>
 						</li>
 						<li className="sidebar-item">
-							<Link href="/pemberitahuan" className="nav-link px-2 p-3 text-black-50 fw-bold">
+							<Link href="/pemberitahuan" className="nav-link px-2 p-3 active text-black-50 fw-bold">
 								<span className="me-2"></span>
 								<span className={`p-3 pemberitahuan-btn ${cekActive("/pemberitahuan") ? 'link-active' : ''}`}><i className="fas fa-bell"></i> Pemberitahuan</span>
 							</Link>
