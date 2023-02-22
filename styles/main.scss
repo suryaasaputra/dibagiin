@@ -918,20 +918,20 @@ header .navbar-nav .dropdown-menu {
 	border-radius: 50%;
 }
 
-#sidebar .pemberitahuan-btn {
-	position: relative;
-}
+// #sidebar .pemberitahuan-btn {
+// 	position: relative;
+// }
 
-#sidebar .pemberitahuan-btn::before {
-	position: absolute;
-	content: "";
-	top: 14px;
-	right: 10px;
-	width: 7px;
-	height: 7px;
-	border-radius: 50%;
-	background-color: $salmon;
-}
+// #sidebar .pemberitahuan-btn::before {
+// 	position: absolute;
+// 	content: "";
+// 	top: 14px;
+// 	right: 10px;
+// 	width: 7px;
+// 	height: 7px;
+// 	border-radius: 50%;
+// 	background-color: $salmon;
+// }
 
 #sidebar nav ul .sidebar-item {
 	transition: 0.3s ease;
